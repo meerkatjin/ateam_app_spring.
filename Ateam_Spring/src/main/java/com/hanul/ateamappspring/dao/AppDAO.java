@@ -2,6 +2,7 @@ package com.hanul.ateamappspring.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -15,6 +16,7 @@ public class AppDAO {
 	private DataSource dataSource;
 	private Connection connection;
 	private PreparedStatement ps;
+	private ResultSet rs;
 
 	public AppDAO() {
 		try {
@@ -66,5 +68,50 @@ public class AppDAO {
 			}
 		}
 		return state;
-	}
-}//appJoin
+	}//appJoin()
+
+	//로그인
+	public UserDTO appLogin(String email, String pw) {
+		UserDTO dto = null;
+		try {
+			connection = dataSource.getConnection();
+			String query = "select * from MST_USER_INFO_TB "
+					+ "where user_email = ? and user_pw = ?";
+			ps = connection.prepareStatement(query);
+			ps.setString(1, email);
+			ps.setString(2, pw);
+			rs = ps.executeQuery();
+			
+			while(rs.next()) {
+				dto = new UserDTO();
+				dto.setUser_email(rs.getString("user_email"));
+				dto.setUser_nm(rs.getString("user_nm"));
+				dto.setUser_addr(rs.getString("user_addr"));
+				dto.setUser_phone_no(rs.getString("user_phone_no"));
+			}
+			System.out.println("UserDTO email : " + dto.getUser_email());
+		}catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("appLogin() Exception!!");
+		}finally {
+			try {			
+				
+				if (rs != null) {
+					rs.close();
+				}
+				if (ps != null) {
+					ps.close();
+				}
+				if (connection != null) {
+					connection.close();
+				}	
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+
+			}
+		}
+		return dto;
+	}//appLogin()
+}

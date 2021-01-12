@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.hanul.ateamappspring.command.AppCommand;
 import com.hanul.ateamappspring.command.AppJoinCommand;
+import com.hanul.ateamappspring.command.AppLoginCommand;
 
 @Controller
 public class AppController {
@@ -48,5 +49,24 @@ public class AppController {
 		command.execute(model);
 		
 		return "appJoin";
+	}
+	
+	@RequestMapping(value="/appLogin", method = {RequestMethod.GET, RequestMethod.POST})
+	public String appLogin(HttpServletRequest req, Model model) {
+		System.out.println("appLogin()");
+		
+		String email = (String) req.getParameter("email");
+		String pw = (String) req.getParameter("pw");
+		
+		System.out.println(email);
+		System.out.println(pw);
+		
+		model.addAttribute("email", email);
+		model.addAttribute("pw", pw);
+		
+		command = new AppLoginCommand();
+		command.execute(model);
+		
+		return "appLogin";
 	}
 }
