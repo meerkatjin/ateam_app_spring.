@@ -1,8 +1,8 @@
 package com.hanul.ateamappspring.dto;
 
 public class UserDTO {
-	private String user_id,
-				user_email,
+	private int user_id;
+	private String user_email,
 				user_pw,
 				user_nm,
 				user_addr,
@@ -13,26 +13,16 @@ public class UserDTO {
 	//깡통생성자
 	public UserDTO() {}
 	
-	//데이터베이스의 유저에 관한 모든 정보가 필요할때
-    public UserDTO(String user_id, String user_email, String user_pw, String user_nm, String user_addr, String user_pro_img, String user_phone_no, String user_grade) {
+	//비밀번호를 제외한 모든 정보를 보낼때
+    public UserDTO(int user_id, String user_email, String user_nm, String user_addr, String user_pro_img, String user_phone_no, String user_grade) {
         this.user_id = user_id;
         this.user_email = user_email;
-        this.user_pw = user_pw;
         this.user_nm = user_nm;
         this.user_addr = user_addr;
         this.user_pro_img = user_pro_img;
         this.user_phone_no = user_phone_no;
         this.user_grade = user_grade;
     }
-	
-	//로그인할때 비밀번호 빼고 정보 보낼때
-	public UserDTO(String user_email, String user_nm, String user_addr, String user_phone_no) {
-		super();
-		this.user_email = user_email;
-		this.user_nm = user_nm;
-		this.user_addr = user_addr;
-		this.user_phone_no = user_phone_no;
-	}
 
 	//회원가입 정보 저장
 	public UserDTO(String user_email, String user_pw, String user_nm, String user_addr,
@@ -43,6 +33,14 @@ public class UserDTO {
 		this.user_nm = user_nm;
 		this.user_addr = user_addr;
 		this.user_phone_no = user_phone_no;
+	}
+
+	public int getUser_id() {
+		return user_id;
+	}
+
+	public void setUser_id(int user_id) {
+		this.user_id = user_id;
 	}
 
 	public String getUser_email() {
@@ -100,5 +98,4 @@ public class UserDTO {
 	public void setUser_grade(String user_grade) {
 		this.user_grade = user_grade;
 	}
-
 }

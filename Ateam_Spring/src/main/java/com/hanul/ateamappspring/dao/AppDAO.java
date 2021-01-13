@@ -84,10 +84,13 @@ public class AppDAO {
 			
 			while(rs.next()) {
 				dto = new UserDTO();
+				dto.setUser_id(rs.getInt("user_id"));
 				dto.setUser_email(rs.getString("user_email"));
 				dto.setUser_nm(rs.getString("user_nm"));
 				dto.setUser_addr(rs.getString("user_addr"));
+				dto.setUser_pro_img(rs.getString("user_pro_img"));
 				dto.setUser_phone_no(rs.getString("user_phone_no"));
+				dto.setUser_grade(rs.getString("user_grade"));
 			}
 			System.out.println("UserDTO email : " + dto.getUser_email());
 		}catch (Exception e) {
