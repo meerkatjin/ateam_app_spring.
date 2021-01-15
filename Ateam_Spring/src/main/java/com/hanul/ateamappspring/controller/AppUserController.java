@@ -20,7 +20,6 @@ public class AppUserController {
 
 	@RequestMapping(value = "/appJoin", method = { RequestMethod.GET, RequestMethod.POST })
 	public String appJoin(Model model, AppUserDTO dto) {
-		System.out.println("appJoin()");
 
 		model.addAttribute("appJoin", String.valueOf(service.appJoin(dto)));
 
@@ -28,13 +27,10 @@ public class AppUserController {
 	}
 
 	@RequestMapping(value = "/appLogin", method = { RequestMethod.GET, RequestMethod.POST })
-	public String appLogin(Model model, String email, String pw) {
+	public String appLogin(Model model, AppUserDTO dto) {
 		System.out.println("appLogin()");
 
-		
-
-		model.addAttribute("email", email);
-		model.addAttribute("pw", pw);
+		model.addAttribute("appLogin", service.appLogin(dto));
 
 		return "appLogin";
 	}
