@@ -1,6 +1,6 @@
-package com.hanul.ateamappspring.dto;
+package user.dto;
 
-public class UserDTO {
+public class AppUserDTO {
 	private int user_id;
 	private String user_email,
 				user_pw,
@@ -11,10 +11,10 @@ public class UserDTO {
 				user_grade;
 	
 	//깡통생성자
-	public UserDTO() {}
+	public AppUserDTO() {}
 	
 	//비밀번호를 제외한 모든 정보를 보낼때
-    public UserDTO(int user_id, String user_email, String user_nm, String user_addr, String user_pro_img, String user_phone_no, String user_grade) {
+    public AppUserDTO(int user_id, String user_email, String user_nm, String user_addr, String user_pro_img, String user_phone_no, String user_grade) {
         this.user_id = user_id;
         this.user_email = user_email;
         this.user_nm = user_nm;
@@ -25,7 +25,7 @@ public class UserDTO {
     }
 
 	//회원가입 정보 저장
-	public UserDTO(String user_email, String user_pw, String user_nm, String user_addr,
+	public AppUserDTO(String user_email, String user_pw, String user_nm, String user_addr,
 			String user_phone_no) {
 		super();
 		this.user_email = user_email;
