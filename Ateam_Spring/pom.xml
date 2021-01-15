@@ -8,8 +8,8 @@
 	<packaging>war</packaging>
 	<version>1.0.0-BUILD-SNAPSHOT</version>
 	<properties>
-		<java-version>1.6</java-version>
-		<org.springframework-version>3.1.1.RELEASE</org.springframework-version>
+		<java-version>1.8</java-version>
+		<org.springframework-version>5.2.8.RELEASE</org.springframework-version>
 		<org.aspectj-version>1.6.10</org.aspectj-version>
 		<org.slf4j-version>1.6.6</org.slf4j-version>
 	</properties>
@@ -117,7 +117,8 @@
 			<scope>test</scope>
 		</dependency>     
 		
- 		<!-- 조쌤이 추가해주신 부분 확인해봐야함 -->
+		<!-- mvnrepository.com 공공저장소 -->
+ 		<!-- 파일업로드 -->
 		<dependency> 
 			<groupId>commons-fileupload</groupId> 
 			<artifactId>commons-fileupload</artifactId> 
@@ -130,6 +131,7 @@
 			<version>1.4</version> 
 		</dependency>  
 		
+		<!-- 비디오 오디오 포멧 -->
 		<dependency>
 		    <groupId>org.jcodec</groupId>
 		    <artifactId>jcodec</artifactId>
@@ -142,14 +144,13 @@
 		    <version>0.2.2</version>
 		</dependency> 
 		
+		<!-- gson josn을 쉽게 처리가능 -->
 		<dependency>
 			<groupId>com.google.code.gson</groupId>
 			 <artifactId>gson</artifactId>
 			 <version>2.8.0</version>
 		</dependency> 
 		
-		<!-- 오진경쌤이 추가한 부분 기능 테스트 후 마이바티스로 갈아탈것 -->
-		<!-- mvnrepository.com 공공저장소 -->
 		<!-- 스프링용jdbc 라이브러리 -->
 		<dependency>
 		    <groupId>org.springframework</groupId>
@@ -207,8 +208,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>2.5.1</version>
                 <configuration>
-                    <source>1.6</source>
-                    <target>1.6</target>
+                    <source>1.8</source>
+                    <target>1.8</target>
                     <compilerArgument>-Xlint:all</compilerArgument>
                     <showWarnings>true</showWarnings>
                     <showDeprecation>true</showDeprecation>
