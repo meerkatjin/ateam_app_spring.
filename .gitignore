@@ -5,6 +5,6 @@ src/test/
 .classpath
 .project
 .springBeans
+.metadata
 
-/.metadata/
 /Servers/
