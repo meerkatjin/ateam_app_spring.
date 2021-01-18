@@ -1,8 +1,8 @@
-package recipeinfo.dto;
+package recipe.dto;
 
 public class RecipeInfoDTO {
 	 private int recipe_id;
-     private int img_url;
+     private String img_url;
      private String recipe_nm_ko;
      private String sumry;
      private String nation_nm;
@@ -15,7 +15,7 @@ public class RecipeInfoDTO {
      
      public RecipeInfoDTO() {}
 
-	public RecipeInfoDTO(int recipe_id, int img_url, String recipe_nm_ko, String sumry, String nation_nm, String ty_nm,
+	public RecipeInfoDTO(int recipe_id, String img_url, String recipe_nm_ko, String sumry, String nation_nm, String ty_nm,
 			String cooking_time, String calorie, String qnt, String level_nm, String irdnt_code) {
 		super();
 		this.recipe_id = recipe_id;
@@ -39,11 +39,11 @@ public class RecipeInfoDTO {
 		this.recipe_id = recipe_id;
 	}
 
-	public int getImg_url() {
+	public String getImg_url() {
 		return img_url;
 	}
 
-	public void setImg_url(int img_url) {
+	public void setImg_url(String img_url) {
 		this.img_url = img_url;
 	}
 

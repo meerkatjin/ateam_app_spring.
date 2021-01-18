@@ -7,8 +7,9 @@
             http://www.springframework.org/schema/context
             http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 	
+	<!-- 와이어링 할 패키지의 경로 -->
 	<context:component-scan 
-			base-package="user, recipeinfo"/>
+			base-package="user, recipe"/>
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
 	<import resource="classpath:data/default.xml"/>
