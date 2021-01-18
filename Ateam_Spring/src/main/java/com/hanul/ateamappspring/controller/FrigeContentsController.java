@@ -1,0 +1,29 @@
+package com.hanul.ateamappspring.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+import frigecontents.dto.FrigeContentsDTO;
+import frigecontents.service.FrigeContentsService;
+
+@Controller
+public class FrigeContentsController {
+	@Autowired FrigeContentsService service;
+	
+	@RequestMapping(value = "/sortDate", method = { RequestMethod.GET, RequestMethod.POST })
+	public String date(Model model, FrigeContentsDTO dto) {
+		model.addAttribute("sortDate");
+		
+		return "sortDate";
+	}
+	
+	@RequestMapping(value = "/insert", method = { RequestMethod.GET, RequestMethod.POST })
+	public String insert(Model model, FrigeContentsDTO dto) {
+		model.addAttribute("insert", String.valueOf(service.irdntInsert(dto)));
+		
+		return "insert";
+	}
+}
