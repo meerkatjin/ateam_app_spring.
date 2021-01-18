@@ -20,9 +20,9 @@ public class RecipeController {
 	@RequestMapping(value = "/recipeInfo", method = { RequestMethod.GET, RequestMethod.POST })
 	public String recipeInfo(Model model, RecipeInfoDTO dto) {
 
-		model.addAttribute("recipeInfo", service.recipeInfo(dto));
+		model.addAttribute("jsonReturn", service.recipeInfo(dto));
 
-		return "appJoin";
+		return "jsonReturn";
 	}
 
 }

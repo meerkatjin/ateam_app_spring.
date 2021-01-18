@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+!SESSION 2021-01-12 11:45:57.676 -----------------------------------------------
+=======
 !SESSION 2021-01-15 09:34:56.916 -----------------------------------------------
+>>>>>>> 081bb5b9250bcc8828dad239b2c1925682e00ee1
 eclipse.buildId=4.9.0.202012132054
 java.version=15.0.1
 java.vendor=Oracle Corporation
@@ -6,6 +10,16 @@ BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=ko_KR
 Framework arguments:  -product org.springframework.boot.ide.branding.sts4
 Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.springframework.boot.ide.branding.sts4
 
+<<<<<<< HEAD
+!ENTRY org.eclipse.mylyn.tasks.core 4 0 2021-01-12 11:50:25.322
+!MESSAGE Unexpected error while loading repository template extensions
+!SUBENTRY 1 org.eclipse.mylyn.tasks.core 4 0 2021-01-12 11:50:25.322
+!MESSAGE Could not load repository template extension contributed by 'org.eclipse.mylyn.bugzilla.ide' with connectorKind 'bugzilla'
+
+!ENTRY org.eclipse.jface 2 0 2021-01-12 11:50:25.877
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2021-01-12 11:50:25.878
+=======
 !ENTRY org.eclipse.mylyn.commons.notifications.feed 4 0 2021-01-15 09:35:26.143
 !MESSAGE FrameworkEvent ERROR
 !STACK 0
@@ -632,12 +646,17 @@ Chain 2:
 !ENTRY org.eclipse.jface 2 0 2021-01-15 09:35:49.661
 !MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
 !SUBENTRY 1 org.eclipse.jface 2 0 2021-01-15 09:35:49.661
+>>>>>>> 081bb5b9250bcc8828dad239b2c1925682e00ee1
 !MESSAGE A conflict occurred for CTRL+SHIFT+T:
 Binding(CTRL+SHIFT+T,
 	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
 		Open a type in a Java editor,
 		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+<<<<<<< HEAD
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@96271d8,
+=======
 		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@38ae69f7,
+>>>>>>> 081bb5b9250bcc8828dad239b2c1925682e00ee1
 		,,true),null),
 	org.eclipse.ui.defaultAcceleratorConfiguration,
 	org.eclipse.ui.contexts.window,,,system)
@@ -645,11 +664,23 @@ Binding(CTRL+SHIFT+T,
 	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
 		,
 		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
+<<<<<<< HEAD
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@15f3f9cf,
+=======
 		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@be9bf2e,
+>>>>>>> 081bb5b9250bcc8828dad239b2c1925682e00ee1
 		,,true),null),
 	org.eclipse.ui.defaultAcceleratorConfiguration,
 	org.eclipse.ui.contexts.window,,,system)
 
+<<<<<<< HEAD
+!ENTRY org.eclipse.egit.ui 2 0 2021-01-12 11:52:20.423
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\kimsera'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+=======
 !ENTRY org.eclipse.egit.ui 2 0 2021-01-15 09:36:11.900
 !MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
 user global configuration and to define the default location to store repositories: 'C:\Users\hanul'. If this is
@@ -659,3 +690,4 @@ This warning can be switched off on the Team > Git > Confirmations and Warnings 
 
 !ENTRY org.eclipse.ui 2 2 2021-01-15 09:36:34.718
 !MESSAGE Invalid preference category path: org.eclipse.mylyn.preferencePages.Mylyn (bundle: org.eclipse.mylyn.context.ui, page: org.eclipse.mylyn.context.ui.preferences)
+>>>>>>> 081bb5b9250bcc8828dad239b2c1925682e00ee1
