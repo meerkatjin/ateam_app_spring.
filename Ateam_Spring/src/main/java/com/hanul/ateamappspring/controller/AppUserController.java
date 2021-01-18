@@ -1,9 +1,5 @@
 package com.hanul.ateamappspring.controller;
 
-import java.io.UnsupportedEncodingException;
-
-import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -28,13 +24,10 @@ public class AppUserController {
 
 	@RequestMapping(value = "/appLogin", method = { RequestMethod.GET, RequestMethod.POST })
 	public String appLogin(Model model, AppUserDTO dto) {
-		System.out.println("appLogin()");
-		
-		System.out.println(dto.getUser_email());
 
-		model.addAttribute("appLogin", service.appLogin(dto));
+		model.addAttribute("jsonReturn", service.appLogin(dto));
 
-		return "appLogin";
+		return "jsonReturn";
 	}
 
 }
