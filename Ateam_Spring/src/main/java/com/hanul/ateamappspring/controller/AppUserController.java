@@ -28,7 +28,6 @@ public class AppUserController {
 
 	@RequestMapping(value = "/appLogin", method = { RequestMethod.GET, RequestMethod.POST })
 	public String appLogin(Model model, AppUserDTO dto) {
-		System.out.println("appLogin()");
 
 		model.addAttribute("appLogin", service.appLogin(dto));
 
