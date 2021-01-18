@@ -5,7 +5,7 @@
 <%-- 요청값 json으로 반환하는 공용 페이지 --%>
 <%
 Gson gson = new Gson();
-	String json = gson.toJson((RecipeInfoDTO)request.getAttribute("jsonReturn"));
+	String json = gson.toJson((String)request.getAttribute("jsonReturn"));
 	
 	out.println(json);
 %>

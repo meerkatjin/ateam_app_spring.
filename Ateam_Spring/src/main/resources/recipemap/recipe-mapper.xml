@@ -8,6 +8,5 @@
 	-->
 	<select id="recipeInfo" resultType="recipe.dto.RecipeInfoDTO">
 		select * from APP_RECIPE_INFO_TB
-		where recipe_id = #{recipe_id}
 	</select>
 </mapper>
