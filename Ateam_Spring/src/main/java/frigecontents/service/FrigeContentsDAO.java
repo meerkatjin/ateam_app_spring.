@@ -18,17 +18,23 @@ public class FrigeContentsDAO implements FrigeContentsInterface {
 	public int irdntInsert(FrigeContentsDTO dto) {
 		return sql.insert("frige.mapper.insert", dto);
 	}
+	
+	//종류별로 가져오기
+	@Override
+	public List<FrigeContentsDTO> sortType() {
+		return sql.selectList("frige.mapper.sortType");
+	}
 
 	//유통기한순으로 가져오기
 	@Override
 	public List<FrigeContentsDTO> sortDate() {
 		return sql.selectList("frige.mapper.sortDate");
 	}
-	
-	//종류별로 가져오기
-	
-	
+
 	//이름순으로 가져오기
-	
-	
+	@Override
+	public List<FrigeContentsDTO> sortName() {
+		return sql.selectList("frige.mapper.sortName");
+	}
+
 }
