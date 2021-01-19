@@ -11,7 +11,7 @@ import frigecontents.dto.FrigeContentsDTO;
 
 @Repository
 public class FrigeContentsDAO implements FrigeContentsInterface {
-	@Autowired @Qualifier("ateam") private SqlSession sql;
+	@Autowired @Qualifier("frige") private SqlSession sql;
 	
 	//내 냉장고 목록에 식재료 정보 저장하기
 	@Override
