@@ -13,6 +13,21 @@ import frigecontents.service.FrigeContentsService;
 public class FrigeContentsController {
 	@Autowired FrigeContentsService service;
 	
+	@RequestMapping(value = "/insert", method = { RequestMethod.GET, RequestMethod.POST })
+	public String insert(Model model, FrigeContentsDTO dto) {
+		model.addAttribute("insert", String.valueOf(service.irdntInsert(dto)));
+		
+		return "insert";
+	}
+	
+	@RequestMapping(value = "/sortType", method = { RequestMethod.GET, RequestMethod.POST })
+	public String type(Model model, FrigeContentsDTO dto) {
+		model.addAttribute("sortType");
+		
+		return "sortType";
+	}
+	
+	
 	@RequestMapping(value = "/sortDate", method = { RequestMethod.GET, RequestMethod.POST })
 	public String date(Model model, FrigeContentsDTO dto) {
 		model.addAttribute("sortDate");
@@ -20,10 +35,12 @@ public class FrigeContentsController {
 		return "sortDate";
 	}
 	
-	@RequestMapping(value = "/insert", method = { RequestMethod.GET, RequestMethod.POST })
-	public String insert(Model model, FrigeContentsDTO dto) {
-		model.addAttribute("insert", String.valueOf(service.irdntInsert(dto)));
+	@RequestMapping(value = "/sortName", method = { RequestMethod.GET, RequestMethod.POST })
+	public String name(Model model, FrigeContentsDTO dto) {
+		model.addAttribute("sortName");
 		
-		return "insert";
+		return "sortName";
 	}
+	
+	
 }
