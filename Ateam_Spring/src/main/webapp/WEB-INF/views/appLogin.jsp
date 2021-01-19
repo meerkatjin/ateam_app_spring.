@@ -4,7 +4,7 @@
 <%-- 요청값 json으로 반환하는 공용 페이지 --%>
 <%
 Gson gson = new Gson();
-	String json = gson.toJson((AppUserDTO)request.getAttribute("jsonReturn"));
+	String json = gson.toJson((AppUserDTO)request.getAttribute("appLogin"));
 	
 	out.println(json);
 %>

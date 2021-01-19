@@ -27,7 +27,7 @@ public class AppUserController {
 
 		model.addAttribute("appLogin", service.appLogin(dto));
 
-		return "jsonReturn";
+		return "appLogin";
 	}
 
 }
