@@ -25,9 +25,9 @@ public class AppUserController {
 	@RequestMapping(value = "/appLogin", method = { RequestMethod.GET, RequestMethod.POST })
 	public String appLogin(Model model, AppUserDTO dto) {
 
-		model.addAttribute("jsonReturn", service.appLogin(dto));
+		model.addAttribute("appLogin", service.appLogin(dto));
 
-		return "jsonReturn";
+		return "appLogin";
 	}
 	
 	@RequestMapping(value = "/userInfoChange")

@@ -9,7 +9,7 @@ import user.dto.AppUserDTO;
 
 @Repository
 public class AppUserDAO implements UserServiceInterface {
-	@Autowired @Qualifier("ateam") private SqlSession sql;
+	@Autowired @Qualifier("user") private SqlSession sql;
 	
 	//회원가입
 	@Override
@@ -20,6 +20,8 @@ public class AppUserDAO implements UserServiceInterface {
 	//로그인
 	@Override
 	public AppUserDTO appLogin(AppUserDTO dto) {
+		System.out.println(dto.getUser_email());
+		System.out.println(dto.getUser_pw());
 		return sql.selectOne("user.mapper.appLogin", dto);
 	}//appLogin()
 

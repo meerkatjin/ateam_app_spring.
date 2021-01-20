@@ -6,8 +6,7 @@
 		RecipeDTO의 패키지 경로는 recipeinfo.dto 이므로
 		resultType="recipeinfo.dto.RecipeDTO" 로 바꾸셔야합니다
 	-->
-	<select id="recipeInfo" resultType="recipeinfo.dto.RecipeDTO">
+	<select id="recipeInfo" resultType="recipe.dto.RecipeInfoDTO">
 		select * from APP_RECIPE_INFO_TB
-		where recipe_id = #{recipe_id}
 	</select>
 </mapper>

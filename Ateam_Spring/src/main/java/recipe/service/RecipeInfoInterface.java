@@ -1,8 +1,10 @@
 package recipe.service;
 
-import recipeinfo.dto.RecipeInfoDTO;
+import java.util.List;
+
+import recipe.dto.RecipeInfoDTO;
 import user.dto.AppUserDTO;
 
 public interface RecipeInfoInterface {
-	RecipeInfoDTO recipeInfo(RecipeInfoDTO dto);	
+	List<RecipeInfoDTO> recipeInfo();	
 }
