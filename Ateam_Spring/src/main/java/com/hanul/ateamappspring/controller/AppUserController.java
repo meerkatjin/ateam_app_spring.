@@ -14,14 +14,25 @@ public class AppUserController {
 	@Autowired
 	private AppUserService service;
 
+	//회원가입
 	@RequestMapping(value = "/appJoin", method = { RequestMethod.GET, RequestMethod.POST })
 	public String appJoin(Model model, AppUserDTO dto) {
 
-		model.addAttribute("appJoin", String.valueOf(service.appJoin(dto)));
+		AppUserDTO chaeck = service.appUserCheck(dto);
+		
+		int succ = 0;
+		if(chaeck == null) {
+			succ = service.appJoin(dto);
+		}else {
+			succ = -100;
+		}
+		
+		model.addAttribute("appJoin", String.valueOf(succ));
 
 		return "appJoin";
 	}
 
+	//로그인
 	@RequestMapping(value = "/appLogin", method = { RequestMethod.GET, RequestMethod.POST })
 	public String appLogin(Model model, AppUserDTO dto) {
 
@@ -30,6 +41,7 @@ public class AppUserController {
 		return "appLogin";
 	}
 	
+	//회원정보수정
 	@RequestMapping(value = "/userInfoChange")
 	public String userInfoModify(AppUserDTO dto, Model model) {
 		
@@ -37,7 +49,4 @@ public class AppUserController {
 		
 		return "userInfoChange";
 	}
-	
-	
-
 }

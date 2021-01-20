@@ -10,10 +10,8 @@ public class AppUserService implements UserServiceInterface {
 	@Autowired private AppUserDAO dao;
 	
 	@Override
-	public int appJoin(AppUserDTO dto) {
-		int state = -100;
-		state = dao.appJoin(dto);
-		return state;
+	public AppUserDTO appUserCheck(AppUserDTO dto) {
+		return dao.appUserCheck(dto);
 	}
 
 	@Override
@@ -24,6 +22,11 @@ public class AppUserService implements UserServiceInterface {
 	@Override
 	public int userInfoModify(AppUserDTO dto) {
 		return dao.userInfoModify(dto);
+	}
+
+	@Override
+	public int appJoin(AppUserDTO dto) {
+		return dao.appJoin(dto);
 	}
 
 }
