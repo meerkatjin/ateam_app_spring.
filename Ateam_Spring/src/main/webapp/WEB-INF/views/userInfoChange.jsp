@@ -8,7 +8,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <%
-	String state = (String)request.getAttribute("userInfoChange");
+	int state = (Integer) request.getAttribute("userInfoChange");
 
 	out.println(state);
 %>

@@ -14,18 +14,18 @@ public class AppUserDTO {
 	public AppUserDTO() {}
 	
 	//비밀번호를 제외한 모든 정보를 보낼때
-
-    public AppUserDTO(int user_id, String user_email, String user_pw, String user_nm, String user_addr, String user_pro_img, String user_phone_no, String user_grade) {
-
-        this.user_id = user_id;
-        this.user_email = user_email;
-        this.user_pw = user_pw;
-        this.user_nm = user_nm;
-        this.user_addr = user_addr;
-        this.user_pro_img = user_pro_img;
-        this.user_phone_no = user_phone_no;
-        this.user_grade = user_grade;
-    }
+	public AppUserDTO(long user_id, String user_email, String user_pw, String user_nm, String user_addr,
+			String user_pro_img, String user_phone_no, String user_grade) {
+		super();
+		this.user_id = user_id;
+		this.user_email = user_email;
+		this.user_pw = user_pw;
+		this.user_nm = user_nm;
+		this.user_addr = user_addr;
+		this.user_pro_img = user_pro_img;
+		this.user_phone_no = user_phone_no;
+		this.user_grade = user_grade;
+	}
 
 	//회원가입 정보 저장
 	public AppUserDTO(String user_email, String user_pw, String user_nm, String user_addr,

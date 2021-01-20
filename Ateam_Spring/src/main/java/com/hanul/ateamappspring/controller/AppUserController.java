@@ -32,7 +32,13 @@ public class AppUserController {
 	
 	@RequestMapping(value = "/userInfoChange")
 	public String userInfoModify(AppUserDTO dto, Model model) {
-		
+		/*
+		 * System.out.println("email : " + dto.getUser_email());
+		 * System.out.println("pw : " + dto.getUser_pw()); System.out.println("name : "
+		 * + dto.getUser_nm()); System.out.println("addr : " + dto.getUser_addr());
+		 * System.out.println("phone : " + dto.getUser_phone_no());
+		 * System.out.println("img : " + dto.getUser_pro_img());
+		 */
 		model.addAttribute("userInfoChange", service.userInfoModify(dto));
 		
 		return "userInfoChange";
