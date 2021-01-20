@@ -10,13 +10,6 @@ import frigecontents.dto.FrigeContentsDTO;
 @Service
 public class FrigeContentsService implements FrigeContentsInterface {
 	@Autowired private FrigeContentsDAO dao;
-
-	@Override
-	public int irdntInsert(FrigeContentsDTO dto) {
-		int state = -1;
-		state = dao.irdntInsert(dto);
-		return state;
-	}
 	
 	@Override
 	public List<FrigeContentsDTO> sortType() {
@@ -31,6 +24,13 @@ public class FrigeContentsService implements FrigeContentsInterface {
 	@Override
 	public List<FrigeContentsDTO> sortName() {
 		return dao.sortName();
+	}
+
+	@Override
+	public int irdntInsert(String content_nm) {
+		int state = -1;
+		state = dao.irdntInsert(content_nm);
+		return state;
 	}
 
 }

@@ -11,10 +11,10 @@ import user.dto.AppUserDTO;
 public class AppUserDAO implements UserServiceInterface {
 	@Autowired @Qualifier("user") private SqlSession sql;
 	
-	//회원가입
+	//회원가입 중복체크
 	@Override
-	public int appJoin(AppUserDTO dto) {		
-		return sql.insert("user.mapper.appJoin", dto);
+	public AppUserDTO appUserCheck(AppUserDTO dto) {		
+		return sql.selectOne("user.mapper.appUserCheck", dto);
 	}//appJoin()
 
 	//로그인
@@ -30,7 +30,10 @@ public class AppUserDAO implements UserServiceInterface {
 	public int userInfoModify(AppUserDTO dto) {
 		return sql.update("user.mapper.userInfoModify", dto);
 	}
-	
-	
-	
+
+	//회원가입
+	@Override
+	public int appJoin(AppUserDTO dto) {
+		return sql.insert("user.mapper.appJoin",dto);
+	}
 }
