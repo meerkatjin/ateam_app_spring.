@@ -29,5 +29,15 @@ public class AppUserController {
 
 		return "jsonReturn";
 	}
+	
+	@RequestMapping(value = "/userInfoChange")
+	public String userInfoModify(AppUserDTO dto, Model model) {
+		
+		model.addAttribute("userInfoChange", service.userInfoModify(dto));
+		
+		return "userInfoChange";
+	}
+	
+	
 
 }

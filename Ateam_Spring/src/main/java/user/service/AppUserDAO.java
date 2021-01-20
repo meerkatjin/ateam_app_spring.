@@ -22,4 +22,13 @@ public class AppUserDAO implements UserServiceInterface {
 	public AppUserDTO appLogin(AppUserDTO dto) {
 		return sql.selectOne("user.mapper.appLogin", dto);
 	}//appLogin()
+
+	//회원정보수정
+	@Override
+	public int userInfoModify(AppUserDTO dto) {
+		return sql.update("user.mapper.userInfoModify", dto);
+	}
+	
+	
+	
 }

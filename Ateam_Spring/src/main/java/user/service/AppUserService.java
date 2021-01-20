@@ -21,4 +21,9 @@ public class AppUserService implements UserServiceInterface {
 		return dao.appLogin(dto);
 	}
 
+	@Override
+	public int userInfoModify(AppUserDTO dto) {
+		return dao.userInfoModify(dto);
+	}
+
 }
