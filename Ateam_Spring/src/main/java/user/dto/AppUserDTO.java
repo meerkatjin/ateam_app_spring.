@@ -1,7 +1,7 @@
 package user.dto;
 
 public class AppUserDTO {
-	private int user_id;
+	private long user_id;
 	private String user_email,
 				user_pw,
 				user_nm,
@@ -14,7 +14,7 @@ public class AppUserDTO {
 	public AppUserDTO() {}
 	
 	//비밀번호를 제외한 모든 정보를 보낼때
-    public AppUserDTO(int user_id, String user_email, String user_nm, String user_addr, String user_pro_img, String user_phone_no, String user_grade) {
+    public AppUserDTO(long user_id, String user_email, String user_nm, String user_addr, String user_pro_img, String user_phone_no, String user_grade) {
         this.user_id = user_id;
         this.user_email = user_email;
         this.user_nm = user_nm;
@@ -35,11 +35,11 @@ public class AppUserDTO {
 		this.user_phone_no = user_phone_no;
 	}
 
-	public int getUser_id() {
+	public long getUser_id() {
 		return user_id;
 	}
 
-	public void setUser_id(int user_id) {
+	public void setUser_id(long user_id) {
 		this.user_id = user_id;
 	}
 
