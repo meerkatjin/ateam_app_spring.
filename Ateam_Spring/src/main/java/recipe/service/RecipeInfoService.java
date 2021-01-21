@@ -9,6 +9,7 @@ import recipe.dto.RecipeInfoDTO;
 import user.dto.AppUserDTO;
 import user.service.AppUserDAO;
 
+//@Service 어노테이션 필요
 @Service
 public class RecipeInfoService implements RecipeInfoInterface {
 	@Autowired private RecipeInfoDAO dao;
@@ -17,6 +18,4 @@ public class RecipeInfoService implements RecipeInfoInterface {
 	public List<RecipeInfoDTO> recipeInfo() {
 		return dao.recipeInfo();	//RecipeInfoDAO로
 	}
-	
-	
 }
