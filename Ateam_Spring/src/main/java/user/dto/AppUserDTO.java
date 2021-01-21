@@ -14,7 +14,7 @@ public class AppUserDTO {
 	public AppUserDTO() {}
 	
 	//비밀번호를 제외한 모든 정보를 보낼때
-<<<<<<< HEAD
+
 	public AppUserDTO(long user_id, String user_email, String user_pw, String user_nm, String user_addr,
 			String user_pro_img, String user_phone_no, String user_grade) {
 		super();
@@ -27,7 +27,7 @@ public class AppUserDTO {
 		this.user_phone_no = user_phone_no;
 		this.user_grade = user_grade;
 	}
-=======
+
 
     public AppUserDTO(int user_id, String user_email, String user_pw, String user_nm, String user_addr, String user_pro_img, String user_phone_no, String user_grade) {
         this.user_id = user_id;
@@ -39,7 +39,7 @@ public class AppUserDTO {
         this.user_phone_no = user_phone_no;
         this.user_grade = user_grade;
     }
->>>>>>> eb6d82a39c5af4ff8d4b373a70b3e1ef81e0b684
+
 
 	//회원가입 정보 저장
 	public AppUserDTO(String user_email, String user_pw, String user_nm, String user_addr,
