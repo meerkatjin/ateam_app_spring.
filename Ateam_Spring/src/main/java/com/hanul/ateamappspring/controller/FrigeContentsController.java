@@ -14,9 +14,10 @@ public class FrigeContentsController {
 	@Autowired FrigeContentsService service;
 	
 	@RequestMapping(value = "/insert", method = { RequestMethod.GET, RequestMethod.POST })
-	public String insert(Model model, String name) {
-		model.addAttribute("insert", name);
-		
+	public String insert(String content_nm , Model model ) {
+		model.addAttribute("insert", content_nm );
+		service.irdntInsert(content_nm );
+	//	System.out.println(name);
 		return "insert";
 	}
 	

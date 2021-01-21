@@ -16,7 +16,10 @@ public class FrigeContentsDAO implements FrigeContentsInterface {
 	//내 냉장고 목록에 식재료 정보 저장하기
 	@Override
 	public int irdntInsert(String content_nm) {
-		return sql.insert("frige.mapper.insert", content_nm);
+
+		int succ = sql.insert("frige.mapper.insert", content_nm);
+		System.out.println(succ);
+		return succ;
 	}
 	
 	//종류별로 가져오기
