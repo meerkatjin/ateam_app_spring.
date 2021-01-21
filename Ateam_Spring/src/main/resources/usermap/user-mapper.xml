@@ -3,17 +3,43 @@
 <mapper namespace="user.mapper">
 	<select id="appUserCheck" resultType="user.dto.AppUserDTO">
 		select * from mst_user_info_tb
-		where user_email=#{user_email} and user_type='nomal'
+		where user_email=#{user_email}
+		<if test="user_type==null">and user_type='nomal'</if>
+		<if test="user_type=='kakao'">and user_type='kakao'</if>
 	</select>
 	
+	<!-- 일반 회원가입 넘버링주기 -->
+	<select id="numbering" resultType="long">
+		select max(user_id) from MST_USER_INFO_TB
+		where user_type = 'nomal'
+	</select>
+	
+	<!-- 회원가입인수행 -->
 	<insert id="appJoin">
-		insert into MST_USER_INFO_TB(user_email, user_pw, user_nm, user_addr, user_phone_no)
-		values(#{user_email},#{user_pw},#{user_nm},#{user_addr},#{user_phone_no})
+		<if test="user_type==null">
+			insert into MST_USER_INFO_TB(user_id, user_email, user_pw, user_nm, user_addr, user_phone_no)
+			values(#{user_id},#{user_email},#{user_pw},#{user_nm},#{user_addr},#{user_phone_no})
+		</if>
+		<if test="user_type=='kakao'">
+			<if test="user_pro_img != null">
+				insert into MST_USER_INFO_TB(user_id,user_email, user_nm, user_pri_img, user_type)
+				values(#{user_id},#{user_email},#{user_nm},#{user_pro_img},#{user_type})
+			</if>
+			<if test="user_pro_img == null">
+				insert into MST_USER_INFO_TB(user_id,user_email, user_nm, user_type)
+				values(#{user_id},#{user_email},#{user_nm},#{user_type})
+			</if>
+		</if>
 	</insert>
 	
 	<select id="appLogin" resultType="user.dto.AppUserDTO">
 		select * from MST_USER_INFO_TB
-		where user_email = #{user_email} and user_pw = #{user_pw}
+		<if test="user_type==null">
+			where user_email = #{user_email} and user_pw = #{user_pw} and user_type='nomal'
+		</if>
+		<if test="user_type=='kakao'">
+			where user_id = #{user_id} and user_type='kakao'
+		</if>
 	</select>
 	
 	<update id="userInfoModify">
