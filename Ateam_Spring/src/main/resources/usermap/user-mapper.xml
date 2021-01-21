@@ -22,7 +22,7 @@
 		</if>
 		<if test="user_type=='kakao'">
 			<if test="user_pro_img != null">
-				insert into MST_USER_INFO_TB(user_id,user_email, user_nm, user_pri_img, user_type)
+				insert into MST_USER_INFO_TB(user_id,user_email, user_nm, user_pro_img, user_type)
 				values(#{user_id},#{user_email},#{user_nm},#{user_pro_img},#{user_type})
 			</if>
 			<if test="user_pro_img == null">
