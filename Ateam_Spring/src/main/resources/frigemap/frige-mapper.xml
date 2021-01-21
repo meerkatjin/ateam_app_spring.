@@ -3,8 +3,9 @@
 <mapper namespace="frige.mapper">
 	<insert id="insert">
 		INSERT INTO APP_FRIGE_CONTENTS_LIST_TB
-		VALUES(#{user_id}, #{content_list_id}, #{content_nm}, SYSDATE,
-			SYSDATE+(SELECT due_date FROM APP_FRIGE_CONTENTS_TB WHERE irdnt_nm = #{content_nm}),
+		VALUES(0, list_id.nextval, '#{content_nm}', 
+			(SELECT content_ty FROM APP_FRIGE_CONTENTS_TB WHERE irdnt_nm LIKE '#{content_nm}'), SYSDATE,
+			SYSDATE+(SELECT due_date FROM APP_FRIGE_CONTENTS_TB WHERE irdnt_nm LIKE '#{content_nm}'),
 			0, 0, 0, 0)
 	</insert>
 	
