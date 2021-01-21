@@ -25,5 +25,7 @@ public class RecipeController {
 		//2. jsonReturn.jsp로 넘깁니다. 여기서 전부 json으로 바꿔 가져온다고 보시면 됩니다. ->RecipeInfoService로
 		return "recipeInfo";
 	}
+	
+
 
 }

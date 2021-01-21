@@ -17,18 +17,13 @@
 	</select>
 	
 	<update id="userInfoModify">
-		update MST_USER_INFO_TB
-		set	user_pw = #{user_pw},
-			user_nm = #{user_nm},
-			user_addr = #{user_addr},
-			user_pro_img = #{user_pro_img},
-<<<<<<< HEAD
-			user_phone_no = #{user_phone_no} 
-		where user_email = #{user_email}
-=======
-			user_phone_no = #{user_phone_no}	
-		where user_id = #{user_id}
->>>>>>> eb6d82a39c5af4ff8d4b373a70b3e1ef81e0b684
+	   update MST_USER_INFO_TB
+        set   user_pw = #{user_pw},
+            user_nm = #{user_nm},
+            user_addr = #{user_addr},
+            user_pro_img = #{user_pro_img},
+            user_phone_no = #{user_phone_no}
+        where user_email = #{user_email}
 	</update>
 	
 </mapper>

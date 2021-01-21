@@ -8,17 +8,18 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
 import recipe.dto.RecipeInfoDTO;
+import recipe.dto.RecipeIngDTO;
 
-//@Repository 어노테이션 필요
 @Repository
-public class RecipeInfoDAO implements RecipeInfoInterface {
-	@Autowired @Qualifier("recipe") private SqlSession sql;
+public class RecipeIngDAO implements RecipeIngInterface {
+	@Autowired @Qualifier("recipeIng") private SqlSession sql;
 	
 	@Override
-	public List<RecipeInfoDTO> recipeInfo() {	
-		 List<RecipeInfoDTO> list =
-					 sql.selectList("recipe.mapper.recipeInfo");
-//		}
+	public List<RecipeIngDTO> recipeIng(RecipeIngDTO dto) {	
+		System.out.println("bytis" + dto.getRecipe_id());
+		 List<RecipeIngDTO> list =
+					 sql.selectList("recipeIng.mapper.recipeIng" ,dto);
+
 		 return list;
 	}//recipeInfo()
 }
