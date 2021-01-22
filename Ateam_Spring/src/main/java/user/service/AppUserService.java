@@ -29,4 +29,14 @@ public class AppUserService implements UserServiceInterface {
 		return dao.appJoin(dto);
 	}
 
+	@Override
+	public int appUserDelete(long user_id, String user_pw, String user_type) {
+		return dao.appUserDelete(user_id, user_pw, user_type);
+	}
+
+	@Override
+	public int appUserDelete(long user_id, String user_type) {
+		return dao.appUserDelete(user_id, user_type);
+	}
+
 }

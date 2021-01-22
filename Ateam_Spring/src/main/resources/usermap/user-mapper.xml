@@ -5,7 +5,7 @@
 		select * from mst_user_info_tb
 		where user_email=#{user_email}
 		<if test="user_type==null">and user_type='nomal'</if>
-		<if test="user_type=='kakao'">and user_type='kakao'</if>
+		<if test="user_type!=null">and user_type=#{user_type}</if>
 	</select>
 	
 	<!-- 일반 회원가입 넘버링주기 -->
@@ -16,11 +16,13 @@
 	
 	<!-- 회원가입인수행 -->
 	<insert id="appJoin">
+		<!-- 일반 회원가입시 -->
 		<if test="user_type==null">
 			insert into MST_USER_INFO_TB(user_id, user_email, user_pw, user_nm, user_addr, user_phone_no)
 			values(#{user_id},#{user_email},#{user_pw},#{user_nm},#{user_addr},#{user_phone_no})
 		</if>
-		<if test="user_type=='kakao'">
+		<!--소셜 회원가입시 -->
+		<if test="user_type!=null">
 			<if test="user_pro_img != null">
 				insert into MST_USER_INFO_TB(user_id,user_email, user_nm, user_pro_img, user_type)
 				values(#{user_id},#{user_email},#{user_nm},#{user_pro_img},#{user_type})
@@ -32,16 +34,20 @@
 		</if>
 	</insert>
 	
+	<!-- 회원 로그인 수행 -->
 	<select id="appLogin" resultType="user.dto.AppUserDTO">
 		select * from MST_USER_INFO_TB
+		<!-- 일반 로그인시 -->
 		<if test="user_type==null">
 			where user_email = #{user_email} and user_pw = #{user_pw} and user_type='nomal'
 		</if>
-		<if test="user_type=='kakao'">
-			where user_id = #{user_id} and user_type='kakao'
+		<!-- 소셜로그인시 -->
+		<if test="user_type != null">
+			where user_id = #{user_id} and user_type = #{user_type}
 		</if>
 	</select>
 	
+	<!-- 회원 정보 수정 -->
 	<update id="userInfoModify">
 		update MST_USER_INFO_TB
 		set	user_pw = #{user_pw},
@@ -52,4 +58,18 @@
 		where user_email = #{user_email}
 	</update>
 	
+	<!-- 회원탈퇴 -->
+	<delete id="appUserDelete">
+		<if test="user_type.equals('nomal')">
+			delete from MST_USER_INFO_TB 
+			where user_id = #{user_id}
+			and user_pw = #{user_pw}
+			and user_type = #{user_type}
+		</if>
+		<if test="!user_type.equals('nomal')">
+			delete from MST_USER_INFO_TB 
+			where user_id = #{user_id}
+			and user_type = #{user_type}
+		</if>
+	</delete>
 </mapper>

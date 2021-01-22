@@ -20,8 +20,6 @@ public class AppUserDAO implements UserServiceInterface {
 	//로그인
 	@Override
 	public AppUserDTO appLogin(AppUserDTO dto) {
-		System.out.println(dto.getUser_type());
-		System.out.println(dto.getUser_id());
 		return sql.selectOne("user.mapper.appLogin", dto);
 	}//appLogin()
 
@@ -40,5 +38,22 @@ public class AppUserDAO implements UserServiceInterface {
 		}
 		
 		return sql.insert("user.mapper.appJoin",dto);
+	}
+
+	@Override
+	public int appUserDelete(long user_id, String user_pw, String user_type) {
+		AppUserDTO dto = new AppUserDTO();
+		dto.setUser_id(user_id);
+		dto.setUser_pw(user_pw);
+		dto.setUser_type(user_type);
+		return sql.delete("user.mapper.appUserDelete", dto);
+	}
+
+	@Override
+	public int appUserDelete(long user_id, String user_type) {
+		AppUserDTO dto = new AppUserDTO();
+		dto.setUser_id(user_id);
+		dto.setUser_type(user_type);
+		return sql.delete("user.mapper.appUserDelete", dto);
 	}
 }

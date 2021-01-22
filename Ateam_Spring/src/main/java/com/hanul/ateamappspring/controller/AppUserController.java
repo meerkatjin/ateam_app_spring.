@@ -27,9 +27,9 @@ public class AppUserController {
 			succ = -100;
 		}
 		
-		model.addAttribute("appJoin", String.valueOf(succ));
+		model.addAttribute("requestSuccess", String.valueOf(succ));
 
-		return "appJoin";
+		return "requestSuccess";
 	}
 
 	//로그인
@@ -70,5 +70,19 @@ public class AppUserController {
 
 		model.addAttribute("userInfoChange", service.userInfoModify(dto));
 		return "userInfoChange";
+	}
+	
+	//회원탈퇴
+	@RequestMapping(value = "/appUserDelete")
+	public String appUserDelete(Model model, AppUserDTO dto) {
+		System.out.println(dto.getUser_id() + ", " + dto.getUser_type());
+		if(dto.getUser_type().equals("nomal")) {
+			model.addAttribute("requestSuccess", 
+					String.valueOf(service.appUserDelete(dto.getUser_id(), dto.getUser_pw(), dto.getUser_type())));			
+		}else {
+			model.addAttribute("requestSuccess", 
+					String.valueOf(service.appUserDelete(dto.getUser_id(), dto.getUser_type())));
+		}
+		return "requestSuccess";
 	}
 }
