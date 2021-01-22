@@ -12,7 +12,7 @@ import recipe.dto.RecipeIngDTO;
 
 @Repository
 public class RecipeIngDAO implements RecipeIngInterface {
-    @Autowired @Qualifier("recipeIng") private SqlSession sql;
+    @Autowired @Qualifier("mappers") private SqlSession sql;
     
     @Override
     public List<RecipeIngDTO> recipeIng(int recipe_id) {    

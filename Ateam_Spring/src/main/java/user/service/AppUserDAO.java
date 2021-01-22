@@ -9,7 +9,7 @@ import user.dto.AppUserDTO;
 
 @Repository
 public class AppUserDAO implements UserServiceInterface {
-	@Autowired @Qualifier("user") private SqlSession sql;
+	@Autowired @Qualifier("mappers") private SqlSession sql;
 	
 	//회원가입 중복체크
 	@Override
