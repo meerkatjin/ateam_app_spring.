@@ -13,8 +13,8 @@ public class RecipeIngService implements RecipeIngInterface{
     @Autowired private RecipeIngDAO dao;
     
     @Override
-    public List<RecipeIngDTO> recipeIng(RecipeIngDTO dto) {
+    public List<RecipeIngDTO> recipeIng(int recipe_id) {
         System.out.println("inter");
-        return dao.recipeIng(dto );    //RecipeIngDAO로
+        return dao.recipeIng(recipe_id );    //RecipeIngDAO로
     }
 }

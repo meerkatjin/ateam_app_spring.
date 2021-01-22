@@ -5,5 +5,5 @@ import java.util.List;
 import recipe.dto.RecipeIngDTO;
 
 public interface RecipeIngInterface {
-    List<RecipeIngDTO> recipeIng(RecipeIngDTO dto);
+    List<RecipeIngDTO> recipeIng(int recipe_id );
 }
