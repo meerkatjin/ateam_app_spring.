@@ -3,6 +3,7 @@
 <mapper namespace="recipeIng.mapper">
     <select id="recipeIng" resultType="recipe.dto.RecipeIngDTO" >
         select * from app_recipe_ing_tb
-        where recipe_id = #{recipe_id}
+        where recipe_id = #{recipe_id} 
+        order by cooking_no asc
     </select>
 </mapper>
