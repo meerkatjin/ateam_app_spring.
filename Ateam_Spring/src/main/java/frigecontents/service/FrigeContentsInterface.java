@@ -10,4 +10,5 @@ public interface FrigeContentsInterface {
 	List<FrigeContentsDTO> sortType();
 	List<FrigeContentsDTO> sortDate();
 	List<FrigeContentsDTO> sortName();
+	List<FrigeContentsDTO> irdntList();
 }

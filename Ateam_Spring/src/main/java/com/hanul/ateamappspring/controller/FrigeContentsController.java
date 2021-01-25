@@ -21,6 +21,13 @@ public class FrigeContentsController {
 		return "insert";
 	}
 	
+	@RequestMapping(value = "/irdntList", method = { RequestMethod.GET, RequestMethod.POST })
+	public String irdntList(Model model) {
+		model.addAttribute("irdntList", service.irdntList());
+		
+		return "irdntList";
+	}
+	
 	@RequestMapping(value = "/sortType", method = { RequestMethod.GET, RequestMethod.POST })
 	public String type(Model model, FrigeContentsDTO dto) {
 		model.addAttribute("sortType");

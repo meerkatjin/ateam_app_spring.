@@ -22,6 +22,13 @@ public class FrigeContentsDAO implements FrigeContentsInterface {
 		return succ;
 	}
 	
+	//내 식재료 정보 보여주기
+	@Override
+	public List<FrigeContentsDTO> irdntList() {
+		List<FrigeContentsDTO> list = sql.selectList("frige.mapper.irdntList");
+		return list;
+	}
+	
 	//종류별로 가져오기
 	@Override
 	public List<FrigeContentsDTO> sortType() {
