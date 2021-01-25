@@ -13,6 +13,13 @@ import user.service.AppUserService;
 public class AppUserController {
 	@Autowired
 	private AppUserService service;
+	
+	//유저 리스트 가져오기
+	@RequestMapping(value = "/getUserList")
+	public String getUserList(Model model) {
+		model.addAttribute("getUserList", service.getUserList());
+		return "getUserList";
+	}
 
 	//회원가입
 	@RequestMapping(value = "/appJoin")
@@ -35,7 +42,7 @@ public class AppUserController {
 	//로그인
 	@RequestMapping(value = "/appLogin")
 	public String appLogin(Model model, AppUserDTO dto) {
-		model.addAttribute("appLogin", service.appLogin(dto));
+			model.addAttribute("appLogin", service.appLogin(dto));			
 		return "appLogin";
 	}
 	
