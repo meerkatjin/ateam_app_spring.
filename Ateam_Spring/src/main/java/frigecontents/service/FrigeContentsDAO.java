@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
 import frigecontents.dto.FrigeContentsDTO;
+import frigecontents.dto.InsertDTO;
 
 @Repository
 public class FrigeContentsDAO implements FrigeContentsInterface {
@@ -15,17 +16,19 @@ public class FrigeContentsDAO implements FrigeContentsInterface {
 	
 	//내 냉장고 목록에 식재료 정보 저장하기
 	@Override
-	public int irdntInsert(String content_nm) {
+	public int irdntInsert(InsertDTO dto) {
+		//System.out.println(dto.getContent_nm());
+		//System.out.println(dto.getUser_id());
 
-		int succ = sql.insert("frige.mapper.insert", content_nm);
+		int succ = sql.insert("frige.mapper.insert", dto);
 		System.out.println(succ);
 		return succ;
 	}
 	
 	//내 식재료 정보 보여주기
 	@Override
-	public List<FrigeContentsDTO> irdntList() {
-		List<FrigeContentsDTO> list = sql.selectList("frige.mapper.irdntList");
+	public List<FrigeContentsDTO> irdntList(Long user_id) {
+		List<FrigeContentsDTO> list = sql.selectList("frige.mapper.irdntList", user_id);
 		return list;
 	}
 	

@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import frigecontents.dto.FrigeContentsDTO;
+import frigecontents.dto.InsertDTO;
 import frigecontents.service.FrigeContentsService;
 
 @Controller
@@ -14,16 +15,21 @@ public class FrigeContentsController {
 	@Autowired FrigeContentsService service;
 	
 	@RequestMapping(value = "/insert", method = { RequestMethod.GET, RequestMethod.POST })
-	public String insert(String content_nm , Model model ) {
-		model.addAttribute("insert", content_nm );
-		service.irdntInsert(content_nm );
-	//	System.out.println(name);
+	public String insert(String content_nm, Long user_id, Model model) {
+		model.addAttribute("insert", content_nm);
+		model.addAttribute("user_id", user_id);
+		InsertDTO dto = new InsertDTO();
+		dto.setContent_nm(content_nm);
+		dto.setUser_id(user_id);
+		//System.out.println(dto.getContent_nm());
+		//System.out.println(dto.getUser_id());
+		service.irdntInsert(dto);
 		return "insert";
 	}
 	
 	@RequestMapping(value = "/irdntList", method = { RequestMethod.GET, RequestMethod.POST })
-	public String irdntList(Model model) {
-		model.addAttribute("irdntList", service.irdntList());
+	public String irdntList(Long user_id, Model model) {
+		model.addAttribute("irdntList", service.irdntList(user_id));
 		
 		return "irdntList";
 	}
