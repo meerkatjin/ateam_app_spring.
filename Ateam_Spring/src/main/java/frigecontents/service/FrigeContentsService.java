@@ -33,4 +33,9 @@ public class FrigeContentsService implements FrigeContentsInterface {
 		return state;
 	}
 
+	@Override
+	public List<FrigeContentsDTO> irdntList() {
+		return dao.irdntList();
+	}
+
 }

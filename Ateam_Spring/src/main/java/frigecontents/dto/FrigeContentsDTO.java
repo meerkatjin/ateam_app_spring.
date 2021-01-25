@@ -1,22 +1,20 @@
 package frigecontents.dto;
 
-import java.util.Date;
-
 public class FrigeContentsDTO {
 	int user_id, content_list_id;
 	String content_nm, content_ty;
-	Date shelf_life_start, shelf_life_end;
+	String shelf_life_start, shelf_life_end;
 	double x1, y1, x2, y2;
 	
-	public FrigeContentsDTO(String content_nm, String content_ty, Date shelf_life_end) {
+	public FrigeContentsDTO(String content_nm, String content_ty, String shelf_life_end) {
 		super();
 		this.content_nm = content_nm;
 		this.content_ty = content_ty;
 		this.shelf_life_end = shelf_life_end;
 	}
 
-	public FrigeContentsDTO(int user_id, int content_list_id, String content_nm, Date shelf_life_start,
-			Date shelf_life_end, double x1, double y1, double x2, double y2) {
+	public FrigeContentsDTO(int user_id, int content_list_id, String content_nm, String shelf_life_start,
+			String shelf_life_end, double x1, double y1, double x2, double y2) {
 		super();
 		this.user_id = user_id;
 		this.content_list_id = content_list_id;
@@ -61,19 +59,19 @@ public class FrigeContentsDTO {
 		this.content_ty = content_ty;
 	}
 
-	public Date getShelf_life_start() {
+	public String getShelf_life_start() {
 		return shelf_life_start;
 	}
 
-	public void setShelf_life_start(Date shelf_life_start) {
+	public void setShelf_life_start(String shelf_life_start) {
 		this.shelf_life_start = shelf_life_start;
 	}
 
-	public Date getShelf_life_end() {
+	public String getShelf_life_end() {
 		return shelf_life_end;
 	}
 
-	public void setShelf_life_end(Date shelf_life_end) {
+	public void setShelf_life_end(String shelf_life_end) {
 		this.shelf_life_end = shelf_life_end;
 	}
 
