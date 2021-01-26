@@ -25,5 +25,14 @@ public class RecipeController {
 		//2. jsonReturn.jsp로 넘깁니다. 여기서 전부 json으로 바꿔 가져온다고 보시면 됩니다. ->RecipeInfoService로
 		return "recipeInfo";
 	}
+	
+	@RequestMapping(value = "/recipeInfoMf", method = { RequestMethod.GET, RequestMethod.POST })
+	public String recipeInfo(int recipe_id, Model model) {
+		model.addAttribute("recipeInfoMf", service.recipeInfoMf(recipe_id));	//1. 일단 app으로 json 타입으로 리턴할것들은 전부 jsonReturn으로 통일했습니다
+
+		//2. jsonReturn.jsp로 넘깁니다. 여기서 전부 json으로 바꿔 가져온다고 보시면 됩니다. ->RecipeInfoService로
+		return "recipeInfoMf";
+	}
+	
 
 }

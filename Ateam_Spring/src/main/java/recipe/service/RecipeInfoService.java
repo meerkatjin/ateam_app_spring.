@@ -18,4 +18,9 @@ public class RecipeInfoService implements RecipeInfoInterface {
 	public List<RecipeInfoDTO> recipeInfo() {
 		return dao.recipeInfo();	//RecipeInfoDAO로
 	}
+	
+	@Override
+	public RecipeInfoDTO recipeInfoMf(int recipe_id) {
+		return dao.recipeInfoMf(recipe_id);
+	}
 }

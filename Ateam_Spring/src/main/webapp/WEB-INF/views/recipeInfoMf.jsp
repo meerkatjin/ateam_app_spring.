@@ -7,7 +7,7 @@
 <%
 JsonArray arry = new JsonArray();
 Gson gson = new Gson();
-	String json = gson.toJson((List<RecipeInfoDTO>)request.getAttribute("recipeInfo"));
+	String json = gson.toJson((RecipeInfoDTO)request.getAttribute("recipeInfoMf"));
 	
 	out.println(json);
 %>
