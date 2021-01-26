@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
 import frigecontents.dto.FrigeContentsDTO;
+import frigecontents.dto.FrigeViewDTO;
 import frigecontents.dto.InsertDTO;
 
 @Repository
@@ -25,29 +26,28 @@ public class FrigeContentsDAO implements FrigeContentsInterface {
 		return succ;
 	}
 	
-	//내 식재료 정보 보여주기
+	//내 식재료 정보 보여주기(종류별)
 	@Override
-	public List<FrigeContentsDTO> irdntList(Long user_id) {
-		List<FrigeContentsDTO> list = sql.selectList("frige.mapper.irdntList", user_id);
+	public List<FrigeContentsDTO> irdntListType(FrigeViewDTO dto) {
+		//System.out.println(dto.getContent_ty());
+		//System.out.println(dto.getUser_id());
+		
+		List<FrigeContentsDTO> list = sql.selectList("frige.mapper.irdntListType", dto);
 		return list;
 	}
 	
-	//종류별로 가져오기
+	//내 식재료 정보 보여주기(유통기한순)
 	@Override
-	public List<FrigeContentsDTO> sortType() {
-		return sql.selectList("frige.mapper.sortType");
+	public List<FrigeContentsDTO> irdntListDate(Long user_id) {
+		List<FrigeContentsDTO> list = sql.selectList("frige.mapper.irdntListDate", user_id);
+		return list;
 	}
 
-	//유통기한순으로 가져오기
+	//내 식재료 정보 보여주기(이름순)
 	@Override
-	public List<FrigeContentsDTO> sortDate() {
-		return sql.selectList("frige.mapper.sortDate");
+	public List<FrigeContentsDTO> irdntListName(Long user_id) {
+		List<FrigeContentsDTO> list = sql.selectList("frige.mapper.irdntListName", user_id);
+		return list;
 	}
-
-	//이름순으로 가져오기
-	@Override
-	public List<FrigeContentsDTO> sortName() {
-		return sql.selectList("frige.mapper.sortName");
-	}
-
+	
 }

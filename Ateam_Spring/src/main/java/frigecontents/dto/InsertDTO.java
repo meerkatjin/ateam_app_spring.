@@ -1,6 +1,8 @@
 package frigecontents.dto;
 
-public class InsertDTO {
+import java.io.Serializable;
+
+public class InsertDTO implements Serializable {
 	private String content_nm;
 	private Long user_id;
 	

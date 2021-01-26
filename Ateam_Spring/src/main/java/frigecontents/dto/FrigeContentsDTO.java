@@ -1,6 +1,8 @@
 package frigecontents.dto;
 
-public class FrigeContentsDTO {
+import java.io.Serializable;
+
+public class FrigeContentsDTO implements Serializable {
 	int user_id, content_list_id;
 	String content_nm, content_ty;
 	String shelf_life_start, shelf_life_end;

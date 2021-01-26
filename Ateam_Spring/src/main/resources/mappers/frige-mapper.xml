@@ -9,32 +9,26 @@
 			0, 0, 0, 0)
 	</insert>
 	
-	<select id="irdntList" resultType="frigecontents.dto.FrigeContentsDTO">
+	<select id="irdntListType" parameterType="frigecontents.dto.FrigeViewDTO" resultType="frigecontents.dto.FrigeContentsDTO">
+		SELECT content_nm, content_ty, TO_CHAR(shelf_life_end, 'YYYY-MM-DD')
+		FROM APP_FRIGE_CONTENTS_LIST_TB 
+		WHERE user_id = #{user_id}
+		AND content_ty = #{content_ty}
+		ORDER BY shelf_life_end
+	</select>	
+	
+	<select id="irdntListDate" resultType="frigecontents.dto.FrigeContentsDTO">
 		SELECT content_nm, content_ty, TO_CHAR(shelf_life_end, 'YYYY-MM-DD')
 		FROM APP_FRIGE_CONTENTS_LIST_TB 
 		WHERE user_id = #{user_id}
 		ORDER BY shelf_life_end
 	</select>
 	
-	<select id="sortType" resultType="frigecontents.dto.FrigeContentsDTO">
-		SELECT a.content_nm, b.content_ty, a.shelf_life_end
-		FROM APP_FRIGE_CONTENTS_LIST_TB a, APP_FRIGE_CONTENTS_TB b
-		WHERE a.content_nm = b.irdnt_nm
-		AND b.content_ty LIKE '#{content_ty}'
-		ORDER BY a.shelf_life_end ASC
-	</select>
-
-	<select id="sortDate" resultType="frigecontents.dto.FrigeContentsDTO">
-		SELECT a.content_nm, b.content_ty, a.shelf_life_end
-		FROM APP_FRIGE_CONTENTS_LIST_TB a, APP_FRIGE_CONTENTS_TB b
-		WHERE a.content_nm = b.irdnt_nm
-		ORDER BY a.shelf_life_end ASC
+	<select id="irdntListName" resultType="frigecontents.dto.FrigeContentsDTO">
+		SELECT content_nm, content_ty, TO_CHAR(shelf_life_end, 'YYYY-MM-DD')
+		FROM APP_FRIGE_CONTENTS_LIST_TB 
+		WHERE user_id = #{user_id}
+		ORDER BY content_nm
 	</select>
 	
-	<select id="sortName" resultType="frigecontents.dto.FrigeContentsDTO">
-		SELECT a.content_nm, b.content_ty, a.shelf_life_end
-		FROM APP_FRIGE_CONTENTS_LIST_TB a, APP_FRIGE_CONTENTS_TB b
-		WHERE a.content_nm = b.irdnt_nm
-		ORDER BY a.content_nm ASC
-	</select>
 </mapper>

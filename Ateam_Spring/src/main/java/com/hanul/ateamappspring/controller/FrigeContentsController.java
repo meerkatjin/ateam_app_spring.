@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import frigecontents.dto.FrigeContentsDTO;
+import frigecontents.dto.FrigeViewDTO;
 import frigecontents.dto.InsertDTO;
 import frigecontents.service.FrigeContentsService;
 
@@ -27,34 +28,34 @@ public class FrigeContentsController {
 		return "insert";
 	}
 	
-	@RequestMapping(value = "/irdntList", method = { RequestMethod.GET, RequestMethod.POST })
-	public String irdntList(Long user_id, Model model) {
-		model.addAttribute("irdntList", service.irdntList(user_id));
+	@RequestMapping(value = "/irdntListType", method = { RequestMethod.GET, RequestMethod.POST })
+	public String irdntListType(Long user_id, String content_ty, Model model) {
+		model.addAttribute("user_id", user_id);
+		model.addAttribute("content_ty", content_ty);
+		FrigeViewDTO dto = new FrigeViewDTO();
+		dto.setUser_id(user_id);
+		dto.setContent_ty(content_ty);
+		//System.out.println("ID : " + dto.getUser_id() + " Type : " + dto.getContent_ty());
 		
-		return "irdntList";
+		service.irdntListType(dto);
+		
+		return "irdntListType";
 	}
 	
-	@RequestMapping(value = "/sortType", method = { RequestMethod.GET, RequestMethod.POST })
-	public String type(Model model, FrigeContentsDTO dto) {
-		model.addAttribute("sortType");
+	@RequestMapping(value = "/irdntListDate", method = { RequestMethod.GET, RequestMethod.POST })
+	public String irdntListDate(Long user_id, Model model) {
+		model.addAttribute("irdntListDate", service.irdntListDate(user_id));
+		//System.out.println("Date : " + user_id);
 		
-		return "sortType";
+		return "irdntListDate";
 	}
 	
-	
-	@RequestMapping(value = "/sortDate", method = { RequestMethod.GET, RequestMethod.POST })
-	public String date(Model model, FrigeContentsDTO dto) {
-		model.addAttribute("sortDate");
+	@RequestMapping(value = "/irdntListName", method = { RequestMethod.GET, RequestMethod.POST })
+	public String irdntListName(Long user_id, Model model) {
+		model.addAttribute("irdntListName", service.irdntListName(user_id));
+		//System.out.println("Name : " + user_id);
 		
-		return "sortDate";
+		return "irdntListName";
 	}
-	
-	@RequestMapping(value = "/sortName", method = { RequestMethod.GET, RequestMethod.POST })
-	public String name(Model model, FrigeContentsDTO dto) {
-		model.addAttribute("sortName");
-		
-		return "sortName";
-	}
-	
 	
 }

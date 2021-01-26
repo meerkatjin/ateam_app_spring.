@@ -6,26 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import frigecontents.dto.FrigeContentsDTO;
+import frigecontents.dto.FrigeViewDTO;
 import frigecontents.dto.InsertDTO;
 
 @Service
 public class FrigeContentsService implements FrigeContentsInterface {
 	@Autowired private FrigeContentsDAO dao;
 	
-	@Override
-	public List<FrigeContentsDTO> sortType() {
-		return dao.sortType();
-	}
-	
-	@Override
-	public List<FrigeContentsDTO> sortDate() {
-		return dao.sortDate();
-	}
-
-	@Override
-	public List<FrigeContentsDTO> sortName() {
-		return dao.sortName();
-	}
 
 	@Override
 	public int irdntInsert(InsertDTO dto) {
@@ -33,10 +20,20 @@ public class FrigeContentsService implements FrigeContentsInterface {
 		state = dao.irdntInsert(dto);
 		return state;
 	}
+	
+	@Override
+	public List<FrigeContentsDTO> irdntListType(FrigeViewDTO dto) {
+		return dao.irdntListType(dto);
+	}
 
 	@Override
-	public List<FrigeContentsDTO> irdntList(Long user_id) {
-		return dao.irdntList(user_id);
+	public List<FrigeContentsDTO> irdntListDate(Long user_id) {
+		return dao.irdntListDate(user_id);
+	}
+
+	@Override
+	public List<FrigeContentsDTO> irdntListName(Long user_id) {
+		return dao.irdntListName(user_id);
 	}
 
 }
