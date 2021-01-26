@@ -1,5 +1,7 @@
 package user.service;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -55,5 +57,10 @@ public class AppUserDAO implements UserServiceInterface {
 		dto.setUser_id(user_id);
 		dto.setUser_type(user_type);
 		return sql.delete("user.mapper.appUserDelete", dto);
+	}
+
+	@Override
+	public List<AppUserDTO> getUserList() {
+		return sql.selectList("user.mapper.getUserList");
 	}
 }

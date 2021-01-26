@@ -1,5 +1,7 @@
 package user.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -37,6 +39,11 @@ public class AppUserService implements UserServiceInterface {
 	@Override
 	public int appUserDelete(long user_id, String user_type) {
 		return dao.appUserDelete(user_id, user_type);
+	}
+
+	@Override
+	public List<AppUserDTO> getUserList() {
+		return dao.getUserList();
 	}
 
 }

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import frigecontents.dto.FrigeContentsDTO;
+import frigecontents.dto.InsertDTO;
 
 @Service
 public class FrigeContentsService implements FrigeContentsInterface {
@@ -27,10 +28,15 @@ public class FrigeContentsService implements FrigeContentsInterface {
 	}
 
 	@Override
-	public int irdntInsert(String content_nm) {
+	public int irdntInsert(InsertDTO dto) {
 		int state = -1;
-		state = dao.irdntInsert(content_nm);
+		state = dao.irdntInsert(dto);
 		return state;
+	}
+
+	@Override
+	public List<FrigeContentsDTO> irdntList(Long user_id) {
+		return dao.irdntList(user_id);
 	}
 
 }

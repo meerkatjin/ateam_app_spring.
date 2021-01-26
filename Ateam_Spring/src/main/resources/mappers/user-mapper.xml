@@ -72,4 +72,10 @@
 			and user_type = #{user_type}
 		</if>
 	</delete>
+	
+	<!-- 유저 리스트 가져오기 -->
+	<select id="getUserList" resultType="user.dto.AppUserDTO">
+		select * from MST_USER_INFO_TB
+		order by user_id
+	</select>
 </mapper>

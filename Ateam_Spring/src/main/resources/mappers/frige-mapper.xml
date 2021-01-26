@@ -3,11 +3,18 @@
 <mapper namespace="frige.mapper">
 	<insert id="insert">
 		INSERT INTO APP_FRIGE_CONTENTS_LIST_TB
-		VALUES(0, list_id.nextval, #{content_nm}, 
+		VALUES(#{user_id}, list_id.nextval, #{content_nm}, 
 			(SELECT content_ty FROM APP_FRIGE_CONTENTS_TB WHERE irdnt_nm LIKE #{content_nm}), SYSDATE,
 			SYSDATE+(SELECT due_date FROM APP_FRIGE_CONTENTS_TB WHERE irdnt_nm LIKE #{content_nm}),
 			0, 0, 0, 0)
 	</insert>
+	
+	<select id="irdntList" resultType="frigecontents.dto.FrigeContentsDTO">
+		SELECT content_nm, content_ty, TO_CHAR(shelf_life_end, 'YYYY-MM-DD')
+		FROM APP_FRIGE_CONTENTS_LIST_TB 
+		WHERE user_id = #{user_id}
+		ORDER BY shelf_life_end
+	</select>
 	
 	<select id="sortType" resultType="frigecontents.dto.FrigeContentsDTO">
 		SELECT a.content_nm, b.content_ty, a.shelf_life_end
