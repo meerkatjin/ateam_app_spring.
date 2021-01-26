@@ -49,13 +49,24 @@
 	
 	<!-- 회원 정보 수정 -->
 	<update id="userInfoModify">
-		update MST_USER_INFO_TB
-		set	user_pw = #{user_pw},
-			user_nm = #{user_nm},
-			user_addr = #{user_addr},
-			user_pro_img = #{user_pro_img},
-			user_phone_no = #{user_phone_no} 
-		where user_email = #{user_email}
+		<if test="user_type.equals('nomal')">
+			update MST_USER_INFO_TB
+			set	user_pw = #{user_pw},
+				user_nm = #{user_nm},
+				user_addr = #{user_addr},
+				user_pro_img = #{user_pro_img},
+				user_phone_no = #{user_phone_no}
+			where user_email = #{user_email} and user_id = #{user_id}
+		</if>
+		<if test="!user_type.equals('nomal')">
+			update MST_USER_INFO_TB
+			set	user_pw = #{user_pw},
+				user_nm = #{user_nm},
+				user_addr = #{user_addr},
+				user_pro_img = #{user_pro_img},
+				user_phone_no = #{user_phone_no}
+			where user_email = #{user_email}
+		</if>
 	</update>
 	
 	<!-- 회원탈퇴 -->
