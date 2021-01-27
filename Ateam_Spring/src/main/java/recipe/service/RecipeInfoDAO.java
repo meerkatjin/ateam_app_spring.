@@ -18,27 +18,20 @@ public class RecipeInfoDAO implements RecipeInfoInterface {
 	
 	@Override
 	public List<RecipeInfoDTO> recipeInfo() {	
-		//4. sql.selectList("user.mapper.recipeInfo", dto); 에서 
-		//user.mapper. 를 recipe.mepper 로 바꾸셔야합니다
-		//recipe-mapper.xml 의 <mapper namespace="recipe.mapper"> 즉 네임스페이스를
-		//따라서 설정하시면 됩니다.   -> recipe-mapper.xml로
+		
 		 List<RecipeInfoDTO> list =
 					 sql.selectList("recipe.mapper.recipeInfo");
-//		 System.out.println(list.size());
-//		 for (RecipeInfoDTO recipeInfoDTO : list) {
-//			System.out.println(recipeInfoDTO.getRecipe_id());
-//		}
+
 		 return list;
 	}//recipeInfo()
 	
 	@Override
 	public RecipeInfoDTO recipeInfoMf(int recipe_id) {
-		  RecipeInfoDTO dto =
+		   RecipeInfoDTO dto =
 				 sql.selectOne("recipe.mapper.recipeInfoMf", recipe_id);
-		
-	
 		 	return dto;
 	}//recipeInfoMf()
+	
 	
 	
 }
