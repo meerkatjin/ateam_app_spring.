@@ -30,14 +30,12 @@ public class FrigeContentsController {
 	
 	@RequestMapping(value = "/irdntListType", method = { RequestMethod.GET, RequestMethod.POST })
 	public String irdntListType(Long user_id, String content_ty, Model model) {
-		model.addAttribute("user_id", user_id);
-		model.addAttribute("content_ty", content_ty);
 		FrigeViewDTO dto = new FrigeViewDTO();
 		dto.setUser_id(user_id);
 		dto.setContent_ty(content_ty);
 		//System.out.println("ID : " + dto.getUser_id() + " Type : " + dto.getContent_ty());
 		
-		service.irdntListType(dto);
+		model.addAttribute("irdntListType", service.irdntListType(dto));
 		
 		return "irdntListType";
 	}

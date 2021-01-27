@@ -29,8 +29,8 @@ public class FrigeContentsDAO implements FrigeContentsInterface {
 	//내 식재료 정보 보여주기(종류별)
 	@Override
 	public List<FrigeContentsDTO> irdntListType(FrigeViewDTO dto) {
-		//System.out.println(dto.getContent_ty());
-		//System.out.println(dto.getUser_id());
+		System.out.println(dto.getContent_ty());
+		System.out.println(dto.getUser_id());
 		
 		List<FrigeContentsDTO> list = sql.selectList("frige.mapper.irdntListType", dto);
 		return list;

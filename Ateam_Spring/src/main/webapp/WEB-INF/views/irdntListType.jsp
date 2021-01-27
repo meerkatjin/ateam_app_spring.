@@ -7,7 +7,10 @@
 <%@page import="user.dto.AppUserDTO"%>
 <%@page import="com.google.gson.Gson"%>
 <%
+
+
 JsonArray arry = new JsonArray();
+
 Gson gson = new Gson();
 	String json = gson.toJson((List<FrigeContentsDTO>)request.getAttribute("irdntListType"));
 	
