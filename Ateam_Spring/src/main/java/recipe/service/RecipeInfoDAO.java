@@ -28,7 +28,7 @@ public class RecipeInfoDAO implements RecipeInfoInterface {
 	@Override
 	public RecipeInfoDTO recipeInfoMf(int recipe_id) {
 		   RecipeInfoDTO dto =
-				 sql.selectOne("recipe.mapper.recipeInfoMf", recipe_id);
+				 sql.selectOne("recipe.mapper.recipeInfoMf");
 		 	return dto;
 	}//recipeInfoMf()
 	
