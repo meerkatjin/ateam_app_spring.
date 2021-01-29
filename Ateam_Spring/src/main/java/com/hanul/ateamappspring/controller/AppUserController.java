@@ -1,10 +1,16 @@
 package com.hanul.ateamappspring.controller;
 
+import java.io.File;
+
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartRequest;
 
 import user.dto.AppUserDTO;
 import user.service.AppUserService;
@@ -64,19 +70,44 @@ public class AppUserController {
 	
 	//회원정보수정
 	@RequestMapping(value = "/userInfoChange")
-	public String userInfoModify(AppUserDTO dto, Model model) {
+	public String userInfoModify(Model model, AppUserDTO dto, HttpServletRequest req) {
 
+		MultipartRequest multi = (MultipartRequest)req;
+		MultipartFile file = multi.getFile("image");
+		
+		if(file != null) {
+			String fileName = file.getOriginalFilename();
+			System.out.println(fileName);
+			
+			// 디렉토리 존재하지 않으면 생성
+			makeDir(req);	
+				
+			if(file.getSize() > 0){			
+				String realImgPath = req.getSession().getServletContext()
+						.getRealPath("/resources/");
+				
+				System.out.println( fileName + " : " + realImgPath);
+				System.out.println( "fileSize : " + file.getSize());					
+												
+			 	try {
+			 		// 이미지파일 저장
+					file.transferTo(new File(realImgPath, fileName));										
+				} catch (Exception e) {
+					e.printStackTrace();
+				} 
+									
+			}else{
+				// 이미지파일 실패시
+				fileName = "FileFail.jpg";
+				String realImgPath = req.getSession().getServletContext()
+						.getRealPath("/resources/" + fileName);
+				System.out.println(fileName + " : " + realImgPath);
+						
+			}
+		}
 
-		/*
-		 * System.out.println("email : " + dto.getUser_email());
-		 * System.out.println("pw : " + dto.getUser_pw()); System.out.println("name : "
-		 * + dto.getUser_nm()); System.out.println("addr : " + dto.getUser_addr());
-		 * System.out.println("phone : " + dto.getUser_phone_no());
-		 * System.out.println("img : " + dto.getUser_pro_img());
-		 */
-
-		model.addAttribute("userInfoChange", service.userInfoModify(dto));
-		return "userInfoChange";
+		model.addAttribute("requestSuccess", String.valueOf(service.userInfoModify(dto)));
+		return "requestSuccess";
 	}
 	
 	//회원탈퇴
@@ -92,4 +123,13 @@ public class AppUserController {
 		}
 		return "requestSuccess";
 	}
+	
+	public void makeDir(HttpServletRequest req){
+		File f = new File(req.getSession().getServletContext()
+				.getRealPath("/resources"));
+		if(!f.isDirectory()){
+		f.mkdir();
+		}	
+	}
 }
+
