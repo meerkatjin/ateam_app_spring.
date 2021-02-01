@@ -8,7 +8,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <%
-	String state_insert = (String)request.getAttribute("insert");
+	String state_delete = (String)request.getAttribute("irdntListDelete");
 
-	out.println(state_insert);
+	out.println(state_delete);
 %>

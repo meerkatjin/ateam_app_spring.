@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
 import frigecontents.dto.FrigeContentsDTO;
+import frigecontents.dto.FrigeDeleteDTO;
 import frigecontents.dto.FrigeViewDTO;
 import frigecontents.dto.InsertDTO;
 
@@ -48,6 +49,14 @@ public class FrigeContentsDAO implements FrigeContentsInterface {
 	public List<FrigeContentsDTO> irdntListName(Long user_id) {
 		List<FrigeContentsDTO> list = sql.selectList("frige.mapper.irdntListName", user_id);
 		return list;
+	}
+
+	//내 식재료 삭제하기
+	@Override
+	public int irdntListDelete(FrigeDeleteDTO dto) {		
+		int succ = sql.delete("frige.mapper.delete", dto);
+		System.out.println("DAO " + succ);
+		return succ;
 	}
 	
 }

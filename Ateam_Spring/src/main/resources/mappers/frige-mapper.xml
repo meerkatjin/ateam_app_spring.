@@ -10,7 +10,7 @@
 	</insert>
 	
 	<select id="irdntListType" parameterType="frigecontents.dto.FrigeViewDTO" resultType="frigecontents.dto.FrigeContentsDTO">
-		SELECT content_nm, content_ty, TO_CHAR(shelf_life_end, 'YYYY-MM-DD')
+		SELECT content_list_id, content_nm, content_ty, TO_CHAR(shelf_life_end, 'YYYY-MM-DD')
 		FROM APP_FRIGE_CONTENTS_LIST_TB 
 		WHERE user_id = #{user_id}
 		AND content_ty = #{content_ty}
@@ -18,17 +18,22 @@
 	</select>	
 	
 	<select id="irdntListDate" resultType="frigecontents.dto.FrigeContentsDTO">
-		SELECT content_nm, content_ty, TO_CHAR(shelf_life_end, 'YYYY-MM-DD')
+		SELECT content_list_id, content_nm, content_ty, TO_CHAR(shelf_life_end, 'YYYY-MM-DD')
 		FROM APP_FRIGE_CONTENTS_LIST_TB 
 		WHERE user_id = #{user_id}
 		ORDER BY shelf_life_end
 	</select>
 	
 	<select id="irdntListName" resultType="frigecontents.dto.FrigeContentsDTO">
-		SELECT content_nm, content_ty, TO_CHAR(shelf_life_end, 'YYYY-MM-DD')
+		SELECT content_list_id, content_nm, content_ty, TO_CHAR(shelf_life_end, 'YYYY-MM-DD')
 		FROM APP_FRIGE_CONTENTS_LIST_TB 
 		WHERE user_id = #{user_id}
 		ORDER BY content_nm
 	</select>
+	
+	<delete id="delete">
+		DELETE FROM APP_FRIGE_CONTENTS_LIST_TB 
+		WHERE user_id = #{user_id} AND content_list_id = #{content_list_id}
+	</delete>
 	
 </mapper>

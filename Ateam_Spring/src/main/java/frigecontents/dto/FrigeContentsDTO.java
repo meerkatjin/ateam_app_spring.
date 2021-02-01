@@ -8,8 +8,9 @@ public class FrigeContentsDTO implements Serializable {
 	String shelf_life_start, shelf_life_end;
 	double x1, y1, x2, y2;
 	
-	public FrigeContentsDTO(String content_nm, String content_ty, String shelf_life_end) {
+	public FrigeContentsDTO(int content_list_id, String content_nm, String content_ty, String shelf_life_end) {
 		super();
+		this.content_list_id = content_list_id;
 		this.content_nm = content_nm;
 		this.content_ty = content_ty;
 		this.shelf_life_end = shelf_life_end;

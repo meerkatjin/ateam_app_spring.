@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import frigecontents.dto.FrigeContentsDTO;
+import frigecontents.dto.FrigeDeleteDTO;
 import frigecontents.dto.FrigeViewDTO;
 import frigecontents.dto.InsertDTO;
 
@@ -34,6 +35,14 @@ public class FrigeContentsService implements FrigeContentsInterface {
 	@Override
 	public List<FrigeContentsDTO> irdntListName(Long user_id) {
 		return dao.irdntListName(user_id);
+	}
+
+	@Override
+	public int irdntListDelete(FrigeDeleteDTO dto) {
+		int state = -1;
+		state = dao.irdntListDelete(dto);
+		System.out.println("Service " + state);
+		return state;
 	}
 
 }

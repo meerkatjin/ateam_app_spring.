@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import frigecontents.dto.FrigeContentsDTO;
+import frigecontents.dto.FrigeDeleteDTO;
 import frigecontents.dto.FrigeViewDTO;
 import frigecontents.dto.InsertDTO;
 import frigecontents.service.FrigeContentsService;
@@ -54,6 +55,19 @@ public class FrigeContentsController {
 		//System.out.println("Name : " + user_id);
 		
 		return "irdntListName";
+	}
+	
+	@RequestMapping(value = "/irdntListDelete", method = { RequestMethod.GET, RequestMethod.POST })
+	public String irdntListDelete(Long user_id, int content_list_id, Model model) {
+		model.addAttribute("user_id", user_id);
+		model.addAttribute("content_list_id", content_list_id);
+		FrigeDeleteDTO dto = new FrigeDeleteDTO();
+		dto.setUser_id(user_id);
+		dto.setContent_list_id(content_list_id);
+		
+		service.irdntListDelete(dto);
+		
+		return "irdntListDelete";
 	}
 	
 }
