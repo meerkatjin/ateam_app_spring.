@@ -21,12 +21,13 @@
 <!-- Mybatis 객체 -->
 <bean id="factory" class="org.mybatis.spring.SqlSessionFactoryBean">
 	<property name="dataSource" ref="dbcp"/>
-	<property name="mapperLocations" value="classpath:usermap/*-mapper.xml"/>
+	<property name="mapperLocations" value="classpath:mappers/*-mapper.xml"/>
 </bean>
 
 <!-- 쿼리문실행객체 -->
 <bean class="org.mybatis.spring.SqlSessionTemplate">
 	<constructor-arg name="sqlSessionFactory" ref="factory"/>
-	<qualifier value="ateam"/>
+	<qualifier value="mappers"/>
 </bean>
+
 </beans>

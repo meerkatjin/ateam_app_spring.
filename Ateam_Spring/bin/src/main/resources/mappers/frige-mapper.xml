@@ -36,11 +36,4 @@
 		WHERE user_id = #{user_id} AND content_list_id = #{content_list_id}
 	</delete>
 	
-	<select id="getLifeEndNum" resultType="_int">
-		<![CDATA[
-			select count(*)
-			from app_frige_contents_list_tb
-			where user_id = #{user_id} and  (shelf_life_end - sysdate) <= ceil((shelf_life_end - shelf_life_start)/5)
-		]]>
-	</select>
 </mapper>

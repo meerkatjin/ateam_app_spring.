@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="recipe.mapper">
+	<!-- 
+		5. resultType="user.dto.RecipeDTO" 또한 바꾸셔야합니다.
+		RecipeDTO의 패키지 경로는 recipeinfo.dto 이므로
+		resultType="recipeinfo.dto.RecipeDTO" 로 바꾸셔야합니다
+	-->
+	<select id="recipeInfo" resultType="recipe.dto.RecipeInfoDTO">
+		select * from APP_RECIPE_INFO_TB
+	</select>
+	
+	<select id="recipeInfoMf" resultType="recipe.dto.RecipeInfoDTO">
+		SELECT * FROM app_recipe_info_tb
+		WHERE recipe_id = TRUNC(DBMS_RANDOM.VALUE(1,500))
+	</select>
+</mapper>

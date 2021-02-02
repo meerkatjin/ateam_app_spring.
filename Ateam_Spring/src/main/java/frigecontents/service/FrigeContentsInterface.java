@@ -15,4 +15,6 @@ public interface FrigeContentsInterface {
 	List<FrigeContentsDTO> irdntListName(Long user_id);
 	
 	int irdntListDelete(FrigeDeleteDTO dto);
+	
+	int getLifeEndNum(long user_id);
 }

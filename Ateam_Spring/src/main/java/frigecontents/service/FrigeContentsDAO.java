@@ -58,5 +58,10 @@ public class FrigeContentsDAO implements FrigeContentsInterface {
 		System.out.println("DAO " + succ);
 		return succ;
 	}
+
+	@Override
+	public int getLifeEndNum(long user_id) {
+		return sql.selectOne("frige.mapper.getLifeEndNum", user_id);
+	}
 	
 }
