@@ -26,7 +26,7 @@ public class FrigeContentsController {
 		//System.out.println(dto.getContent_nm());
 		//System.out.println(dto.getUser_id());
 		service.irdntInsert(dto);
-		return "insert";
+		return "frige/insert";
 	}
 	
 	@RequestMapping(value = "/irdntListType", method = { RequestMethod.GET, RequestMethod.POST })
@@ -38,7 +38,7 @@ public class FrigeContentsController {
 		
 		model.addAttribute("irdntListType", service.irdntListType(dto));
 		
-		return "irdntListType";
+		return "frige/irdntListType";
 	}
 	
 	@RequestMapping(value = "/irdntListDate", method = { RequestMethod.GET, RequestMethod.POST })
@@ -46,7 +46,7 @@ public class FrigeContentsController {
 		model.addAttribute("irdntListDate", service.irdntListDate(user_id));
 		//System.out.println("Date : " + user_id);
 		
-		return "irdntListDate";
+		return "frige/irdntListDate";
 	}
 	
 	@RequestMapping(value = "/irdntListName", method = { RequestMethod.GET, RequestMethod.POST })
@@ -54,7 +54,7 @@ public class FrigeContentsController {
 		model.addAttribute("irdntListName", service.irdntListName(user_id));
 		//System.out.println("Name : " + user_id);
 		
-		return "irdntListName";
+		return "frige/irdntListName";
 	}
 	
 	@RequestMapping(value = "/irdntListDelete", method = { RequestMethod.GET, RequestMethod.POST })
@@ -67,7 +67,7 @@ public class FrigeContentsController {
 		
 		service.irdntListDelete(dto);
 		
-		return "irdntListDelete";
+		return "frige/irdntListDelete";
 	}
 	
 	//유통기한 임박한 내용물 갯수 가져오기
@@ -75,7 +75,7 @@ public class FrigeContentsController {
 	public String getLifeEndNum(Model model, long user_id) {
 		System.out.println(service.getLifeEndNum(user_id));
 		model.addAttribute("getLifeEndNum",String.valueOf(service.getLifeEndNum(user_id)));
-		return "getLifeEndNum";
+		return "frige/getLifeEndNum";
 	}
 	
 }
