@@ -59,9 +59,15 @@ public class FrigeContentsDAO implements FrigeContentsInterface {
 		return succ;
 	}
 
+	//유통기한이 다되가는게 몇개 있는지 확인
 	@Override
 	public int getLifeEndNum(long user_id) {
 		return sql.selectOne("frige.mapper.getLifeEndNum", user_id);
+	}
+
+	@Override
+	public List<Long> getLifeEndList(long user_id) {
+		return sql.selectList("frige.mapper.getLifeEndList", user_id);
 	}
 	
 }

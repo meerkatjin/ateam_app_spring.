@@ -14,7 +14,7 @@ import frigecontents.service.FrigeContentsService;
 
 @Controller
 public class FrigeContentsController {
-	@Autowired FrigeContentsService service;
+	@Autowired private FrigeContentsService service;
 	
 	@RequestMapping(value = "/insert", method = { RequestMethod.GET, RequestMethod.POST })
 	public String insert(String content_nm, Long user_id, Model model) {
@@ -73,9 +73,17 @@ public class FrigeContentsController {
 	//유통기한 임박한 내용물 갯수 가져오기
 	@RequestMapping("/getLifeEndNum")
 	public String getLifeEndNum(Model model, long user_id) {
+		System.out.println(user_id);
 		System.out.println(service.getLifeEndNum(user_id));
 		model.addAttribute("getLifeEndNum",String.valueOf(service.getLifeEndNum(user_id)));
 		return "getLifeEndNum";
+	}
+	
+	//유통기한이 임박한 내용물 아이디 리스트 가져오기
+	@RequestMapping("/getLifeEndList")
+	public String getLifeEndList(Model model, long user_id) {
+		model.addAttribute("getLifeEndList", service.getLifeEndList(user_id));
+		return "getLifeEndList";
 	}
 	
 }

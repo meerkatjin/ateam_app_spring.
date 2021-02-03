@@ -38,9 +38,19 @@
 	
 	<select id="getLifeEndNum" resultType="_int">
 		<![CDATA[
-			select count(*)
-			from app_frige_contents_list_tb
-			where user_id = #{user_id} and  (shelf_life_end - sysdate) <= ceil((shelf_life_end - shelf_life_start)/5)
+			select count(*) 
+			from app_frige_contents_list_tb 
+			where user_id = #{user_id} 
+			and round(shelf_life_end - sysdate) <= ceil((shelf_life_end - shelf_life_start)/5)
+		]]>
+	</select>
+	
+	<select id="getLifeEndList" resultType="_long">
+		<![CDATA[
+			select content_list_id 
+			from app_frige_contents_list_tb 
+			where user_id = #{user_id} 
+			and round(shelf_life_end - sysdate) <= ceil((shelf_life_end - shelf_life_start)/5)
 		]]>
 	</select>
 </mapper>
