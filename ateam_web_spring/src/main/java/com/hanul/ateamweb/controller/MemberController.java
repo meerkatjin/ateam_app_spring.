@@ -9,7 +9,7 @@ public class MemberController {
 	//로그인화면 요청 처리
 	@RequestMapping("/login")
 	public String login() {
-		return "login";
+		return "member/login";
 	}
 
 }
