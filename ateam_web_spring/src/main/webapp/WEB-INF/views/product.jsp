@@ -8,12 +8,14 @@
 </head>
 <body>
 	<div>
-		
-	
-	
-	
-	
-	
+		<form action="#" method="post">
+			<fieldset>
+				<legend>ªÛ«∞</legend>
+				<table>
+				
+				</table>
+			</fieldset>
+		</form>
 	</div>
 </body>
 </html>
