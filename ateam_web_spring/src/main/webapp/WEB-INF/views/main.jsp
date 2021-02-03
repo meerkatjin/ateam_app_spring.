@@ -18,6 +18,7 @@
     <div class="logo">
     <a href="#"><img src="common/logo/LOGO.jpg" alt="no"></a>
     </div>
+    <div><a style="float: right;" href="login">로그인</a></div>
     <nav>
       <ul class="nav">
        <li><a href="#">DD 소개</a></li>
@@ -37,6 +38,7 @@
        </li>
         <li class="clear"></li>
       </ul>
+
     </nav>
 </div>
 </header>
