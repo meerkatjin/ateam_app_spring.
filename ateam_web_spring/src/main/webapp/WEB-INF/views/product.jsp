@@ -1,16 +1,15 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Product</title>
 </head>
 <body>
 	<div>
 		<form action="#" method="post">
 			<fieldset>
-				<legend>상품</legend>
+				<legend>�긽�뭹</legend>
 				<table>
 				
 				</table>

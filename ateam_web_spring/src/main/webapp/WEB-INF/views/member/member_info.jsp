@@ -1,44 +1,44 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Member Info</title>
 </head>
 <body>
 	<div align="center">
 		<form action="main.jsp" method="post">
 			<fieldset>
-				<legend>�α��� ȭ��</legend>
+				<legend>로그인 화면</legend>
 				<table border="1">
 					<tr>
-						<th><label for="user_email">�̸���</label></th>
+						<th><label for="user_email">이메일</label></th>
 						<td><input type="text" name="user_email" disabled="disabled"/></td>
 					</tr>
 					<tr>
-						<th><label for="user_pw">��й�ȣ</label></th>
+						<th><label for="user_pw">비밀번호</label></th>
 						<td><input type="password" name="user_pw"/></td>
 					</tr>
 					<tr>
-						<th><label for="user_pw_confirm">��й�ȣ Ȯ��</label></th>
+						<th><label for="user_pw_confirm">비밀번호 확인</label></th>
 						<td><input type="password" name="user_pw_confirm"/></td>
 					</tr>
 					<tr>
-						<th><label for="user_name">�̸�(�г���)</label></th>
+						<th><label for="user_name">이름(닉네임)</label></th>
 						<td><input type="password" name="user_name" disabled="disabled"/></td>
 					</tr>
 					<tr>
-						<th><label for="user_addr">�ּ�</label></th>
+						<th><label for="user_addr">주소</label></th>
 						<td><input type="password" name="user_addr"/></td>
 					</tr>
 					<tr>
-						<th><label for="user_tel">��ȭ��ȣ</label></th>
+						<th><label for="user_tel">전화번호</label></th>
 						<td><input type="password" name="user_tel"/></td>
 					</tr>
 					<tr>
 						<td colspan="2" align="center">
-							<input type="submit" value="�����Ϸ�"/>
-							<input type="button" value="�ʱ�ȭ�ϱ�"/>
+							<input type="submit" value="수정완료"/>
+							<input type="button" value="초기화하기"/>
 						</td>
 					</tr>
 				</table>

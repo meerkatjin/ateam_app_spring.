@@ -91,3 +91,6 @@ footer .wrap{padding:10px 20px;}
 footer ul{width:50%;float:left}
 footer ul>li{float:left;margin-left:20px;margin-top:30px}
 footer p{width:50%;font-size:12px;float:right;color:#ffffff;}
+
+#login_a {display: inline-block; float: right; margin-left: 10px;}
+
