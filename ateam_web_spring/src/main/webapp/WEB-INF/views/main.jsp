@@ -18,25 +18,21 @@
     <div class="logo">
     <a href="#"><img src="common/logo/LOGO.jpg" alt="no"></a>
     </div>
-    <div><a style="float: right;" href="login">로그인</a></div>
+    <div id="login_a"><a  href="join">회원가입</a></div>
+    <div id="login_a"><a  href="login">로그인</a></div>
     <nav>
       <ul class="nav">
-       <li><a href="#">DD 소개</a></li>
-       <li><a href="#">빵 만들기</a>
-         <ul class="submenu">
-           <li><a href="#">제빵 재료</a></li>
-           <li><a href="#">제빵 도구</a></li>
-           <li><a href="#">제빵 포장도구</a></li>
-         </ul>
-       </li>
-       <li><a href="#">커뮤니티</a>
+       <li><a href="intro">나만의 냉장고 소개</a></li>
+       
+       <li><a href="product">IoT 상품</a></li>
+       <li><a href="commu">커뮤니티</a>
          <ul class="submenu">
            <li><a href="#">나만의 레시피</a></li>
-           <li><a href="#">내가 만든 방</a></li>
-           <li><a href="#">제빵 노하우</a></li>
+           <li><a href="#">자랑글</a></li>
+           <li><a href="#">QnA</a></li>
          </ul>
        </li>
-        <li class="clear"></li>
+       
       </ul>
 
     </nav>
@@ -44,7 +40,7 @@
 </header>
 <div class="clear"></div>
 
-<div id="imageslide" class="wrap">
+ <div id="imageslide" class="wrap">
   <div class="imgs"> 
   <img src="common/slide/images(1).jpg" alt="no">  
   <img src="common/slide/images(2).jpg" alt="no"> 
@@ -60,7 +56,7 @@
       <span>세상에 하나뿐인 베이커리</span>
       </h3>
    </div>
-</div>
+</div> 
 <div class="clear"></div>
 
 <div id="contents" class="wrap">

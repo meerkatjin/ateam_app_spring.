@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Insert title here</title>
 </head>
 <body>

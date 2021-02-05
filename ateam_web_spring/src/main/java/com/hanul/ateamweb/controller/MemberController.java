@@ -12,4 +12,10 @@ public class MemberController {
 		return "member/login";
 	}
 
+	//회원가입화면 요청 처리
+	@RequestMapping("/join")
+	public String join() {
+		return "member/join";
+	}
+
 }
