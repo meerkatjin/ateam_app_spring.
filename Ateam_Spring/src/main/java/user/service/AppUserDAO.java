@@ -63,4 +63,5 @@ public class AppUserDAO implements UserServiceInterface {
 	public List<AppUserDTO> getUserList() {
 		return sql.selectList("user.mapper.getUserList");
 	}
+
 }

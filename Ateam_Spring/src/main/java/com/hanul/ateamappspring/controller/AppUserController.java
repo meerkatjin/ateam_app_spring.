@@ -48,7 +48,7 @@ public class AppUserController {
 	//로그인
 	@RequestMapping(value = "/appLogin")
 	public String appLogin(Model model, AppUserDTO dto) {
-			model.addAttribute("appLogin", service.appLogin(dto));			
+		model.addAttribute("appLogin", service.appLogin(dto));			
 		return "appLogin";
 	}
 	
@@ -62,7 +62,6 @@ public class AppUserController {
 		if(chaeck == null) {	//회원 등록이 안되어있으면 db에 회원 정보 저장 진행
 				service.appJoin(dto);
 		}
-		
 		model.addAttribute("appLogin", service.appLogin(dto));		
 		
 		return "appLogin";
@@ -105,7 +104,6 @@ public class AppUserController {
 						
 			}
 		}
-
 		model.addAttribute("requestSuccess", String.valueOf(service.userInfoModify(dto)));
 		return "requestSuccess";
 	}
