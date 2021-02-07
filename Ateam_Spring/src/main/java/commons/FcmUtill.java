@@ -25,13 +25,13 @@ public class FcmUtill {
 							.getRealPath("/resources/fcm")
 							+ "/refrigerator-eaa72-firebase-adminsdk-6ah28-14a21639c6.json");
 			
-//			FirebaseOptions options = new FirebaseOptions.Builder()
-//					.setCredentials(GoogleCredentials.fromStream(refreshToken))
-//					.setDatabaseUrl("1212121212121212121212121212121212")
-//					.build();
+			System.out.println(request.getSession().getServletContext()
+							.getRealPath("/resources/fcm")
+							+ "/refrigerator-eaa72-firebase-adminsdk-6ah28-14a21639c6.json");
+			
 			FirebaseOptions options = FirebaseOptions.builder()
-				    .setCredentials(GoogleCredentials.getApplicationDefault())
-				    .setDatabaseUrl("https://<DATABASE_NAME>.firebaseio.com/")
+				    .setCredentials(GoogleCredentials.fromStream(refreshToken))
+				    .setDatabaseUrl("https://refrigerator-eaa72-default-rtdb.firebaseio.com")
 				    .build();
 			
 			//Firebase 처음 호출시에만 initializing 처리
@@ -39,22 +39,13 @@ public class FcmUtill {
 				FirebaseApp.initializeApp(options);
 			}
 			
-			//안드로이드 토큰
-			String registrationToken = tokenid;
 			
 			//메세지 작성
 			Message msg = Message.builder()
-					.setAndroidConfig(AndroidConfig.builder()
-							.setTtl(3600 * 1000)	//한시간마다 뭔가 하는거같은데 모르것다.
-							.setPriority(AndroidConfig.Priority.NORMAL)
-							.setNotification(AndroidNotification.builder()
-									.setTitle(title)
-									.setBody(content)
-									.setIcon("stock_ticker_update")
-									.setColor("#f45342")
-									.build())
-							.build())
-					.setToken(registrationToken)
+					.putData("title", title)
+					.putData("body", content)
+					.putData("color", "#f45342")
+					.setToken(tokenid)
 					.build();
 			
 			//메세지를 FirebaseMessaging에 보내기
