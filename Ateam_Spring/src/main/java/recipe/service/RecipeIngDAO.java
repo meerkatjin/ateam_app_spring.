@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import recipe.dto.RecipeInfoDTO;
 import recipe.dto.RecipeIngDTO;
+import recipe.dto.RecipeIrdntDTO;
 
 @Repository
 public class RecipeIngDAO implements RecipeIngInterface {
@@ -22,4 +23,10 @@ public class RecipeIngDAO implements RecipeIngInterface {
 
          return list;
     }//recipeInfo()
+
+	@Override
+	public List<RecipeIrdntDTO> recipeIrdnt(int recipe_id) {
+		List<RecipeIrdntDTO> list = sql.selectList("recipeIng.mapper.recipeIrdnt", recipe_id);
+		return list;
+	}
 }

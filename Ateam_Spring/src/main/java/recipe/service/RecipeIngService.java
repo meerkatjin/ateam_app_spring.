@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import recipe.dto.RecipeInfoDTO;
 import recipe.dto.RecipeIngDTO;
+import recipe.dto.RecipeIrdntDTO;
 
 @Service
 public class RecipeIngService implements RecipeIngInterface{
@@ -17,4 +18,9 @@ public class RecipeIngService implements RecipeIngInterface{
         System.out.println("inter");
         return dao.recipeIng(recipe_id );    //RecipeIngDAO로
     }
+
+	@Override
+	public List<RecipeIrdntDTO> recipeIrdnt(int recipe_id) {
+		return dao.recipeIrdnt(recipe_id);
+	}
 }

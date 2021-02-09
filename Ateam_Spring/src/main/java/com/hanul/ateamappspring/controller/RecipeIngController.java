@@ -21,4 +21,10 @@ public class RecipeIngController {
             return "recipeIng";
         }
         
+        
+        @RequestMapping(value = "/recipeIrdnt", method = { RequestMethod.GET, RequestMethod.POST })
+        public String recipeIngIrdnt(int recipe_id, Model model) {
+        	model.addAttribute("recipeIrdnt", service.recipeIrdnt(recipe_id));
+        	return "recipe/recipeIrdnt";
+        }
 }
