@@ -25,10 +25,6 @@ public class FcmUtill {
 							.getRealPath("/resources/fcm")
 							+ "/refrigerator-eaa72-firebase-adminsdk-6ah28-14a21639c6.json");
 			
-			System.out.println(request.getSession().getServletContext()
-							.getRealPath("/resources/fcm")
-							+ "/refrigerator-eaa72-firebase-adminsdk-6ah28-14a21639c6.json");
-			
 			FirebaseOptions options = FirebaseOptions.builder()
 				    .setCredentials(GoogleCredentials.fromStream(refreshToken))
 				    .setDatabaseUrl("https://refrigerator-eaa72-default-rtdb.firebaseio.com")
@@ -38,7 +34,6 @@ public class FcmUtill {
 			if(FirebaseApp.getApps().isEmpty()) {
 				FirebaseApp.initializeApp(options);
 			}
-			
 			
 			//메세지 작성
 			Message msg = Message.builder()
