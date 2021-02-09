@@ -11,7 +11,6 @@
 			<fieldset>
 				<legend>상품</legend>
 				<table>
-				
 				</table>
 			</fieldset>
 		</form>

@@ -2,7 +2,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <!DOCTYPE>
-<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>속보이는 냉장고</title>
@@ -10,9 +9,7 @@
 <script src="js/script.js" defer="defer" type="text/javascript"></script>
 <script src="js/jquery-1.12.3.js" type="text/javascript"></script>
 </head>
-
 <body>
-
 <header class="all">
 <div id="header_logo" class="wrap">
     <div class="logo">
@@ -32,14 +29,12 @@
            <li><a href="#">QnA</a></li>
          </ul>
        </li>
-       
       </ul>
-
     </nav>
 </div>
 </header>
-<div class="clear"></div>
 
+<div class="clear"></div>
  <div id="imageslide" class="wrap">
   <div class="imgs"> 
   <img src="common/slide/images(1).jpg" alt="no">  
@@ -147,7 +142,6 @@ E-mail : master@ddbb.com</p>
 </div>
 <div class="clear"></div>
 </footer>
-
 </body>
 </html>
 </html>

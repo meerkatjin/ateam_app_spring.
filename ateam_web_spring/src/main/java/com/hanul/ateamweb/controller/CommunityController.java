@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class CommunityController {
+	
 	//커뮤니티 게시판 이동
 	@RequestMapping("/commu")
 	public String commu() {
@@ -22,4 +23,5 @@ public class CommunityController {
 	public String commu_read() {
 		return "community/commu_read";
 	}
+	
 }
