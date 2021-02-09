@@ -73,8 +73,6 @@ public class FrigeContentsController {
 	//유통기한 임박한 내용물 갯수 가져오기
 	@RequestMapping("/getLifeEndNum")
 	public String getLifeEndNum(Model model, long user_id) {
-		System.out.println(user_id);
-		System.out.println(service.getLifeEndNum(user_id));
 		model.addAttribute("getLifeEndNum",String.valueOf(service.getLifeEndNum(user_id)));
 		return "frige/getLifeEndNum";
 	}

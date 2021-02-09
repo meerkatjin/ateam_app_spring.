@@ -88,4 +88,5 @@
 		select * from MST_USER_INFO_TB
 		order by user_id
 	</select>
+	
 </mapper>

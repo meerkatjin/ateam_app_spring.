@@ -9,35 +9,15 @@ public class AppUserDTO {
 				user_pro_img,
 				user_phone_no,
 				user_grade,
-				user_type;
+				user_type,
+				user_device;
 	
-	//깡통생성자
-	public AppUserDTO() {}
-	
-	//회원의 모든 정보를 보낼때
-	public AppUserDTO(long user_id, String user_email, String user_pw, String user_nm, String user_addr,
-			String user_pro_img, String user_phone_no, String user_grade, String user_type) {
-		super();
-		this.user_id = user_id;
-		this.user_email = user_email;
-		this.user_pw = user_pw;
-		this.user_nm = user_nm;
-		this.user_addr = user_addr;
-		this.user_pro_img = user_pro_img;
-		this.user_phone_no = user_phone_no;
-		this.user_grade = user_grade;
-		this.user_type = user_type;
+	public String getUser_device() {
+		return user_device;
 	}
 
-	//회원가입 정보 저장
-	public AppUserDTO(String user_email, String user_pw, String user_nm, String user_addr,
-			String user_phone_no) {
-		super();
-		this.user_email = user_email;
-		this.user_pw = user_pw;
-		this.user_nm = user_nm;
-		this.user_addr = user_addr;
-		this.user_phone_no = user_phone_no;
+	public void setUser_device(String user_device) {
+		this.user_device = user_device;
 	}
 
 	public String getUser_type() {
