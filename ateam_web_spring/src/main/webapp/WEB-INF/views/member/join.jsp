@@ -6,49 +6,45 @@
 	<title>Xtra Blog</title>
 </head>
 <body>
-    <div class="container-fluid">
-        <main class="tm-main">          
-            <div class="row tm-row tm-mb-120">
-                <div class="col-12">
-                    <h2 class="tm-color-primary tm-post-title tm-mb-60">회원가입</h2>
-                </div>
-                <div class="col-lg-7 tm-contact-left">
-                    <form method="POST" action="" class="mb-5 ml-auto mr-0 tm-contact-form">                        
-                        <div class="form-group row mb-4">
-                            <label for="name" class="col-sm-3 col-form-label text-right tm-color-primary">Name</label>
-                            <div class="col-sm-9">
-                                <input class="form-control mr-0 ml-auto" name="name" id="name" type="text" required>                            
-                            </div>
-                        </div>
-                        <div class="form-group row mb-4">
-                            <label for="email" class="col-sm-3 col-form-label text-right tm-color-primary">Email</label>
-                            <div class="col-sm-9">
-                                <input class="form-control mr-0 ml-auto" name="email" id="email" type="email" required>
-                            </div>
-                        </div>
-                        <div class="form-group row mb-4">
-                            <label for="subject" class="col-sm-3 col-form-label text-right tm-color-primary">Subject</label>
-                            <div class="col-sm-9">
-                                <input class="form-control mr-0 ml-auto" name="subject" id="subject" type="text" required>
-                            </div>
-                        </div>
-                        <div class="form-group row mb-5">
-                            <label for="message" class="col-sm-3 col-form-label text-right tm-color-primary">Message</label>
-                            <div class="col-sm-9">
-                                <textarea class="form-control mr-0 ml-auto" name="message" id="message" rows="8" required></textarea>                                
-                            </div>
-                        </div>
-                        <div class="form-group row text-right">
-                            <div class="col-12">
-                                <button class="tm-btn tm-btn-primary tm-btn-small">Submit</button>                        
-                            </div>                            
-                        </div>                                
-                    </form>
-                </div>
-            </div>      
-        </main>
-    </div>
-<script src="js/jquery.min.js"></script>
-<script src="js/templatemo-script.js"></script>
+	<div align="center">
+		<form action="main.jsp" method="post">
+			<fieldset>
+				<legend>회원가입 화면</legend>
+				<table border="1">
+					<tr>
+						<th><label for="user_email">이메일</label></th>
+						<td><input type="text" name="user_email"/>@<select><option>naver.com</option></select>
+						</td>
+					</tr>
+					<tr>
+						<th><label for="user_pw">비밀번호</label></th>
+						<td><input type="password" name="user_pw"/></td>
+					</tr>
+					<tr>
+						<th><label for="user_pw_confirm">비밀번호 확인</label></th>
+						<td><input type="password" name="user_pw_confirm"/></td>
+					</tr>
+					<tr>
+						<th><label for="user_name">이름(닉네임)</label></th>
+						<td><input type="password" name="user_name"/></td>
+					</tr>
+					<tr>
+						<th><label for="user_addr">주소</label></th>
+						<td><input type="password" name="user_addr"/></td>
+					</tr>
+					<tr>
+						<th><label for="user_tel">전화번호</label></th>
+						<td><input type="password" name="user_tel"/></td>
+					</tr>
+					<tr>
+						<td colspan="2" align="center">
+							<input type="submit" value="회원가입"/>
+							<input type="button" value="가입취소"/>
+						</td>
+					</tr>
+				</table>
+			</fieldset>		
+		</form>
+	</div>
 </body>
 </html>
