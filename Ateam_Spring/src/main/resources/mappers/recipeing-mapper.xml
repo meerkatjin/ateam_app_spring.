@@ -6,4 +6,10 @@
         where recipe_id = #{recipe_id} 
         order by cooking_no asc
     </select>
+    
+    <select id="recipeIrdnt" resultType="recipe.dto.RecipeIrdntDTO">
+    	SELECT * FROM APP_RECIPE_IRDNT_TB 
+    	WHERE recipe_id = #{recipe_id}
+    	ORDER BY irdnt_ty_code, irdnt_nm
+    </select>
 </mapper>
