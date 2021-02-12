@@ -1,147 +1,184 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
-<!DOCTYPE>
+<!DOCTYPE html>
+<html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>속보이는 냉장고</title>
-<link href="css/style.css" type="text/css" rel="stylesheet">
-<script src="js/script.js" defer="defer" type="text/javascript"></script>
-<script src="js/jquery-1.12.3.js" type="text/javascript"></script>
+<meta charset="UTF-8">
+<title>Insert title here</title>
 </head>
 <body>
-<header class="all">
-<div id="header_logo" class="wrap">
-    <div class="logo">
-    <a href="#"><img src="common/logo/LOGO.jpg" alt="no"></a>
+    <div class="container-fluid">
+        <main class="tm-main">        
+            <div class="row tm-row">
+                <article class="col-12 col-md-6 tm-post">
+                    <hr class="tm-hr-primary">
+                    <a href="post.html" class="effect-lily tm-post-link tm-pt-60">
+                        <div class="tm-post-link-inner">
+                            <img src="img/img-01.jpg" alt="Image" class="img-fluid">                            
+                        </div>
+                        <span class="position-absolute tm-new-badge">New</span>
+                        <h2 class="tm-pt-30 tm-color-primary tm-post-title">Simple and useful HTML layout</h2>
+                    </a>                    
+                    <p class="tm-pt-30">
+                        There is a clickable image with beautiful hover effect and active title link for each post item. 
+                        Left side is a sticky menu bar. Right side is a blog content that will scroll up and down.
+                    </p>
+                    <div class="d-flex justify-content-between tm-pt-45">
+                        <span class="tm-color-primary">Travel . Events</span>
+                        <span class="tm-color-primary">June 24, 2020</span>
+                    </div>
+                    <hr>
+                    <div class="d-flex justify-content-between">
+                        <span>36 comments</span>
+                        <span>by Admin Nat</span>
+                    </div>
+                </article>
+                <article class="col-12 col-md-6 tm-post">
+                    <hr class="tm-hr-primary">
+                    <a href="post.html" class="effect-lily tm-post-link tm-pt-60">
+                        <div class=" tm-post-link-inner">
+                            <img src="img/img-02.jpg" alt="Image" class="img-fluid">                            
+                        </div>
+                        <span class="position-absolute tm-new-badge">New</span>
+                        <h2 class="tm-pt-30 tm-color-primary tm-post-title">Multi-purpose blog template</h2>
+                    </a>
+                    <div class="d-flex justify-content-between tm-pt-45">
+                        <span class="tm-color-primary">Creative . Design . Business</span>
+                        <span class="tm-color-primary">June 16, 2020</span>
+                    </div>
+                    <hr>
+                    <div class="d-flex justify-content-between">
+                        <span>48 comments</span>
+                        <span>by Admin Sam</span>
+                    </div>
+                </article>
+                <article class="col-12 col-md-6 tm-post">
+                    <hr class="tm-hr-primary">
+                    <a href="post.html" class="effect-lily tm-post-link tm-pt-20">
+                        <div class="tm-post-link-inner">
+                            <img src="img/img-03.jpg" alt="Image" class="img-fluid">
+                        </div>
+                        <h2 class="tm-pt-30 tm-color-primary tm-post-title">How can you apply Xtra Blog</h2>
+                    </a>                    
+                    <p class="tm-pt-30">
+                        You are <u>allowed</u> to convert this template as any kind of CMS theme or template for your custom website builder. 
+                        You can also use this for your clients. Thank you for choosing us.
+                    </p>
+                    <div class="d-flex justify-content-between tm-pt-45">
+                        <span class="tm-color-primary">Music . Audio</span>
+                        <span class="tm-color-primary">June 11, 2020</span>
+                    </div>
+                    <hr>
+                    <div class="d-flex justify-content-between">
+                        <span>24 comments</span>
+                        <span>by John Walker</span>
+                    </div>
+                </article>
+                <article class="col-12 col-md-6 tm-post">
+                    <hr class="tm-hr-primary">
+                    <a href="post.html" class="effect-lily tm-post-link tm-pt-20">
+                        <div class="tm-post-link-inner">
+                            <img src="img/img-04.jpg" alt="Image" class="img-fluid">
+                        </div>
+                        <h2 class="tm-pt-30 tm-color-primary tm-post-title">A little restriction to apply</h2>
+                    </a>                    
+                    <p class="tm-pt-30">
+                        You are <u>not allowed</u> to re-distribute this template as a downloadable ZIP file on any template collection
+                        website. This is strongly prohibited as we worked hard for this template. Please contact TemplateMo for more information.
+                    </p>
+                    <div class="d-flex justify-content-between tm-pt-45">
+                        <span class="tm-color-primary">Artworks . Design</span>
+                        <span class="tm-color-primary">June 4, 2020</span>
+                    </div>
+                    <hr>
+                    <div class="d-flex justify-content-between">
+                        <span>72 comments</span>
+                        <span>by Admin Sam</span>
+                    </div>
+                </article>
+                <article class="col-12 col-md-6 tm-post">
+                    <hr class="tm-hr-primary">
+                    <a href="post.html" class="effect-lily tm-post-link tm-pt-20">
+                        <div class="tm-post-link-inner">
+                            <img src="img/img-05.jpg" alt="Image" class="img-fluid">
+                        </div>
+                        <h2 class="tm-pt-30 tm-color-primary tm-post-title">Color hexa values of Xtra Blog</h2>
+                    </a>                    
+                    <p class="tm-pt-30">
+                        If you wish to kindly support us, please contact us or contribute a small PayPal amount to info [at] templatemo.com that is helpful for us.
+                        <br>
+                        Title #099 New #0CC <br>
+                        <span class="tm-color-primary">Text #999 Line #CCC Next #0CC Prev #F0F0F0</span>
+                    </p>
+                    <div class="d-flex justify-content-between tm-pt-45">
+                        <span class="tm-color-primary">Creative . Video . Audio</span>
+                        <span class="tm-color-primary">May 31, 2020</span>
+                    </div>
+                    <hr>
+                    <div class="d-flex justify-content-between">
+                        <span>84 comments</span>
+                        <span>by Admin Sam</span>
+                    </div>
+                </article>
+                <article class="col-12 col-md-6 tm-post">
+                    <hr class="tm-hr-primary">
+                    <a href="post.html" class="effect-lily tm-post-link tm-pt-20">
+                        <div class="tm-post-link-inner">
+                            <img src="img/img-06.jpg" alt="Image" class="img-fluid">
+                        </div>
+                        <h2 class="tm-pt-30 tm-color-primary tm-post-title">Donec convallis varius risus</h2>
+                    </a>                    
+                    <p class="tm-pt-30">
+                        Quisque id ipsum vel sem maximus vulputate sed quis velit. Nunc vel turpis eget orci elementum cursus vitae in eros. Quisque vulputate nulla ut dolor consectetur luctus.
+                    </p>
+                    <div class="d-flex justify-content-between tm-pt-45">
+                        <span class="tm-color-primary">Visual . Artworks</span>
+                        <span class="tm-color-primary">June 16, 2020</span>
+                    </div>
+                    <hr>
+                    <div class="d-flex justify-content-between">
+                        <span>96 comments</span>
+                        <span>by Admin Sam</span>
+                    </div>
+                </article>
+            </div>
+            <div class="row tm-row tm-mt-100 tm-mb-75">
+                <div class="tm-prev-next-wrapper">
+                    <a href="#" class="mb-2 tm-btn tm-btn-primary tm-prev-next disabled tm-mr-20">Prev</a>
+                    <a href="#" class="mb-2 tm-btn tm-btn-primary tm-prev-next">Next</a>
+                </div>
+                <div class="tm-paging-wrapper">
+                    <span class="d-inline-block mr-3">Page</span>
+                    <nav class="tm-paging-nav d-inline-block">
+                        <ul>
+                            <li class="tm-paging-item active">
+                                <a href="#" class="mb-2 tm-btn tm-paging-link">1</a>
+                            </li>
+                            <li class="tm-paging-item">
+                                <a href="#" class="mb-2 tm-btn tm-paging-link">2</a>
+                            </li>
+                            <li class="tm-paging-item">
+                                <a href="#" class="mb-2 tm-btn tm-paging-link">3</a>
+                            </li>
+                            <li class="tm-paging-item">
+                                <a href="#" class="mb-2 tm-btn tm-paging-link">4</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>                
+            </div>            
+            <footer class="row tm-row">
+                <hr class="col-12">
+                <div class="col-md-6 col-12 tm-color-gray">
+                    Design: <a rel="nofollow" target="_parent" href="https://templatemo.com" class="tm-external-link">TemplateMo</a>
+                </div>
+                <div class="col-md-6 col-12 tm-color-gray tm-copyright">
+                    Copyright 2020 Xtra Blog Company Co. Ltd.
+                </div>
+            </footer>
+        </main>
     </div>
-    <div id="login_a"><a  href="join">회원가입</a></div>
-    <div id="login_a"><a  href="login">로그인</a></div>
-    <nav>
-      <ul class="nav">
-       <li><a href="intro">나만의 냉장고 소개</a></li>
-       
-       <li><a href="product">IoT 상품</a></li>
-       <li><a href="commu">커뮤니티</a>
-         <ul class="submenu">
-           <li><a href="#">나만의 레시피</a></li>
-           <li><a href="#">자랑글</a></li>
-           <li><a href="#">QnA</a></li>
-         </ul>
-       </li>
-      </ul>
-    </nav>
-</div>
-</header>
-
-<div class="clear"></div>
- <div id="imageslide" class="wrap">
-  <div class="imgs"> 
-  <img src="common/slide/images(1).jpg" alt="no">  
-  <img src="common/slide/images(2).jpg" alt="no"> 
-  <img src="common/slide/images(3).jpg" alt="no">
-  <img src="common/slide/images(4).jpg" alt="no">
-  <img src="common/slide/images(5).jpg" alt="no">
-  </div>
-   <div class="welcome">
-      <h1>
-      <span>베이커리 카페</span>
-      </h1>
-      <h3> 
-      <span>세상에 하나뿐인 베이커리</span>
-      </h3>
-   </div>
-</div> 
-<div class="clear"></div>
-
-<div id="contents" class="wrap">
-	<div class="notice">
-    	<h2>공지사항</h2>
-        <table class="table">
-        	<tr>
-            	<th>내용</th>
-                <th>날짜</th>
-            </tr>
-            <tr>
-            	<td><a href="#">제1회 DD 베이커리 워크숍에 초대합니다(서울권).</a></td>
-                <td>2017-12-12</td>
-            </tr>
-            <tr>
-            	<td><a href="#">올림픽공원 카페 초보 여성 창업을 추천받습니다.</a></td>
-                <td>2017-12-10</td>
-            </tr>
-            <tr>
-            	<td><a href="#">맛과 영양, 환경문제까지 생각하는 베이커리!</a></td>
-                <td>2018-03-09</td>
-            </tr>
-            <tr>
-            	<td><a href="#">고품질 크림으로 만든 디저트로 달콤하게 겨울나기</a></td>
-                <td>2018-03-07</td>
-            </tr>
-            <tr>
-            	<td><a href="#">온가족이 함께 즐기는 베이킹 체험 교실</a></td>
-                <td>2018-03-05</td>
-            </tr>
-        </table>
-    </div>
-        
-    <div class="partner">
-      <h2>Partner</h2>
-      <div class="partner_info">
-           <img src="common/partner/PARTNER.jpg" alt=" "><br>
-           <img src="common/partner/PARTNER_UP.png" alt=" ">
-      </div>
-    </div>
-    <div class="clear"></div>
-    
-    <div id="partner_up">
-     <div class="body">
-       <div class="partner_img">
-           <img src="common/partner/PARTNER.jpg" alt=" " width="300">
-           <img src="common/partner/PARTNER_UP.png" alt=" " width="500">
-       </div>
-       <div class="button"><br>
-       <button type="button" id="btn-close">닫기</button>
-       </div>
-     </div>    
-    </div>
-
-    <div class="icon">
-       <div class="icons">
-           <div class="btn">
-             <img src="common/icons/icon1.png" alt=" "><br>
-             <button>고수의 레시피</button>
-           </div>
-           <div class="btn">
-             <img src="common/icons/icon2.png" alt=" "><br>
-             <button>모임 일정</button>
-           </div>
-           <div class="btn">
-             <img src="common/icons/icon3.png" alt=" "><br>
-             <button>식품안전관리</button>
-           </div>
-       </div>
-    </div>
-</div>
-<div class="clear"></div>
-
-<footer> 
-<div class="wrap">
-    <ul>
-      <li><a href="#">법적고지</a></li>
-      <li><a href="#">개인정보취급방침</a></li>
-      <li><a href="#">개인정보처리방침</a></li>
-    </ul>
-<p>사업자번호:228-81-03754<br>
-상호명:(주)디디베이커리<br>
-대표자:다진<br>
-개인정보관리책임자:윤준우<br>
-상담전화:1588-0789<br>
-사업장주소:서울특별시 금천구 가산동 가산디지털2로<br>
-E-mail : master@ddbb.com</p>
-</div>
-<div class="clear"></div>
-</footer>
+    <script src="js/jquery.min.js"></script>
+	<script src="js/templatemo-script.js"></script>
 </body>
-</html>
 </html>
