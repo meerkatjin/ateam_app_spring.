@@ -15,7 +15,7 @@
   </div> 
       <nav class="tm-nav" id="tm-nav">            
           <ul>
-              <li class="tm-nav-item active"><a href="#" class="tm-nav-link">
+              <li class="tm-nav-item active"><a href="index" class="tm-nav-link">
                   <i class="fas fa-home"></i>
                   Home
               </a></li>
