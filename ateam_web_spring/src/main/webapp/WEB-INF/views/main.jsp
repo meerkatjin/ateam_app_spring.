@@ -7,21 +7,21 @@
 <title>Insert title here</title>
 </head>
 <body>
-    <div class="container-fluid">
-        <main class="tm-main">        
+    <div class="container-fluid">	<!-- 메인페이지를 모두 감싸는 컨테이너 지워도 큰 차이는 없음, css 적용은 안되어있음 -->
+        <main class="tm-main">		<!-- 메인페이지 내용물이 가운데로 모이게 만들어줌 -->
+        <!-- 타이틀 이미지를 여기에 넣을 수 있을듯 -->
             <div class="row tm-row">
-                <article class="col-12 col-md-6 tm-post">
+                <article class="col-12 col-md-6 tm-post">	<!-- article 단위로 한묶음씩이다. -->
                     <hr class="tm-hr-primary">
-                    <a href="post.html" class="effect-lily tm-post-link tm-pt-60">
+                    <a href="post.html" class="effect-lily tm-post-link tm-pt-45">
                         <div class="tm-post-link-inner">
                             <img src="img/img-01.jpg" alt="Image" class="img-fluid">                            
                         </div>
                         <span class="position-absolute tm-new-badge">New</span>
-                        <h2 class="tm-pt-30 tm-color-primary tm-post-title">Simple and useful HTML layout</h2>
+                        <h2 class="tm-pt-30 tm-color-primary tm-post-title">공지사항</h2>
                     </a>                    
                     <p class="tm-pt-30">
-                        There is a clickable image with beautiful hover effect and active title link for each post item. 
-                        Left side is a sticky menu bar. Right side is a blog content that will scroll up and down.
+                        여기에 내용을 띄우던지 사진을 날려서 리스트를 띄우던지 해야함
                     </p>
                     <div class="d-flex justify-content-between tm-pt-45">
                         <span class="tm-color-primary">Travel . Events</span>
@@ -35,13 +35,16 @@
                 </article>
                 <article class="col-12 col-md-6 tm-post">
                     <hr class="tm-hr-primary">
-                    <a href="post.html" class="effect-lily tm-post-link tm-pt-60">
+                    <a href="view.fc" class="effect-lily tm-post-link tm-pt-45">
                         <div class=" tm-post-link-inner">
                             <img src="img/img-02.jpg" alt="Image" class="img-fluid">                            
                         </div>
                         <span class="position-absolute tm-new-badge">New</span>
-                        <h2 class="tm-pt-30 tm-color-primary tm-post-title">Multi-purpose blog template</h2>
+                        <h2 class="tm-pt-30 tm-color-primary tm-post-title">속보이는 냉장고</h2>
                     </a>
+                    <p class="tm-pt-30">
+                        여기는 심볼 이미지 1개, 알림, 타이틀 이름만 있으면 될까..?
+                    </p>
                     <div class="d-flex justify-content-between tm-pt-45">
                         <span class="tm-color-primary">Creative . Design . Business</span>
                         <span class="tm-color-primary">June 16, 2020</span>
@@ -58,11 +61,11 @@
                         <div class="tm-post-link-inner">
                             <img src="img/img-03.jpg" alt="Image" class="img-fluid">
                         </div>
-                        <h2 class="tm-pt-30 tm-color-primary tm-post-title">How can you apply Xtra Blog</h2>
+                        <h2 class="tm-pt-30 tm-color-primary tm-post-title">레시피</h2>
                     </a>                    
                     <p class="tm-pt-30">
-                        You are <u>allowed</u> to convert this template as any kind of CMS theme or template for your custom website builder. 
-                        You can also use this for your clients. Thank you for choosing us.
+                        여기에는 <u>오늘의 추천 레시피가</u> 이미지로 나오도록 해야할긋ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
+                        ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
                     </p>
                     <div class="d-flex justify-content-between tm-pt-45">
                         <span class="tm-color-primary">Music . Audio</span>
@@ -80,11 +83,10 @@
                         <div class="tm-post-link-inner">
                             <img src="img/img-04.jpg" alt="Image" class="img-fluid">
                         </div>
-                        <h2 class="tm-pt-30 tm-color-primary tm-post-title">A little restriction to apply</h2>
+                        <h2 class="tm-pt-30 tm-color-primary tm-post-title">여기는 커뮤니티</h2>
                     </a>                    
                     <p class="tm-pt-30">
-                        You are <u>not allowed</u> to re-distribute this template as a downloadable ZIP file on any template collection
-                        website. This is strongly prohibited as we worked hard for this template. Please contact TemplateMo for more information.
+                        근데 여기에 커뮤니티 뭐 하면될까 관리팁 넣으면 될것같긴함
                     </p>
                     <div class="d-flex justify-content-between tm-pt-45">
                         <span class="tm-color-primary">Artworks . Design</span>
@@ -93,51 +95,6 @@
                     <hr>
                     <div class="d-flex justify-content-between">
                         <span>72 comments</span>
-                        <span>by Admin Sam</span>
-                    </div>
-                </article>
-                <article class="col-12 col-md-6 tm-post">
-                    <hr class="tm-hr-primary">
-                    <a href="post.html" class="effect-lily tm-post-link tm-pt-20">
-                        <div class="tm-post-link-inner">
-                            <img src="img/img-05.jpg" alt="Image" class="img-fluid">
-                        </div>
-                        <h2 class="tm-pt-30 tm-color-primary tm-post-title">Color hexa values of Xtra Blog</h2>
-                    </a>                    
-                    <p class="tm-pt-30">
-                        If you wish to kindly support us, please contact us or contribute a small PayPal amount to info [at] templatemo.com that is helpful for us.
-                        <br>
-                        Title #099 New #0CC <br>
-                        <span class="tm-color-primary">Text #999 Line #CCC Next #0CC Prev #F0F0F0</span>
-                    </p>
-                    <div class="d-flex justify-content-between tm-pt-45">
-                        <span class="tm-color-primary">Creative . Video . Audio</span>
-                        <span class="tm-color-primary">May 31, 2020</span>
-                    </div>
-                    <hr>
-                    <div class="d-flex justify-content-between">
-                        <span>84 comments</span>
-                        <span>by Admin Sam</span>
-                    </div>
-                </article>
-                <article class="col-12 col-md-6 tm-post">
-                    <hr class="tm-hr-primary">
-                    <a href="post.html" class="effect-lily tm-post-link tm-pt-20">
-                        <div class="tm-post-link-inner">
-                            <img src="img/img-06.jpg" alt="Image" class="img-fluid">
-                        </div>
-                        <h2 class="tm-pt-30 tm-color-primary tm-post-title">Donec convallis varius risus</h2>
-                    </a>                    
-                    <p class="tm-pt-30">
-                        Quisque id ipsum vel sem maximus vulputate sed quis velit. Nunc vel turpis eget orci elementum cursus vitae in eros. Quisque vulputate nulla ut dolor consectetur luctus.
-                    </p>
-                    <div class="d-flex justify-content-between tm-pt-45">
-                        <span class="tm-color-primary">Visual . Artworks</span>
-                        <span class="tm-color-primary">June 16, 2020</span>
-                    </div>
-                    <hr>
-                    <div class="d-flex justify-content-between">
-                        <span>96 comments</span>
                         <span>by Admin Sam</span>
                     </div>
                 </article>
@@ -169,7 +126,5 @@
             </div>            
         </main>
     </div>
-    <script src="js/jquery.min.js"></script>
-	<script src="js/templatemo-script.js"></script>
 </body>
 </html>

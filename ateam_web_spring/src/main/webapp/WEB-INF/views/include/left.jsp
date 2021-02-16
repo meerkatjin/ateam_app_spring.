@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
 <header class="tm-header" id="tm-header">
   <div class="tm-header-wrapper">
       <button class="navbar-toggler" type="button" aria-label="Toggle navigation">
@@ -15,7 +16,7 @@
   </div> 
       <nav class="tm-nav" id="tm-nav">            
           <ul>
-              <li class="tm-nav-item active"><a href="index" class="tm-nav-link">
+              <li class="tm-nav-item active"><a href='<c:url value="/" />' class="tm-nav-link">
                   <i class="fas fa-home"></i>
                   Home
               </a></li>
