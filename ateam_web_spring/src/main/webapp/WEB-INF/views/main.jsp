@@ -9,11 +9,13 @@
 <body>
     <div class="container-fluid">	<!-- 메인페이지를 모두 감싸는 컨테이너 지워도 큰 차이는 없음, css 적용은 안되어있음 -->
         <main class="tm-main">		<!-- 메인페이지 내용물이 가운데로 모이게 만들어줌 -->
-        <!-- 타이틀 이미지를 여기에 넣을 수 있을듯 -->
+        	<div style="max-width:950px; ">
+        		<img src="img/img-01.jpg" width="100%">
+			</div>
             <div class="row tm-row">
                 <article class="col-12 col-md-6 tm-post">	<!-- article 단위로 한묶음씩이다. -->
                     <hr class="tm-hr-primary">
-                    <a href="post.html" class="effect-lily tm-post-link tm-pt-45">
+                    <a href="view.no" class="effect-lily tm-post-link tm-pt-45">
                         <div class="tm-post-link-inner">
                             <img src="img/img-01.jpg" alt="Image" class="img-fluid">                            
                         </div>

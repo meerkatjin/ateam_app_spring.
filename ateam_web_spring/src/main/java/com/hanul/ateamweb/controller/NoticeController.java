@@ -4,10 +4,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class FrigeContentsController {
-	
-	@RequestMapping("/view.fc")
-	public String frigeView() {
-		return "frige/view";
+public class NoticeController {
+
+	@RequestMapping("/view.no")
+	public String noticeView() {
+		return "notice/view";
 	}
 }
