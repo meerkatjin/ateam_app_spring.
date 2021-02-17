@@ -2,6 +2,8 @@ package com.hanul.ateamweb.controller;
 
 import java.util.Locale;
 
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -15,8 +17,12 @@ public class HomeController {
 
 	@RequestMapping("/")
 	public String home(Locale locale, Model model) {
-		
 		return "main";
 	}
 	
+	@RequestMapping("/intro.it")
+	public String intro(HttpSession session) {
+		session.setAttribute("category", "it");
+		return "intro";
+	}
 }

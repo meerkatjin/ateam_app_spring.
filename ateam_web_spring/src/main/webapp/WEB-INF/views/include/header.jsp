@@ -5,7 +5,7 @@
 	<div class='category' style='margin-left:100px'>
 	<ul>
 		<li><a href='<c:url value="/" />'><img src='imgs/hanul.logo.png'/></a></li>
-		<li><a class="${category eq 'cu' ? 'active' : ''}" href='#'>소개글</a></li>
+		<li><a class="${category eq 'it' ? 'active' : ''}" href='#'>소개글</a></li>
 		<li><a class="${category eq 'hr' ? 'active' : ''}" href='list.no'>공지사항</a></li>
 		<li><a class="${category eq 'no' ? 'active' : ''}" href='#'>상품</a></li>
 		<li><a class="${category eq 'bo' ? 'active' : ''}" href='#'>레시피</a></li>
