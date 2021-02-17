@@ -87,6 +87,8 @@ textarea[name=content] { width:calc(100% - 6px); resize:none; height:150px; }
 #attach-file, #delete-file { display:none;   }
 #delete-file { color:red; }
 
+ul.submenu > li { display:block; width:120px; padding:5px 10px; text-align:center; }
+
 .w-pct80 { width:80% }
 .w-pct60 { width:60% }
 .w-pct50 { width:50% }

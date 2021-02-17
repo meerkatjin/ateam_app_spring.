@@ -9,7 +9,13 @@
 		<li><a class="${category eq 'no' ? 'active' : ''}" href='list.no'>공지사항</a></li>
 		<li><a class="${category eq 'pd' ? 'active' : ''}" href='product.pd'>상품</a></li>
 		<li><a class="${category eq 'rp' ? 'active' : ''}" href='list.rp'>레시피</a></li>
-		<li><a class="${category eq 'cu' ? 'active' : ''}" href='commu.cu'>커뮤니티</a></li>
+		<li class="menu"><a class="${category eq 'cu' ? 'active' : ''}" href='commu.cu'>커뮤니티</a>
+			<ul class="submenu">
+				<li><a href="#">공지사항</a></li>
+				<li><a href="#">자주묻는 질문</a></li>
+				<li><a href="#">게시판</a></li>
+			</ul>
+		</li>
 	</ul>
 	</div>
 	
