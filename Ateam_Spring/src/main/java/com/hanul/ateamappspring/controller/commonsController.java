@@ -16,10 +16,13 @@ public class commonsController {
 
 	@ResponseBody @RequestMapping("/alarmRequest")
 	public void alarmRequest(long user_id, String tokenID, HttpServletRequest request) {
-		String title = "유통기한 알림";
-		String content = "유통기한이 임박한 내용물이" + service.getLifeEndNum(user_id) + "개 있습니다!";
-		//long user_id, String user_type, 
-		FcmUtill fcmUtill = new FcmUtill();
-		fcmUtill.send_FCM(tokenID, title, content, request);
+		int num = service.getLifeEndNum(user_id);
+		if(num > 0) {			
+			String title = "유통기한 알림";
+			String content = "유통기한이 임박한 내용물이" + num + "개 있습니다!";
+			//long user_id, String user_type, 
+			FcmUtill fcmUtill = new FcmUtill();
+			fcmUtill.send_FCM(tokenID, title, content, request);
+		}
 	}
 }
