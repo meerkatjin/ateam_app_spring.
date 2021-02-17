@@ -25,4 +25,10 @@ public class HomeController {
 		session.setAttribute("category", "it");
 		return "intro";
 	}
+	
+	@RequestMapping("/product.pd")
+	public String product(HttpSession session) {
+		session.setAttribute("category", "pd");
+		return "product/product";
+	}
 }
