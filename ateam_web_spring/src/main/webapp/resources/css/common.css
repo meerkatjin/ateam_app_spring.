@@ -23,20 +23,22 @@ table th, table td {
 table tr td a:hover, ul.grid li div:first-child a:hover { font-weight:bold; } 
 
 .btnSet { margin-top:20px; }
+
+/*버튼 만들기 클래스*/
 a.btn-fill, a.btn-empty {
 	text-align:center;
 	padding: 3px 10px;
-	border:1px solid #3367d6;
+	border:1px solid #ddd;
 	border-radius:3px; 
 	box-shadow:2px 2px 3px #022d72; 
 }
 a.btn-fill { 
-	background-color: #3367d6;
-	color: #fff;
+	background-color: #ddd;
+	color: #000;
 }
 a.btn-empty {
 	background-color: #fff;
-	color: #3367d6;
+	color: #ddd;
 }
 
 a.btn-fill-s, a.btn-empty-s {
@@ -86,6 +88,10 @@ textarea[name=content] { width:calc(100% - 6px); resize:none; height:150px; }
 .file-img { width:24px } 
 #attach-file, #delete-file { display:none;   }
 #delete-file { color:red; }
+
+/*로고 사이즈 클래스 */
+.logo-header-size{height: 70px;}
+.logo-footer-size{height: 60px;}
 
 .w-pct80 { width:80% }
 .w-pct60 { width:60% }

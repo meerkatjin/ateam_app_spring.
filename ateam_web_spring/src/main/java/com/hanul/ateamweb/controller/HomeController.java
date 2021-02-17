@@ -16,7 +16,8 @@ public class HomeController {
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 
 	@RequestMapping("/")
-	public String home(Locale locale, Model model) {
+	public String home(HttpSession session) {
+		session.removeAttribute("category");
 		return "main";
 	}
 	
