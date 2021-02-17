@@ -1,25 +1,45 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	
-<title>속보이는 냉장고</title>
-<link rel="stylesheet" href="fontawesome/css/all.min.css"> <!-- https://fontawesome.com/ -->
-<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet"> <!-- https://fonts.google.com/ -->
-<link href="css/bootstrap.min.css" rel="stylesheet">
-<link href="css/templatemo-xtra-blog.css" rel="stylesheet">
-<link href="css/header_top.css" rel="stylesheet">
-<script src="js/jquery.min.js"></script>
-<script src="js/templatemo-script.js"></script>
+<meta charset="UTF-8">
+<c:choose>
+	<c:when test="${category eq 'cu'}">
+		<c:set var="title" value="고객관리 :" />
+	</c:when>
+	<c:when test="${category eq 'no' }">
+		<c:set var="title" value="공지사항 :" />
+	</c:when>
+	<c:when test="${category eq 'bo' }">
+		<c:set var="title" value="방명록 :" />
+	</c:when>
+	<c:when test="${category eq 'da' }">
+		<c:set var="title" value="공공데이터 :" />
+	</c:when>
+	<c:when test="${category eq 'hr' }">
+		<c:set var="title" value="사원관리 :" />
+	</c:when>
+	<c:when test="${category eq 'login' }">
+		<c:set var="title" value="로그인 :" />
+	</c:when>
+	<c:when test="${category eq 'join' }">
+		<c:set var="title" value="회원가입 :" />
+	</c:when>
+</c:choose>
+
+<title>${title}IOT</title>
+<link rel="icon" type="image/x-icon" href="imgs/hanul.ico">
+<link rel='stylesheet' type='text/css' href='css/common.css?v=<%=new java.util.Date().getTime() %>'>
+<script src='https://code.jquery.com/jquery-3.5.1.min.js'></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/js/all.min.js"></script>
 </head>
 <body>
-<tiles:insertAttribute name="left"/>
-<tiles:insertAttribute name="header"/>
-<main class="tm-main">
+<tiles:insertAttribute name="header" />
+<div id='content'>
 <tiles:insertAttribute name="content" />
-</main>
+</div>
+<tiles:insertAttribute name="footer" />
 </body>
 </html>
