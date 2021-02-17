@@ -1,0 +1,12 @@
+@charset "UTF-8";
+
+.tm-header-top {
+	min-height: 60px;
+	border-bottom: 2px solid #0CC;
+	margin-bottom: 20px;
+}
+
+img.logo-size {
+	width: 300px;
+	height: 90px;
+}
