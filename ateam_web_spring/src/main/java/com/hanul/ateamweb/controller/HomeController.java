@@ -28,8 +28,7 @@ public class HomeController {
 	}
 	
 	@RequestMapping("/product.pd")
-	public String product(HttpSession session) {
-		session.setAttribute("category", "pd");
+	public String product() {
 		return "product/product";
 	}
 }

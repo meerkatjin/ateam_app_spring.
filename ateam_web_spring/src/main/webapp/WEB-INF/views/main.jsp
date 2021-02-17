@@ -7,7 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h3>메인</h3>
-
+	<img src='imgs/maintitle1.jpg' style='width:100%;'/>
 </body>
 </html>

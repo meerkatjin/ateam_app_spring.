@@ -9,11 +9,8 @@
 	<c:when test="${category eq 'it'}">
 		<c:set var="title" value="소개글 :" />
 	</c:when>
-	<c:when test="${category eq 'no' }">
-		<c:set var="title" value="공지사항 :" />
-	</c:when>
-	<c:when test="${category eq 'pd' }">
-		<c:set var="title" value="상품 :" />
+	<c:when test="${category eq 'fc'}">
+		<c:set var="title" value="My 냉장고 :" />
 	</c:when>
 	<c:when test="${category eq 'rp' }">
 		<c:set var="title" value="레시피 :" />
