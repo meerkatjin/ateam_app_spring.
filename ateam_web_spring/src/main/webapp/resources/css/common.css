@@ -89,6 +89,9 @@ textarea[name=content] { width:calc(100% - 6px); resize:none; height:150px; }
 #attach-file, #delete-file { display:none;   }
 #delete-file { color:red; }
 
+
+ul.submenu > li { display:block; width:120px; padding:5px 10px; text-align:center; }
+
 /*로고 사이즈 클래스 */
 .logo-header-size{height: 70px;}
 .logo-footer-size{height: 60px;}
