@@ -38,7 +38,7 @@ a.btn-fill {
 }
 a.btn-empty {
 	background-color: #fff;
-	color: #ddd;
+	color: #000;
 }
 
 a.btn-fill-s, a.btn-empty-s {
@@ -100,6 +100,7 @@ ul.submenu > li { display:block; width:120px; padding:5px 10px; text-align:cente
 .w-pct60 { width:60% }
 .w-pct50 { width:50% }
 .w-pct40 { width:40% }
+.w-pct30 { width:30% }
 .w-px300 { width:300px; }
 .w-px200 { width:200px; }
 .w-px250 { width:200px; }

@@ -11,10 +11,6 @@
 	width: 50%; 
 	margin: 50px auto;
 }
-h3 {
-	display: inline-block;
-	margin-left: 20px;
-}
 #login { width:100%; border:1px solid #ccc; padding:30px 0; }
 #user_email, #user_pw { 
 	width:60%; height:40px; 
@@ -85,5 +81,12 @@ label:hover {
 			</div>
 		</div>
 	</div>
+	
+<script type="text/javascript">
+function do_login() {
+	
+	
+}
+</script>
 </body>
 </html>
