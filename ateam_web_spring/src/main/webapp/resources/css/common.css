@@ -7,7 +7,7 @@ body{
 	font-family: 'Noto Sans KR', sans-serif; 
 }
 a:link, a:visited { text-decoration:none; color:#000; }
-#content{ padding:0px; width:1024px; margin: 0px auto; }
+#content{ padding:0px; max-width:1024px; margin: 0px auto; display: flex; flex-wrap: wrap; }
 img { vertical-align:middle; }
 
 table {
@@ -23,6 +23,11 @@ table th, table td {
 table tr td a:hover, ul.grid li div:first-child a:hover { font-weight:bold; } 
 
 .btnSet { margin-top:20px; }
+
+/*메인 내용물 50% 사이즈*/
+.content-size-harf{ width: 50%; margin:10px 0; border: solid 1px #ddd; box-sizing:border-box; }
+.content-size-harf:nth-child(odd){ margin-left:5px;}
+.content-size-harf:nth-child(even){ margin-right:5px;}
 
 /*버튼 만들기 클래스*/
 a.btn-fill, a.btn-empty {
