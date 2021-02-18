@@ -28,6 +28,7 @@ input[type="text"], input[type="password"] {
 	height: 150px;
 	position: relative;
 	left: -17%;
+	border: 2px solid #CCC;
 }
 #btn-img-upload {
 	position: relative;
@@ -57,31 +58,38 @@ input[type="text"], input[type="password"] {
 			<h3>회원가입</h3>
 			<p class='w-pct30 right' style='margin:0 auto; padding-bottom:10px; 
 				float: right; margin-right: 12%;'>* 는 필수입력항목입니다</p>
-			<form method="post" action="">
-				<input type='text' id='user_email' placeholder="이메일 *" />
+			<form method="post" action="join">
+				<input type='text' name="user_email" class="check" placeholder="이메일 *" />
 				<div class='valid'>유효한 이메일을 입력하세요</div>
-				<input type='password' id='user_pw' placeholder="비밀번호 *" />
-				<div class='valid'>영문자, 숫자, 특수문자(*&@!)를 모두 포함해 8~32자를 입력해주세요</div>
-				<input type='password' id='user_pwcf' placeholder="비밀번호 확인 *" />
+				<input type='password' name="user_pw" class="check" placeholder="비밀번호 *" />
+				<div class='valid'>영문자, 숫자, 특수문자(! @ # $ % ^ & + -)를 모두 포함해 8~32자를 입력해주세요</div>
+				<input type='password' name="user_pwck" class="check" placeholder="비밀번호 확인 *" />
 				<div class='valid'>비밀번호를 다시 입력해주세요</div>
-				<input type='text' id='user_nm' placeholder="이름(별명) *" />
-				<input type='text' id='user_addr' placeholder="주소" />
-				<input type='text' id='user_phone_no' placeholder="전화번호" />
+				<input type='text' name='user_nm' placeholder="이름(별명) *" />
+				<input type='text' name='user_addr' placeholder="주소" />
+				<input type='text' name='user_phone_no' placeholder="전화번호" />
 				<img src="imgs/logo.balck.small.png" id="user_pro_img" />
 				<a class="btn-fill" id="btn-img-upload">사진 업로드</a>
 			</form>
 			
 			<div class="btnSet">
-				<a class="btn-fill" id="btn-join" onclick="">가입</a>
+				<a class="btn-fill" id="btn-join" onclick="go_join()">가입</a>
 				<a class="btn-empty" id="btn-join-cancel" href='<c:url value="/" />'>취소</a>
 			</div>
 		</div>
 	</div>
 	
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script type="text/javascript" src="js/join_check.js"></script>
 <script type="text/javascript">
+function go_join() {
+	if( $('[name=user_email]').val()=='' ){
+		alert('이메일을 입력하세요!');
+		$('[name=user_email]').focus();
+		return;
+	}
 
+	alert('test');
+}
 </script>
 </body>
 </html>
