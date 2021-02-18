@@ -1,37 +1,65 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Login Page</title>
+
+<style>
+.container {
+	width: 30%; 
+	margin: 0px auto;
+}
+h3 {
+	display: inline-block;
+	margin-left: 20px;
+}
+#login { width:100%; border:1px solid #ccc; padding:30px 0; }
+#user_email, #user_pw { 
+	width:60%; height:40px; 
+	padding:5px 3%; margin-bottom:10px;
+	border-collapse: collapse;
+	border: 0px;
+	border-style: none;
+	background: none;
+	outline: none;
+	border-bottom: 1px solid #000000;
+	display: block;  }
+.social {
+	display: block;
+	margin: 10px 0px;
+}
+.social img { width:66%; height:42px; }
+.bottom {
+	font-size: 14px;
+	margin-left: 10px;
+}
+</style>
+
 </head>
 <body>
-	<div align="center">
-		<form action="main.jsp" method="post">
-			<fieldset>
-				<legend>로그인 화면</legend>
-				<table border="1">
-					<tr>
-						<th><label for="user_email">이메일</label></th>
-						<td><input type="text" name="user_email"/></td>
-					</tr>
-					<tr>
-						<th><label for="user_pw">비밀번호</label></th>
-						<td><input type="password" name="user_pw"/></td>
-					</tr>
-					<tr>
-						<td colspan="2" align="center">
-							<input type="submit" value="로그인"/>
-							<input type="button" value="소셜로그인"/>
-							<input type="button" value="회원가입"/>
-						</td>
-					</tr>
-					<tr>
-						<td colspan="2" align="center"><input type="button" value="비밀번호 찾기"/></td>
-					</tr>
-				</table>
-			</fieldset>		
-		</form>
+	<div class="container" align="center">
+		<div id='login'>
+			<h3>로그인</h3>
+			<form method="post" action=''>
+				<input type='text' id='user_email' placeholder="이메일" />
+				<input type='password' id='user_pw' placeholder="비밀번호"
+					onkeypress="if( event.keyCode==13 ) do_login()"	 />
+				<div align="left" style="width:60%;">
+					<input type="checkbox" id="login_keep" /><label for="login_keep">로그인 상태 유지</label>
+				</div>
+				<a onclick='do_login()' class='btn-fill' style='display:block; margin:auto; width:62%; height:42px; line-height:42px; box-shadow:none;'>로그인</a>
+			</form>
+			<hr style='width:80%; margin:25px auto'>
+			<a class='social' href='naverlogin'><img src='imgs/naver_login.png' alt='네이버로그인' /></a>
+			<a class='social' href='kakaologin'><img src='imgs/kakao_login.png' alt='카카오로그인' /></a>
+			
+			<div align="right" style="width:60%;">
+				<a href="join" class="bottom">회원가입</a>
+				<a href="find" class="bottom">아이디/비밀번호 찾기</a>
+			</div>
+		</div>
 	</div>
 </body>
 </html>

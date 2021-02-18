@@ -16,7 +16,8 @@ public class HomeController {
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 
 	@RequestMapping("/")
-	public String home(Locale locale, Model model) {
+	public String home(HttpSession session) {
+		session.removeAttribute("category");
 		return "main";
 	}
 	
@@ -27,8 +28,7 @@ public class HomeController {
 	}
 	
 	@RequestMapping("/product.pd")
-	public String product(HttpSession session) {
-		session.setAttribute("category", "pd");
+	public String product() {
 		return "product/product";
 	}
 }
