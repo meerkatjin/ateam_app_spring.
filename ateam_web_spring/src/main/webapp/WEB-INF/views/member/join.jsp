@@ -59,11 +59,11 @@ input[type="text"], input[type="password"] {
 			<p class='w-pct30 right' style='margin:0 auto; padding-bottom:10px; 
 				float: right; margin-right: 12%;'>* 는 필수입력항목입니다</p>
 			<form method="post" action="join">
-				<input type='text' name="user_email" class="check" placeholder="이메일 *" />
+				<input type='text' name="user_email" class="chk" placeholder="이메일 *" />
 				<div class='valid'>유효한 이메일을 입력하세요</div>
-				<input type='password' name="user_pw" class="check" placeholder="비밀번호 *" />
+				<input type='password' name="user_pw" class="chk" placeholder="비밀번호 *" />
 				<div class='valid'>영문자, 숫자, 특수문자(! @ # $ % ^ & + -)를 모두 포함해 8~32자를 입력해주세요</div>
-				<input type='password' name="user_pwck" class="check" placeholder="비밀번호 확인 *" />
+				<input type='password' name="user_pwck" class="chk" placeholder="비밀번호 확인 *" />
 				<div class='valid'>비밀번호를 다시 입력해주세요</div>
 				<input type='text' name='user_nm' placeholder="이름(별명) *" />
 				<input type='text' name='user_addr' placeholder="주소" />
@@ -88,7 +88,84 @@ function go_join() {
 		return;
 	}
 
-	alert('test');
+	//이메일 중복검사는 이메일 입력창에서 벗어나면 바로 진행
+	//중복검사를 했다면 chked 클래스가 있다
+	if ($('[name=user_email]').hasClass('chked')) {
+		if( $('[name=user_email]').siblings('div').hasClass('invalid') ){
+			alert('회원가입 불가!\n' + join.user_email.unusable.desc );
+			$('[name=user_email]').focus();
+			return;
+		} else {
+			//중복검사를 하지 않은 경우
+			if (! item_check( $('[name=user_email]'))) {
+				return;
+			} else {
+				alert( join.user_email.valid.desc );
+				$('[name=user_email]').focus();
+				return;
+			}
+		} 
+	}
+
+	if( ! item_check( $('[name=pw]') ) ) return;
+	if( ! item_check( $('[name=pw_ck]') ) ) return;
+	
+
+	$('form').submit();
+}
+
+function item_check(tag) {
+	var result = join.tag_status(tag);
+	if (result.code == 'invalid') {
+		alert( '회원가입 불가!\n' + result.desc );
+		tag.focus();
+		return false;
+	} else return true;
+}
+
+function email_check() {
+	var $user_email = $('[name=user_email]');
+	var data = join.tag_status($user_email);
+
+	if (data.code == 'invalid') {
+		alert( '중복확인 불필요\n' + data.desc );
+		$user_email.focus();
+		return;
+	}
+
+	$.ajax({
+		type: 'post',
+		data: {user_email: $user_email.val()},
+		success: function(response) {
+			response = join.email_usable(response);
+			$id.siblings('div').text(response.desc);	
+			$id.siblings('div').removeClass();
+			$id.siblings('div').addClass(response.code);
+			$id.addClass('chked');
+		},
+		error: function(req, text) {
+			alert(text + ' : ' + req.status);
+		}
+	});
+}
+
+$('.chk').on('keyup', function(e){
+	if( $(this).attr('name')=='user_email' ){
+		if( e.keyCode==13 ){
+			id_check();
+			return;
+		}else
+			$(this).removeClass('chked');
+	} 
+	validate( $(this) );
+});
+
+function validate( tag ){
+	var data = join.tag_status( tag );
+	
+	tag.siblings('div').text( data.desc );	
+	tag.siblings('div').removeClass();
+	tag.siblings('div').addClass( data.code );
 }
 </script>
 </body>

@@ -7,7 +7,7 @@ body{
 	font-family: 'Noto Sans KR', sans-serif; 
 }
 a:link, a:visited { text-decoration:none; color:#000; }
-#content{ padding:0px; max-width:1024px; min-height:900px; margin: 0px auto; display: flex; flex-wrap: wrap; }
+#content{ padding:0px; max-width:1024px; min-height:500px; margin: 0px auto; display: flex; flex-wrap: wrap; }
 img { vertical-align:middle; }
 
 table {

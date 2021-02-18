@@ -13,7 +13,6 @@
 	display: inline-block;
 	width: 49%;
 	height: 500px;
-	background-color: #ccc;
 	margin-bottom: 30px;
 }
 </style>
@@ -23,7 +22,9 @@
 	<h3 align="left">My 냉장고</h3>
 	<div class="view" id="camera" style="position: relative; left: -1%;">A</div>
 	<div class="view" id="irdnt_list" style="position: relative; right: -1%;">
-		<div id="filter"></div>
+		<div id="filter">
+			
+		</div>
 		<div id="type-filter"></div>
 		<div id="irdnt_items">
 		B
