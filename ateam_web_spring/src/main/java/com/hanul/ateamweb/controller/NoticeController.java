@@ -9,7 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class NoticeController {
 
 	@RequestMapping("/list.no")
-	public String noticeView() {
+	public String noticeView(HttpSession session) {
+		session.setAttribute("category", "cu");
 		return "notice/list";
 	}
 }
