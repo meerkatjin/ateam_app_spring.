@@ -15,9 +15,15 @@ public class CommuVO {
 //	USER_TYPE	VARCHAR2(20 BYTE)
 	
 	private String board_qp, board_title, board_content, user_type;
-	private int board_no, user_id, board_readcount;
+	private int board_no, user_id, board_readcount, no;
 	private Date create_dt, update_dt;
 	
+	public int getNo() {
+		return no;
+	}
+	public void setNo(int no) {
+		this.no = no;
+	}
 	public String getBoard_qp() {
 		return board_qp;
 	}

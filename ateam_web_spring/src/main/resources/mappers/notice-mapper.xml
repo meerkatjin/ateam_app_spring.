@@ -2,8 +2,16 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="notice.mapper">
 
+<select id="totalList" resultType="integer">
+	select count(*) from mst_board_tb where board_gp = 1
+</select>
+
 <select id="list" resultType="common.CommuVO">
-	select * from mst_board_tb where board_gp = 1
+	select * from (select rownum no, b.* 
+	from (select * from mst_board_tb where board_gp = 1) b 
+	order by no desc)
+	where no between #{beginList} and #{endList}
+	
 </select>
 
 </mapper>

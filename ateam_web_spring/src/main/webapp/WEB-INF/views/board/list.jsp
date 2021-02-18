@@ -1,16 +1,21 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Community Board</title>
+<style type="text/css">
+.menu ul li { float: left; margin-right: 40px; font-size: 18px; font-weight: bold;}
+
+</style>
 </head>
 <body>
-<div>
-	<a href="list.no">공지사항</a>
-	<a href="list.qa">자주묻는 질문</a>
-	<a href="list.bo">게시판</a>
-</div>
-<h3>게시판</h3>
+	<div class="menu">
+	<ul>
+		<li><a href="list.no">공지사항</a></li>
+		<li><a href="list.qa">자주묻는 질문</a></li>
+		<li><a href="list.bo">게시판</a></li>
+	</ul>
+	</div>
 </body>
 </html>
