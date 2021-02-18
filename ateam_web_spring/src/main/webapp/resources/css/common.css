@@ -7,7 +7,7 @@ body{
 	font-family: 'Noto Sans KR', sans-serif; 
 }
 a:link, a:visited { text-decoration:none; color:#000; }
-#content{ padding:0px; width:1024px; margin: 0px auto; }
+#content{ padding:0px; max-width:1024px; min-height:500px; margin: 0px auto; display: flex; flex-wrap: wrap; }
 img { vertical-align:middle; }
 
 table {
@@ -24,6 +24,79 @@ table tr td a:hover, ul.grid li div:first-child a:hover { font-weight:bold; }
 
 .btnSet { margin-top:20px; }
 
+/*메인 내용물 사이즈*/
+.main-content-size{ margin:10px 0; }
+.main-content-size.notice{ width: 30%; margin-right:5px; }
+.main-content-size.recipe{ width: 69%; margin-left:5px; }
+.main-content-size-harf{ width: 49.5%; margin:10px 0; border-bottom: solid 1px #ddd; box-sizing:border-box;}
+.main-content-size-harf:nth-child(odd){ margin-right: 3px; }
+.main-content-size-harf:nth-child(even){ margin-left: 3px; }
+.main-content-con{ width: 100%; display: flex; flex-wrap: wrap; }
+
+/*버튼 만들기 클래스*/
+a.btn-fill, a.btn-empty {
+	text-align:center;
+	padding: 3px 10px;
+	border:1px solid #ddd;
+	border-radius:3px; 
+	box-shadow:2px 2px 3px #022d72; 
+}
+a.btn-fill { 
+	background-color: #ddd;
+	color: #000;
+}
+a.btn-empty {
+	background-color: #fff;
+	color: #000;
+}
+
+a.btn-fill-s, a.btn-empty-s {
+	font-size:13px;	font-weight:bold;
+	text-align:center; padding: 1px 10px;
+	border:1px solid #c4dafc;
+	border-radius:3px;
+	box-shadow:2px 2px 2px #022d72;
+	color:#0000cd;   
+}
+a.btn-fill-s { background-color:#b1cdfa;}
+a.btn-empty-s { background-color:#fff; }
+a { cursor:pointer; }
+input {
+	height:22px; padding: 5px 10px;
+	font-size:15px;  
+}
+input[type=radio] { 
+	width:18px;  vertical-align:middle;
+	margin:0 5px 3px;
+}
+table tr td label:not(:first-child) { margin-left:20px; }
+
+ul { list-style:none; padding:0; }
+#list-top { padding:20px 10%; }
+#list-top div { height:36px }
+#list-top ul { margin:0; display:flex; }
+#list-top ul li:not(:first-child) { margin-left:3px; }
+#list-top ul li * { vertical-align:middle; } 
+#list-top ul:first-child { float:left; }
+#list-top ul:last-child { float:right; }
+
+ul.grid { width: 80%; margin: 0 10%; }
+.grid li { float: left; width: 19%; height: 150px; border: 1px solid gray; box-sizing: border-box; }
+.grid li div { text-align: left; padding: 10px; }
+.grid li:not(:nth-child(5n)) { margin: 0 1.25% 20px 0; }
+.grid li div:nth-child(1) { height: 60px; }
+.grid li div:nth-child(2) { padding: 0 10px; }
+
+select { height:32px; }
+.left { text-align:left; }
+.right { text-align:right; }
+
+input[name=title] { width:calc(100% - 24px)}
+textarea[name=content] { width:calc(100% - 6px); resize:none; height:150px; }
+
+.file-img { width:24px } 
+#attach-file, #delete-file { display:none;   }
+#delete-file { color:red; }
 
 ul.submenu > li { display:block; width:120px; padding:5px 10px; text-align:center; }
 
@@ -35,6 +108,7 @@ ul.submenu > li { display:block; width:120px; padding:5px 10px; text-align:cente
 .w-pct60 { width:60% }
 .w-pct50 { width:50% }
 .w-pct40 { width:40% }
+.w-pct30 { width:30% }
 .w-px300 { width:300px; }
 .w-px200 { width:200px; }
 .w-px250 { width:200px; }
