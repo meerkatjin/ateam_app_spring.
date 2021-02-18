@@ -31,6 +31,7 @@ table tr td a:hover, ul.grid li div:first-child a:hover { font-weight:bold; }
 .main-content-size-harf{ width: 49.5%; margin:10px 0; border-bottom: solid 1px #ddd; box-sizing:border-box;}
 .main-content-size-harf:nth-child(odd){ margin-right: 3px; }
 .main-content-size-harf:nth-child(even){ margin-left: 3px; }
+.main-content-con{ width: 100%; display: flex; flex-wrap: wrap; }
 
 /*버튼 만들기 클래스*/
 a.btn-fill, a.btn-empty {

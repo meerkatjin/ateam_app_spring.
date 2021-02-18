@@ -12,9 +12,9 @@
 </style>
 </head>
 <body>
+<div>
 <h3 align="left">소개</h3>
 <img src='imgs/intro.jpg' style='width:100%;'/>
-<div id="content">
 <h4>내가 쓰는 냉장고를 더 스마트하게!</h4>
 사물 인터넷이 핵심산업으로 떠오르면서 다양한 상품이 나오고 있고 스마트 냉장고도 그 중 하나입니다. <br />
 기존 냉장고를 이용할 때 유통기한 관리 및 내부 재료 등을 알기가 어려웠습니다. <br />
