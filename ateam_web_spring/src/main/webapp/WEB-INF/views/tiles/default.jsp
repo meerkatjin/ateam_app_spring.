@@ -11,10 +11,9 @@
 	</c:when>
 </c:choose>
 
-<title>${title}IoT</title>
+<title></title>
 <link rel='icon' type='image/x-icon' href='imgs/hanul.ico'>
-<link rel='stylesheet' type='text/css' 
-		href='css/common.css?v=<%=new java.util.Date().getTime() %>'>
+<link rel='stylesheet' type='text/css'	href='css/common.css?v=<%=new java.util.Date().getTime() %>'>
 <script src='https://code.jquery.com/jquery-3.5.1.min.js'></script>
 
 </head>

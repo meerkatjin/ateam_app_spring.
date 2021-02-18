@@ -84,8 +84,34 @@ label:hover {
 	
 <script type="text/javascript">
 function do_login() {
-	
-	
+	if ($('#user_email').val() == '') {
+		alert('이메일을 입력하세요!');
+		$('#user_email').focus();
+		return;
+	} else if ($('#user_pw').val() == '') {
+		alert('비밀번호를 입력하세요!');
+		$('#user_pw').focus();
+		return;
+	}
+
+	$.ajax({
+		type: 'post',
+		url: 'login',
+		data: { user_email:$('#user_email').val(), user_pw:$('#user_pw').val() },
+		success: function( response ){
+			if( response ){
+				//목록을 제외한 화면과 회원가입화면은 홈으로 연결
+				//그 외는 해당 화면
+				location.href = ( document.referrer.match(/member/g)
+								 || !document.referrer.match(/list/g) ) 
+							? '<c:url value="/"/>' : document.referrer;
+			}else{
+				alert('아이디나 비밀번호가 일치하지 않습니다!');
+			}
+		},error: function(req, text){
+			alert(text + ':' + req.status);
+		}
+	});
 }
 </script>
 </body>

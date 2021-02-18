@@ -7,7 +7,6 @@
 <style type="text/css">
 #content {
 	text-align:left; 
-	margin-top: 30px; margin-bottom: 30px;
 }
 </style>
 </head>
