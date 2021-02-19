@@ -27,12 +27,12 @@ input[type="text"], input[type="password"] {
 	width: 150px;
 	height: 150px;
 	position: relative;
-	left: -17%;
+	left: -14%;
 	border: 2px solid #CCC;
 }
 #btn-img-upload {
 	position: relative;
-	left: -15%;
+	left: -10%;
 	margin: 0px;
 }
 #btn-join, #btn-join-cancel {
@@ -41,13 +41,13 @@ input[type="text"], input[type="password"] {
 }
 #btn-join {
 	position: relative;
-	left: -3%;
+	left: 0%;
 }
 #btn-join-cancel {
 	position: relative;
-	right: -3%;
+	right: 0%;
 }
-.valid, .invalid { font-size:13px; font-weight:bold; float: left; margin-left: 12%; }
+.valid, .invalid { font-size:13px; font-weight:bold; float: left; margin-left: 15%; }
 .valid { color:green; }
 .invalid { color:red; }
 </style>
@@ -57,12 +57,12 @@ input[type="text"], input[type="password"] {
 		<div id="join" align="center">
 			<h3>회원가입</h3>
 			<p class='w-pct30 right' style='margin:0 auto; padding-bottom:10px; 
-				float: right; margin-right: 12%;'>* 는 필수입력항목입니다</p>
+				float: right; margin-right: 15%;'>* 는 필수입력항목입니다</p>
 			<form method="post" action="join">
 				<input type='text' name="user_email" class="chk" placeholder="이메일 *" />
 				<div class='valid'>유효한 이메일을 입력하세요</div>
 				<input type='password' name="user_pw" class="chk" placeholder="비밀번호 *" />
-				<div class='valid'>영문자, 숫자, 특수문자(! @ # $ % ^ & + -)를 모두 포함해 8~32자를 입력해주세요</div>
+				<div class='valid'>영문자, 숫자, 특수문자(! @ # $ % & + -)를 모두 포함해 8~32자를 입력해주세요</div>
 				<input type='password' name="user_pwck" class="chk" placeholder="비밀번호 확인 *" />
 				<div class='valid'>비밀번호를 다시 입력해주세요</div>
 				<input type='text' name='user_nm' placeholder="이름(별명) *" />

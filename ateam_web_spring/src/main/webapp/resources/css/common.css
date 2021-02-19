@@ -12,7 +12,7 @@ body{
 
 a:link, a:visited { text-decoration:none; color:#000; }
 
-#content{ padding:0px; max-width:1024px; min-height:900px; margin: 0px auto; }
+#content{ padding:0px; max-width:1024px; min-height:500px; margin: 0px auto; }
 
 img { vertical-align:middle; }
 
