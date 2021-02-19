@@ -1,6 +1,5 @@
 package notice;
 
-
 import java.util.List;
 
 import common.CommuVO;

@@ -9,6 +9,7 @@
 .menu ul li { float: left; margin-right: 40px; font-size: 18px; font-weight: bold;}
 .menu { margin-bottom: 60px; }
 table { width: 1024px; }
+
 </style>
 </head>
 <body>
@@ -18,6 +19,9 @@ table { width: 1024px; }
 	<li><a href="list.no">공지사항</a></li>
 	<li><a href="list.qa">자주묻는 질문</a></li>
 	<li><a href="list.bo">게시판</a></li>
+</ul>
+<ul>
+	<li><a class="btn-fill">글쓰기</a></li>
 </ul>
 </div>
 
