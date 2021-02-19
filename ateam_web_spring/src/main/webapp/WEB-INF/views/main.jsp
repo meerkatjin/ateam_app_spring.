@@ -54,7 +54,6 @@
   cursor: pointer;
 }
 </style>
-
 <div style="position: relative;">
 	<div class="mySlides">
 		<div class="numbertext">1 / 3</div>

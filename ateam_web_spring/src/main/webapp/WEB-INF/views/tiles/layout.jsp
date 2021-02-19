@@ -35,6 +35,7 @@
 <body>
 <tiles:insertAttribute name="header" />
 <div id='content' class="flexSet-wrap">
+<tiles:insertAttribute name="right_menu" />
 <tiles:insertAttribute name="content" />
 </div>
 <tiles:insertAttribute name="footer" />
