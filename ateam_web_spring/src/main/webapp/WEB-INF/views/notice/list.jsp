@@ -26,6 +26,7 @@ table { width: 1024px; }
 </div>
 
 <form action="list.no" method="post">
+<input type='hidden' name='curPage' value='1'/>
 <table>
 <tr>
 	<th class="w-px80">번호</th>

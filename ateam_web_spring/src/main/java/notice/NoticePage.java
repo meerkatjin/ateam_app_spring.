@@ -19,7 +19,4 @@ public class NoticePage extends PageVO{
 	public void setList(List<CommuVO> list) {
 		this.list = list;
 	}
-	
-	
-
 }
