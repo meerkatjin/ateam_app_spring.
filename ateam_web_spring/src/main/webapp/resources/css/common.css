@@ -12,7 +12,11 @@ body{
 
 a:link, a:visited { text-decoration:none; color:#000; }
 
+<<<<<<< HEAD
 #content{ padding:0px; max-width:1024px; min-height:500px; margin: 0px auto; }
+=======
+#content{ padding:0px; max-width:1024px; min-height:900px; margin: 0px auto;}
+>>>>>>> 1b68238eb2d85b8c8967cb23760777b60e48613b
 
 img { vertical-align:middle; }
 
