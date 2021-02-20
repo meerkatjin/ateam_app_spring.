@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
-<header style='border-bottom:1px solid #ccc; padding:0px 0; text-align:left; background-color: #000000; overflow:hidden; min-width: 1024px;'>
+<header id="top">
 	<div class='category' style='margin-left:100px;'>
 	<ul class="nav-list">
 		<li class="nav-list"><a href='<c:url value="/" />'><img src='imgs/logo.white.horizontal.png' class="logo-header-size"/></a></li>
@@ -29,6 +29,7 @@
 <style>
 header ul, header ul li { 
 	margin:0px auto; padding:0; display:inline;}
+#top { border-bottom:1px solid #ccc; padding:0px 0; text-align:left; background-color: #000000; overflow:hidden; min-width: 1024px; }
 .nav-list { 
 	margin:0px auto; padding:0; overflow: hidden; float: left;}
 .category { font-size:18px }

@@ -12,11 +12,7 @@ body{
 
 a:link, a:visited { text-decoration:none; color:#000; }
 
-<<<<<<< HEAD
-#content{ padding:0px; max-width:1024px; min-height:500px; margin: 0px auto; }
-=======
-#content{ padding:0px; max-width:1024px; min-height:900px; margin: 0px auto;}
->>>>>>> 1b68238eb2d85b8c8967cb23760777b60e48613b
+#content{ padding:0px; max-width:1024px; min-height:807px; margin: 0px auto; }
 
 img { vertical-align:middle; }
 
@@ -31,6 +27,8 @@ table th, table td {
 	padding: 5px 10px; 
 }
 table tr td a:hover, ul.grid li div:first-child a:hover { font-weight:bold; }
+
+.curser-pointer {cursor: pointer;}	/*커서를 a 태그처럼 만들어줌*/
 
 .btnSet { margin-top:20px; }
 
