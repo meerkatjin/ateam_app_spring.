@@ -57,30 +57,30 @@
 <div style="position: relative;">
 	<div class="mySlides">
 		<div class="numbertext">1 / 3</div>
-		<img src="imgs/maintitle1.jpg" style="width: 100%" />
+		<img src="imgs/main/maintitle1.jpg" style="width: 100%" />
 	</div>
 	
 	<div class="mySlides">
 		<div class="numbertext">2 / 3</div>
-		<img src="imgs/maintitle2.jpg" style="width: 100%" />
+		<img src="imgs/main/maintitle2.jpg" style="width: 100%" />
 	</div>
 	
 	<div class="mySlides">
 		<div class="numbertext">3 / 3</div>
-		<img src="imgs/maintitle3.jpg" style="width: 100%" />
+		<img src="imgs/main/maintitle3.jpg" style="width: 100%" />
 	</div>
 	
 	<div class="row">
 		<div class="column">
-			<img class="demo cursor" src="imgs/maintitle1.small.jpg" style="width: 100%"
+			<img class="demo cursor" src="imgs/main/maintitle1.small.jpg" style="width: 100%"
 				onclick="currentSlide(1)" />
 		</div>
 		<div class="column">
-			<img class="demo cursor" src="imgs/maintitle2.small.jpg" style="width: 100%"
+			<img class="demo cursor" src="imgs/main/maintitle2.small.jpg" style="width: 100%"
 				onclick="currentSlide(2)" />
 		</div>
 		<div class="column">
-			<img class="demo cursor" src="imgs/maintitle3.small.jpg" style="width: 100%"
+			<img class="demo cursor" src="imgs/main/maintitle3.small.jpg" style="width: 100%"
 				onclick="currentSlide(3)" />
 		</div>
 	</div>
@@ -106,7 +106,7 @@
 	<div class="main-content-bord">
 		<div class="flexSet-wrap main-content-title">
 			<h3>Q&amp;A</h3>
-			<a href="list.no">더보기 ></a>
+			<a href="list.qa">더보기 ></a>
 		</div>
 		<div class="main-content-con bottomtop-border-2px">
 			<a href="#">dd</a>
@@ -122,8 +122,8 @@
 	</div>
 	<div class="main-content-bord">
 		<div class="flexSet-wrap main-content-title">
-			<h3>커뮤니티</h3>
-			<a href="commu.cu">더보기 ></a>
+			<h3>게시판</h3>
+			<a href="list.bo">더보기 ></a>
 		</div>
 		<div class="main-content-con bottomtop-border-2px">
 			<a href="#">dd</a>
@@ -146,19 +146,19 @@
 	</div>
 	<div class="flexSet-wrap main-content-con top-border-2px">
 		<div class="main-content-size-harf bottom-border-2px">
-			<img src="imgs/test.food.img.jpg" style="width: 100%">
+			<img src="imgs/test/test.food.img.jpg" style="width: 100%">
 			<p>대충 여기 안에 레시피 설명 넣으면 될듯</p>
 		</div>
 		<div class="main-content-size-harf bottom-border-2px">
-			<img src="imgs/test.food.img.jpg" style="width: 100%">
+			<img src="imgs/test/test.food.img.jpg" style="width: 100%">
 			<p>대충 여기 안에 레시피 설명 넣으면 될듯</p>
 		</div>
 		<div class="main-content-size-harf bottom-border-2px">
-			<img src="imgs/test.food.img.jpg" style="width: 100%">
+			<img src="imgs/test/test.food.img.jpg" style="width: 100%">
 			<p>대충 여기 안에 레시피 설명 넣으면 될듯</p>
 		</div>
 		<div class="main-content-size-harf bottom-border-2px">
-			<img src="imgs/test.food.img.jpg" style="width: 100%">
+			<img src="imgs/test/test.food.img.jpg" style="width: 100%">
 			<p>대충 여기 안에 레시피 설명 넣으면 될듯</p>
 		</div>
 	</div>
