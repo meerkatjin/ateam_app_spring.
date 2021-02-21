@@ -16,6 +16,12 @@ import recipe.RecipeServiceImpl;
 public class RecipeController {
 	@Autowired private RecipeServiceImpl service;
 	@Autowired private RecipePage page;
+	
+	@RequestMapping("/view.rp")
+	public String view(int id, Model model) {
+		model.addAttribute("vo", service.recipe_view(id));
+		return "recipe/view";
+	}
 
 	@RequestMapping("/list.rp")
 	public String list(HttpSession session, Model model

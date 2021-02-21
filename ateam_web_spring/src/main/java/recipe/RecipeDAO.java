@@ -19,4 +19,9 @@ public class RecipeDAO implements RecipeService {
 		page.setList(sql.selectList("recipe.mapper.list", page));
 		return page;
 	}
+
+	@Override
+	public List<RecipeIngVO> recipe_view(int id) {
+		return sql.selectList("recipe.mapper.view", id);
+	}
 }

@@ -16,4 +16,9 @@ public class RecipeServiceImpl implements RecipeService {
 		return dao.recipe_list(page);
 	}
 
+	@Override
+	public List<RecipeIngVO> recipe_view(int id) {
+		return dao.recipe_view(id);
+	}
+
 }

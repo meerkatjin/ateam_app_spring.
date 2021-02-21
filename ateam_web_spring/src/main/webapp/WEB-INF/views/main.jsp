@@ -85,6 +85,7 @@
 		</div>
 	</div>
 </div>
+<div class="flexSet-wrap">
 <div class="main-content-size notice">
 	<div class="main-content-bord">
 		<div class="flexSet-wrap main-content-title">
@@ -162,6 +163,7 @@
 			<p>대충 여기 안에 레시피 설명 넣으면 될듯</p>
 		</div>
 	</div>
+</div>
 </div>
 
 <script>

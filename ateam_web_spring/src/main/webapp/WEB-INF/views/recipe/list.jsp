@@ -13,28 +13,46 @@
 	gap: 10px;
 	margin-top: 50px;
 }
-.recipe-content-items { height: 200px; transition: transform 0.35s; }
-.recipe-content-items:hover { 
+.recipe-content-items { overflow: hidden; cursor: pointer; }
+.recipe-content-items:hover { background-color: #ddd }
+.recipe-content-items img { height: 200px; transition: transform 0.35s;  }
+.recipe-content-items img:hover { 
 	-webkit-transform: translate(-30px, 0px);
 	-ms-transform: translate(-30px, 0px);
 	transform: translate(-30px, 0px);
 	transition: transform 0.35s;
 }
 </style>
-<div align="left" style="margin-top: 20px;">
+<div align="left" style="margin: 20px 0px 20px 0px;">
+<div id="list-top" style="overflow: hidden;">
 <form action="list.rp" method="post">
+<div>
+	<ul>
+		<li><select name='pageList' class='w-px80' 
+					onchange="$('[name=curPage]').val(1); $('form').submit()" >
+				<option value='10' ${page.pageList eq 10 ? 'selected' : ''}>10개씩</option>
+				<option value='20' ${page.pageList eq 20 ? 'selected' : ''}>20개씩</option>
+				<option value='30' ${page.pageList eq 30 ? 'selected' : ''}>30개씩</option>
+			</select>
+		</li>
+	</ul>
+	<ul>
+		<li>
+			<select name='search' class='w-px80'>
+				<option value="all" ${page.search eq 'all' ? 'selected' : ''}>전체</option>
+				<option value="recipe_nm_ko" ${page.search eq 'recipe_nm_ko' ? 'selected' : ''}>이름</option>
+				<option value="nation_nm" ${page.search eq 'nation_nm' ? 'selected' : ''}>나라</option>
+				<option value="ty_nm" ${page.search eq 'ty_nm' ? 'selected' : ''}>유형</option>
+			</select>
+		</li>
+		<li><input type='text' name='keyword' value='${page.keyword}' class='w-px200'/></li>
+		<li><a class='btn-fill' onclick="$('form').submit()">검색</a></li>
+	</ul>
+</div>
 <input type="hidden" name="curPage" value="1">
-	<div align="right">
-		<select name='search' class='w-px80'>
-			<option value="all" ${page.search eq 'all' ? 'selected' : ''}>전체</option>
-			<option value="recipe_nm_ko" ${page.search eq 'recipe_nm_ko' ? 'selected' : ''}>이름</option>
-			<option value="nation_nm" ${page.search eq 'nation_nm' ? 'selected' : ''}>나라</option>
-			<option value="ty_nm" ${page.search eq 'ty_nm' ? 'selected' : ''}>유형</option>
-		</select>
-		<input type='text' name='keyword' value='${page.keyword}' class='w-px200'/>
-		<a class='btn-fill' onclick="$('form').submit()">검색</a>
-	</div>
+<input type="hidden" name='id'/>
 </form>
+</div>
 <h3>레시피</h3>
 	<div class="top-border-2px">
 		<p align="center">오늘의 추천 레시피!</p>
@@ -60,10 +78,10 @@
 	<div class="recipe-content-container top-border-2px">
 	<p style="text-align: center; grid-column: 1 / span 5;">레시피 모음</p>
 	<c:forEach var="vo" items="${page.list}">
-		<div class="bottom-border-2px" style="overflow: hidden;">
-			<img src="${vo.img_url}" class="recipe-content-items">
-			<p>${vo.recipe_nm_ko}</p>
-			<div style="font-size: 14px; padding: 5px;">${vo.sumry}</div>
+		<div class="bottom-border-2px recipe-content-items" onclick="go_view(${vo.recipe_id})">
+				<img src="${vo.img_url}">
+				<p>${vo.recipe_nm_ko}</p>
+				<div style="font-size: 14px; padding: 5px;">${vo.sumry}</div>
 		</div>
 	</c:forEach>
 	</div>
@@ -71,3 +89,11 @@
 		<jsp:include page="/WEB-INF/views/include/page.jsp"/>
 	</div>
 </div>
+
+<script type="text/javascript">
+function go_view(id){
+	$('[name=id]').val(id);
+	$('form').attr('action', 'view.rp');
+	$('form').submit();
+}
+</script>
