@@ -19,7 +19,7 @@ public class NoticeController {
 	//공지사항 화면 요청
 	@RequestMapping("/list.no")
 	public String noticeView(HttpSession session, Model model, @RequestParam(defaultValue = "1") int curPage) {
-		session.setAttribute("category", "cu");
+		session.setAttribute("category", "no");
 		page.setCurPage(curPage);
 		model.addAttribute("page", service.notice_list(page));
 		return "notice/list";
