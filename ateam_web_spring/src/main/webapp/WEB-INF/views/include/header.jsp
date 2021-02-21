@@ -7,7 +7,7 @@
 		<li class="nav-list"><a class="${category eq 'it' ? 'active' : ''} nav" href='intro.it'>소개글</a></li>
 		<li class="nav-list"><a class="${category eq 'fc' ? 'active' : ''} nav" href='view.fc'>My 냉장고</a></li>
 		<li class="nav-list"><a class="${category eq 'rp' ? 'active' : ''} nav" href='list.rp'>레시피</a></li>
-		<li class="nav-list"><a class="${category eq 'cu' ? 'active' : ''} nav" href='commu.cu'>커뮤니티</a></li>
+		<li class="nav-list"><a class="${category eq 'no' ? 'active' : ''} nav" href='list.no'>커뮤니티</a></li>
 	</ul>
 	</div>
 	
