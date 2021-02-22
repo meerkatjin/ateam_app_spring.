@@ -14,10 +14,16 @@ public class CommuVO {
 //	BOARD_CONTENT	VARCHAR2(4000 BYTE)
 //	USER_TYPE	VARCHAR2(20 BYTE)
 	
-	private String board_qp, board_title, board_content, user_type;
+	private String board_qp, board_title, board_content, user_type, name;
 	private int board_no, user_id, board_readcount, no;
 	private Date create_dt, update_dt;
 	
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
 	public int getNo() {
 		return no;
 	}
