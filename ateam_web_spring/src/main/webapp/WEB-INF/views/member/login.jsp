@@ -96,7 +96,7 @@ function do_login() {
 
 	$.ajax({
 		type: 'post',
-		url: 'login',
+		url: 'memberLogin',
 		data: { user_email:$('#user_email').val(), user_pw:$('#user_pw').val() },
 		success: function( response ){
 			if( response ){
