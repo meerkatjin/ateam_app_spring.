@@ -7,7 +7,7 @@
 </select>
 
 <select id="list" resultType="common.CommuVO">
-	select * from (select rownum no, b.* 
+	select * from (select rownum no, b.*, (select user_nm from mst_user_info_tb u where u.user_id=b.user_id) name
 	from (select * from mst_board_tb where board_gp = 1) b 
 	order by no desc)
 	where no between #{beginList} and #{endList}
