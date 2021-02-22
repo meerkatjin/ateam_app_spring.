@@ -26,6 +26,7 @@ input[type="radio"]{
 	line-height: 27px;
 	border: 1px solid #000000;
 	transition: 0.25s;
+	cursor: pointer;
 }
 label:hover {
 	background-color: #ccc;
@@ -45,10 +46,20 @@ input[type="radio"]:checked ~ label {
 	border: 1px solid #000000;
 	transition: 0.25s;
 	font-size: 0.7rem;
+	cursor: pointer;
 }
 #irdnt_items {
 	margin-top: 10px;
 	border: 1px solid #000000;
+}
+#irdnt_search {
+	width: 80%;
+	float: left;
+}
+#btn_irdnt_search {
+	width: 18%;
+	float: right;
+	box-shadow: 0 0 0;
 }
 </style>
 
@@ -82,6 +93,11 @@ input[type="radio"]:checked ~ label {
 			<label for="filter_seasoning" class="type_filter">조미료/주류</label>
 			<input type="radio" name="type_filter" id="filter_etc" value="etc" />
 			<label for="filter_etc" class="type_filter">음료/기타</label>
+		</div>
+		
+		<div style="overflow: hidden; margin-top: 10px;">
+			<input type="text" id="irdnt_search" placeholder="검색하실 재료명을 입력해주세요" />
+			<a class="btn-fill" id="btn_irdnt_search">검색</a>
 		</div>
 		
 		<div id="irdnt_items">
