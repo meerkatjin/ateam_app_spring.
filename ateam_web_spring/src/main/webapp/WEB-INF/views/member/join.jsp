@@ -60,7 +60,7 @@ input[type="text"], input[type="password"] {
 				float: right; margin-right: 15%;'>* 는 필수입력항목입니다</p>
 			<form method="post" action="join">
 				<input type='text' name="user_email" class="chk" placeholder="이메일 *" />
-				<div class='valid'>유효한 이메일을 입력하세요</div>
+				<div class='valid'>유효한 이메일을 입력하세요<a class="btn-fill-s" id="btn-email">중복확인</a></div>
 				<input type='password' name="user_pw" class="chk" placeholder="비밀번호 *" />
 				<div class='valid'>영문자, 숫자, 특수문자(! @ # $ % & + -)를 모두 포함해 8~32자를 입력해주세요</div>
 				<input type='password' name="user_pwck" class="chk" placeholder="비밀번호 확인 *" />
@@ -123,6 +123,10 @@ function item_check(tag) {
 	} else return true;
 }
 
+$('#btn-email').on('click', function(){
+	email_check();
+});
+
 function email_check() {
 	var $user_email = $('[name=user_email]');
 	var data = join.tag_status($user_email);
@@ -135,6 +139,7 @@ function email_check() {
 
 	$.ajax({
 		type: 'post',
+		url: 'email_check',
 		data: {user_email: $user_email.val()},
 		success: function(response) {
 			response = join.email_usable(response);

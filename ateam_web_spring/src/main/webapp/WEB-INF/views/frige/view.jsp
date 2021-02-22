@@ -27,8 +27,13 @@ input[type="radio"]{
 	border: 1px solid #000000;
 	transition: 0.25s;
 }
-.irdnt_filter:hover {
+label:hover {
 	background-color: #ccc;
+}
+input[type="radio"]:checked ~ label {
+	background-color: #000000;
+	color: #FFFFFF;
+	font-weight: bold;
 }
 .type_filter {
 	margin: 0px;
@@ -59,6 +64,7 @@ input[type="radio"]{
 			<input type="radio" name="irdnt_filter" id="filter_name" value="name" />
 			<label for="filter_name" class="irdnt_filter">이름</label>
 		</div>
+		
 		<div style="overflow: hidden; margin-top: 10px; display: none;">
 			<input type="radio" name="type_filter" id="filter_meat" value="meat" checked="checked" />
 			<label for="filter_meat" class="type_filter">고기</label>
@@ -77,8 +83,15 @@ input[type="radio"]{
 			<input type="radio" name="type_filter" id="filter_etc" value="etc" />
 			<label for="filter_etc" class="type_filter">음료/기타</label>
 		</div>
+		
 		<div id="irdnt_items">
-			
+			<p>내 냉장고 재료</p>
+			<c:forEach var="vo" items="${page.list }">
+				<div class="irdnt_list" onclick="#">
+					<p>${vo.irdnt_nm }</p>
+					<p>${vo.shelf_life_end }</p>
+				</div>
+			</c:forEach>
 		</div>
 	</div>
 </div>
