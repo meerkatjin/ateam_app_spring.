@@ -10,16 +10,17 @@
 	display:grid; 
 	grid-template-columns: repeat(auto-fill, minmax(19%, auto));
 	grid-auto-rows: minmax(10px, auto);
-	gap: 10px;
+	gap: 20px 10px;
 	margin-top: 50px;
 }
 .recipe-content-items { overflow: hidden; cursor: pointer; }
 .recipe-content-items:hover { background-color: #ddd }
-.recipe-content-items img { height: 200px; transition: transform 0.35s;  }
+.image-content { height: 200px; width: 100%; overflow: hidden; }
+.recipe-content-items img { height: 200px; min-width:250px; transition: transform 0.35s;  }
 .recipe-content-items img:hover { 
-	-webkit-transform: translate(-30px, 0px);
-	-ms-transform: translate(-30px, 0px);
-	transform: translate(-30px, 0px);
+	-webkit-transform: translate(-40px, 0px);
+	-ms-transform: translate(-40px, 0px);
+	transform: translate(-40px, 0px);
 	transition: transform 0.35s;
 }
 </style>
@@ -51,6 +52,7 @@
 </div>
 <input type="hidden" name="curPage" value="1">
 <input type="hidden" name='id'/>
+<input type="hidden" name="vo">
 </form>
 </div>
 <h3>레시피</h3>
@@ -79,9 +81,11 @@
 	<p style="text-align: center; grid-column: 1 / span 5;">레시피 모음</p>
 	<c:forEach var="vo" items="${page.list}">
 		<div class="bottom-border-2px recipe-content-items" onclick="go_view(${vo.recipe_id})">
+			<div class="image-content">
 				<img src="${vo.img_url}">
-				<p>${vo.recipe_nm_ko}</p>
-				<div style="font-size: 14px; padding: 5px;">${vo.sumry}</div>
+			</div>
+			<p>${vo.recipe_nm_ko}</p>
+			<div style="font-size: 14px; padding: 5px;">${vo.sumry}</div>
 		</div>
 	</c:forEach>
 	</div>
@@ -91,7 +95,7 @@
 </div>
 
 <script type="text/javascript">
-function go_view(id){
+function go_view(id, vo){
 	$('[name=id]').val(id);
 	$('form').attr('action', 'view.rp');
 	$('form').submit();

@@ -24,4 +24,14 @@ public class RecipeDAO implements RecipeService {
 	public List<RecipeIngVO> recipe_view(int id) {
 		return sql.selectList("recipe.mapper.view", id);
 	}
+
+	@Override
+	public RecipeInfoVO recipe_select(int id) {
+		return sql.selectOne("recipe.mapper.select", id);
+	}
+
+	@Override
+	public List<RecipeIrdntVO> recipe_irdnt_get(int id) {
+		return sql.selectList("recipe.mapper.irdnt_get", id);
+	}
 }
