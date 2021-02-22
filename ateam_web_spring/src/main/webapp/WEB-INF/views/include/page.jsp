@@ -26,6 +26,7 @@
 <script type="text/javascript">
 function go_page(page){
 	$('[name=curPage]').val( page );
+	$('[name=keyword]').val( '${page.keyword}' );
 	$('form').submit();
 }
 </script>
