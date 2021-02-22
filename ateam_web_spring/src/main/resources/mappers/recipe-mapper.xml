@@ -1,5 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="recipe.mapper">
+<select id="view" resultType="recipe.RecipeIngVO">
+	select * from app_recipe_ing_tb 
+   	where recipe_id = #{id} 
+    order by cooking_no asc
+</select>
 
+<sql id="search_where">
+	<if test=" search == 'recipe_nm_ko' or search == 'nation_nm' or search == 'ty_nm' ">
+	where ${search} like '%' || #{keyword} || '%'
+	</if>
+	<if test=" search=='all' ">
+	where recipe_nm_ko like '%' || #{keyword} || '%'
+	or nation_nm like '%' || #{keyword} || '%'
+	or ty_nm like '%' || #{keyword} || '%'
+	</if>
+</sql>
+
+<select id="list" resultType="recipe.RecipeInfoVO">	
+	select rp.* from
+	(select rp.*, rownum no from 
+	(select * from app_recipe_info_tb <include refid="search_where"/>
+	 order by recipe_id) rp) rp
+	where no between #{beginList} and #{endList}
+	order by no desc
+</select>
+	
+<select id="totalList" resultType="integer">
+	select count(*) from app_recipe_info_tb <include refid="search_where"/>
+</select>
 </mapper>
