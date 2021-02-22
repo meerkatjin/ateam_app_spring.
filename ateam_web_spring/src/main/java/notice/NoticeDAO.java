@@ -15,7 +15,7 @@ public class NoticeDAO implements NoticeService{
 
 	@Override
 	public void notice_insert(CommuVO vo) {
-		// TODO Auto-generated method stub
+		sql.insert("notice.mapper.insert", vo);
 		
 	}
 

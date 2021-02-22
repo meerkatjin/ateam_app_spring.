@@ -24,7 +24,7 @@ table { width: 1024px; }
 </div>
 <div class="btn-write">
 	<ul>
-		<li><a class="btn-fill">글쓰기</a></li>
+		<li><a class="btn-fill" href="new.no">글쓰기</a></li>
 	</ul>
 </div>
 

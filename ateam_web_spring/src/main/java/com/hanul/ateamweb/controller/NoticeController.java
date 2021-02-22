@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import common.CommuVO;
 import notice.NoticePage;
 import notice.NoticeServiceImpl;
 
@@ -15,6 +16,19 @@ import notice.NoticeServiceImpl;
 public class NoticeController {
 	@Autowired private NoticeServiceImpl service;
 	@Autowired private NoticePage page;
+	
+	//신규 공지글 저장처리 요청
+	@RequestMapping("/insert.no")
+	public String insert(CommuVO vo) {
+		service.notice_insert(vo);
+		return "redirect:list.no";
+	}
+	
+	//공지사항 글신규화면 요청
+	@RequestMapping("/new.no")
+	public String noticeNew() {
+		return "notice/new";
+	}
 
 	//공지사항 화면 요청
 	@RequestMapping("/list.no")
