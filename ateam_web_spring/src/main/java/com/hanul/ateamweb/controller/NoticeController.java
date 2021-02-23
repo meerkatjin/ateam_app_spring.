@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import common.CommuVO;
+import member.MemberVO;
 import common.BoardVO;
 import notice.NoticePage;
 import notice.NoticeServiceImpl;
@@ -21,12 +22,13 @@ public class NoticeController {
 	//공지글쓰기처리 요청
 	@RequestMapping("/insert.no")
 	public String insert(CommuVO vo, HttpSession session) {
-		BoardVO member = (BoardVO)session.getAttribute("loginInfo");
+		MemberVO member = (MemberVO)session.getAttribute("loginInfo");
 		vo.setUser_id( member.getUser_id() );
 		
 		service.notice_insert(vo);
 		return "redirect:list.no";
 	}
+	
 	//공지사항 글신규화면 요청
 	@RequestMapping("/new.no")
 	public String noticeNew() {
