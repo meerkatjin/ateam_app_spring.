@@ -16,6 +16,8 @@ import member.MemberVO;
 @Controller
 public class MemberController {
 	@Autowired private MemberServiceImpl service;
+	private String kakao_client_key;
+	private String naver_client_key;
 	
 	//로그인화면 요청 처리
 	@RequestMapping("/login")
@@ -66,6 +68,13 @@ public class MemberController {
 	 
 	 	return msg.toString(); 
 	}
+	
+	//카카오 아이디로 로그인 요청
+	@RequestMapping("/kakaoLogin")
+	public String kakaoLogin() {
+		return "";
+	}
+	
 
 	//로그아웃 처리 요청
 	@RequestMapping("/logout")
