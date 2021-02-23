@@ -10,14 +10,16 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import common.CommonService;
 import recipe.RecipeIrdntVO;
 import recipe.RecipePage;
 import recipe.RecipeServiceImpl;
 
 @Controller
-public class RecipeController {
+public class RecipeController{
 	@Autowired private RecipeServiceImpl service;
 	@Autowired private RecipePage page;
+	@Autowired private CommonService common;
 	
 	@RequestMapping("/view.rp")
 	public String view(int id, Model model) {
