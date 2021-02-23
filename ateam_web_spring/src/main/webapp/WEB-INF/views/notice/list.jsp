@@ -11,6 +11,8 @@
 .btn-write ul li { float: right; margin-bottom: 20px; font-weight: bold;}
 .menu { height: 50px; }
 table { width: 1024px; }
+.btn-write ul { margin: 0; }
+.btn-write ul li { float: right; margin-bottom: 20px; font-weight: bold; }
 </style>
 </head>
 <body>
@@ -24,7 +26,10 @@ table { width: 1024px; }
 </div>
 <div class="btn-write">
 	<ul>
-		<li><a class="btn-fill" href="new.no">글쓰기</a></li>
+		<!-- 관리자일때만 글쓰기 버튼 보이게 -->
+		<c:if test="${loginInfo.user_id eq 1}">
+		<li><a class="btn-fill" href="new.no" maxlength="100">글쓰기</a></li>
+		</c:if>
 	</ul>
 </div>
 

@@ -103,8 +103,8 @@ select { height:32px; }
 .left { text-align:left; }
 .right { text-align:right; }
 
-input[name=title] { width:calc(100% - 24px)}
-textarea[name=content] { width:calc(100% - 6px); resize:none; height:150px; }
+input[name=board_title] { width:calc(100% - 24px)}
+textarea[name=board_content] { width:calc(100% - 6px); resize:none; height:150px; }
 
 .file-img { width:24px } 
 #attach-file, #delete-file { display:none;   }
