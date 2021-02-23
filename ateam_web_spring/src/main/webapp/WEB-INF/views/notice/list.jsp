@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -49,7 +50,8 @@ table { width: 1024px; }
 	<td>${vo.no}</td>
 	<td class="left">${vo.board_title}</td>
 	<td>${vo.name}</td>
-	<td>${vo.create_dt}</td>
+	<fmt:formatDate value="${vo.create_dt}" var="create_dt" pattern="yyyy-MM-dd" />
+	<td>${create_dt}</td>
 	<td></td>
 	<td>${vo.board_readcount}</td>
 </tr>
