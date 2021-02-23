@@ -1,5 +1,9 @@
 package qna;
 
-public class QnaPage {
+import common.PageVO;
+
+public class QnaPage extends PageVO{
+	
+	
 
 }
