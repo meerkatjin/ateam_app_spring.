@@ -34,4 +34,15 @@ public class RecipeDAO implements RecipeService {
 	public List<RecipeIrdntVO> recipe_irdnt_get(int id) {
 		return sql.selectList("recipe.mapper.irdnt_get", id);
 	}
+
+	@Override
+	public void recipe_random_recommend() {
+		sql.delete("recipe.mapper.random_delete");
+		sql.insert("recipe.mapper.random_recommend");
+	}
+
+	@Override
+	public List<RecipeInfoVO> recommend_list() {
+		return sql.selectList("recipe.mapper.recommend_list");
+	}
 }

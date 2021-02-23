@@ -1,6 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="recipe.mapper">
+<select id="recommend_list" resultType="recipe.RecipeInfoVO">
+	select * from APP_RECIPE_RECOMMEND_TB
+</select>
+
+<delete id="random_delete">
+	delete APP_RECIPE_RECOMMEND_TB
+	commit
+</delete>
+
+<insert id="random_recommend">
+	<![CDATA[
+	insert into APP_RECIPE_RECOMMEND_TB select * from (select * from 
+	(select * from APP_RECIPE_INFO_TB order by dbms_random.random)
+	where rownum <= 4)
+	]]>
+</insert>
+
 <select id="irdnt_get" resultType="recipe.RecipeIrdntVO">
 	select * from app_recipe_irdnt_tb
 	where recipe_id like #{id}

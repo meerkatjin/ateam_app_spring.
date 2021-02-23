@@ -28,7 +28,7 @@ ul { margin: 5px 0px; }
 	<!-- 타이틀 이미지 -->
 	<div class="reciping-title-imgbox">
 		<div style="width:60%; margin:0px auto; overflow: hidden; border: 1px solid; border-radius: 5px;">
-			<img src="${info.img_url}" width="100%" class="show">
+			<img src="${info.img_url}" style="max-height:460px; width: 100%" class="show">
 		</div>
 	</div>
 	

@@ -31,4 +31,14 @@ public class RecipeServiceImpl implements RecipeService {
 		return dao.recipe_irdnt_get(id);
 	}
 
+	@Override
+	public void recipe_random_recommend() {
+		dao.recipe_random_recommend();
+	}
+
+	@Override
+	public List<RecipeInfoVO> recommend_list() {
+		return dao.recommend_list();
+	}
+
 }

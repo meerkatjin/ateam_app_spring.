@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <style>
 /*추천 레시피 아이템 사이즈*/
-.recipe-header-items{ max-width: 24.2%; overflow: hidden; }
+.recipe-header-items{ max-width: 24.2%; overflow: hidden; cursor: pointer; }
 .recipe-header-items:not(:first-child){ margin-left: 10px; }
 
 /*레시피 내용물*/
@@ -51,7 +51,7 @@
 	</ul>
 </div>
 <input type="hidden" name="curPage" value="1">
-<input type="hidden" name='id'/>
+<input type="hidden" name='recipe_id'/>
 <input type="hidden" name="vo">
 </form>
 </div>
@@ -59,22 +59,13 @@
 	<div class="top-border-2px">
 		<p align="center">오늘의 추천 레시피!</p>
 		<div class="flexSet-wrap">
-			<div class="recipe-header-items bottom-border-2px">
-				<img alt="테스트1" src="http://file.okdab.com/UserFiles/searching/recipe/000200.jpg" style="max-height: 250px;">
-				<p>대충 여기에 내용 뿌리기</p>
+		<c:forEach var="vo" items="${recommend}">
+			<div class="recipe-header-items bottom-border-2px" onclick="go_view(${vo.recipe_id})">
+				<img src="${vo.img_url}" style="height: 250px; min-width: 250px;">
+				<p>${vo.recipe_nm_ko}</p>
+				<div style="font-size: 14px; padding: 5px;">${vo.sumry}</div>
 			</div>
-			<div class="recipe-header-items bottom-border-2px">
-				<img alt="테스트1" src="http://file.okdab.com/UserFiles/searching/recipe/005100.jpg" style="max-height: 250px;">
-				<p>대충 여기에 내용 뿌리기</p>
-			</div>
-			<div class="recipe-header-items bottom-border-2px">
-				<img alt="테스트1" src="http://file.okdab.com/UserFiles/searching/recipe/010400.jpg" style="max-height: 250px;">
-				<p>대충 여기에 내용 뿌리기</p>
-			</div>
-			<div class="recipe-header-items bottom-border-2px">
-				<img alt="테스트1" src="http://file.okdab.com/UserFiles/searching/recipe/011300.jpg" style="max-height: 250px;">
-				<p>대충 여기에 내용 뿌리기</p>
-			</div>
+		</c:forEach>
 		</div>
 	</div>
 	<div class="recipe-content-container top-border-2px">
@@ -95,8 +86,8 @@
 </div>
 
 <script type="text/javascript">
-function go_view(id, vo){
-	$('[name=id]').val(id);
+function go_view(id){
+	$('[name=recipe_id]').val(id);
 	$('form').attr('action', 'view.rp');
 	$('form').submit();
 }

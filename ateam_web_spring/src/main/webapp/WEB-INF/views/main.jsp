@@ -1,12 +1,11 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
 <style>
 /*메인 내용물 사이즈*/
 .main-content-size { margin: 10px 0; text-align: left; }
 .main-content-size.notice { width: 29%; margin-right: 9px; }
 .main-content-size.recipe { width: 69%; margin-left: 8px; }
-.main-content-size-harf { width: 49.5%; margin: 10px 0; }
+.main-content-size-harf { width: 49.5%; margin: 10px 0; overflow: hidden; cursor: pointer; }
 .main-content-size-harf:nth-child(odd) { margin-right: 3px; }
 .main-content-size-harf:nth-child(even) { margin-left: 3px; }
 .main-content-con { width: 100%; padding: 5px 0; }
@@ -54,6 +53,9 @@
   cursor: pointer;
 }
 </style>
+<form action="" method="post">
+<input type="hidden" name='recipe_id'/>
+</form>
 <div style="position: relative;">
 	<div class="mySlides">
 		<div class="numbertext">1 / 3</div>
@@ -146,26 +148,16 @@
 		<a href="list.rp">더보기 ></a>
 	</div>
 	<div class="flexSet-wrap main-content-con top-border-2px">
-		<div class="main-content-size-harf bottom-border-2px">
-			<img src="imgs/test/test.food.img.jpg" style="width: 100%">
-			<p>대충 여기 안에 레시피 설명 넣으면 될듯</p>
+	<c:forEach var="vo" items="${recommend}">
+		<div class="main-content-size-harf bottom-border-2px" onclick="go_view(${vo.recipe_id})">
+			<img src="${vo.img_url}" style="height: 270px; min-width: 350px;">
+			<p>${vo.recipe_nm_ko}</p>
+			<div style="font-size: 14px; padding: 5px;">${vo.sumry}</div>
 		</div>
-		<div class="main-content-size-harf bottom-border-2px">
-			<img src="imgs/test/test.food.img.jpg" style="width: 100%">
-			<p>대충 여기 안에 레시피 설명 넣으면 될듯</p>
-		</div>
-		<div class="main-content-size-harf bottom-border-2px">
-			<img src="imgs/test/test.food.img.jpg" style="width: 100%">
-			<p>대충 여기 안에 레시피 설명 넣으면 될듯</p>
-		</div>
-		<div class="main-content-size-harf bottom-border-2px">
-			<img src="imgs/test/test.food.img.jpg" style="width: 100%">
-			<p>대충 여기 안에 레시피 설명 넣으면 될듯</p>
-		</div>
+	</c:forEach>
 	</div>
 </div>
 </div>
-
 <script>
 var slideIndex = 1;
 var timerId = null;
@@ -196,5 +188,11 @@ function showSlides(n) {
   dots[slideIndex-1].className += " active";
   
   timerId = setTimeout(increasIndex, 5000);
+}
+
+function go_view(id){
+	$('[name=recipe_id]').val(id);
+	$('form').attr('action', 'view.rp');
+	$('form').submit();
 }
 </script>
