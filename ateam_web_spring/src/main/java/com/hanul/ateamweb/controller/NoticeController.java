@@ -11,6 +11,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import member.MemberVO;
 import common.BoardVO;
+import common.CommonService;
 import notice.NoticePage;
 import notice.NoticeServiceImpl;
 
@@ -18,12 +19,18 @@ import notice.NoticeServiceImpl;
 public class NoticeController {
 	@Autowired private NoticeServiceImpl service;
 	@Autowired private NoticePage page;
+	@Autowired private CommonService common;
 	
 	//공지글쓰기처리 요청
 	@RequestMapping("/insert.no")
 	public String insert(BoardVO vo, HttpSession session, MultipartFile file) {
 		MemberVO member = (MemberVO)session.getAttribute("loginInfo");
 		vo.setUser_id( member.getUser_id() );
+		
+		if( ! file.isEmpty() ) {
+			vo.setFilename( file.getOriginalFilename() );
+			vo.setFilepath( common.fileUpload(session, file, "notice") );
+		}
 		
 		service.notice_insert(vo);
 		return "redirect:list.no";

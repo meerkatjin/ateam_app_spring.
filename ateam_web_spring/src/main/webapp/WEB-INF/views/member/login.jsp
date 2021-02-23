@@ -72,8 +72,8 @@ label:hover {
 				<a onclick='do_login()' class='btn-fill' style='display:block; margin:auto; width:60%; height:42px; line-height:33px; box-shadow:none;'>로그인</a>
 			</form>
 			<hr style='width:80%; margin:25px auto'>
-			<a class='social' href='naverlogin'><img src='imgs/naver_login.png' alt='네이버로그인' /></a>
-			<a class='social' href='kakaologin'><img src='imgs/kakao_login.png' alt='카카오로그인' /></a>
+			<a class='social' href='naverLogin'><img src='imgs/naver_login.png' alt='네이버로그인' /></a>
+			<a class='social' href='kakaoLogin'><img src='imgs/kakao_login.png' alt='카카오로그인' /></a>
 			
 			<div align="right" style="width:60%;">
 				<a href="join" class="bottom">회원가입</a>
