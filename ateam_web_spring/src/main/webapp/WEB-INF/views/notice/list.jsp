@@ -8,6 +8,8 @@
 <style type="text/css">
 .menu ul li { float: left; margin-right: 40px; font-size: 18px; font-weight: bold;}
 table { width: 1024px; }
+.btn-write ul { margin: 0; }
+.btn-write ul li { float: right; margin-bottom: 20px; font-weight: bold; }
 </style>
 </head>
 <body>
@@ -17,7 +19,11 @@ table { width: 1024px; }
 		<li><a href="list.no">공지사항</a></li>
 		<li><a href="list.qa">자주묻는 질문</a></li>
 		<li><a href="list.bo">게시판</a></li>
-		<li><a class="btn-fill">글쓰기</a></li>
+	</ul>
+</div>
+<div class="btn-write">
+	<ul>
+		<li><a class="btn-fill" href="new.no">글쓰기</a></li>
 	</ul>
 </div>
 
@@ -36,7 +42,7 @@ table { width: 1024px; }
 <tr>
 	<td>${vo.no}</td>
 	<td class="left">${vo.board_title}</td>
-	<td></td>
+	<td>${vo.name}</td>
 	<td>${vo.create_dt}</td>
 	<td></td>
 	<td>${vo.board_readcount}</td>

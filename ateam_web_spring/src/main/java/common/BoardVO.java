@@ -2,7 +2,7 @@ package common;
 
 import java.util.Date;
 
-public class MemberVO {
+public class BoardVO {
 	
 //	BOARD_GP        NOT NULL VARCHAR2(2)    
 //	BOARD_NO        NOT NULL NUMBER         

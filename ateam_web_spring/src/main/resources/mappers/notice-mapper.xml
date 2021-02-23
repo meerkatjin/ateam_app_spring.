@@ -2,12 +2,17 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="notice.mapper">
 
+<insert id="insert">
+	insert into mst_board_tb( board_gp, board_no, user_id,  board_title, board_content )
+	values( 1, MST_BOARD_TB_SEQ.NEXTVAL, #{user_id}, #{board_title}, #{board_content} )
+</insert>
+
 <select id="totalList" resultType="integer">
 	select count(*) from mst_board_tb where board_gp = 1
 </select>
 
 <select id="list" resultType="common.CommuVO">
-	select * from (select rownum no, b.* 
+	select * from (select rownum no, b.*, ( select user_nm from mst_user_info_tb u where b.user_id=u.user_id ) name
 	from (select * from mst_board_tb where board_gp = 1) b 
 	order by no desc)
 	where no between #{beginList} and #{endList}
