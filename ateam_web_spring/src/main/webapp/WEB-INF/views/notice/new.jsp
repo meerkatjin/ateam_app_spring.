@@ -7,7 +7,7 @@
 </head>
 <body>
 <h3>공지글 쓰기</h3>
-<form action="insert.no" method="post">
+<form action="insert.no" method="post" enctype="multipart/form-data" >
 <table>
 <tr>
 	<th>제목</th>
@@ -15,7 +15,7 @@
 </tr>
 <tr>
 	<th>작성자</th>
-	<td></td>
+	<td>${loginInfo.user_nm}</td>
 </tr>
 <tr>
 	<th>내용</th>
@@ -23,7 +23,14 @@
 </tr>
 <tr>
 	<th>파일첨부</th>
-	<td></td>
+	<td class='left'>
+		<label>
+		<input type='file' name='file' id='attach-file' />
+		<img src='imgs/select.png' class='file-img' />
+		</label>
+		<span id='file-name'></span>
+		<span id='delete-file'><i class='fas fa-times'></i></span>
+	</td>
 </tr>
 </table>
 <input type="hidden" name="board_gp" value="1">

@@ -7,8 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
-import common.CommuVO;
 import member.MemberVO;
 import common.BoardVO;
 import notice.NoticePage;
@@ -21,7 +21,7 @@ public class NoticeController {
 	
 	//공지글쓰기처리 요청
 	@RequestMapping("/insert.no")
-	public String insert(CommuVO vo, HttpSession session) {
+	public String insert(BoardVO vo, HttpSession session, MultipartFile file) {
 		MemberVO member = (MemberVO)session.getAttribute("loginInfo");
 		vo.setUser_id( member.getUser_id() );
 		

@@ -4,19 +4,19 @@ import java.util.List;
 
 import org.springframework.stereotype.Component;
 
-import common.CommuVO;
+import common.BoardVO;
 import common.PageVO;
 
 @Component
 public class NoticePage extends PageVO{
 	
-	private List<CommuVO> list;
+	private List<BoardVO> list;
 
-	public List<CommuVO> getList() {
+	public List<BoardVO> getList() {
 		return list;
 	}
 
-	public void setList(List<CommuVO> list) {
+	public void setList(List<BoardVO> list) {
 		this.list = list;
 	}
 }

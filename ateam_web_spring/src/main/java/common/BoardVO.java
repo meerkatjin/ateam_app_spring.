@@ -14,10 +14,34 @@ public class BoardVO {
 //	BOARD_CONTENT   NOT NULL VARCHAR2(4000) 
 //	USER_TYPE                VARCHAR2(20)   
 
-	private int board_no, user_id, board_readcount;
-	private String board_gp, board_title, board_content, user_type;
+	private int board_no, user_id, board_readcount, no;
+	private String board_gp, board_title, board_content, user_type, filename, filepath, name;
 	private Date create_dt, update_dt;
 	
+	public int getNo() {
+		return no;
+	}
+	public void setNo(int no) {
+		this.no = no;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getFilename() {
+		return filename;
+	}
+	public void setFilename(String filename) {
+		this.filename = filename;
+	}
+	public String getFilepath() {
+		return filepath;
+	}
+	public void setFilepath(String filepath) {
+		this.filepath = filepath;
+	}
 	public int getBoard_no() {
 		return board_no;
 	}
