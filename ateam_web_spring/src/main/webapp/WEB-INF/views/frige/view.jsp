@@ -49,15 +49,15 @@ input[type="checkbox"]:checked ~ label {
 	font-size: 0.7rem;
 	cursor: pointer;
 }
-#irdnt_items {
+#content_items {
 	margin-top: 10px;
 	border: 1px solid #000000;
 }
-#irdnt_search {
+#content_search {
 	width: 80%;
 	float: left;
 }
-#btn_irdnt_search {
+#btn_content_search {
 	width: 18%;
 	float: right;
 	box-shadow: 0 0 0;
@@ -97,15 +97,15 @@ input[type="checkbox"]:checked ~ label {
 		</div>
 		
 		<div style="overflow: hidden; margin-top: 10px;">
-			<input type="text" id="irdnt_search" placeholder="검색하실 재료명을 입력해주세요" />
-			<a class="btn-fill" id="btn_irdnt_search">검색</a>
+			<input type="text" id="content_search" placeholder="검색하실 재료명을 입력해주세요" />
+			<a class="btn-fill" id="btn_content_search">검색</a>
 		</div>
 		
-		<div id="irdnt_items">
+		<div id="content_items">
 			<p>내 냉장고 재료</p>
 			<c:forEach var="vo" items="${page.list }">
-				<div class="irdnt_list" onclick="#">
-					<p>${vo.irdnt_nm }</p>
+				<div class="content_list" onclick="#">
+					<p>${vo.content_nm }</p>
 					<p>${vo.shelf_life_end }</p>
 				</div>
 			</c:forEach>
