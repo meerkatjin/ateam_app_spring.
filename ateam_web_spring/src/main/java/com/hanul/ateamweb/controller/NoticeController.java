@@ -27,12 +27,11 @@ public class NoticeController {
 		service.notice_insert(vo);
 		return "redirect:list.no";
 	}
-	
-	//공지글 신규화면 요청
+	//공지사항 글신규화면 요청
 	@RequestMapping("/new.no")
-	 public String notice() {
-		 return "notice/new";
-	 }
+	public String noticeNew() {
+		return "notice/new";
+	}
 
 	//공지사항 화면 요청
 	@RequestMapping("/list.no")

@@ -20,7 +20,7 @@
 		</c:if>
 		<!-- 로그인한 경우 -->
 		<c:if test='${!empty loginInfo}'>
-		<li style='padding-right:10px'><strong>${loginInfo.name}</strong>님</li>
+		<li style='padding-right:10px; color:#FFFFFF;'><strong>${loginInfo.user_nm}</strong>님</li>
 		<li><a class='btn-fill' href='logout'>로그아웃</a></li>
 		</c:if>
 	</ul>

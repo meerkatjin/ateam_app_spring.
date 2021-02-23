@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="member.mapper">
+	<select id="login" resultType="member.MemberVO">
+		SELECT * FROM MST_USER_INFO_TB WHERE user_email = #{user_email} AND user_pw = #{user_pw}
+	</select>
+	
+	<select id="email_check" resultType="integer">
+		SELECT COUNT(*) FROM MST_USER_INFO_TB WHERE user_email = #{user_email}
+	</select>
+	
+	<insert id="join">
+		INSERT INTO MST_USER_INFO_TB (user_email, user_pw, user_nm, user_addr, user_pro_img, user_phone_no)
+		VALUES(#{user_email}, #{user_pw}, #{user_nm}, #{user_addr}, #{user_pro_img}, #{user_phone_no})
+	</insert>
+</mapper>

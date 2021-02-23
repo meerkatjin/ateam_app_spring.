@@ -30,6 +30,11 @@ table tr td a:hover, ul.grid li div:first-child a:hover { font-weight:bold; }
 
 .curser-pointer {cursor: pointer;}	/*커서를 a 태그처럼 만들어줌*/
 
+#popup-background{
+	position:fixed; left:0; top:0; width:100%; height:100%; 
+	background-color:#000; opacity:0.3;  display:none; 
+}
+
 .btnSet { margin-top:20px; }
 
 .flexSet-wrap { display: flex; flex-wrap: wrap; }

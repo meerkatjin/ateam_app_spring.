@@ -1,5 +1,7 @@
 package com.hanul.ateamweb.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,18 +10,35 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import common.PageVO;
+import common.CommonService;
+import recipe.RecipeIrdntVO;
 import recipe.RecipePage;
 import recipe.RecipeServiceImpl;
 
 @Controller
-public class RecipeController {
+public class RecipeController{
 	@Autowired private RecipeServiceImpl service;
 	@Autowired private RecipePage page;
+	@Autowired private CommonService common;
 	
 	@RequestMapping("/view.rp")
 	public String view(int id, Model model) {
-		model.addAttribute("vo", service.recipe_view(id));
+		int mainIrdnt = 0, subIrdnt = 0, sauce = 0;
+		List<RecipeIrdntVO> irdntVO = service.recipe_irdnt_get(id);
+		for (RecipeIrdntVO vo : irdntVO) {
+			if(vo.getIrdnt_ty_nm().equals("주재료")) mainIrdnt++;
+			else if(vo.getIrdnt_ty_nm().equals("부재료")) subIrdnt++;
+			else if(vo.getIrdnt_ty_nm().equals("양념")) sauce++;
+		}
+		
+		model.addAttribute("irdnt", irdntVO);
+		model.addAttribute("mainIrdnt", mainIrdnt);
+		model.addAttribute("subIrdnt", subIrdnt);
+		model.addAttribute("sauce", sauce);
+		model.addAttribute("info",service.recipe_select(id));
+		model.addAttribute("ing", service.recipe_view(id));
+		model.addAttribute("crlf", "\r\n");
+		model.addAttribute("lf", "\n");
 		return "recipe/view";
 	}
 

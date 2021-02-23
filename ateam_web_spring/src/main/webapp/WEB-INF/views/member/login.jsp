@@ -96,7 +96,7 @@ function do_login() {
 
 	$.ajax({
 		type: 'post',
-		url: 'login',
+		url: 'memberLogin',
 		data: { user_email:$('#user_email').val(), user_pw:$('#user_pw').val() },
 		success: function( response ){
 			if( response ){
@@ -105,7 +105,7 @@ function do_login() {
 				location.href = ( document.referrer.match(/member/g)
 								 || !document.referrer.match(/list/g) ) 
 							? '<c:url value="/"/>' : document.referrer;
-			}else{
+			} else {
 				alert('아이디나 비밀번호가 일치하지 않습니다!');
 			}
 		},error: function(req, text){

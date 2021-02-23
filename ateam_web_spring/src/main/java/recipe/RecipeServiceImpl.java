@@ -21,4 +21,14 @@ public class RecipeServiceImpl implements RecipeService {
 		return dao.recipe_view(id);
 	}
 
+	@Override
+	public RecipeInfoVO recipe_select(int id) {
+		return dao.recipe_select(id);
+	}
+
+	@Override
+	public List<RecipeIrdntVO> recipe_irdnt_get(int id) {
+		return dao.recipe_irdnt_get(id);
+	}
+
 }
