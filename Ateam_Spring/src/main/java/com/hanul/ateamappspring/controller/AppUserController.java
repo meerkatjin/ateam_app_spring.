@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartRequest;
 
@@ -58,7 +57,6 @@ public class AppUserController {
 		//회원에 등록되어있는 카카오 유저인지 확인
 		AppUserDTO chaeck = service.appUserCheck(dto);
 		
-		int succ = 0;
 		if(chaeck == null) {	//회원 등록이 안되어있으면 db에 회원 정보 저장 진행
 				service.appJoin(dto);
 		}

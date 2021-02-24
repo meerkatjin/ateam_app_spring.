@@ -6,7 +6,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import frigecontents.dto.FrigeContentsDTO;
 import frigecontents.dto.FrigeDeleteDTO;
 import frigecontents.dto.FrigeViewDTO;
 import frigecontents.dto.InsertDTO;

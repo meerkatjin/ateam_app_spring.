@@ -62,7 +62,7 @@ input[type="text"], input[type="password"] {
 				<input type='text' name="user_email" class="chk" placeholder="이메일 *" />
 				<div class='valid'>유효한 이메일을 입력하세요<a class="btn-fill-s" id="btn-email">중복확인</a></div>
 				<input type='password' name="user_pw" class="chk" placeholder="비밀번호 *" />
-				<div class='valid'>영문자, 숫자, 특수문자(! @ # $ % & + -)를 모두 포함해 8~32자를 입력해주세요</div>
+				<div class='valid'>영문자, 숫자, 특수문자(! @ # $ % &amp; + -)를 모두 포함해 8~32자를 입력해주세요</div>
 				<input type='password' name="user_pwck" class="chk" placeholder="비밀번호 확인 *" />
 				<div class='valid'>비밀번호를 다시 입력해주세요</div>
 				<input type='text' name='user_nm' placeholder="이름(별명) *" />

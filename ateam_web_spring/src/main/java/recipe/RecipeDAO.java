@@ -6,8 +6,6 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import common.PageVO;
-
 @Repository
 public class RecipeDAO implements RecipeService {
 	@Autowired private SqlSession sql;
