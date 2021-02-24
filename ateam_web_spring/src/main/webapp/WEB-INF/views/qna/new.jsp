@@ -6,9 +6,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h3>공지글 쓰기</h3>
+<h3>질문글쓰기</h3>
 
-<form action="insert.no" method="post" enctype="multipart/form-data" >
+<form action="insert.qa" method="post" enctype="multipart/form-data" >
 <table>
 <tr>
 	<th>제목</th>
@@ -34,7 +34,7 @@
 	</td>
 </tr>
 </table>
-<input type="hidden" name="board_gp" value="1">
+<input type="hidden" name="board_gp" value="2">
 </form>
 
 <div class="btnSet">
@@ -43,5 +43,6 @@
 </div>
 
 <script type="text/javascript" src="js/file_check.js"></script>
+
 </body>
 </html>

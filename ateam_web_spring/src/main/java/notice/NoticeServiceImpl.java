@@ -31,20 +31,20 @@ public class NoticeServiceImpl implements NoticeService {
 	}
 
 	@Override
-	public List<BoardVO> notice_view(int id) {
+	public BoardVO notice_view(int board_no) {
 		// TODO Auto-generated method stub
-		return null;
+		return dao.notice_view(board_no);
 	}
 
 	@Override
 	public void notice_update(BoardVO vo) {
-		// TODO Auto-generated method stub
+		dao.notice_update(vo);
 		
 	}
 
 	@Override
-	public void notice_delete(int id) {
-		// TODO Auto-generated method stub
+	public void notice_delete(int board_no) {
+		dao.notice_delete(board_no);
 		
 	}
 
