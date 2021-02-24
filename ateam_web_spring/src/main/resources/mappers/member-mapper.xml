@@ -9,9 +9,20 @@
 		SELECT COUNT(*) FROM MST_USER_INFO_TB WHERE user_email = #{user_email}
 	</select>
 	
+	<select id="numbering" resultType="long">
+		select max(user_id) from MST_USER_INFO_TB
+		where user_type = 'nomal'
+	</select>
+	
 	<insert id="join">
-		INSERT INTO MST_USER_INFO_TB (user_email, user_pw, user_nm, user_addr, user_pro_img, user_phone_no)
-		VALUES(#{user_email}, #{user_pw}, #{user_nm}, #{user_addr}, #{user_pro_img}, #{user_phone_no})
+		<if test="user_pro_img!=null">
+			INSERT INTO MST_USER_INFO_TB (user_id, user_email, user_pw, user_nm, user_addr, user_pro_img, user_phone_no)
+			VALUES(#{user_id}, #{user_email}, #{user_pw}, #{user_nm}, #{user_addr}, #{user_pro_img}, #{user_phone_no})
+		</if>
+		<if test="user_pro_img==null">
+			INSERT INTO MST_USER_INFO_TB (user_id, user_email, user_pw, user_nm, user_addr, user_phone_no)
+			VALUES(#{user_id}, #{user_email}, #{user_pw}, #{user_nm}, #{user_addr}, #{user_phone_no})
+		</if>
 	</insert>
 	
 	<select id="social_id" resultType="integer">

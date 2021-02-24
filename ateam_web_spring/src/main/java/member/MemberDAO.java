@@ -12,6 +12,10 @@ public class MemberDAO implements MemberService {
 
 	@Override
 	public boolean member_join(MemberVO vo) {
+		if(vo.getUser_id() == 0) {
+			long number = sql.selectOne("member.mapper.numbering",vo);
+			vo.setUser_id(number+1);
+		}
 		return sql.insert("member.mapper.join", vo) > 0 ? true : false;
 	}
 

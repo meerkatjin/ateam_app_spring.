@@ -37,6 +37,24 @@ public class MemberController {
 		return "member/join";
 	}
 	
+	//회원가입처리 요청
+	@ResponseBody @RequestMapping(value="/joinRequest", produces="text/html; charset=utf-8")
+	public String join(MemberVO vo, HttpSession session, HttpServletRequest request) { 
+		//session 은 이메일 보낼때 필요 구현은 나중에..
+		
+		//화면에서 입력한 회원정보를 DB에 저장한 후 홈으로 연결 
+		StringBuffer msg = new StringBuffer("<script>"); 
+		if (service.member_join(vo)) { 
+			msg.append("alert('회원가입을 축하합니다 ^^'); location='" 
+			+ request.getContextPath() + "'; "); 
+		} else {
+			msg.append("alert('회원가입 실패 ㅠㅠ'); history.go(-1)"); 
+		}
+		msg.append("</script>");
+	 
+	 	return msg.toString(); 
+	}
+	
 	//로그인 요청 처리
 	@ResponseBody @RequestMapping("/memberLogin")
 	public boolean login(String user_email, String user_pw, HttpSession session) {
@@ -55,22 +73,6 @@ public class MemberController {
 	@ResponseBody @RequestMapping("/email_check")
 	public boolean email_check(String user_email) {
 		return service.member_email_check(user_email);
-	}
-	
-	//회원가입처리 요청
-	@ResponseBody @RequestMapping(value="/join", produces="text/html; charset=utf-8")
-	public String join(MemberVO vo, HttpSession session, HttpServletRequest request) { 
-		//화면에서 입력한 회원정보를 DB에 저장한 후 홈으로 연결 
-		StringBuffer msg = new StringBuffer("<script>"); 
-		if (service.member_join(vo)) { 
-			msg.append("alert('회원가입을 축하합니다 ^^'); location='" 
-			+ request.getContextPath() + "'; "); 
-		} else {
-			msg.append("alert('회원가입 실패 ㅠㅠ'); history.go(-1)"); 
-		}
-		msg.append("</script>");
-	 
-	 	return msg.toString(); 
 	}
 	
 	//카카오 아이디로 로그인 요청

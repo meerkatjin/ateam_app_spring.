@@ -4,6 +4,7 @@
 /*추천 레시피 아이템 사이즈*/
 .recipe-header-items{ max-width: 24.2%; overflow: hidden; cursor: pointer; }
 .recipe-header-items:not(:first-child){ margin-left: 10px; }
+.recipe-header-items:hover{ background-color: #ddd }
 
 /*레시피 내용물*/
 .recipe-content-container{ 

@@ -8,6 +8,7 @@
 .main-content-size-harf { width: 49.5%; margin: 10px 0; overflow: hidden; cursor: pointer; }
 .main-content-size-harf:nth-child(odd) { margin-right: 3px; }
 .main-content-size-harf:nth-child(even) { margin-left: 3px; }
+.main-content-size-harf:hover { background-color: #ddd; }
 .main-content-con { width: 100%; padding: 5px 0; }
 .main-content-title { justify-content: space-between; }
 .main-content-title a { line-height: 64px; font-size: 12px; }

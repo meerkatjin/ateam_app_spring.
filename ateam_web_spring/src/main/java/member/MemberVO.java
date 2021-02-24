@@ -1,7 +1,7 @@
 package member;
 
 public class MemberVO {
-	private int user_id;
+	private long user_id;
 	private String user_email;
 	private String user_pw;
 	private String user_nm;
@@ -11,10 +11,10 @@ public class MemberVO {
 	private String user_grade;
 	private String user_type;
 	
-	public int getUser_id() {
+	public long getUser_id() {
 		return user_id;
 	}
-	public void setUser_id(int user_id) {
+	public void setUser_id(long user_id) {
 		this.user_id = user_id;
 	}
 	public String getUser_email() {

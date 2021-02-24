@@ -7,35 +7,29 @@ var join = {
 		, min: { code:'invalid', desc:'최소 5자이상 입력하세요' }
 	},
 	
-	id : {
-		valid : { code:'valid', desc:'아이디 중복확인 하세요' }
-	    , invalid : { code:'invalid', desc: '영문소문자,숫자만 입력하세요' }
- 		, usable : { code:'valid', desc:'사용가능한 아이디입니다' }
-		, unusable : { code:'invalid', desc:'이미 사용중인 아이디입니다' }
-	},
 	
-	id_usable: function( data ){
-		if( data )  return this.id.unusable;
-		else        return this.id.usable;
+	email_usable: function( data ){
+		if( data )  return this.email.unusable;
+		else        return this.email.usable;
 	},
 	
 	tag_status: function( tag ){
 		var data = tag.val();
 		tag = tag.attr('name');
-		if( tag=='id' ){
-			return this.id_status( data );
-		}else if( tag=='pw' ){
+		if( tag=='user_pw' ){
 			return this.pw_status( data );
-		}else if( tag=='pw_ck' ){
+		}else if( tag=='user_pwck' ){
 			return this.pw_ck_status( data );
-		}else if( tag=='email' ){
+		}else if( tag=='user_email' ){
 			return this.email_status( data );
 		}
 	},
 	
 	email: {
-		valid: { code:'valid', desc:'사용가능한 이메일입니다'}
+		valid: { code:'valid', desc:'이메일 중복확인을 눌러주세요'}
 		, invalid: { code:'invalid', desc:'사용 불가능한 이메일입니다'}
+		, usable : { code:'valid', desc:'사용가능한 아이디입니다' }
+		, unusable : { code:'invalid', desc:'이미 사용중인 이메일입니다' }
 	},
 	
 	email_status: function(email){
@@ -47,7 +41,7 @@ var join = {
 	
 	pw_ck_status: function( pw_ck ){
 		if( pw_ck=='' ) return this.common.empty;
-		else if( pw_ck == $('[name=pw]').val() ) return this.pw.equal;
+		else if( pw_ck == $('[name=user_pw]').val() ) return this.pw.equal;
 		else return this.pw.notEqual;
 	},
 	
@@ -71,16 +65,6 @@ var join = {
 						return this.pw.lack;
 		else                      return this.pw.valid;
 	},
-	
-	id_status: function( id ){
-		var reg = /[^a-z0-9]/g;
-		if( id=='' ) return this.common.empty;
-		else if( id.match(space) ) return this.common.space;
-		else if( reg.test(id) ) return this.id.invalid;
-		else if( id.length < 5 ) return this.common.min;
-		else if( id.length > 10 ) return this.common.max;
-		else         return this.id.valid;
-	}
 }
 var space = /\s/g;
 
