@@ -13,7 +13,7 @@
 	<task:annotation-driven/>
 	<!-- 와이어링 할 패키지의 경로 -->
 	<context:component-scan 
-			base-package="notice, common, recipe, member, frige"/>
+			base-package="qna, notice, common, recipe, member, frige"/>
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
 	<import resource="classpath:data/default.xml"/>
