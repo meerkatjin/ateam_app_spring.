@@ -21,6 +21,36 @@ public class NoticeController {
 	@Autowired private NoticePage page;
 	@Autowired private CommonService common;
 	
+	//공지글 삭제처리 요청
+	@RequestMapping("/delete.no")
+	public String delete(int board_no) {
+		service.notice_delete(board_no);
+		return "redirect:list.no";
+	}
+	
+	//공지글 수정처리 요청
+	@RequestMapping("/update.no")
+	public String update(BoardVO vo) {
+		service.notice_update(vo);
+		return "redirect:list.no?board_no=" + vo.getBoard_no();
+	}
+	
+	//공지글 수정화면 요청
+	@RequestMapping("/modify.no")
+	public String modify(Model model, int board_no) {
+		model.addAttribute("vo", service.notice_view(board_no));
+		return "notice/modify";
+	}
+	
+	//공지글 상세보기
+	@RequestMapping("/view.no")
+	public String view(Model model, int board_no) {
+		
+		model.addAttribute("vo", service.notice_view(board_no));
+		model.addAttribute("page", page);
+		return "notice/view";
+	}
+	
 	//공지글쓰기처리 요청
 	@RequestMapping("/insert.no")
 	public String insert(BoardVO vo, HttpSession session, MultipartFile file) {
@@ -44,9 +74,11 @@ public class NoticeController {
 
 	//공지사항 화면 요청
 	@RequestMapping("/list.no")
-	public String noticeView(HttpSession session, Model model, @RequestParam(defaultValue = "1") int curPage) {
+	public String noticeView(HttpSession session, Model model, @RequestParam(defaultValue = "1") int curPage, String search, String keyword) {
 		session.setAttribute("category", "cu");
 		page.setCurPage(curPage);
+		page.setSearch(search);
+		page.setKeyword(keyword);
 		model.addAttribute("page", service.notice_list(page));
 		return "notice/list";
 	}

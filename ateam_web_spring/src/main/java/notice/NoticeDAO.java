@@ -27,23 +27,17 @@ public class NoticeDAO implements NoticeService{
 	}
 
 
-	@Override
-	public List<BoardVO> notice_view(int id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 
 	@Override
 	public void notice_update(BoardVO vo) {
-		// TODO Auto-generated method stub
+		sql.update("notice.mapper.update", vo);
 		
 	}
 
 
 	@Override
-	public void notice_delete(int id) {
-		// TODO Auto-generated method stub
+	public void notice_delete(int board_no) {
+		sql.delete("notice.mapper.delete", board_no);
 		
 	}
 
@@ -53,5 +47,13 @@ public class NoticeDAO implements NoticeService{
 		page.setList( sql.selectList("notice.mapper.list", page));
 		return page;
 	}
+
+
+	@Override
+	public BoardVO notice_view(int board_no) {
+		// TODO Auto-generated method stub
+		return sql.selectOne("notice.mapper.view", board_no);
+	}
+
 
 }
