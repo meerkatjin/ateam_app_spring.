@@ -14,7 +14,8 @@ public class BoardVO {
 //	BOARD_CONTENT   NOT NULL VARCHAR2(4000) 
 //	USER_TYPE                VARCHAR2(20)   
 
-	private int board_no, user_id, board_readcount, no;
+	private long user_id;
+	private int board_no, board_readcount, no;
 	private String board_gp, board_title, board_content, user_type, filename, filepath, name;
 	private Date create_dt, update_dt;
 	
@@ -48,11 +49,11 @@ public class BoardVO {
 	public void setBoard_no(int board_no) {
 		this.board_no = board_no;
 	}
-	public int getUser_id() {
+	public long getUser_id() {
 		return user_id;
 	}
-	public void setUser_id(int user_id) {
-		this.user_id = user_id;
+	public void setUser_id(long l) {
+		this.user_id = l;
 	}
 	public int getBoard_readcount() {
 		return board_readcount;
