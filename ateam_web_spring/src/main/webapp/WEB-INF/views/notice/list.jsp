@@ -28,7 +28,7 @@ table { width: 1024px; }
 <div class="btn-write">
 	<ul>
 		<!-- 관리자일때만 글쓰기 버튼 보이게 -->
-		<c:if test="${loginInfo.user_id eq 1}">
+		<c:if test="${loginInfo.user_grade eq 1}">
 		<li><a class="btn-fill" href="new.no" maxlength="100">글쓰기</a></li>
 		</c:if>
 	</ul>

@@ -28,6 +28,11 @@
 		<!-- 로그인한 경우 -->
 		<c:if test='${!empty loginInfo}'>
 		<li style='padding-right:10px; color:#FFFFFF;'><strong>${loginInfo.user_nm}</strong>님</li>
+			<div class="subnav-content">
+		      <a href='modify.me'>회원정보수정</a>
+		      <a href='withdrawal.me'>회원탈퇴</a>
+		      <a href='manage.me'>회원관리</a>
+		    </div>
 		<li><a class='btn-fill' href='logout'>로그아웃</a></li>
 		</c:if>
 	</ul>
