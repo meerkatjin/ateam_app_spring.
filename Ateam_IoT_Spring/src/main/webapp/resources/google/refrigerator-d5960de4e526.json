@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "refrigerator-eaa72",
+  "private_key_id": "d5960de4e526b004ad3c5d51bcacc96003e88320",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDRw1z6DR4MuFEo\nUkMaH9W4mz4zLjII98lD2geskSdK6OtA2o8IUxHLDaiVk/UVB/ip5ihpsbieFvqN\nJYeFark4/1jupnzr7i3D0i0Q7qc/pp0Gf6T2dVZnXOaHkhBbGTIz68gJgtjs4OJm\nfHQJOvKHmOkrUWZUF+ja2vnSYfZZI/UN352b++G5Fmc/vywxYuYGJCk8iGnfE+W4\nzPI6oqqtvq5Sygdi9kSZJEfCDxokltHiaGprBU59B/EhlBgpE1ayVvTel8ZJVXCF\nLyRcDD2NpZvKSuyQj5AFPKvx0mRwWLgW+XGMcbvz+Qi2OC22oT16wauI3h3Ao98Q\ngUjS5L/bAgMBAAECggEATD3qkvZmmC/8S6AOxLWSfG1sv7SIOis6C7/5Lxd5RSiA\nrYtjFp7+5iN6RZfIKlNB5hsCUFxo4okum1PrPKqMVTO2ktOPrz9cggLoH3Hm92Mr\nStvlTTFb7Oje36LO8BWp4iZOiGp3Ry38DE0q7dnvoiqJgZWuEF26ZKXXzMiPfllD\nGXIzUFx/BsuTF1x8CgZNvOTaKS5o+U7PJgW3bBudvnzr9TmP6gcJNGiIncPCYoV3\nD9yiOqijJ7yQTaDc+4/MXBwPolNmO3uHY406kTWqcF0XC0tGzIYj9Ie/OqQ+ildM\nozq8sO4ZDzegX2L66w1ItWuAP4FSn9nPyMnAx/u2aQKBgQD3u0d/OHLazeWd9/Gp\nr2E7WGID0xdPpqlr++eK/d55mIbpf/TqLCbdDVkiHkGEOQdfCyVdqtbtq5AUpL+z\npPXCjeAVXbqGuYBMMsBTCTzRTCwQ4d7lEYUJ0Ux/t8Re5ED6LeCLrYHq/OZYTFoI\n8YEQiCgqdAXJXq8POis0wWpDKQKBgQDYw6qBDShtrGe+E87Izd3ArQKv2t7ooDPV\nKNBjVSwpBX+eaXv+JLfSrbgq4DarK19e7E7SfOJ1K0uHf3ddcgD1y+S3S2W4EdpY\nRxlOud3VQ8u7TDcyIGXdFIW7MifuS4rWadqEftVmb+DoZ8+vgjfAdZv2p28ZOUIH\nJraG6f5vYwKBgQCmvpfROd2VCSGUwl8XJ8T6fPL8QAlgw30mAdhH5bjpf5DPeiEP\nvcgq4eEs5dCTfw9HGel8spEYSHIicwHVmSMSYQyDVSNHq3R/1Wk+eulEt1CxzFaL\nOM+jXA1xqe+zL0/NFTQe0BqyYKdqp3myq1uEFSFz8cQzVlfel/ic+dLcgQKBgB6k\n4sjlxE5k7jGn+TbYK75edx/HUHYQl+NNptA0LU8LUPRjMz1FkZs+Jegh1Hi0ZAI2\nZBpLv3QTD9VzBrv2Lv6QuZ/UD+hK1dRfEMvZaOwKbpXm+3Khs+TiTtmdCJoeod0Y\nD+VlTOPzcxdH/ctxHFKgDdF78C/fsV7zcSB3mhnDAoGAPeIdWGN6uPL39iUMMFm8\nlsFp6oB8ny2roMt4NYbfXcNHa37+N6CheVBGL3Kbq12THPA8mS+gexlhSxuvesnA\nQ3gKKapnqCbbhgbApkbm33AZJ/vVDCKmmXXLdERQjMGo3esZNsnreH/YdOk8GoI2\nq095KPijN64jObzggyL51A8=\n-----END PRIVATE KEY-----\n",
+  "client_email": "refrigerator-eaa72@appspot.gserviceaccount.com",
+  "client_id": "109343261470478323544",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/refrigerator-eaa72%40appspot.gserviceaccount.com"
+}
