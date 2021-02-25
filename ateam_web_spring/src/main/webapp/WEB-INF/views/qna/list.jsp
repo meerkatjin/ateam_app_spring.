@@ -30,7 +30,9 @@ table { width: 1024px; }
 <div class="btn-write">
 	<ul>
 		<!-- 로그인한 경우에만 글쓰기 버튼 보이게 -->
+		<c:if test="${!empty loginInfo}">
 		<li><a class="btn-fill" href="new.qa" maxlength="100">글쓰기</a></li>
+		</c:if>
 	</ul>
 </div>
 <input type='hidden' name='curPage' value='1'/>
@@ -47,7 +49,7 @@ table { width: 1024px; }
 <c:forEach items="${page.list}" var="vo">
 <tr>
 	<td>${vo.no}</td>
-	<td>${vo.board_title}</td>
+	<td class="left"><a href='view.qa?board_no=${vo.board_no}'>${vo.board_title}</a></td>
 	<td>${vo.name}</td>
 	<fmt:formatDate value="${vo.create_dt}" var="create_dt" pattern="yyyy-MM-dd" />
 	<td>${create_dt}</td>

@@ -45,6 +45,7 @@ public class NoticeController {
 	//공지글 상세보기
 	@RequestMapping("/view.no")
 	public String view(Model model, int board_no) {
+		service.notice_read(board_no);
 		
 		model.addAttribute("vo", service.notice_view(board_no));
 		model.addAttribute("page", page);

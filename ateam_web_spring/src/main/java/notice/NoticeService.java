@@ -10,6 +10,7 @@ public interface NoticeService {
 	List<BoardVO> notice_list();	//공지글 조회
 	NoticePage notice_list(NoticePage page);//페이지단위로 공지글목록조회
 	BoardVO notice_view(int board_no);	//공지글 상세보기
+	void notice_read(int board_no);//공지글 조회수
 	void notice_update(BoardVO vo);	//공지글 변경저장
 	void notice_delete(int board_no);	//공지글 삭제
 

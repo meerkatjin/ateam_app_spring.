@@ -21,6 +21,38 @@ public class QnaController {
 	@Autowired private NoticePage page;
 	@Autowired private CommonService common;
 	
+	//질문글 삭제처리 요청
+	@RequestMapping("/delete.qa")
+	public String delete(int board_no) {
+		service.qna_delete(board_no);
+		return "redirect:list.no";
+	}
+	
+	//질문글 수정처리 요청
+	@RequestMapping("/update.qa")
+	public String update(BoardVO vo) {
+		service.qna_update(vo);
+		return "redirect:list.qa?board_no=" + vo.getBoard_no();
+	}
+	
+	//질문글 수정화면 요청
+	@RequestMapping("/modify.qa")
+	public String modify(Model model, int board_no) {
+		model.addAttribute("vo", service.qna_view(board_no));
+		return "qna/modify";
+	}
+	
+	
+	//질문글 상세화면 보기
+	@RequestMapping("/view.qa")
+	public String view(Model model, int board_no) {
+		service.qna_read(board_no);
+		
+		model.addAttribute("vo", service.qna_view(board_no));
+		model.addAttribute("page", page);
+		return "qna/view";
+	}
+	
 	//질문글 쓰기처리 요청
 	@RequestMapping("/insert.qa")
 	public String insert(BoardVO vo, HttpSession session, MultipartFile file) {

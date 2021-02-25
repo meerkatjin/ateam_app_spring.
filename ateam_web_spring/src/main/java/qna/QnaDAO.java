@@ -17,7 +17,6 @@ public class QnaDAO implements QnaService {
 	@Override
 	public void qna_insert(BoardVO vo) {
 		sql.insert("qna.mapper.insert", vo);
-
 	}
 
 	@Override
@@ -35,20 +34,25 @@ public class QnaDAO implements QnaService {
 
 	@Override
 	public BoardVO qna_view(int board_no) {
-		// TODO Auto-generated method stub
-		return null;
+		return sql.selectOne("qna.mapper.view", board_no);
 	}
 
 	@Override
 	public void qna_update(BoardVO vo) {
-		// TODO Auto-generated method stub
+		sql.update("qna.mapper.update", vo);
 
 	}
 
 	@Override
-	public void qna_delete(BoardVO vo) {
-		// TODO Auto-generated method stub
+	public void qna_delete(int board_no) {
+		sql.delete("qna.mapper.delete", board_no);
 
+	}
+
+	@Override
+	public void qna_read(int board_no) {
+		sql.update("qna.mapper.read", board_no);
+		
 	}
 
 }
