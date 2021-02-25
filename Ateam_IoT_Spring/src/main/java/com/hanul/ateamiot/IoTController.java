@@ -2,15 +2,10 @@ package com.hanul.ateamiot;
 
 import java.io.File;
 import java.io.UnsupportedEncodingException;
-import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.stream.Collectors;
+import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cloud.gcp.vision.CloudVisionTemplate;
-import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,18 +13,18 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartRequest;
 
-import com.google.cloud.vision.v1.AnnotateImageResponse;
-import com.google.cloud.vision.v1.EntityAnnotation;
-import com.google.cloud.vision.v1.Feature.Type;
+import vision.VisionService;
 
 @Controller
 public class IoTController {
-//	@Autowired private ResourceLoader resourceLoader;
-//	@Autowired private CloudVisionTemplate cloudVisionTemplate;
 	
 	@RequestMapping(value="/raspPic", method = {RequestMethod.GET, RequestMethod.POST}  )
 	public String raspPic(HttpServletRequest req, Model model){
-		System.out.println("raspPic()");	
+		System.out.println("raspPic()");
+		
+		VisionService vision = new VisionService();
+		
+		ArrayList<String> a = new ArrayList<String>();
 		
 		try {
 			req.setCharacterEncoding("UTF-8");
@@ -62,42 +57,23 @@ public class IoTController {
 					e.printStackTrace();
 				}
 			 	
-//			 	AnnotateImageResponse response =
-//				        this.cloudVisionTemplate.analyzeImage(
-//				            this.resourceLoader.getResource(realImgPath), Type.LABEL_DETECTION);
-//
-//				    Map<String, Float> imageLabels =
-//				        response
-//				            .getLabelAnnotationsList()
-//				            .stream()
-//				            .collect(
-//				                Collectors.toMap(
-//				                    EntityAnnotation::getDescription,
-//				                    EntityAnnotation::getScore,
-//				                    (u, v) -> {
-//				                      throw new IllegalStateException(String.format("Duplicate key %s", u));
-//				                    },
-//				                    LinkedHashMap::new));
-//				    // [END spring_vision_image_labelling]
-//
-//				    model.addAttribute("annotations", imageLabels);
-//				    model.addAttribute("imageUrl", realImgPath);
+			 	a = vision.vision(realImgPath+"/capture.jpg", req);
 									
 			}else{
 				// 이미지파일 실패시
 				fileName = "FileFail.jpg";
 				String realImgPath = req.getSession().getServletContext()
 						.getRealPath("/resources/" + fileName);
-				System.out.println(fileName + " : " + realImgPath);
-						
+				System.out.println(fileName + " : " + realImgPath);		
 			}
-			
+		}
+		
+		for (String string : a) {
+			System.out.println("되라:" + string);
 		}
 		
 		// 저장된 이미지 MyPicutr.jpg를 API에 보내서 인식하는가?
-		
-		
-		
+
 		return "raspPic";
 	}
 	
