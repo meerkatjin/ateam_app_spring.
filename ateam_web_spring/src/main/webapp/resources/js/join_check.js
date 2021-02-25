@@ -22,6 +22,8 @@ var join = {
 			return this.pw_ck_status( data );
 		}else if( tag=='user_email' ){
 			return this.email_status( data );
+		}else {
+			return null;
 		}
 	},
 	
