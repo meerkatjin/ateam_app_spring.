@@ -11,8 +11,9 @@ public interface QnaService {
 	List<BoardVO> qna_list();//질문글 조회
 	NoticePage qna_list(NoticePage page);//질문글 페이지단위로 보기
 	BoardVO qna_view(int board_no);//질문글 상세보기
+	void qna_read(int board_no);//질문글 조회수
 	void qna_update(BoardVO vo);//질문글 변경저장
-	void qna_delete(BoardVO vo);//질문글 삭제
+	void qna_delete(int board_no);//질문글 삭제
 	
 
 }

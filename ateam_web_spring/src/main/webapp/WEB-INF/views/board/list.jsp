@@ -17,5 +17,7 @@
 		<li><a href="list.bo">게시판</a></li>
 	</ul>
 	</div>
+	
+
 </body>
 </html>

@@ -55,4 +55,11 @@ public class NoticeDAO implements NoticeService{
 	}
 
 
+	@Override
+	public void notice_read(int board_no) {
+		sql.update("notice.mapper.read", board_no);
+		
+	}
+
+
 }
