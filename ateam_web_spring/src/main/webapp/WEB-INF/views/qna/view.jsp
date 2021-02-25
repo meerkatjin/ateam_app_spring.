@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,9 +29,10 @@
 
 <div class="btnSet">
 	<a class="btn-fill" href='list.qa?curPage=${page.curPage}'>목록으로</a>
-	
+	<c:if test="${loginInfo.user_id eq vo.user_id}">
 	<a class="btn-fill" href='modify.qa?board_no=${vo.board_no}'>수정</a>
 	<a class="btn-fill" onclick="if( confirm('정말 삭제하시겠습니까?') ){ location='delete.qa?board_no=${vo.board_no}' }">삭제</a>
+	</c:if>
 
 </div>
 </body>

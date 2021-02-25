@@ -37,8 +37,10 @@
 
 <div class="btnSet">
 	<a class="btn-fill" href='list.bo?curPage=${page.curPage}'>목록으로</a>
+	<c:if test="${loginInfo.user_id eq vo.user_id}">
 	<a class="btn-fill" href='modify.bo?board_no=${vo.board_no}'>수정</a>
 	<a class="btn-fill" onclick="if( confirm('정말 삭제하시겠습니까?') ){ location='delete.bo?board_no=${vo.board_no}' }">삭제</a>
+	</c:if>
 </div>
 </body>
 </html>
