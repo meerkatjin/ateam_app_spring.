@@ -28,6 +28,7 @@
 
 <div class="btnSet">
 	<a class="btn-fill" href='list.qa?curPage=${page.curPage}'>목록으로</a>
+	
 	<a class="btn-fill" href='modify.qa?board_no=${vo.board_no}'>수정</a>
 	<a class="btn-fill" onclick="if( confirm('정말 삭제하시겠습니까?') ){ location='delete.qa?board_no=${vo.board_no}' }">삭제</a>
 
