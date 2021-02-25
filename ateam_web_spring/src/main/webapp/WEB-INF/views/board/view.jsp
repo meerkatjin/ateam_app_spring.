@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h3>질문글 상세보기</h3>
+<h3>게시판 글상세보기</h3>
 
 <table>
 <tr><th class='w-px160'>제목</th>
@@ -24,13 +25,16 @@
 <tr><th>내용</th>
 	<td colspan='5' class='left'>${vo.board_content}</td>
 </tr>
+<tr><th>첨부파일</th>
+	<td colspan='5' class='left'>
+	</td>
+</tr>
 </table>
 
 <div class="btnSet">
-	<a class="btn-fill" href='list.qa?curPage=${page.curPage}'>목록으로</a>
-	<a class="btn-fill" href='modify.qa?board_no=${vo.board_no}'>수정</a>
-	<a class="btn-fill" onclick="if( confirm('정말 삭제하시겠습니까?') ){ location='delete.qa?board_no=${vo.board_no}' }">삭제</a>
-
+	<a class="btn-fill" href='list.bo?curPage=${page.curPage}'>목록으로</a>
+	<a class="btn-fill" href='modify.bo?board_no=${vo.board_no}'>수정</a>
+	<a class="btn-fill" onclick="if( confirm('정말 삭제하시겠습니까?') ){ location='delete.bo?board_no=${vo.board_no}' }">삭제</a>
 </div>
 </body>
 </html>

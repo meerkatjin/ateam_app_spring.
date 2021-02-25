@@ -35,11 +35,13 @@
 </tr>
 </table>
 <input type="hidden" name="board_gp" value="2">
+<input type="hidden" name="user_id" value="${loginInfo.user_id}">
+<input type="hidden" name="user_type" value="${loginInfo.user_type}">
 </form>
 
 <div class="btnSet">
 <a class="btn-fill" onclick="if( emptyCheck() ) $('form').submit()">저장</a>
-<a class="btn-empty">취소</a>
+<a class="btn-empty" href="list.qa">취소</a>
 </div>
 
 <script type="text/javascript" src="js/file_check.js"></script>
