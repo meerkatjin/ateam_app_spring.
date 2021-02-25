@@ -94,6 +94,8 @@ input[type="checkbox"], input[type="radio"]{display: none;}
 		<input type='hidden' name='user_id' value=${loginInfo.user_id }/>
 			<div id="content_items">
 			<p>내 냉장고 재료</p>
+			<p style="display:inline-block; width: 40%;">재료이름</p>
+			<p style="display:inline-block; width: 59%;">적정 최대 보관일</p>
 			<c:forEach var="vo" items="${list }">
 				<div class="content_list" onclick="detail(${vo.content_list_id})">
 					<p>${vo.content_nm }</p>
