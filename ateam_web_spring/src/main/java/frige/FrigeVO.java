@@ -3,15 +3,16 @@ package frige;
 import java.io.Serializable;
 
 public class FrigeVO implements Serializable {
-	private int user_id, content_list_id;
+	private long user_id;
+	private int content_list_id;
 	private String content_nm, content_ty;
 	private String shelf_life_start, shelf_life_end;
 	private double x1, y1, x2, y2;
 	
-	public int getUser_id() {
+	public long getUser_id() {
 		return user_id;
 	}
-	public void setUser_id(int user_id) {
+	public void setUser_id(long user_id) {
 		this.user_id = user_id;
 	}
 	public int getContent_list_id() {

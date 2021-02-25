@@ -10,7 +10,7 @@ public class FrigeServiceImpl implements FrigeService {
 	@Autowired private FrigeDAO dao;
 
 	@Override
-	public List<FrigeVO> frige_list(int user_id) {
+	public List<FrigeVO> frige_list(long user_id) {
 		return dao.frige_list(user_id);
 	}
 	

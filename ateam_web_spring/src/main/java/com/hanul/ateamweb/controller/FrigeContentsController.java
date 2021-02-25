@@ -21,7 +21,7 @@ public class FrigeContentsController {
 	public String frigeView(HttpSession session, Model model, String search, String keyword) {
 		session.setAttribute("category", "fc");
 		MemberVO member = (MemberVO)session.getAttribute("loginInfo");
-		int user_id = member.getUser_id();
+		long user_id = member.getUser_id();
 		
 		model.addAttribute("list", service.frige_list(user_id));
 		return "frige/view";

@@ -11,7 +11,7 @@ public class FrigeDAO implements FrigeService {
 	@Autowired private SqlSession sql;
 
 	@Override
-	public List<FrigeVO> frige_list(int user_id) {
+	public List<FrigeVO> frige_list(long user_id) {
 		return sql.selectList("frige.mapper.frige_list", user_id);
 	}
 	
