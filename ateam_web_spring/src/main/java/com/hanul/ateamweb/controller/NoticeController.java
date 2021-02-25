@@ -54,8 +54,6 @@ public class NoticeController {
 	//공지글쓰기처리 요청
 	@RequestMapping("/insert.no")
 	public String insert(BoardVO vo, HttpSession session, MultipartFile file) {
-		MemberVO member = (MemberVO)session.getAttribute("loginInfo");
-		vo.setUser_id( member.getUser_id() );
 		
 		if( ! file.isEmpty() ) {
 			vo.setFilename( file.getOriginalFilename() );

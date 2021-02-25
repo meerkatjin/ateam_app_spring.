@@ -24,6 +24,11 @@
 	transform: translate(-40px, 0px);
 	transition: transform 0.35s;
 }
+
+.sumry {overflow: hidden; font-size: 14px; padding: 5px; max-height: 68px; text-overflow: ellipsis; 
+	display: -webkit-box;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;}
 </style>
 <div align="left" style="margin: 20px 0px 20px 0px;">
 <div id="list-top" style="overflow: hidden;">
@@ -77,7 +82,7 @@
 				<img src="${vo.img_url}">
 			</div>
 			<p>${vo.recipe_nm_ko}</p>
-			<div style="font-size: 14px; padding: 5px;">${vo.sumry}</div>
+			<div class="sumry" >${vo.sumry}</div>
 		</div>
 	</c:forEach>
 	</div>

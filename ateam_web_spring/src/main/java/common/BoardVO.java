@@ -52,8 +52,8 @@ public class BoardVO {
 	public long getUser_id() {
 		return user_id;
 	}
-	public void setUser_id(long l) {
-		this.user_id = l;
+	public void setUser_id(long user_id) {
+		this.user_id = user_id;
 	}
 	public int getBoard_readcount() {
 		return board_readcount;

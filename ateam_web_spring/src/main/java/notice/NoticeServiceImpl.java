@@ -15,7 +15,6 @@ public class NoticeServiceImpl implements NoticeService {
 	@Override
 	public void notice_insert(BoardVO vo) {
 		dao.notice_insert(vo);
-		
 	}
 
 	@Override

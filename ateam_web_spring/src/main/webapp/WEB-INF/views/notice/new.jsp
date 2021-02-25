@@ -12,7 +12,7 @@
 <table>
 <tr>
 	<th>제목</th>
-	<td><input type="text" name="board_title" title="제목"></td>
+	<td><input type="text" name="board_title" title="제목" class="chk"></td>
 </tr>
 <tr>
 	<th>작성자</th>
@@ -35,6 +35,8 @@
 </tr>
 </table>
 <input type="hidden" name="board_gp" value="1">
+<input type="hidden" name="user_id" value="${loginInfo.user_id}">
+<input type="hidden" name="user_type" value="${loginInfo.user_type}">
 </form>
 
 <div class="btnSet">

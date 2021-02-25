@@ -21,7 +21,7 @@
 
 <insert id="insert">
 	insert into mst_board_tb( board_gp, user_id,  board_title, board_content, user_type, filename, filepath )
-	values( 1, #{user_id}, #{board_title}, #{board_content}, 'nomal', #{filename, jdbcType=VARCHAR}, #{filepath, jdbcType=VARCHAR} )
+	values( 1, #{user_id}, #{board_title}, #{board_content}, #{user_type}, #{filename, jdbcType=VARCHAR}, #{filepath, jdbcType=VARCHAR} )
 </insert>
 
 <select id="totalList" resultType="integer">
@@ -30,7 +30,7 @@
 
 <select id="list" resultType="common.BoardVO">
 	select * from (select rownum no, b.*, ( select user_nm from mst_user_info_tb u where b.user_id=u.user_id ) name
-	from (select * from mst_board_tb where board_gp = 1) b 
+	from (select * from mst_board_tb where board_gp = 1 order by board_no) b 
 	order by no desc)
 	where no between #{beginList} and #{endList}
 	

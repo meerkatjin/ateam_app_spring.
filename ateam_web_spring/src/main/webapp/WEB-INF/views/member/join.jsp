@@ -7,10 +7,10 @@
 	margin: 50px auto;
 }
 #join { width:100%; border:1px solid #ccc; padding:30px 0; }
+.join-box { width:70%; padding: 10px 0; }
 input[type="text"], input[type="password"] {
-	width:70%; height:40px; 
-	padding:5px 3%; margin-bottom:10px;
-	border-collapse: collapse;
+	width:100%; height:40px;
+	padding:5px 3%;
 	border: 0px;
 	border-style: none;
 	background: none;
@@ -43,7 +43,7 @@ input[type="text"], input[type="password"] {
 	position: relative;
 	right: 0%;
 }
-.valid, .invalid { font-size:13px; font-weight:bold; float: left; margin-left: 15%; }
+.valid, .invalid { font-size:13px; font-weight:bold; float: left; margin-left: 5%; }
 .valid { color:green; }
 .invalid { color:red; }
 </style>
@@ -54,30 +54,38 @@ input[type="text"], input[type="password"] {
 		<p class='w-pct30 right' style='margin:0 auto; padding-bottom:10px; 
 			float: right; margin-right: 15%;'>* 는 필수입력항목입니다</p>
 		<form method="post" action="joinRequest">
-			<div>
+			<div class="join-box">
 				<input type='text' name="user_email" class="chk" placeholder="이메일 *" />
 				<a class="btn-fill-s" id="btn-email">중복확인</a>
 				<div class='valid'>유효한 이메일을 입력하세요</div>
 			</div>
 			
-			<div>
+			<div class="join-box">
 				<input type='password' name="user_pw" class="chk" placeholder="비밀번호 *" />
 				<div class='valid'>영문자, 숫자, 특수문자(! @ # $ % &amp; + -)를 모두 포함해 8~32자를 입력해주세요</div>
 			</div>
 			
-			<div>
+			<div class="join-box">
 				<input type='password' name="user_pwck" class="chk" placeholder="비밀번호 확인 *" />
 				<div class='valid'>비밀번호를 다시 입력해주세요</div>
 			</div>
 			
-			<input type='text' name='user_nm' placeholder="이름(별명) *" />
+			<div class="join-box">
+				<input type='text' name='user_nm' placeholder="이름(별명) *" />
+			</div>
 			
-			<input type='text' name='user_addr' placeholder="주소" />
+			<div class="join-box">
+				<input type='text' name='user_addr' placeholder="주소" />
+			</div>
 			
-			<input type='text' name='user_phone_no' placeholder="전화번호" />
+			<div class="join-box">
+				<input type='text' name='user_phone_no' placeholder="전화번호" />
+			</div>
 			
-			<img src="imgs/logo.balck.small.png" id="user_pro_img" />
-			<a class="btn-fill" id="btn-img-upload">사진 업로드</a>
+			<div class="join-box">
+				<img src="imgs/logo.balck.small.png" id="user_pro_img" />
+				<a class="btn-fill" id="btn-img-upload">사진 업로드</a>
+			</div>
 		</form>
 		
 		<div class="btnSet">

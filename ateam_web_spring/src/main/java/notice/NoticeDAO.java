@@ -16,7 +16,6 @@ public class NoticeDAO implements NoticeService{
 	@Override
 	public void notice_insert(BoardVO vo) {
 		sql.insert("notice.mapper.insert", vo);
-		
 	}
 
 
