@@ -28,4 +28,9 @@
 	<select id="social_id" resultType="integer">
 		SELECT COUNT(*) FROM MST_USER_INFO_TB WHERE user_email = #{user_email}
 	</select>
+	
+	<insert id="social_join">
+		INSERT INTO MST_USER_INFO_TB (user_id, user_email, user_nm, user_type)
+		VALUES(#{user_id}, #{user_email}, #{user_nm}, #{user_type})
+	</insert>
 </mapper>

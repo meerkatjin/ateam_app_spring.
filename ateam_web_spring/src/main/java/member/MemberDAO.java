@@ -49,14 +49,15 @@ public class MemberDAO implements MemberService {
 
 	@Override
 	public boolean member_social_id(MemberVO vo) {
+		System.out.println("logincheck");
 		return (Integer)sql.selectOne("member.mapper.social_id", vo) == 1 
 				? true : false;
 	}
 
 	@Override
 	public boolean member_social_join(MemberVO vo) {
-		// TODO Auto-generated method stub
-		return false;
+		System.out.println("join");
+		return sql.insert("member.mapper.social_join", vo) > 0 ? true : false;
 	}
 
 	@Override

@@ -21,7 +21,7 @@ public class MemberController {
 	@Autowired private MemberServiceImpl service;
 	@Autowired private CommonService common;
 	private String kakao_client_key = "023c7753cf994a68fb4bfd14b7c1b4db";
-	private String naver_client_key;
+	private String google_client_key;
 	
 	//로그인화면 요청 처리
 	@RequestMapping("/login")
@@ -45,10 +45,10 @@ public class MemberController {
 		//화면에서 입력한 회원정보를 DB에 저장한 후 홈으로 연결 
 		StringBuffer msg = new StringBuffer("<script>"); 
 		if (service.member_join(vo)) { 
-			msg.append("alert('회원가입을 축하합니다 ^^'); location='" 
+			msg.append("alert('속보이는 냉장고 회원가입이 완료되었습니다!'); location='" 
 			+ request.getContextPath() + "'; "); 
 		} else {
-			msg.append("alert('회원가입 실패 ㅠㅠ'); history.go(-1)"); 
+			msg.append("alert('회원가입을 실패했습니다.'); history.go(-1)"); 
 		}
 		msg.append("</script>");
 	 
@@ -140,7 +140,7 @@ public class MemberController {
 			
 			if( service.member_social_id(vo) ) { //id가 있으면 update
 				service.member_social_update(vo);
-			}else { //id가 없으면 insert
+			} else { //id가 없으면 insert
 				service.member_social_join(vo);
 			}
 			session.setAttribute("loginInfo", vo);
