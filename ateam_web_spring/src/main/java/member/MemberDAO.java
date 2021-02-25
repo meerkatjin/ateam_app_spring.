@@ -61,7 +61,6 @@ public class MemberDAO implements MemberService {
 
 	@Override
 	public boolean member_social_update(MemberVO vo) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 

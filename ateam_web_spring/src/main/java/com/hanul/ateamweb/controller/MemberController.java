@@ -20,7 +20,7 @@ import member.MemberVO;
 public class MemberController {
 	@Autowired private MemberServiceImpl service;
 	@Autowired private CommonService common;
-	private String kakao_client_key = "bffc78285798ccaf1b90f7ac98bec010";
+	private String kakao_client_key = "023c7753cf994a68fb4bfd14b7c1b4db";
 	private String naver_client_key;
 	
 	//로그인화면 요청 처리
@@ -93,7 +93,7 @@ public class MemberController {
 		return "redirect:" + url.toString();
 	}
 	
-	//카카오 아이디로 로그인
+	//카카오 아이디로 로그인 처리
 	@RequestMapping("/kakaocallback")
 	public String kakaocallback(HttpSession session, String state
 								, String code, String error) {
@@ -105,6 +105,7 @@ public class MemberController {
 		StringBuffer url = new StringBuffer(
 			"https://kauth.kakao.com/oauth/token?grant_type=authorization_code");
 		url.append("&client_id=").append(kakao_client_key);
+//		url.append("&client_secret=").append("K1N91CKhB2");
 		url.append("&code=").append(code);
 		url.append("&state=").append(state);
 	
@@ -114,7 +115,7 @@ public class MemberController {
 		
 //		curl -v -X POST "https://kauth.kakao.com/oauth/token" \
 //		 -d "grant_type=authorization_code" \
-//		 -d "client_id={REST_API_KEY}" \s
+//		 -d "client_id={REST_API_KEY}" \
 //		 -d "redirect_uri={REDIRECT_URI}" \
 //		 -d "code={AUTHORIZATION_CODE}
 	
@@ -123,20 +124,23 @@ public class MemberController {
 		
 		//사용자정보 가져오기
 		url = new StringBuffer("https://kapi.kakao.com/v2/user/me");
-		json = new JSONObject( common.requestAPI(url, token_type + " " + access_token) );
-		if (!json.isEmpty()) {
+		json = new JSONObject(
+				common.requestAPI(url, token_type+" "+access_token) );
+		if( !json.isEmpty() ) {
 			MemberVO vo = new MemberVO();
 			vo.setUser_type("kakao");
-			vo.setUser_id(json.getInt("id"));
+			vo.setUser_id( json.getLong("id") );
 			
-			//json = json.getJSONObject("kakao_account");
+			json = json.getJSONObject("kakao_account");
 			vo.setUser_email(json.getString("email"));
+		
 			json = json.getJSONObject("profile");
 			vo.setUser_nm( json.getString("nickname") );
+			//카카오 로그인 정보가 DB에 있으면 update, 없으면 insert
 			
 			if( service.member_social_id(vo) ) { //id가 있으면 update
 				service.member_social_update(vo);
-			}else { //id가 없으면 join
+			}else { //id가 없으면 insert
 				service.member_social_join(vo);
 			}
 			session.setAttribute("loginInfo", vo);

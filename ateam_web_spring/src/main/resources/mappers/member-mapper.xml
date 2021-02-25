@@ -26,6 +26,6 @@
 	</insert>
 	
 	<select id="social_id" resultType="integer">
-		SELECT COUNT(*) FROM MST_USER_INFO_TB WHERE ${user_type} = #{user_type}
+		SELECT COUNT(*) FROM MST_USER_INFO_TB WHERE user_email = #{user_email}
 	</select>
 </mapper>
