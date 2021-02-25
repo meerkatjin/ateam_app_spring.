@@ -26,15 +26,21 @@
 	<td colspan='5' class='left'>${vo.board_content}</td>
 </tr>
 <tr><th>첨부파일</th>
-	<td colspan='5' class='left'>
+	<td colspan='5' class='left'>${vo.filename}
+		<c:if test="${ ! empty vo.filename }">
+			<span id='preview'></span>
+			<a href='download.bo?board_no=${vo.board_no}'><i class='fas fa-download'></i></a>
+		</c:if>
 	</td>
 </tr>
 </table>
 
 <div class="btnSet">
 	<a class="btn-fill" href='list.bo?curPage=${page.curPage}'>목록으로</a>
+	<c:if test="${loginInfo.user_id eq vo.user_id}">
 	<a class="btn-fill" href='modify.bo?board_no=${vo.board_no}'>수정</a>
 	<a class="btn-fill" onclick="if( confirm('정말 삭제하시겠습니까?') ){ location='delete.bo?board_no=${vo.board_no}' }">삭제</a>
+	</c:if>
 </div>
 </body>
 </html>

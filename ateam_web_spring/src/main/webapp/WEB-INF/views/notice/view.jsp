@@ -26,7 +26,11 @@
 	<td colspan='5' class='left'>${vo.board_content}</td>
 </tr>
 <tr><th>첨부파일</th>
-	<td colspan='5' class='left'>
+	<td colspan='5' class='left'>${vo.filename}
+		<c:if test="${ ! empty vo.filename }">
+			<span id='preview'></span>
+			<a href='download.no?board_no=${vo.board_no}'><i class='fas fa-download'></i></a>
+		</c:if>
 	</td>
 </tr>
 </table>

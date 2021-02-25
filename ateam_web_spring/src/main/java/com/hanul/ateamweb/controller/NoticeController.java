@@ -1,5 +1,8 @@
 package com.hanul.ateamweb.controller;
 
+import java.io.File;
+
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import member.MemberVO;
@@ -21,16 +25,58 @@ public class NoticeController {
 	@Autowired private NoticePage page;
 	@Autowired private CommonService common;
 	
+	//첨부파일 다운로드 요청
+	@ResponseBody @RequestMapping("/download.no")
+	public void download(int board_no, HttpSession session, HttpServletResponse response) {
+		BoardVO vo = service.notice_view(board_no);
+		common.fileDownload( vo.getFilename(), vo.getFilepath(), session, response );
+	}
+	
 	//공지글 삭제처리 요청
 	@RequestMapping("/delete.no")
-	public String delete(int board_no) {
+	public String delete(int board_no, HttpSession session, Model model) {
+		BoardVO vo = service.notice_view(board_no);
+		if( vo.getFilename()!=null  ) {
+			File file = new File( session.getServletContext()
+									.getRealPath("resources")
+											+ "/" + vo.getFilepath() );
+			if( file.exists() ) file.delete();
+		}
 		service.notice_delete(board_no);
 		return "redirect:list.no";
 	}
 	
 	//공지글 수정처리 요청
 	@RequestMapping("/update.no")
-	public String update(BoardVO vo) {
+	public String update(BoardVO vo, String attach, HttpSession session, MultipartFile file, Model model) {
+		BoardVO board = service.notice_view( vo.getBoard_no() );
+		String uuid = session.getServletContext().getRealPath("resources") + "/" + board.getFilepath();
+		//첨부파일 관련처리
+		if( ! file.isEmpty() ) { //첨부파일 있는 경우
+			vo.setFilename( file.getOriginalFilename() );
+			vo.setFilepath( common.fileUpload(session, file, "board") );
+			
+			//원래 첨부된 파일이 있었다면 서버에서 삭제
+			if( board.getFilename() != null ) {
+				File f = new File( uuid );
+				if( f.exists() ) f.delete();
+			}
+		}else {
+			//원래 첨부된 파일을 삭제/ 원래부터 첨부파일이 없는 경우
+			if( attach.isEmpty() ) {
+				if( board.getFilename() != null ) {
+					File f = new File( uuid );
+					if( f.exists() ) f.delete();
+				}
+				
+			}else {
+				//원래 첨부된 파일을 그대로 사용하는 경우
+				vo.setFilename( board.getFilename() );
+				vo.setFilepath( board.getFilepath() );
+			}
+		}
+		
+		
 		service.notice_update(vo);
 		return "redirect:list.no?board_no=" + vo.getBoard_no();
 	}
