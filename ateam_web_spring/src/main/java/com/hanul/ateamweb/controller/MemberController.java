@@ -105,7 +105,6 @@ public class MemberController {
 		StringBuffer url = new StringBuffer(
 			"https://kauth.kakao.com/oauth/token?grant_type=authorization_code");
 		url.append("&client_id=").append(kakao_client_key);
-//		url.append("&client_secret=").append("K1N91CKhB2");
 		url.append("&code=").append(code);
 		url.append("&state=").append(state);
 	

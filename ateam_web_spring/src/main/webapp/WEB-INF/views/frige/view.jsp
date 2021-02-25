@@ -3,22 +3,14 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <style type="text/css">
-.container {
-	width: 100%;
-}
+.container {width: 100%;}
 .view {
 	width: 49%;
 	margin-bottom: 30px;
 	float: left;
 }
-#camera {
-	padding-bottom: 49%;
-	background-color: #ccc;
-}
-input[type="checkbox"],
-input[type="radio"]{
-	display: none;
-}
+#camera {padding-bottom: 49%; background-color: #ccc;}
+input[type="checkbox"], input[type="radio"]{display: none;}
 #filter_tabs, #filter_type {
 	overflow:hidden; width: 100%;
 	margin:0; padding:0;
@@ -34,12 +26,8 @@ input[type="radio"]{
 	transition: 0.25s;
 	cursor: pointer;
 }
-#filter_tabs li:hover,
-#filter_type li:hover {
-	background-color: #ccc;
-}
-#filter_tabs li.active,
-#filter_type li.active {
+#filter_tabs li:hover, #filter_type li:hover {background-color: #ccc;}
+#filter_tabs li.active, #filter_type li.active {
 	background-color: #000000;
 	color: #ffffff;
 	font-weight: bold;
@@ -56,14 +44,8 @@ input[type="radio"]{
 	font-size: 0.7rem;
 	cursor: pointer;
 }
-#content_items {
-	margin-top: 10px;
-	border: 1px solid #000000;
-}
-#content_search {
-	width: 80%;
-	float: left;
-}
+#content_items {margin-top: 10px; border: 1px solid #000000;}
+#content_search {width: 80%; float: left;}
 #btn_content_search {
 	width: 18%;
 	float: right;
@@ -76,19 +58,10 @@ input[type="radio"]{
 	background-color: #ccc;
 	cursor: pointer;
 }
-.content_list:last-child {
-	margin-bottom: 0px;
-}
-.content_list p {
-	display: inline-block;
-}
-.content_list p:first-child {
-	width: 40%;
-	font-size: 1.3rem;
-}
-.content_list p:last-child {
-	width: 59%;
-}
+.content_list:last-child {margin-bottom: 0px;}
+.content_list p {display: inline-block;}
+.content_list p:first-child {width: 40%; font-size: 1.3rem;}
+.content_list p:last-child {width: 59%;}
 </style>
 
 <div class="container">
