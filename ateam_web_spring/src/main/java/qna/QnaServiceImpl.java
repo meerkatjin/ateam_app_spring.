@@ -54,4 +54,9 @@ public class QnaServiceImpl implements QnaService {
 		
 	}
 
+	@Override
+	public List<BoardVO> gethome() {
+		return dao.gethome();
+	}
+
 }

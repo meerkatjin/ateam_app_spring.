@@ -2,6 +2,15 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="notice.mapper">
 
+<select id="gethome" resultType="common.BoardVO">
+	<![CDATA[
+	select * from (select rownum no, b.*, ( select user_nm from mst_user_info_tb u where b.user_id=u.user_id ) name
+	from (select * from mst_board_tb where board_gp = 1 order by board_no) b 
+	order by no desc)
+	ORDER BY no DESC
+	]]>
+</select>
+
 <delete id="delete">
 	delete from mst_board_tb where board_no = #{board_no}
 </delete>

@@ -62,4 +62,10 @@ public class NoticeDAO implements NoticeService{
 	}
 
 
+	@Override
+	public List<BoardVO> gethome() {
+		return sql.selectList("notice.mapper.gethome");
+	}
+
+
 }

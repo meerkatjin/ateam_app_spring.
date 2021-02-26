@@ -55,4 +55,9 @@ public class BoardServiceImpl implements BoardService {
 
 	}
 
+	@Override
+	public List<BoardVO> gethome() {
+		return dao.gethome();
+	}
+
 }

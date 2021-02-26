@@ -14,6 +14,6 @@ public interface QnaService {
 	void qna_read(int board_no);//질문글 조회수
 	void qna_update(BoardVO vo);//질문글 변경저장
 	void qna_delete(int board_no);//질문글 삭제
-	
+	List<BoardVO> gethome();	//메인메뉴에서 조회
 
 }

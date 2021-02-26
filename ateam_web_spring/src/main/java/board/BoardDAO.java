@@ -57,4 +57,9 @@ public class BoardDAO implements BoardService{
 		
 	}
 
+	@Override
+	public List<BoardVO> gethome() {
+		return sql.selectList("board.mapper.gethome");
+	}
+
 }

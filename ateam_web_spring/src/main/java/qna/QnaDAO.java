@@ -55,4 +55,9 @@ public class QnaDAO implements QnaService {
 		
 	}
 
+	@Override
+	public List<BoardVO> gethome() {
+		return sql.selectList("qna.mapper.gethome");
+	}
+
 }

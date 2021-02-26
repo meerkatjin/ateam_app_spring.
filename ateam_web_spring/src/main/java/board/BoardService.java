@@ -14,5 +14,5 @@ public interface BoardService {
 	void board_read(int board_no);//게시판글 조회수
 	void board_update(BoardVO vo);	//게시판글 변경저장
 	void board_delete(int board_no);	//게시판글 삭제
-
+	List<BoardVO> gethome();	//메인으로 가져오기
 }

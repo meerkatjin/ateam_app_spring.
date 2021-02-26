@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <style>
 /*메인 내용물 사이즈*/
 .main-content-size { margin: 10px 0; text-align: left; }
@@ -9,11 +10,13 @@
 .main-content-size-harf:nth-child(odd) { margin-right: 3px; }
 .main-content-size-harf:nth-child(even) { margin-left: 3px; }
 .main-content-size-harf:hover { background-color: #ddd; }
-.main-content-con { width: 100%; padding: 5px 0; }
 .main-content-title { justify-content: space-between; }
 .main-content-title a { line-height: 64px; font-size: 12px; }
 .main-content-title a:hover { color: #0000ff; }
 .main-content-bord:not(:first-child) { margin-top: 20px; }
+.main-content-con { width: 100%; padding: 5px 0; }
+.main-content-bord .main-content-con div { display: block; width: 100%; height: 45px; line-height: 45px; border-bottom: 1px solid #bbb; }
+.main-content-bord .main-content-con div:last-child{ border-bottom: none; }
 
 /* Hide the images by default */
 .mySlides {
@@ -96,15 +99,13 @@
 			<a href="list.no">더보기 ></a>
 		</div>
 		<div class="main-content-con bottomtop-border-2px">
-			<a href="#">dd</a>
-			<hr>
-			<a href="#">dd</a>
-			<hr>
-			<a href="#">dd</a>
-			<hr>
-			<a href="#">dd</a>
-			<hr>
-			<a href="#">dd</a>
+		<c:forEach var="i" begin="0" end="4">
+			<div class="">
+			<c:if test="${!empty notice[i]}">
+				<a href='view.no?board_no=${notice[i].board_no}'>${notice[i].board_title}</a>
+			</c:if>
+			</div>
+		</c:forEach>
 		</div>
 	</div>
 	<div class="main-content-bord">
@@ -113,15 +114,13 @@
 			<a href="list.qa">더보기 ></a>
 		</div>
 		<div class="main-content-con bottomtop-border-2px">
-			<a href="#">dd</a>
-			<hr>
-			<a href="#">dd</a>
-			<hr>
-			<a href="#">dd</a>
-			<hr>
-			<a href="#">dd</a>
-			<hr>
-			<a href="#">dd</a>
+			<c:forEach var="i" begin="0" end="4">
+			<div class="">
+			<c:if test="${!empty qna[i]}">
+				<a href='view.qa?board_no=${qna[i].board_no}'>${qna[i].board_title}</a>
+			</c:if>
+			</div>
+		</c:forEach>
 		</div>
 	</div>
 	<div class="main-content-bord">
@@ -130,15 +129,13 @@
 			<a href="list.bo">더보기 ></a>
 		</div>
 		<div class="main-content-con bottomtop-border-2px">
-			<a href="#">dd</a>
-			<hr>
-			<a href="#">dd</a>
-			<hr>
-			<a href="#">dd</a>
-			<hr>
-			<a href="#">dd</a>
-			<hr>
-			<a href="#">dd</a>
+			<c:forEach var="i" begin="0" end="4">
+			<div class="">
+			<c:if test="${!empty board[i]}">
+				<a href='view.no?board_no=${board[i].board_no}'>${board[i].board_title}</a>
+			</c:if>
+			</div>
+		</c:forEach>
 		</div>
 	</div>
 </div>

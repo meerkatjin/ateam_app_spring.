@@ -53,6 +53,11 @@ public class NoticeServiceImpl implements NoticeService {
 		
 	}
 
+	@Override
+	public List<BoardVO> gethome() {
+		return dao.gethome();
+	}
+
 	
 
 }
