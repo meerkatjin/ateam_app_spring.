@@ -11,7 +11,7 @@
 	</select>
 	
 	<select id="recipeInfoMf" resultType="recipe.dto.RecipeInfoDTO">
-		SELECT * FROM app_recipe_info_tb
-		WHERE recipe_id = TRUNC(DBMS_RANDOM.VALUE(1,500))
+		select * from APP_RECIPE_RECOMMEND_TB
+		where rownum = 1
 	</select>
 </mapper>
