@@ -69,9 +69,9 @@ input[type="checkbox"], input[type="radio"]{display: none;}
 	<div class="view" id="camera"></div>
 	<div class="view" id="irdnt_list" style="float: right;">
 		<ul id="filter_tabs">
-			<li class="active">유통기한</li>
-			<li>종류</li>
-			<li>이름</li>
+			<li class="active" onclick="#">유통기한</li>
+			<li onclick="#">종류</li>
+			<li onclick="#">이름</li>
 		</ul>
 		
 		<ul id="filter_type" style="display: none;">
@@ -120,6 +120,17 @@ $(document).on('click', '#filter_tabs li', function(){
 	var idx = $('#filter_tabs li.active').index();
 	if (idx == 0) {	//유통기한
 		$('#filter_type').css('display', 'none');
+		$.ajax({
+			url: 'frige/date',
+			data: {user_id: $('#user_id').val()},
+			success: function(response) {
+				if (response.item.length > 0) {
+					frige_date($(response.item), true);
+				}
+			}, error: function(req, text) {
+				alert(text + " : " + req.status);
+			}
+		});
 	} else if (idx == 1) {	//종류
 		$('#filter_type').css('display', 'block');
 		$('#filter_type li').removeClass();
@@ -135,21 +146,21 @@ $(document).on('click', '#filter_type li', function(){
 
 	var idx = $('#filter_type li.active').index();
 	if (idx == 0) {	//고기
-		
+
 	} else if (idx == 1) {	//수산물
 
 	} else if (idx == 2) {	//채소
-
+		
 	} else if (idx == 3) {	//과일
-
+		
 	} else if (idx == 4) {	//유제품
-
+		
 	} else if (idx == 5) {	//곡류
-
+		
 	} else if (idx == 6) {	//조미료/주류
-
+		
 	} else if (idx == 7) {	//음료/일반
-
+		
 	}
 });
 
