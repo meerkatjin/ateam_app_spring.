@@ -1,9 +1,5 @@
 package commons;
 
-import java.io.FileInputStream;
-
-import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.stereotype.Component;
 
 import com.google.auth.oauth2.GoogleCredentials;
@@ -14,16 +10,12 @@ import com.google.firebase.messaging.Message;
 
 @Component
 public class FcmUtill {
-	public void send_FCM(String tokenid, String title, String content, HttpServletRequest request) {
+	public void send_FCM(String tokenid, String title, String content) {
 		try {
-			FileInputStream refreshToken = 
-					new FileInputStream(request.getSession().getServletContext()
-							.getRealPath("/resources/fcm")
-							+ "/refrigerator-eaa72-firebase-adminsdk-6ah28-14a21639c6.json");
 			
 			FirebaseOptions options = FirebaseOptions.builder()
-				    .setCredentials(GoogleCredentials.fromStream(refreshToken))
-				    .setDatabaseUrl("https://refrigerator-eaa72-default-rtdb.firebaseio.com")
+				    .setCredentials(GoogleCredentials.getApplicationDefault())
+				    .setDatabaseUrl("https://ateam-c0db8-default-rtdb.firebaseio.com")
 				    .build();
 			
 			//Firebase 처음 호출시에만 initializing 처리
