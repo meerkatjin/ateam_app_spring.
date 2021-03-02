@@ -58,5 +58,9 @@ table { width: 1024px; }
 </c:forEach>
 </table>
 
+<div class="btnSet">
+	<jsp:include page="/WEB-INF/views/include/page.jsp"/>
+</div>	
+
 </body>
 </html>
