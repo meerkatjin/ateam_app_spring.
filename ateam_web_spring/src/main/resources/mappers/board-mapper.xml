@@ -2,6 +2,11 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="board.mapper">
 
+<insert id="comment_insert">
+	insert into mst_board_sub_tb (sub_parent_no, sub_content, sub_writer)
+	values(#{sub_parent_no}, #{sub_content}, #{sub_writer})
+</insert>
+
 <select id="gethome" resultType="common.BoardVO">
 	<![CDATA[
 	select * from (select rownum no, b.*, ( select user_nm from mst_user_info_tb u where b.user_id=u.user_id ) name

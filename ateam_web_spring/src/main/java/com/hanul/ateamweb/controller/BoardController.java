@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import board.BoardServiceImpl;
+import common.BoardCommentVO;
 import common.BoardVO;
 import common.CommonService;
 import member.MemberVO;
@@ -25,6 +26,14 @@ public class BoardController {
 	@Autowired private BoardServiceImpl service;
 	@Autowired private NoticePage page;
 	@Autowired private CommonService common;
+	
+	//댓글등록 처리 요청
+	@RequestMapping("/board/comment/insert")
+	public boolean comment_insert(BoardCommentVO vo, HttpSession session) {
+		MemberVO user = (MemberVO)session.getAttribute("loginInfo");
+		vo.setUser_id( user.getUser_id() );
+		return service.board_comment_insert(vo) > 0 ? true : false;
+	}
 	
 	//첨부파일 다운로드 요청
 	@ResponseBody @RequestMapping("/download.bo")

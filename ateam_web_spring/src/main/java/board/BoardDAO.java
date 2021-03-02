@@ -6,6 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import common.BoardCommentVO;
 import common.BoardVO;
 import notice.NoticePage;
 
@@ -60,6 +61,30 @@ public class BoardDAO implements BoardService{
 	@Override
 	public List<BoardVO> gethome() {
 		return sql.selectList("board.mapper.gethome");
+	}
+
+	@Override
+	public int board_comment_insert(BoardCommentVO vo) {
+		// TODO Auto-generated method stub
+		return sql.insert("board.mapper.comment_insert", vo);
+	}
+
+	@Override
+	public List<BoardCommentVO> board_comment_list(int sub_parent_no) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int board_comment_update(BoardCommentVO vo) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int board_comment_delete(int board_no) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }
