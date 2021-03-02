@@ -29,8 +29,8 @@ table { width: 1024px; }
 <form action="list.no" method="post">
 <div class="btn-write">
 	<ul>
-		<!-- 관리자인 경우에만 글쓰기 버튼 보이게 -->
-		<c:if test="${loginInfo.user_grade eq '2'}">
+		<!-- 로그인한 경우에만 글쓰기 버튼 보이게 -->
+		<c:if test="${!empty loginInfo}">
 		<li><a class="btn-fill" href="new.qa" maxlength="100">글쓰기</a></li>
 		</c:if>
 	</ul>
