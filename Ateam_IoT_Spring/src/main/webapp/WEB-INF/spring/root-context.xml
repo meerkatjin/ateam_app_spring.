@@ -10,7 +10,7 @@
 	<!-- Root Context: defines shared resources visible to all other web components -->
 	<!-- 와이어링 할 패키지의 경로 -->
 	<context:component-scan 
-			base-package="image"/>
+			base-package="vision, common"/>
 	
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
