@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import common.BoardCommentVO;
 import common.BoardVO;
 import common.CommonService;
 import member.MemberVO;
@@ -20,6 +21,22 @@ public class QnaController {
 	@Autowired private QnaServiceImpl service;
 	@Autowired private NoticePage page;
 	@Autowired private CommonService common;
+	
+	//답글저장처리 요청
+	@RequestMapping("/reply_insert.qa")
+	public String reply_insert(BoardVO vo, HttpSession session) {
+		MemberVO user = (MemberVO)session.getAttribute("loginInfo");
+		vo.setUser_id( user.getUser_id() );
+		service.qna_reply_insert(vo);
+		return "redirect:list.qa";
+	}
+	
+	//답글쓰기 화면 요청
+	@RequestMapping("/reply.qa")
+	public String reply(int board_no, Model model) {
+		model.addAttribute("vo", service.qna_view(board_no));
+		return "qna/reply";
+	}
 	
 	//질문글 삭제처리 요청
 	@RequestMapping("/delete.qa")

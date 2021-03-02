@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import common.BoardCommentVO;
 import common.BoardVO;
 import notice.NoticePage;
 
@@ -58,5 +59,14 @@ public class QnaServiceImpl implements QnaService {
 	public List<BoardVO> gethome() {
 		return dao.gethome();
 	}
+
+	@Override
+	public void qna_reply_insert(BoardVO vo) {
+		dao.qna_reply_insert(vo);
+		
+	}
+
+
+
 
 }

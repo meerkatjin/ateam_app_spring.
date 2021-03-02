@@ -15,10 +15,28 @@ public class BoardVO {
 //	USER_TYPE                VARCHAR2(20)   
 
 	private long user_id;
-	private int board_no, board_readcount, no;
+	private int board_no, board_readcount, no, root, indent, step;
 	private String board_gp, board_title, board_content, user_type, filename, filepath, name;
 	private Date create_dt, update_dt;
 	
+	public int getRoot() {
+		return root;
+	}
+	public void setRoot(int root) {
+		this.root = root;
+	}
+	public int getIndent() {
+		return indent;
+	}
+	public void setIndent(int indent) {
+		this.indent = indent;
+	}
+	public int getStep() {
+		return step;
+	}
+	public void setStep(int step) {
+		this.step = step;
+	}
 	public int getNo() {
 		return no;
 	}
