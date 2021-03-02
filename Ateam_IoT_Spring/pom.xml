@@ -14,6 +14,7 @@
 		<org.slf4j-version>1.6.6</org.slf4j-version>
 	</properties>
 	
+	<!-- 구클 클라우드 설정 -->
 	<dependencyManagement>
     <dependencies>
       <dependency>
@@ -220,6 +221,11 @@
 	    <dependency>
 		  <groupId>com.google.cloud</groupId>
 		  <artifactId>google-cloud-storage</artifactId>
+		</dependency>
+		
+		<dependency>
+		  <groupId>com.google.cloud</groupId>
+		  <artifactId>google-cloud-translate</artifactId>
 		</dependency>
 	</dependencies>
 	

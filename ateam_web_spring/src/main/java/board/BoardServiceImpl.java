@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import common.BoardCommentVO;
 import common.BoardVO;
 import notice.NoticePage;
 
@@ -58,6 +59,30 @@ public class BoardServiceImpl implements BoardService {
 	@Override
 	public List<BoardVO> gethome() {
 		return dao.gethome();
+	}
+
+	@Override
+	public int board_comment_insert(BoardCommentVO vo) {
+		// TODO Auto-generated method stub
+		return dao.board_comment_insert(vo);
+	}
+
+	@Override
+	public List<BoardCommentVO> board_comment_list(int sub_parent_no) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int board_comment_update(BoardCommentVO vo) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int board_comment_delete(int board_no) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }

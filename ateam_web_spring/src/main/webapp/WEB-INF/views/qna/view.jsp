@@ -33,7 +33,10 @@
 	<a class="btn-fill" href='modify.qa?board_no=${vo.board_no}'>수정</a>
 	<a class="btn-fill" onclick="if( confirm('정말 삭제하시겠습니까?') ){ location='delete.qa?board_no=${vo.board_no}' }">삭제</a>
 	</c:if>
-
+	<!-- 관리자만 답글 쓰기 가능 -->
+	<c:if test="${loginInfo.user_grade eq '2'}">
+		<a class="btn-fill" href="reply.qa?board_no=${vo.board_no}">답글쓰기</a>
+	</c:if>
 </div>
 </body>
 </html>

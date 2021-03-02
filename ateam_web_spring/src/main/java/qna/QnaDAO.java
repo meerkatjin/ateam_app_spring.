@@ -6,6 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import common.BoardCommentVO;
 import common.BoardVO;
 import notice.NoticePage;
 
@@ -59,5 +60,12 @@ public class QnaDAO implements QnaService {
 	public List<BoardVO> gethome() {
 		return sql.selectList("qna.mapper.gethome");
 	}
+
+	@Override
+	public void qna_reply_insert(BoardVO vo) {
+		sql.insert("qna.mapper.reply_insert", vo);
+		
+	}
+
 
 }

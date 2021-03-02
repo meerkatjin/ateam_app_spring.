@@ -2,6 +2,20 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="qna.mapper">
 
+<insert id="reply_insert">
+{	
+call declare begin	
+	<![CDATA[
+	update mst_board_tb set step = step+1 where root = #{root} and step > #{step};
+	]]>
+
+	insert into mst_board_tb ( board_gp, user_id, board_title, board_content, filename, filepath, root, step, indent )
+	values ( 2, #{user_id}, #{board_title}, #{board_content}, #{filename, jdbcType=VARCHAR}, #{filepath, jdbcType=VARCHAR}
+			, #{root}, #{step} + 1, #{indent} + 1 );
+end	
+}	
+</insert>
+
 <select id="gethome" resultType="common.BoardVO">
 	<![CDATA[
 	select * from (select rownum no, b.*, ( select user_nm from mst_user_info_tb u where b.user_id=u.user_id ) name
@@ -33,8 +47,8 @@
 </select>
 
 <insert id="insert">
-	insert into mst_board_tb( board_gp, user_id,  board_title, board_content, user_type, filename, filepath )
-	values( 2, #{user_id}, #{board_title}, #{board_content}, 'nomal', #{filename, jdbcType=VARCHAR}, #{filepath, jdbcType=VARCHAR} )
+	insert into mst_board_tb( board_no, root, board_gp, user_id, board_title, board_content, user_type, filename, filepath )
+	values( MST_BOARD_TB_SEQ.nextval, MST_BOARD_TB_SEQ.currval, 2, #{user_id}, #{board_title}, #{board_content}, 'nomal', #{filename, jdbcType=VARCHAR}, #{filepath, jdbcType=VARCHAR} )
 </insert>
 
 <select id="totalList" resultType="integer">
