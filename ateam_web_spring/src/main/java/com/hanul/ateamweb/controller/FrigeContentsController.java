@@ -6,10 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import common.CommonService;
 import frige.FrigeServiceImpl;
+import frige.FrigeVO;
 import member.MemberVO;
 
 @Controller
@@ -32,8 +34,12 @@ public class FrigeContentsController {
 		return "frige/view";
 	}
 	
-	@ResponseBody @RequestMapping(value="/frige/date", produces="application/json; charset=utf-8")
-	public Object frige_date() {
-		return "";
+	//재료 상세 및 수정페이지 요청
+	@RequestMapping("/detail.fc")
+	public String frigeDetail(HttpSession session, @RequestParam(defaultValue="0") int content_list_id, Model model) {
+		session.setAttribute("category", "fc");
+		System.out.println(content_list_id);
+		model.addAttribute("detail", service.frige_detail(content_list_id));
+		return "frige/detail";
 	}
 }
