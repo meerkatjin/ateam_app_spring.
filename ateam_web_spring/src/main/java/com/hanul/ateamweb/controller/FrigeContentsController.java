@@ -42,4 +42,13 @@ public class FrigeContentsController {
 		model.addAttribute("detail", service.frige_detail(content_list_id));
 		return "frige/detail";
 	}
+	
+	//재료 정보 수정요청
+	@RequestMapping("/modify.fc")
+	public String frigeModify(FrigeVO vo) {
+		System.out.println(vo.getContent_list_id());
+		service.frige_update(vo);
+		
+		return "redirect:view.fc";
+	}
 }

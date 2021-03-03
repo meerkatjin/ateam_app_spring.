@@ -46,34 +46,54 @@
 <h3>상세페이지</h3>
 <div class="container">
 	<div id="content_detail">
-		<p><input type="hidden" name="content_list_id" value="${detail.content_list_id }" /></p>
-		<p>재료명</p>
-		<p><input type="text" name="content_nm" value="${detail.content_nm }" /></p>
-		<p>재료종류</p>
-		<ul id="filter_type">
-			<li>고기</li>
-			<li>수산물</li>
-			<li>채소</li>
-			<li>과일</li>
-			<li>유제품</li>
-			<li>곡류</li>
-			<li>조미료/주류</li>
-			<li>음료/기타</li>
-		</ul>
-		<p><input type="text" name="content_ty" value="${detail.content_ty }" readonly /></p>
-		<p>적정 최대 보관일</p>
-		<p><input type="text" name="shelf_life_end" value="${detail.shelf_life_end }" readonly /></p>
+		<form method="post" action="modify.fc">
+			<p><input type="hidden" name="content_list_id" value="${detail.content_list_id }" /></p>
+			<p>재료명</p>
+			<p><input type="text" name="content_nm" value="${detail.content_nm }" /></p>
+			<p>재료종류</p>
+			<ul id="filter_type">
+				<li>고기</li>
+				<li>수산물</li>
+				<li>채소</li>
+				<li>과일</li>
+				<li>유제품</li>
+				<li>곡류</li>
+				<li>조미료/주류</li>
+				<li>음료/기타</li>
+			</ul>
+			<p><input type="text" name="content_ty" value="${detail.content_ty }" readonly /></p>
+			<p>적정 최대 보관일</p>
+			<p><input type="text" name="shelf_life_end" value="${detail.shelf_life_end }" readonly /></p>
+		</form>
 	</div>
 	
 	<div class="btnSet">
-		<a class="btn-fill" id="btn-irdnt-modify">수정</a>
+		<a class="btn-fill" id="btn-irdnt-modify" onclick="do_modify()">수정</a>
 		<a class="btn-empty" id="btn-irdnt-cancel" href='<c:url value="/view.fc" />'>취소</a>
 	</div>
 </div>
 
 <script type="text/javascript">
+
 $(function(){
-	$('#filter_type li:eq(0)').trigger('click');
+	$('#filter_type li').removeClass();
+	if ($('[name=content_ty]').val() == '고기'){
+		$('#filter_type li:eq(0)').addClass('active');
+	} else if ($('[name=content_ty]').val() == '수산물'){
+		$('#filter_type li:eq(1)').addClass('active');
+	} else if ($('[name=content_ty]').val() == '채소'){
+		$('#filter_type li:eq(2)').addClass('active');
+	} else if ($('[name=content_ty]').val() == '과일'){
+		$('#filter_type li:eq(3)').addClass('active');
+	} else if ($('[name=content_ty]').val() == '유제품'){
+		$('#filter_type li:eq(4)').addClass('active');
+	} else if ($('[name=content_ty]').val() == '곡류'){
+		$('#filter_type li:eq(5)').addClass('active');
+	} else if ($('[name=content_ty]').val() == '조미료/주류'){
+		$('#filter_type li:eq(6)').addClass('active');
+	} else if ($('[name=content_ty]').val() == '음료/기타'){
+		$('#filter_type li:eq(7)').addClass('active');
+	}
 	
 	$('[name=shelf_life_end]').datepicker({
 		dayNamesMin: ['일', '월', '화', '수', '목', '금', '토']
@@ -106,10 +126,15 @@ $(document).on('click', '#filter_type li', function(){
 		$('[name=content_ty]').val('곡류');
 	} else if (idx == 6) {	//조미료/주류
 		$('[name=content_ty]').val('조미료/주류');
-	} else if (idx == 7) {	//음료/일반
-		$('[name=content_ty]').val('음료/일반');
+	} else if (idx == 7) {	//음료/기타
+		$('[name=content_ty]').val('음료/기타');
 	}
 });
+
+function do_modify() {
+	var content_list_id = $('[name=content_list_id]').val();
+	$('form').submit();
+}
 </script>
 </body>
 </html>

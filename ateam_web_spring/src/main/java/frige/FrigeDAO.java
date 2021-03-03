@@ -20,6 +20,11 @@ public class FrigeDAO implements FrigeService {
 		return sql.selectOne("frige.mapper.frige_detail", content_list_id);
 	}
 
+	@Override
+	public int frige_update(FrigeVO vo) {
+		return sql.update("frige.mapper.frige_update", vo);
+	}
+
 	
 	
 }

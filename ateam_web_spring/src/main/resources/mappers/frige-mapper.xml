@@ -9,4 +9,10 @@
 	<select id="frige_detail" resultType="frige.FrigeVO">
 		SELECT * FROM APP_FRIGE_CONTENTS_LIST_TB WHERE content_list_id = #{content_list_id}
 	</select>
+	
+	<update id="frige_update">
+		UPDATE APP_FRIGE_CONTENTS_LIST_TB SET 
+		content_nm = #{content_nm}, content_ty = #{content_ty}, shelf_life_end = #{shelf_life_end} 
+		WHERE content_list_id = #{content_list_id}
+	</update>
 </mapper>
