@@ -51,7 +51,7 @@
 		<p><input type="text" name="content_nm" value="${detail.content_nm }" /></p>
 		<p>재료종류</p>
 		<ul id="filter_type">
-			<li class="active">고기</li>
+			<li>고기</li>
 			<li>수산물</li>
 			<li>채소</li>
 			<li>과일</li>
@@ -96,25 +96,18 @@ $(document).on('click', '#filter_type li', function(){
 		$('[name=content_ty]').val('고기');
 	} else if (idx == 1) {	//수산물
 		$('[name=content_ty]').val('수산물');
-
 	} else if (idx == 2) {	//채소
 		$('[name=content_ty]').val('채소');
-		
 	} else if (idx == 3) {	//과일
 		$('[name=content_ty]').val('과일');
-		
 	} else if (idx == 4) {	//유제품
 		$('[name=content_ty]').val('유제품');
-		
 	} else if (idx == 5) {	//곡류
 		$('[name=content_ty]').val('곡류');
-		
 	} else if (idx == 6) {	//조미료/주류
 		$('[name=content_ty]').val('조미료/주류');
-		
 	} else if (idx == 7) {	//음료/일반
 		$('[name=content_ty]').val('음료/일반');
-		
 	}
 });
 </script>
