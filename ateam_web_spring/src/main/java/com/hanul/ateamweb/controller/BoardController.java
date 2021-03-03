@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -27,8 +28,14 @@ public class BoardController {
 	@Autowired private NoticePage page;
 	@Autowired private CommonService common;
 	
+	@RequestMapping("/board/comment/{sub_parent_no}")
+	public String comment_list(@PathVariable int sub_parent_no, Model model) {
+		model.addAttribute("list", service.board_comment_list(sub_parent_no));
+		return "board/comment/comment_list";
+	}
+	
 	//댓글등록 처리 요청
-	@RequestMapping("/board/comment/insert")
+	@ResponseBody @RequestMapping("/board/comment/insert")
 	public boolean comment_insert(BoardCommentVO vo, HttpSession session) {
 		MemberVO user = (MemberVO)session.getAttribute("loginInfo");
 		vo.setUser_id( user.getUser_id() );

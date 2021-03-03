@@ -26,7 +26,7 @@ table { width: 1024px; }
 
 </div>
 
-<form action="list.no" method="post">
+<form action="list.qa" method="post">
 <div class="btn-write">
 	<ul>
 		<!-- 로그인한 경우에만 글쓰기 버튼 보이게 -->
