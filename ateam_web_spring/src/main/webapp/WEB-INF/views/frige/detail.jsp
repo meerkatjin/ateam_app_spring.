@@ -9,10 +9,10 @@
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <style type="text/css">
 .container {
-	width: 60%; 
+	width: 70%; 
 	margin: 50px auto;
 }
-#content_detail { width:100%; border:1px solid #ccc; padding:30px 0; }
+#content_detail { width:100%; border:1px solid #ccc; padding:30px 10px; }
 #filter_type {
 	overflow:hidden; width: 100%;
 	margin:0; padding:0;
@@ -22,11 +22,10 @@
 	display: inline-block;
 	float: left;
 	width: calc(100% / 8);
-	height: 30px;
-	line-height: 27px;
+	height: 60px;
+	line-height: 57px;
 	border: 1px solid #000000;
 	transition: 0.25s;
-	font-size: 0.7rem;
 	cursor: pointer;
 }
 #filter_type li.active {
@@ -43,7 +42,7 @@
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </head>
 <body>
-<h3>상세페이지</h3>
+<h3>상세 및 수정</h3>
 <div class="container">
 	<div id="content_detail">
 		<form method="post" action="modify.fc">
@@ -61,7 +60,7 @@
 				<li>조미료/주류</li>
 				<li>음료/기타</li>
 			</ul>
-			<p><input type="text" name="content_ty" value="${detail.content_ty }" readonly /></p>
+			<p><input type="hidden" name="content_ty" value="${detail.content_ty }" readonly /></p>
 			<p>적정 최대 보관일</p>
 			<p><input type="text" name="shelf_life_end" value="${detail.shelf_life_end }" readonly /></p>
 		</form>
