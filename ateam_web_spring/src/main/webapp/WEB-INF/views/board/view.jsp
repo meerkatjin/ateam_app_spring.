@@ -35,6 +35,8 @@
 </tr>
 </table>
 
+
+
 <div class="btnSet">
 	<a class="btn-fill" href='list.bo?curPage=${page.curPage}'>목록으로</a>
 	<c:if test="${loginInfo.user_id eq vo.user_id}">
@@ -70,7 +72,7 @@ function comment_regist(){
 	
 	$.ajax({
 		url: 'board/comment/insert',
-		data: { sub_parent_no:${vo.board_no}, sub_content:$('#comment').val(), sub_writer:${vo.name} },
+		data: { sub_parent_no:${vo.board_no}, sub_content:$('#comment').val(), sub_writer:${vo.user_id} },
 		success: function( response ){
 			if( response ){
 				alert('댓글이 등록되었습니다!');
@@ -86,7 +88,6 @@ function comment_regist(){
 	});
 	
 }
-
 
 </script>
 
