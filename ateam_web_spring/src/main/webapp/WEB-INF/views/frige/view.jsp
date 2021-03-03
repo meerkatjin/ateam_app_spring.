@@ -5,7 +5,7 @@
 <style type="text/css">
 .container {width: 100%;}
 .view {
-	width: 49%;
+	width: 49.5%;
 	margin-bottom: 30px;
 	float: left;
 }
@@ -101,6 +101,7 @@ input[type="checkbox"], input[type="radio"]{display: none;}
 					<p>${vo.content_nm }</p>
 					<p>${vo.shelf_life_end }</p>
 				</div>
+				<input type='hidden' name='content_list_id' value=${vo.content_list_id }/>
 			</c:forEach>
 		</div>
 		</form>
@@ -120,17 +121,17 @@ $(document).on('click', '#filter_tabs li', function(){
 	var idx = $('#filter_tabs li.active').index();
 	if (idx == 0) {	//유통기한
 		$('#filter_type').css('display', 'none');
-		$.ajax({
-			url: 'frige/date',
-			data: {user_id: $('#user_id').val()},
-			success: function(response) {
-				if (response.item.length > 0) {
-					frige_date($(response.item), true);
-				}
-			}, error: function(req, text) {
-				alert(text + " : " + req.status);
-			}
-		});
+// 		$.ajax({
+// 			url: 'frige/date',
+// 			data: {user_id: $('#user_id').val()},
+// 			success: function(response) {
+// 				if (response.item.length > 0) {
+// 					frige_date($(response.item), true);
+// 				}
+// 			}, error: function(req, text) {
+// 				alert(text + " : " + req.status);
+// 			}
+// 		});
 	} else if (idx == 1) {	//종류
 		$('#filter_type').css('display', 'block');
 		$('#filter_type li').removeClass();
@@ -164,9 +165,10 @@ $(document).on('click', '#filter_type li', function(){
 	}
 });
 
-function detail(content_list_id) {
-	$('[name=content_list_id]').val(content_list_id);
-	
+function detail(id) {
+	$('[name=content_list_id]').val(id);
+	$('form').attr('action', 'detail.fc');
+	$('form').submit();
 }
 
 </script>

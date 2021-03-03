@@ -5,4 +5,8 @@
 		SELECT * FROM APP_FRIGE_CONTENTS_LIST_TB WHERE user_id = #{user_id}
 		ORDER BY shelf_life_end
 	</select>
+	
+	<select id="frige_detail" resultType="frige.FrigeVO">
+		SELECT * FROM APP_FRIGE_CONTENTS_LIST_TB WHERE content_list_id = #{content_list_id}
+	</select>
 </mapper>

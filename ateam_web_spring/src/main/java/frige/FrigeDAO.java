@@ -16,57 +16,10 @@ public class FrigeDAO implements FrigeService {
 	}
 
 	@Override
-	public List<FrigeVO> frige_list_name(long user_id) {
-		// TODO Auto-generated method stub
-		return null;
+	public FrigeVO frige_detail(int content_list_id) {
+		return sql.selectOne("frige.mapper.frige_detail", content_list_id);
 	}
 
-	@Override
-	public List<FrigeVO> frige_list_meat(long user_id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<FrigeVO> frige_list_fish(long user_id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<FrigeVO> frige_list_vege(long user_id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<FrigeVO> frige_list_fruit(long user_id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<FrigeVO> frige_list_dairy(long user_id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<FrigeVO> frige_list_grain(long user_id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<FrigeVO> frige_list_season(long user_id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<FrigeVO> frige_list_etc(long user_id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 	
 }
