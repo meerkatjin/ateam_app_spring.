@@ -42,7 +42,7 @@ public class QnaController {
 	@RequestMapping("/delete.qa")
 	public String delete(int board_no) {
 		service.qna_delete(board_no);
-		return "redirect:list.no";
+		return "redirect:list.qa";
 	}
 	
 	//질문글 수정처리 요청

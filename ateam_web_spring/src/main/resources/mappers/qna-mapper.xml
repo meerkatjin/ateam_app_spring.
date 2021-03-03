@@ -9,8 +9,8 @@ call declare begin
 	update mst_board_tb set step = step+1 where root = #{root} and step > #{step};
 	]]>
 
-	insert into mst_board_tb ( board_gp, user_id, board_title, board_content, filename, filepath, root, step, indent )
-	values ( 2, #{user_id}, #{board_title}, #{board_content}, #{filename, jdbcType=VARCHAR}, #{filepath, jdbcType=VARCHAR}
+	insert into mst_board_tb ( board_gp, board_no, user_id, board_title, board_content, filename, filepath, root, step, indent )
+	values ( 2, MST_BOARD_TB_SEQ.nextval, #{user_id}, #{board_title}, #{board_content}, #{filename, jdbcType=VARCHAR}, #{filepath, jdbcType=VARCHAR}
 			, #{root}, #{step} + 1, #{indent} + 1 );
 end	
 }	
@@ -57,7 +57,7 @@ end
 
 <select id="list" resultType="common.BoardVO">
 	select * from (select rownum no, b.*, ( select user_nm from mst_user_info_tb u where b.user_id=u.user_id ) name
-	from (select * from mst_board_tb where board_gp = 2 order by board_no) b 
+	from (select * from mst_board_tb where board_gp = 2 order by root, step desc ) b
 	order by no desc)
 	where no between #{beginList} and #{endList}
 </select>

@@ -17,7 +17,7 @@
 	<td>${vo.name}</td>
 </tr>
 <tr><th>내용</th>
-	<td><textarea name='board_content' title='내용' class='chk' ></textarea> </td>
+	<td><textarea name='board_content' title='내용' class='chk' ></textarea></td>
 </tr>
 <tr><th>파일첨부</th>
 	<td class='left'>
