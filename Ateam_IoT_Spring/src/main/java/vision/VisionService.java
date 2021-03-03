@@ -1,5 +1,7 @@
 package vision;
 
+import java.util.ArrayList;
+
 public interface VisionService {
-	void inputData(String uuid, String filePath);
+	void inputData(ArrayList<VisionVO> vos);
 }

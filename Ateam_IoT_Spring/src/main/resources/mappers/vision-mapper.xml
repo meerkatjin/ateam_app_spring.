@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="vision.mapper">
+	<insert id="inputData">
+		insert into app_frige_contents_list_tb
+		values((select user_id from mst_user_info_tb where product_id like #{product_id}), 
+			list_id.nextval, #{content_nm}, 
+			(SELECT content_ty FROM APP_FRIGE_CONTENTS_TB WHERE irdnt_nm LIKE #{content_nm}), SYSDATE,
+			SYSDATE+(SELECT due_date FROM APP_FRIGE_CONTENTS_TB WHERE irdnt_nm LIKE #{content_nm}),
+			0, 0, 0, 0, #{image_name}, #{image_path})
+	</insert>
+</mapper>

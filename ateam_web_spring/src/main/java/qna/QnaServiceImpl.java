@@ -27,13 +27,11 @@ public class QnaServiceImpl implements QnaService {
 
 	@Override
 	public NoticePage qna_list(NoticePage page) {
-		// TODO Auto-generated method stub
 		return dao.qna_list(page);
 	}
 
 	@Override
 	public BoardVO qna_view(int board_no) {
-		// TODO Auto-generated method stub
 		return dao.qna_view(board_no);
 	}
 
