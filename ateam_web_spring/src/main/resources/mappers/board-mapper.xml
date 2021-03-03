@@ -2,6 +2,12 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="board.mapper">
 
+<select id="comment_list" resultType="common.BoardCommentVO">
+	select * 
+	from mst_board_sub_tb
+	where sub_parent_no = #{sub_parent_no}
+</select>
+
 <insert id="comment_insert">
 	insert into mst_board_sub_tb (sub_parent_no, sub_content, sub_writer)
 	values(#{sub_parent_no}, #{sub_content}, #{sub_writer})

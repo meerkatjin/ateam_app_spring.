@@ -38,14 +38,17 @@
 
 
 <div class="btnSet">
-	<a class="btn-fill" href='list.bo?curPage=${page.curPage}'>목록으로</a>
+	<a class="btn-fill" href='javascript:$("form").submit()'>목록으로</a>
 	<c:if test="${loginInfo.user_id eq vo.user_id}">
 	<a class="btn-fill" href='modify.bo?board_no=${vo.board_no}'>수정</a>
 	<a class="btn-fill" onclick="if( confirm('정말 삭제하시겠습니까?') ){ location='delete.bo?board_no=${vo.board_no}' }">삭제</a>
 	</c:if>
 </div>
 
-
+<form method="post" action="list.bo">
+<input type='hidden' name='board_no' value='${vo.board_no}'/>
+<input type='hidden' name='curPage' value='${page.curPage}'/>
+</form>
 
 <div style='margin:0 auto; padding-top:20px; width:500px'>
 	<div id='comment_regist'>
@@ -59,6 +62,7 @@
 
 <script type="text/javascript" src="js/file_check.js"></script>
 <script type="text/javascript">
+comment_list();
 function comment_regist(){
 	if( ${empty loginInfo} ){
 		alert('댓글을 등록하려면 로그인하세요!');
@@ -72,7 +76,7 @@ function comment_regist(){
 	
 	$.ajax({
 		url: 'board/comment/insert',
-		data: { sub_parent_no:${vo.board_no}, sub_content:$('#comment').val(), sub_writer:${vo.user_id} },
+		data: { sub_parent_no:${vo.board_no}, sub_content:$('#comment').val() },
 		success: function( response ){
 			if( response ){
 				alert('댓글이 등록되었습니다!');
@@ -87,6 +91,18 @@ function comment_regist(){
 	
 	});
 	
+}
+
+function comment_list(){
+	$.ajax({
+		url: 'board/comment/${vo.board_no}',
+		success: function( response ){
+			$('#comment_list').html(response);
+		
+		},error: function(req, text){
+			alert(text+ ':'+ req.status);
+		}
+	});
 }
 
 </script>

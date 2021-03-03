@@ -28,6 +28,7 @@ public class BoardController {
 	@Autowired private NoticePage page;
 	@Autowired private CommonService common;
 	
+	//댓글목록조회 요청
 	@RequestMapping("/board/comment/{sub_parent_no}")
 	public String comment_list(@PathVariable int sub_parent_no, Model model) {
 		model.addAttribute("list", service.board_comment_list(sub_parent_no));

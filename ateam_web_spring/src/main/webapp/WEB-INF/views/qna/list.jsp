@@ -49,7 +49,11 @@ table { width: 1024px; }
 <c:forEach items="${page.list}" var="vo">
 <tr>
 	<td>${vo.no}</td>
-	<td class="left"><a href='view.qa?board_no=${vo.board_no}'>${vo.board_title}</a></td>
+	<td class="left">
+		<c:forEach var="i" begin="1" end="${vo.indent}">
+		${i eq vo.indent ? "<img src='imgs/re.gif'/>" : "&nbsp;&nbsp;" }
+		</c:forEach>
+		<a href='view.qa?board_no=${vo.board_no}'>${vo.board_title}</a></td>
 	<td>${vo.name}</td>
 	<fmt:formatDate value="${vo.create_dt}" var="create_dt" pattern="yyyy-MM-dd" />
 	<td>${create_dt}</td>
