@@ -1,16 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Insert title here</title>
 <style type="text/css">
 #content {
 	text-align:left; 
 }
 </style>
-</head>
-<body>
+
 <div>
 <h3 align="left">소개</h3>
 <img src='imgs/intro.jpg' style='width:100%;'/>
@@ -28,5 +22,3 @@
 '속보이는 냉장고'는 이러한 생각을 가진 4명의 젊은 개발자가 모여 만든 웰빙서비스입니다. 
 <br /><br />
 </div>
-</body>
-</html>

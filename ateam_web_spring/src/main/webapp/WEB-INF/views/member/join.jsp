@@ -66,6 +66,7 @@ input:focus + span {
 	transition: transform 0.35s; }
 
 </style>
+
 <div class="container">
 	<div id="join" align="center">
 		<h3>회원가입</h3>
@@ -120,6 +121,7 @@ input:focus + span {
 		</div>
 	</div>
 </div>
+
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script type="text/javascript" src="js/join_check.js"></script>
 <script type="text/javascript">

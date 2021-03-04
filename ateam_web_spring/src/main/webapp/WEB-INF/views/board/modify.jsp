@@ -1,11 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
 <h3>게시판 글 수정</h3>
 
 <form method="post" action='update.bo' enctype="multipart/form-data">
@@ -39,5 +32,3 @@
 	<a class='btn-empty' href='javascript:history.go(-1)'>취소</a>
 </div>
 <script type="text/javascript" src="js/file_check.js"></script>
-</body>
-</html>

@@ -1,11 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<!DOCTYPE html>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Community Board</title>
 <style type="text/css">
 .menu ul li { float: left; margin-right: 40px; font-size: 18px; font-weight: bold;}
 .btn-write ul { margin: 0; }
@@ -15,8 +10,6 @@ table { width: 1024px; }
 .btn-write ul { margin: 0; }
 .btn-write ul li { float: right; margin-bottom: 20px; font-weight: bold; }
 </style>
-</head>
-<body>
 
 <div class="menu">
 	<ul>
@@ -63,6 +56,3 @@ table { width: 1024px; }
 <div class="btnSet">
 	<jsp:include page="/WEB-INF/views/include/page.jsp"/>
 </div>
-
-</body>
-</html>
