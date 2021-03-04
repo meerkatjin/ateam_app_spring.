@@ -89,6 +89,8 @@ public class MemberController {
 		url.append("&client_id=").append(kakao_client_key);
 		url.append("&state=").append(state);
 		url.append("&redirect_uri=").append("http://localhost/ateamweb/kakaocallback");
+		//시연용 접속시
+		//url.append("&redirect_uri=").append("http://112.164.58.217:8999/ateamweb/kakaocallback");
 		
 		return "redirect:" + url.toString();
 	}
