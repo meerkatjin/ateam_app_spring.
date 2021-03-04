@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <style type="text/css">
@@ -17,8 +18,13 @@ input[type="text"] {
 	border-collapse: collapse;
 	outline: none;
 	background: none;
-	border-bottom: 1px solid black;
+	border-bottom: 1px solid #ccc;
 	font-size: 1.2rem;
+	transition: 0.25s;
+}
+input[type="text"]:focus {
+	border-bottom: 2px solid black;
+	font-weight: bold;
 }
 #filter_type {
 	overflow:hidden; width: 100%;
@@ -54,9 +60,9 @@ input[type="text"] {
 	<div id="content_detail">
 		<form method="post" action="modify.fc">
 			<p><input type="hidden" name="content_list_id" value="${detail.content_list_id }" /></p>
-			<p>재료명</p>
+			<p style="font-size: 1.2rem;">재료명</p>
 			<p><input type="text" name="content_nm" value="${detail.content_nm }" /></p>
-			<p>재료종류</p>
+			<p style="margin-top: 70px; font-size: 1.2rem;">재료종류</p>
 			<ul id="filter_type">
 				<li>고기</li>
 				<li>수산물</li>
@@ -68,7 +74,7 @@ input[type="text"] {
 				<li>음료/기타</li>
 			</ul>
 			<p><input type="hidden" name="content_ty" value="${detail.content_ty }" readonly /></p>
-			<p>적정 최대 보관일</p>
+			<p style="margin-top: 70px; font-size: 1.2rem;">적정 최대 보관일</p>
 			<p><input type="text" name="shelf_life_end" value="${detail.shelf_life_end }" readonly /></p>
 		</form>
 	</div>

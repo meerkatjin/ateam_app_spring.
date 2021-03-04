@@ -42,6 +42,7 @@
 .column {
 	float: left;
 	border: solid 1px #000;
+	margin-right: -1px;
 }
 
 /* Add a transparency effect for thumnbail images */
