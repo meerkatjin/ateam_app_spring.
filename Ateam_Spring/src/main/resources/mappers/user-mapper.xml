@@ -34,9 +34,7 @@
 		</if>
 	</insert>
 	
-	<!-- 회원 로그인 수행 -->
-	<select id="appLogin" resultType="user.dto.AppUserDTO">
-		select * from MST_USER_INFO_TB
+	<sql id="select_type">
 		<!-- 일반 로그인시 -->
 		<if test="user_type==null">
 			where user_email = #{user_email} and user_pw = #{user_pw} and user_type='nomal'
@@ -45,6 +43,15 @@
 		<if test="user_type != null">
 			where user_id = #{user_id} and user_type = #{user_type}
 		</if>
+	</sql>
+	
+	<update id="tokenUpdate">
+		update MST_USER_INFO_TB set device_token = #{device_token} <include refid="select_type"/>
+	</update>
+	
+	<!-- 회원 로그인 수행 -->
+	<select id="appLogin" resultType="user.dto.AppUserDTO">
+		select * from MST_USER_INFO_TB <include refid="select_type"/>
 	</select>
 	
 	<!-- 회원 정보 수정 -->

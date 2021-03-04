@@ -2,15 +2,24 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="board.mapper">
 
+<delete id="comment_delete">
+	delete from mst_board_sub_tb where sub_no = #{sub_no}
+</delete>
+
+<update id="comment_update">
+	update mst_board_sub_tb set sub_content = #{sub_content} where sub_no = #{sub_no}
+</update>
+
 <select id="comment_list" resultType="common.BoardCommentVO">
-	select b.*, ( select user_nm from mst_user_info_tb u where b.user_id=u.user_id ) name
-	from (select * from mst_board_tb where board_gp = 3 order by board_no) b
+	select s.*, ( select user_nm from mst_user_info_tb u where s.user_id=u.user_id ) name
+	from mst_board_sub_tb s
 	where sub_parent_no = #{sub_parent_no}
+	order by sub_no desc
 </select>
 
 <insert id="comment_insert">
-	insert into mst_board_sub_tb (sub_parent_no, sub_content)
-	values(#{sub_parent_no}, #{sub_content})
+	insert into mst_board_sub_tb (sub_parent_no, sub_content, user_id)
+	values(#{sub_parent_no}, #{sub_content}, #{user_id})
 </insert>
 
 <select id="gethome" resultType="common.BoardVO">

@@ -10,14 +10,15 @@ public class AppUserDTO {
 				user_phone_no,
 				user_grade,
 				user_type,
-				user_device;
+				device_token;
 	
-	public String getUser_device() {
-		return user_device;
+	
+	public String getDevice_token() {
+		return device_token;
 	}
 
-	public void setUser_device(String user_device) {
-		this.user_device = user_device;
+	public void setDevice_token(String device_token) {
+		this.device_token = device_token;
 	}
 
 	public String getUser_type() {
