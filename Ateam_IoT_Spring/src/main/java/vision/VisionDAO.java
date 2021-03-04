@@ -17,4 +17,15 @@ public class VisionDAO implements VisionService {
 		}
 	}
 
+	@Override
+	public int checkCount(String product_id) {
+		return sql.selectOne("vision.mapper.checkCount", product_id);
+	}
+
+	@Override
+	public String searchToken(String product_id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

@@ -14,4 +14,15 @@ public class VisionServiceImp implements VisionService {
 		dao.inputData(vos);
 	}
 
+	@Override
+	public int checkCount(String product_id) {
+		return dao.checkCount(product_id);
+	}
+
+	@Override
+	public String searchToken(String product_id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

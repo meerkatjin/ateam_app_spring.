@@ -8,7 +8,14 @@ public class VisionVO {
 	private double x1, y1, x2, y2;
 	private String image_name, image_path;
 	private String product_id;	//제품 아이디 저장 ㅇㅅㅇ
+	private int content_check;
 	
+	public int getContent_check() {
+		return content_check;
+	}
+	public void setContent_check(int content_check) {
+		this.content_check = content_check;
+	}
 	public String getProduct_id() {
 		return product_id;
 	}

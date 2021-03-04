@@ -9,9 +9,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import common.CommonService;
+import common.FcmUtill;
 import vision.VisionAPI;
 import vision.VisionServiceImp;
 import vision.VisionVO;
@@ -45,8 +47,20 @@ public class IoTController {
 		}else {
 			System.out.println("실패");
 		}
-		
-
 		return "raspPic";
+	}
+	
+	@ResponseBody @RequestMapping(value="/raspCall", produces="application/text; charset=utf-8")
+	public void raspCall(String product_id) {
+		int num = service.checkCount(product_id);
+		//String tokenID = service.searchToken(product_id);
+		
+		System.out.println(num);
+//		if(num > 0) {			
+//			String title = "새 내용물 알림";
+//			String content = "새로 등록된 내용물이" + num + "개 있습니다!";
+//			FcmUtill fcmUtill = new FcmUtill();
+//			fcmUtill.send_FCM(tokenID, title, content);
+//		}
 	}
 }

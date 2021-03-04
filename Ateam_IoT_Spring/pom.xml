@@ -213,6 +213,8 @@
     		<version>0.2.2</version>
 		</dependency>
 		    
+		
+		<!-- 구글 클라우드 -->
 	    <dependency>
 	      <groupId>org.springframework.cloud</groupId>
 	      <artifactId>spring-cloud-gcp-starter-vision</artifactId>
@@ -227,6 +229,14 @@
 		  <groupId>com.google.cloud</groupId>
 		  <artifactId>google-cloud-translate</artifactId>
 		</dependency>
+		
+		<!-- 파이어베이스 -->
+		<dependency>
+		    <groupId>com.google.firebase</groupId>
+		    <artifactId>firebase-admin</artifactId>
+		    <version>7.0.0</version>
+		</dependency>
+		
 	</dependencies>
 	
     <build>

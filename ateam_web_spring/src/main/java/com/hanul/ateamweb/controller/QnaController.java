@@ -94,7 +94,7 @@ public class QnaController {
 	//질문게시판 화면요청
 	@RequestMapping("/list.qa")
 	public String qna(HttpSession session, Model model, @RequestParam(defaultValue = "1") int curPage) {
-		
+		session.setAttribute("category", "cu");
 		page.setCurPage(curPage);
 		model.addAttribute("page", service.qna_list(page));
 		return "qna/list";
