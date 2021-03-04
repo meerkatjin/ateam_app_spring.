@@ -11,7 +11,7 @@ ${status.index eq 0 ? '<hr>' : ''}
 		<a class='btn-fill-s btn-delete-cancel'>삭제</a>
 	</span>
 	</c:if>
-	<div class='original'>${fn: replace( fn:replace(vo.content, lf, '<br>'), crlf, '<br>') }</div>       
+	<div class='original'>${fn: replace( fn:replace(vo.sub_content, lf, '<br>'), crlf, '<br>') }</div>       
 	<div class='modify' style='display:none; margin-top:6px;'></div>
 </div>
 <hr>

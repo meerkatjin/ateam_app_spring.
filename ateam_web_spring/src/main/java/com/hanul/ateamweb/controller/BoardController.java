@@ -32,6 +32,8 @@ public class BoardController {
 	@RequestMapping("/board/comment/{sub_parent_no}")
 	public String comment_list(@PathVariable int sub_parent_no, Model model) {
 		model.addAttribute("list", service.board_comment_list(sub_parent_no));
+		model.addAttribute("crlf", "\r\n");
+		model.addAttribute("lf", "\n");
 		return "board/comment/comment_list";
 	}
 	

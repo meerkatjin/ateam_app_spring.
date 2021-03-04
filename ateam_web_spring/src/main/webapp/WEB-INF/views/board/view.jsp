@@ -46,6 +46,7 @@
 </div>
 
 <form method="post" action="list.bo">
+<input type='hidden' name='user_id' value='${vo.user_id}'/>
 <input type='hidden' name='board_no' value='${vo.board_no}'/>
 <input type='hidden' name='curPage' value='${page.curPage}'/>
 </form>
@@ -76,7 +77,7 @@ function comment_regist(){
 	
 	$.ajax({
 		url: 'board/comment/insert',
-		data: { sub_parent_no:${vo.board_no}, sub_content:$('#comment').val() },
+		data: { sub_parent_no:${vo.board_no}, sub_content:$('#comment').val(), user_id:${vo.user_id} },
 		success: function( response ){
 			if( response ){
 				alert('댓글이 등록되었습니다!');
@@ -104,7 +105,6 @@ function comment_list(){
 		}
 	});
 }
-
 
 </script>
 
