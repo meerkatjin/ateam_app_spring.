@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -27,6 +28,18 @@ public class BoardController {
 	@Autowired private BoardServiceImpl service;
 	@Autowired private NoticePage page;
 	@Autowired private CommonService common;
+	
+	//댓글삭제처리 요청
+	@ResponseBody @RequestMapping("/board/comment/delete/{sub_no}")
+	public void comment_delete(@PathVariable int sub_no) {
+		service.board_comment_delete(sub_no);
+	}
+	
+	//댓글 수정처리 요청
+	@ResponseBody @RequestMapping(value="/board/comment/update", produces="application/text; charset=utf-8")
+	public String comment_update(@RequestBody BoardCommentVO vo) {
+		return service.board_comment_update(vo) > 0 ? "성공^^" : "실패ㅠㅠ";
+	}
 	
 	//댓글목록조회 요청
 	@RequestMapping("/board/comment/{sub_parent_no}")
