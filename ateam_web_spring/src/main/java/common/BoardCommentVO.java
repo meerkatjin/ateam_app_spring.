@@ -13,13 +13,13 @@ public class BoardCommentVO {
 	
 	private long user_id;
 	private int sub_no, board_no, sub_parent_no;
-	private String sub_content, user_type, create_dt, update_dt, sub_writer;
+	private String sub_content, user_type, create_dt, update_dt, name;
 	
-	public String getSub_writer() {
-		return sub_writer;
+	public String getName() {
+		return name;
 	}
-	public void setSub_writer(String sub_writer) {
-		this.sub_writer = sub_writer;
+	public void setName(String name) {
+		this.name = name;
 	}
 	public long getUser_id() {
 		return user_id;
