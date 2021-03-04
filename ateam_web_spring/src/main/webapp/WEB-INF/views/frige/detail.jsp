@@ -23,7 +23,7 @@
 	float: left;
 	width: calc(100% / 8);
 	height: 60px;
-	line-height: 57px;
+	line-height: 57Z6T7UK99,0O0;P..--PP// ED''px;
 	border: 1px solid #000000;
 	transition: 0.25s;
 	cursor: pointer;
