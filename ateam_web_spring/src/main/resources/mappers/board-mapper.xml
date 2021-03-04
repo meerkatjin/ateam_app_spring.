@@ -3,14 +3,14 @@
 <mapper namespace="board.mapper">
 
 <select id="comment_list" resultType="common.BoardCommentVO">
-	select * 
-	from mst_board_sub_tb
+	select b.*, ( select user_nm from mst_user_info_tb u where b.user_id=u.user_id ) name
+	from (select * from mst_board_tb where board_gp = 3 order by board_no) b
 	where sub_parent_no = #{sub_parent_no}
 </select>
 
 <insert id="comment_insert">
-	insert into mst_board_sub_tb (sub_parent_no, sub_content, sub_writer)
-	values(#{sub_parent_no}, #{sub_content}, #{sub_writer})
+	insert into mst_board_sub_tb (sub_parent_no, sub_content)
+	values(#{sub_parent_no}, #{sub_content})
 </insert>
 
 <select id="gethome" resultType="common.BoardVO">
