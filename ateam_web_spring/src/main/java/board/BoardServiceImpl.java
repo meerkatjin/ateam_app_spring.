@@ -69,7 +69,6 @@ public class BoardServiceImpl implements BoardService {
 
 	@Override
 	public List<BoardCommentVO> board_comment_list(int sub_parent_no) {
-		// TODO Auto-generated method stub
 		return dao.board_comment_list(sub_parent_no);
 	}
 

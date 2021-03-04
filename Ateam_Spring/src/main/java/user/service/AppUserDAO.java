@@ -22,6 +22,7 @@ public class AppUserDAO implements UserServiceInterface {
 	//로그인
 	@Override
 	public AppUserDTO appLogin(AppUserDTO dto) {
+		sql.update("user.mapper.tokenUpdate", dto);
 		return sql.selectOne("user.mapper.appLogin", dto);
 	}//appLogin()
 

@@ -71,7 +71,6 @@ public class BoardDAO implements BoardService{
 
 	@Override
 	public List<BoardCommentVO> board_comment_list(int sub_parent_no) {
-		// TODO Auto-generated method stub
 		return sql.selectList("board.mapper.comment_list", sub_parent_no);
 	}
 
