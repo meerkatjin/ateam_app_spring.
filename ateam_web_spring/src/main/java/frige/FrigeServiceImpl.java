@@ -24,6 +24,11 @@ public class FrigeServiceImpl implements FrigeService {
 		return dao.frige_update(vo);
 	}
 
+	@Override
+	public int frige_delete(int content_list_id) {
+		return dao.frige_delete(content_list_id);
+	}
+
 	
 	
 }

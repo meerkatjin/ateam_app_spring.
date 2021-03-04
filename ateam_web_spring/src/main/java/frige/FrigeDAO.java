@@ -25,6 +25,11 @@ public class FrigeDAO implements FrigeService {
 		return sql.update("frige.mapper.frige_update", vo);
 	}
 
+	@Override
+	public int frige_delete(int content_list_id) {
+		return sql.delete("frige.mapper.frige_delete", content_list_id);
+	}
+
 	
 	
 }

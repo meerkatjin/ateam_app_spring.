@@ -15,4 +15,8 @@
 		content_nm = #{content_nm}, content_ty = #{content_ty}, shelf_life_end = #{shelf_life_end} 
 		WHERE content_list_id = #{content_list_id}
 	</update>
+	
+	<delete id="frige_delete">
+		DELETE FROM APP_FRIGE_CONTENTS_LIST_TB WHERE content_list_id = #{content_list_id}
+	</delete>
 </mapper>

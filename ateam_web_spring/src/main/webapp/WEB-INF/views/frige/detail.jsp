@@ -9,24 +9,36 @@
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <style type="text/css">
 .container {
-	width: 70%; 
-	margin: 50px auto;
+	width: 100%; 
 }
-#content_detail { width:100%; border:1px solid #ccc; padding:30px 10px; }
+#content_detail { width:100%; border:1px solid #ccc; padding:30px; }
+input[type="text"] {
+	width: 100%;
+	height: 60px;
+	line-height: 57px;
+	text-align: center;
+	border: 0px;
+	border-collapse: collapse;
+	outline: none;
+	background: none;
+	border-bottom: 1px solid black;
+	font-size: 1.2rem;
+}
 #filter_type {
 	overflow:hidden; width: 100%;
-	margin:0; padding:0;
+	margin:0 auto; padding:0;
 }
 #filter_type li {
-	margin: 0px;
 	display: inline-block;
 	float: left;
 	width: calc(100% / 8);
 	height: 60px;
-	line-height: 57Z6T7UK99,0O0;P..--PP// ED''px;
-	border: 1px solid #000000;
+	line-height: 57px;
 	transition: 0.25s;
 	cursor: pointer;
+}
+#filter_type li:hover {
+	background-color: #ccc;
 }
 #filter_type li.active {
 	background-color: #000000;
@@ -42,7 +54,7 @@
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </head>
 <body>
-<h3>상세 및 수정</h3>
+<h3 align="left">상세 및 수정</h3>
 <div class="container">
 	<div id="content_detail">
 		<form method="post" action="modify.fc">
@@ -68,6 +80,7 @@
 	
 	<div class="btnSet">
 		<a class="btn-fill" id="btn-irdnt-modify" onclick="do_modify()">수정</a>
+		<a class="btn-fill" id="btn-irdnt-delete" onclick="do_delete()">삭제</a>
 		<a class="btn-empty" id="btn-irdnt-cancel" href='<c:url value="/view.fc" />'>취소</a>
 	</div>
 </div>
@@ -133,6 +146,14 @@ $(document).on('click', '#filter_type li', function(){
 function do_modify() {
 	var content_list_id = $('[name=content_list_id]').val();
 	$('form').submit();
+}
+
+function do_delete() {
+	var content_list_id = $('[name=content_list_id]').val();
+	if(confirm('정말 삭제하시겠습니까?')) {
+		$('form').attr('action', 'delete.fc');
+		$('form').submit();
+	}
 }
 </script>
 </body>

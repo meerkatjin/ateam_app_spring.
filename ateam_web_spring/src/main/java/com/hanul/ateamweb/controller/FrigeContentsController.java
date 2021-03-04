@@ -51,4 +51,12 @@ public class FrigeContentsController {
 		
 		return "redirect:view.fc";
 	}
+	
+	//재료 삭제요청
+	@RequestMapping("/delete.fc")
+	public String frigeDelete(int content_list_id) {
+		System.out.println(content_list_id);
+		service.frige_delete(content_list_id);
+		return "redirect:view.fc";
+	}
 }
