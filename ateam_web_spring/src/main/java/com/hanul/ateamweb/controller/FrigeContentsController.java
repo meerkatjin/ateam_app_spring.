@@ -25,7 +25,7 @@ public class FrigeContentsController {
 		session.setAttribute("category", "fc");
 		MemberVO member = (MemberVO)session.getAttribute("loginInfo");
 		if (member == null) {
-			return "member/login";
+			return "redirect:login";
 		}
 		long user_id = member.getUser_id();
 		
