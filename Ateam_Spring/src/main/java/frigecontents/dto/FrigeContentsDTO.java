@@ -7,7 +7,15 @@ public class FrigeContentsDTO implements Serializable {
 	String content_nm, content_ty;
 	String shelf_life_start, shelf_life_end;
 	double x1, y1, x2, y2;
+	int num;
+	String device_token;
 	
+	public FrigeContentsDTO(int num, String device_token) {
+		super();
+		this.num = num;
+		this.device_token = device_token;
+	}
+
 	public FrigeContentsDTO(int content_list_id, String content_nm, String content_ty, String shelf_life_end) {
 		super();
 		this.content_list_id = content_list_id;
@@ -28,6 +36,22 @@ public class FrigeContentsDTO implements Serializable {
 		this.y1 = y1;
 		this.x2 = x2;
 		this.y2 = y2;
+	}
+
+	public String getDevice_token() {
+		return device_token;
+	}
+
+	public void setDevice_token(String device_token) {
+		this.device_token = device_token;
+	}
+
+	public int getNum() {
+		return num;
+	}
+
+	public void setNum(int num) {
+		this.num = num;
 	}
 
 	public int getUser_id() {

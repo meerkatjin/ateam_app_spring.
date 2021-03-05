@@ -27,7 +27,7 @@ public class FcmUtill {
 			Message msg = Message.builder()
 					.putData("title", title)
 					.putData("body", content)
-					.putData("color", "#f45342")
+					.putData("color", "#00aaff")
 					.setToken(tokenid)
 					.build();
 			

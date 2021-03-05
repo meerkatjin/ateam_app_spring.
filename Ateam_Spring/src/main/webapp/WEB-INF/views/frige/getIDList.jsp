@@ -4,7 +4,7 @@
     pageEncoding="UTF-8"%>
 <%
 Gson gson = new Gson();
-	String json = gson.toJson((List<Long>)request.getAttribute("getLifeEndList"));
+	String json = gson.toJson((List<Long>)request.getAttribute("getIDList"));
 	
 	out.println(json);
 %>

@@ -52,15 +52,13 @@ public class IoTController {
 	
 	@ResponseBody @RequestMapping(value="/raspCall", produces="application/text; charset=utf-8")
 	public void raspCall(String product_id) {
-		int num = service.checkCount(product_id);
-		//String tokenID = service.searchToken(product_id);
+		VisionVO vo = service.checkCount(product_id);
 		
-		System.out.println(num);
-//		if(num > 0) {			
-//			String title = "새 내용물 알림";
-//			String content = "새로 등록된 내용물이" + num + "개 있습니다!";
-//			FcmUtill fcmUtill = new FcmUtill();
-//			fcmUtill.send_FCM(tokenID, title, content);
-//		}
+		if(vo.getCheckCount() > 0) {			
+			String title = "새 내용물 알림!";
+			String content = "확인하지 않은 내용물이" + vo.getCheckCount() + "개 있습니다!";
+			FcmUtill fcmUtill = new FcmUtill();
+			fcmUtill.send_FCM(vo.getDevice_token(), title, content);
+		}
 	}
 }

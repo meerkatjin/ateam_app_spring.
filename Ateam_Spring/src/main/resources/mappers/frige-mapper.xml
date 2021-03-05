@@ -52,4 +52,30 @@
 			and round(shelf_life_end - sysdate) <= ceil((shelf_life_end - shelf_life_start)/5)
 		]]>
 	</select>
+	
+	<select id="getLifeEndUsers" resultType="frigecontents.dto.FrigeContentsDTO">
+		<![CDATA[
+			select count(*) num, u.device_token device_token
+			from app_frige_contents_list_tb f, mst_user_info_tb u
+			where round(shelf_life_end - sysdate) 
+			<= ceil((shelf_life_end - shelf_life_start)/5)
+			and f.user_id = u.user_id
+			and device_token is NOT null
+			group by u.device_token
+      	]]>
+	</select>
+	
+	<select id="getNewContentNum" resultType="_int">
+		select count(*)
+		from app_frige_contents_list_tb 
+		where user_id = #{user_id}
+		and content_check = 0
+	</select>
+	
+	<select id="getNewContentList" resultType="_long">
+		select content_list_id
+		from app_frige_contents_list_tb 
+		where user_id = #{user_id}
+		and content_check = 0
+	</select>
 </mapper>
