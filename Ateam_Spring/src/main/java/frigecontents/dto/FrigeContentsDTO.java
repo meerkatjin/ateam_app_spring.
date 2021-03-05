@@ -16,7 +16,7 @@ public class FrigeContentsDTO implements Serializable {
 		this.device_token = device_token;
 	}
 
-	public FrigeContentsDTO(int content_list_id, String content_nm, String content_ty, String shelf_life_end, int num, String device_token) {
+	public FrigeContentsDTO(int content_list_id, String content_nm, String content_ty, String shelf_life_end) {
 		super();
 		this.content_list_id = content_list_id;
 		this.content_nm = content_nm;

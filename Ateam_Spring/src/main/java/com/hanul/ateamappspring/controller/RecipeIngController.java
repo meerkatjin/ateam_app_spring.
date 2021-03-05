@@ -16,7 +16,7 @@ public class RecipeIngController {
     public String recipeIng( int recipe_id  ,Model model) {
          
     	model.addAttribute("recipeIng", service.recipeIng(recipe_id));    //1. 일단 app으로 json 타입으로 리턴할것들은 전부 jsonReturn으로 통일했습니다
-        return "recipeIng";
+        return "recipe/recipeIng";
     }
         
         

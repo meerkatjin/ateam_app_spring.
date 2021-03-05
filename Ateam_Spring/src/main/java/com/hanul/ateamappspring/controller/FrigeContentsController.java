@@ -72,15 +72,28 @@ public class FrigeContentsController {
 	//유통기한 임박한 내용물 갯수 가져오기
 	@RequestMapping("/getLifeEndNum")
 	public String getLifeEndNum(Model model, long user_id) {
-		model.addAttribute("getLifeEndNum",String.valueOf(service.getLifeEndNum(user_id)));
-		return "frige/getLifeEndNum";
+		model.addAttribute("getNum",String.valueOf(service.getLifeEndNum(user_id)));
+		return "frige/getNum";
 	}
 	
 	//유통기한이 임박한 내용물 아이디 리스트 가져오기
 	@RequestMapping("/getLifeEndList")
 	public String getLifeEndList(Model model, long user_id) {
-		model.addAttribute("getLifeEndList", service.getLifeEndList(user_id));
-		return "getLifeEndList";
+		model.addAttribute("getIDList", service.getLifeEndList(user_id));
+		return "frige/getIDList";
 	}
 	
+	//새로 등록된 내용물 갯수 가져오기
+	@RequestMapping("/getNewContentNum")
+	public String getNewContentNum(Model model, long user_id) {
+		model.addAttribute("getNum", String.valueOf(service.getNewContentNum(user_id)));
+		return "frige/getNum";
+	}
+	
+	//새로 등록된 내용물 아이디 리스트 가져오기
+	@RequestMapping("/getNewContentList")
+	public String getNewContentList(Model model, long user_id) {
+		model.addAttribute("getIDList", service.getNewContentList(user_id));
+		return "frige/getIDList";
+	}
 }

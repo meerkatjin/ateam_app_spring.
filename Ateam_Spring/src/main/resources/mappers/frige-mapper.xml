@@ -64,4 +64,18 @@
 			group by u.device_token
       	]]>
 	</select>
+	
+	<select id="getNewContentNum" resultType="_int">
+		select count(*)
+		from app_frige_contents_list_tb 
+		where user_id = #{user_id}
+		and content_check = 0
+	</select>
+	
+	<select id="getNewContentList" resultType="_long">
+		select content_list_id
+		from app_frige_contents_list_tb 
+		where user_id = #{user_id}
+		and content_check = 0
+	</select>
 </mapper>

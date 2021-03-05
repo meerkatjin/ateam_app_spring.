@@ -59,4 +59,14 @@ public class FrigeContentsService implements FrigeContentsInterface {
 		return dao.getLifeEndUsers();
 	}
 
+	@Override
+	public int getNewContentNum(long user_id) {
+		return dao.getNewContentNum(user_id);
+	}
+
+	@Override
+	public List<Long> getNewContentList(long user_id) {
+		return dao.getNewContentList(user_id);
+	}
+
 }
