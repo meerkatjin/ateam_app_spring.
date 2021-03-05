@@ -17,7 +17,6 @@ import member.MemberVO;
 @Controller
 public class FrigeContentsController {
 	@Autowired private FrigeServiceImpl service;
-	@Autowired private CommonService common;
 	
 	//냉장고 페이지 요청
 	@RequestMapping("/view.fc")
@@ -25,7 +24,10 @@ public class FrigeContentsController {
 		session.setAttribute("category", "fc");
 		MemberVO member = (MemberVO)session.getAttribute("loginInfo");
 		if (member == null) {
-			return "redirect:login";
+			model.addAttribute("message", "로그인이 필요한 서비스입니다!");
+			model.addAttribute("returnPath", "login");
+			
+			return "redirect";
 		}
 		long user_id = member.getUser_id();
 		

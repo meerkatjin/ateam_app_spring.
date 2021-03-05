@@ -25,9 +25,8 @@ public class MemberDAO implements MemberService {
 	}
 
 	@Override
-	public MemberVO member_select(int user_id) {
-		// TODO Auto-generated method stub
-		return null;
+	public MemberVO member_select(long user_id) {
+		return sql.selectOne("member.mapper.member_select", user_id);
 	}
 
 	@Override

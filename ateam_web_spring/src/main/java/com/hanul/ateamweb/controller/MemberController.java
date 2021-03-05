@@ -9,6 +9,7 @@ import javax.servlet.http.HttpSession;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -35,6 +36,13 @@ public class MemberController {
 	public String join(HttpSession session) {
 		session.removeAttribute("category");
 		return "member/join";
+	}
+	
+	//회원정보수정화면 요청 처리
+	@RequestMapping("/modify.me")
+	public String modify(HttpSession session, Model model) {
+		session.removeAttribute("category");
+		return "member/modify";
 	}
 	
 	//회원가입처리 요청
@@ -156,6 +164,12 @@ public class MemberController {
 	public String logout(HttpSession session) {
 		session.removeAttribute("loginInfo");
 		return "redirect:/";
+	}
+	
+	//회원정보수정 처리 요청
+	@RequestMapping("/modifyRequest")
+	public String modifyRequest() {
+		return "";
 	}
 
 }

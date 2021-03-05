@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<title>Join</title>
+<title>Modify</title>
 <style type="text/css">
 .container {
 	width: 60%; 
@@ -34,9 +34,6 @@ input[type="text"], input[type="password"] {
 .valid, .invalid { font-size:13px; font-weight:bold; float: left; margin-left: 5%; display: none; }
 .valid { color:green; }
 .invalid { color:red; }
-#btn-email { width: 27%; text-align: center; background-color: #ddd; 
-	height:30px; line-height: 30px; border-radius: 5px; 
-	box-shadow:2px 2px 3px #555555; margin-left: 3%;}
 span{ position: absolute; top:15px; left: 3%; transition: transform 0.35s; color: #bbb;}
 
 input:focus { border-bottom: 2px solid #000; }
@@ -58,21 +55,20 @@ input:focus + span {
 
 <div class="container">
 	<div id="join" align="center">
-		<h3>회원가입</h3>
+		<h3>회원정보수정</h3>
 		
 		<p class='w-pct30 right' style='margin:0 auto; padding-bottom:10px; 
 			float: right; margin-right: 15%;'>* 는 필수입력항목입니다</p>
-		<form method="post" action="joinRequest">
+		<form method="post" action="modifyRequest">
 			<div class="join-box flexSet-wrap">
-				<input type='text' name="user_email" class="chk" style="width: 70%;"/>
-				<span>* 이메일</span>
-				<a id="btn-email">중복확인</a>
+				<input type='text' name="user_email" class="chk" value="${loginInfo.user_email }" readonly="readonly"/>
+				<span>* 이메일 변경</span>
 				<div class='valid'>유효한 이메일을 입력하세요</div>
 			</div>
 			
 			<div class="join-box flexSet-wrap">
-				<input type='password' name="user_pw" class="chk" />
-				<span>* 비밀번호</span>
+				<input type='password' name="user_pw" class="chk" value="${loginInfo.user_pw }"/>
+				<span>* 비밀번호 변경</span>
 				<div class='valid'>
 				영문자, 숫자, 특수문자(! @ # $ % &amp; + -)를<br/>
 				모두 포함해 8~32자를 입력해주세요
@@ -81,18 +77,18 @@ input:focus + span {
 			
 			<div class="join-box flexSet-wrap">
 				<input type='password' name="user_pwck" class="chk"  />
-				<span>* 비밀번호 확인</span>
+				<span>* 비밀번호 변경 확인</span>
 				<div class='valid'>비밀번호를 다시 입력해주세요</div>
 			</div>
 			
 			<div class="join-box flexSet-wrap">
-				<input type='text' name='user_nm' class="chk" />
-				<span>* 이름(별명)</span>
+				<input type='text' name='user_nm' class="chk" value="${loginInfo.user_nm }"/>
+				<span>* 이름(별명) 변경</span>
 			</div>
 		</form>
 		
 		<div class="btnSet">
-			<a class="btn-fill" id="btn-join" onclick="go_join()">가입</a>
+			<a class="btn-fill" id="btn-join" onclick="go_join()">변경</a>
 			<a class="btn-empty" id="btn-join-cancel" href='<c:url value="/" />'>취소</a>
 		</div>
 	</div>
@@ -105,7 +101,7 @@ function go_join(){
 	//중복확인 한 경우 : chked 클래스가 있음
 	if( $('[name=user_email]').hasClass('chked') ){
 		if( $('[name=user_email]').siblings('div').hasClass('invalid') ){
-			alert('회원가입 불가!\n' + join.id.unusable.desc );
+			alert('수정할 수 없습니다!\n' + join.id.unusable.desc );
 			$('[name=user_email]').focus();
 			return;
 		}
@@ -130,7 +126,7 @@ function go_join(){
 function item_check( tag ){
 	var result = join.tag_status( tag );
 	if( result.code =='invalid' ){
-		alert( '회원가입 불가!\n' + result.desc );
+		alert( '수정할 수 없습니다!\n' + result.desc );
 		tag.focus();
 		return false;
 	}else return true;

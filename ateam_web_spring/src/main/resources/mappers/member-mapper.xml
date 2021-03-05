@@ -15,14 +15,8 @@
 	</select>
 	
 	<insert id="join">
-		<if test="user_pro_img!=null">
-			INSERT INTO MST_USER_INFO_TB (user_id, user_email, user_pw, user_nm, user_addr, user_pro_img, user_phone_no)
-			VALUES(#{user_id}, #{user_email}, #{user_pw}, #{user_nm}, #{user_addr}, #{user_pro_img}, #{user_phone_no})
-		</if>
-		<if test="user_pro_img==null">
-			INSERT INTO MST_USER_INFO_TB (user_id, user_email, user_pw, user_nm, user_addr, user_phone_no)
-			VALUES(#{user_id}, #{user_email}, #{user_pw}, #{user_nm}, #{user_addr}, #{user_phone_no})
-		</if>
+		INSERT INTO MST_USER_INFO_TB (user_id, user_email, user_pw, user_nm) 
+		VALUES(#{user_id}, #{user_email}, #{user_pw}, #{user_nm})
 	</insert>
 	
 	<select id="social_id" resultType="integer">
@@ -33,4 +27,8 @@
 		INSERT INTO MST_USER_INFO_TB (user_id, user_email, user_nm, user_type)
 		VALUES(#{user_id}, #{user_email}, #{user_nm}, #{user_type})
 	</insert>
+	
+	<select id="member_select">
+		SELECT * FROM MST_USER_INFO_TB WHERE user_id = #{user_id}
+	</select>
 </mapper>

@@ -1,31 +1,30 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <style type="text/css">
 .container {width: 100%;}
-.view {
-	width: 49.5%;
-	margin-bottom: 30px;
-	float: left;
-}
+.view {width: 49.5%; margin-bottom: 30px; float: left;}
 #camera {padding-bottom: 49%; background-color: #ccc;}
-input[type="checkbox"], input[type="radio"]{display: none;}
+input[type="checkbox"], input[type="radio"] {display: none;}
 #filter_tabs, #filter_type {
-	overflow:hidden; width: 100%;
-	margin:0; padding:0;
+	overflow: hidden; width: 100%;
+	margin: 0; padding: 0;
 }
 #filter_tabs li {
 	margin: 0px;
 	display: inline-block;
 	float: left;
-	width: calc(100% / 3);
+	width: calc(100%/ 3);
 	height: 30px;
 	line-height: 27px;
 	border: 1px solid #000000;
 	transition: 0.25s;
 	cursor: pointer;
 }
-#filter_tabs li:hover, #filter_type li:hover {background-color: #ccc;}
+#filter_tabs li:hover, #filter_type li:hover {
+	background-color: #ccc;
+}
 #filter_tabs li.active, #filter_type li.active {
 	background-color: #000000;
 	color: #ffffff;
@@ -35,7 +34,7 @@ input[type="checkbox"], input[type="radio"]{display: none;}
 	margin: 0px;
 	display: inline-block;
 	float: left;
-	width: calc(100% / 8);
+	width: calc(100%/ 8);
 	height: 30px;
 	line-height: 27px;
 	border: 1px solid #000000;
@@ -43,8 +42,14 @@ input[type="checkbox"], input[type="radio"]{display: none;}
 	font-size: 0.7rem;
 	cursor: pointer;
 }
-#content_items {margin-top: 10px; border: 1px solid #000000;}
-#content_search {width: 80%; float: left;}
+#content_items {
+	margin-top: 10px;
+	border: 1px solid #000000;
+}
+#content_search {
+	width: 80%;
+	float: left;
+}
 #btn_content_search {
 	width: 18%;
 	float: right;
@@ -59,7 +64,10 @@ input[type="checkbox"], input[type="radio"]{display: none;}
 }
 .content_list:last-child {margin-bottom: 0px;}
 .content_list p {display: inline-block;}
-.content_list p:first-child {width: 40%; font-size: 1.3rem;}
+.content_list p:first-child {
+	width: 40%;
+	font-size: 1.3rem;
+}
 .content_list p:last-child {width: 59%;}
 </style>
 
@@ -72,7 +80,7 @@ input[type="checkbox"], input[type="radio"]{display: none;}
 			<li onclick="#">종류</li>
 			<li onclick="#">이름</li>
 		</ul>
-		
+
 		<ul id="filter_type" style="display: none;">
 			<li class="active">고기</li>
 			<li>수산물</li>
@@ -83,25 +91,26 @@ input[type="checkbox"], input[type="radio"]{display: none;}
 			<li>조미료/주류</li>
 			<li>음료/기타</li>
 		</ul>
-		
+
 		<div style="overflow: hidden; margin-top: 10px;">
 			<input type="text" id="content_search" placeholder="검색하실 재료명을 입력해주세요" />
 			<a class="btn-fill" id="btn_content_search">검색</a>
 		</div>
-		
+
 		<form action="view.fc" method="post">
-		<input type='hidden' name='user_id' value=${loginInfo.user_id }/>
+			<input type='hidden' name='user_id' value=${loginInfo.user_id } />
 			<div id="content_items">
-			<p style="display:inline-block; width: 40%;">재료이름</p>
-			<p style="display:inline-block; width: 59%;">적정 최대 보관일</p>
-			<c:forEach var="vo" items="${list }">
-				<div class="content_list" onclick="detail(${vo.content_list_id})">
-					<p>${vo.content_nm }</p>
-					<p>${vo.shelf_life_end }</p>
-				</div>
-				<input type='hidden' name='content_list_id' value=${vo.content_list_id }/>
-			</c:forEach>
-		</div>
+				<p style="display: inline-block; width: 40%;">재료이름</p>
+				<p style="display: inline-block; width: 59%;">적정 최대 보관일</p>
+				<c:forEach var="vo" items="${list }">
+					<div class="content_list" onclick="detail(${vo.content_list_id})">
+						<p>${vo.content_nm }</p>
+						<p>${vo.shelf_life_end }</p>
+					</div>
+					<input type='hidden' name='content_list_id'
+						value=${vo.content_list_id } />
+				</c:forEach>
+			</div>
 		</form>
 	</div>
 </div>
