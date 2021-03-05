@@ -13,7 +13,6 @@ import frigecontents.dto.InsertDTO;
 @Service
 public class FrigeContentsService implements FrigeContentsInterface {
 	@Autowired private FrigeContentsDAO dao;
-	
 
 	@Override
 	public int irdntInsert(InsertDTO dto) {
@@ -53,6 +52,11 @@ public class FrigeContentsService implements FrigeContentsInterface {
 	@Override
 	public List<Long> getLifeEndList(long user_id) {
 		return dao.getLifeEndList(user_id);
+	}
+
+	@Override
+	public List<FrigeContentsDTO> getLifeEndUsers() {
+		return dao.getLifeEndUsers();
 	}
 
 }

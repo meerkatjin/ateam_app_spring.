@@ -18,4 +18,6 @@ public interface FrigeContentsInterface {
 	
 	int getLifeEndNum(long user_id);
 	List<Long> getLifeEndList(long user_id);
+	
+	List<FrigeContentsDTO> getLifeEndUsers();
 }

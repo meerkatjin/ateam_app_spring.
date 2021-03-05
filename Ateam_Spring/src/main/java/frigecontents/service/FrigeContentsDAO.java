@@ -69,5 +69,10 @@ public class FrigeContentsDAO implements FrigeContentsInterface {
 	public List<Long> getLifeEndList(long user_id) {
 		return sql.selectList("frige.mapper.getLifeEndList", user_id);
 	}
+
+	@Override
+	public List<FrigeContentsDTO> getLifeEndUsers() {
+		return sql.selectList("frige.mapper.getLifeEndUsers");
+	}
 	
 }
