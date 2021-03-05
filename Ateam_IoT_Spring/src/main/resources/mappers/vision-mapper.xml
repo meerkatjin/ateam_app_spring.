@@ -11,10 +11,12 @@
 			#{image_name}, #{image_path}, 0)
 	</insert>
 	
-	<select id="checkCount" resultType="_int">
-		select count(*)
-		from app_frige_contents_list_tb 
-			where user_id = (select user_id from mst_user_info_tb where product_id like #{product_id})
-			and content_check = 0
+	<select id="checkCount" resultType="vision.VisionVO">		
+		select count(*) checkCount, u.device_token device_token
+		from app_frige_contents_list_tb f, mst_user_info_tb u
+		where f.user_id = u.user_id
+		and f.user_id = (select user_id from mst_user_info_tb where product_id like #{product_id})
+		and content_check = 0 
+		group by u.device_token
 	</select>
 </mapper>

@@ -9,7 +9,21 @@ public class VisionVO {
 	private String image_name, image_path;
 	private String product_id;	//제품 아이디 저장 ㅇㅅㅇ
 	private int content_check;
+	private int checkCount;
+	private String device_token;
 	
+	public int getCheckCount() {
+		return checkCount;
+	}
+	public void setCheckCount(int checkCount) {
+		this.checkCount = checkCount;
+	}
+	public String getDevice_token() {
+		return device_token;
+	}
+	public void setDevice_token(String device_token) {
+		this.device_token = device_token;
+	}
 	public int getContent_check() {
 		return content_check;
 	}

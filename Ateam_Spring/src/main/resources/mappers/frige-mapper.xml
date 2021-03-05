@@ -61,7 +61,7 @@
 			<= ceil((shelf_life_end - shelf_life_start)/5)
 			and f.user_id = u.user_id
 			and device_token is NOT null
-			group by f.user_id, u.device_token
+			group by u.device_token
       	]]>
 	</select>
 </mapper>
