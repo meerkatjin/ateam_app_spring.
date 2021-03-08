@@ -7,7 +7,7 @@
 	<td><input type='text' name='board_title' title='제목' class='chk' /></td>
 </tr>
 <tr><th>작성자</th>
-	<td>${vo.name}</td>
+	<td>${loginInfo.user_nm}</td>
 </tr>
 <tr><th>내용</th>
 	<td><textarea name='board_content' title='내용' class='chk' ></textarea></td>

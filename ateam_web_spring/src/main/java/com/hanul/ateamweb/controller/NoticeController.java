@@ -48,7 +48,7 @@ public class NoticeController {
 	
 	//공지글 수정처리 요청
 	@RequestMapping("/update.no")
-	public String update(BoardVO vo, String attach, HttpSession session, MultipartFile file, Model model) {
+	public String update(BoardVO vo, String filename, HttpSession session, MultipartFile file) {
 		BoardVO board = service.notice_view( vo.getBoard_no() );
 		String uuid = session.getServletContext().getRealPath("resources") + "/" + board.getFilepath();
 		//첨부파일 관련처리
@@ -63,7 +63,7 @@ public class NoticeController {
 			}
 		}else {
 			//원래 첨부된 파일을 삭제/ 원래부터 첨부파일이 없는 경우
-			if( attach.isEmpty() ) {
+			if( filename.isEmpty() ) {
 				if( board.getFilename() != null ) {
 					File f = new File( uuid );
 					if( f.exists() ) f.delete();
@@ -95,6 +95,8 @@ public class NoticeController {
 		
 		model.addAttribute("vo", service.notice_view(board_no));
 		model.addAttribute("page", page);
+		model.addAttribute("crlf", "\r\n");
+		model.addAttribute("lf", "\n");
 		return "notice/view";
 	}
 	
@@ -119,11 +121,12 @@ public class NoticeController {
 
 	//공지사항 화면 요청
 	@RequestMapping("/list.no")
-	public String noticeView(HttpSession session, Model model, @RequestParam(defaultValue = "1") int curPage, String search, String keyword) {
+	public String noticeView(HttpSession session, Model model, @RequestParam(defaultValue="10") int pageList, @RequestParam(defaultValue = "1") int curPage, String search, String keyword) {
 		session.setAttribute("category", "cu");
 		page.setCurPage(curPage);
 		page.setSearch(search);
 		page.setKeyword(keyword);
+		page.setPageList(pageList);
 		model.addAttribute("page", service.notice_list(page));
 		return "notice/list";
 	}
