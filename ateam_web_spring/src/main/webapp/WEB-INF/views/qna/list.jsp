@@ -45,7 +45,7 @@ table { width: 1024px; }
 	<td>${vo.no}</td>
 	<td class="left">
 		<c:forEach var="i" begin="1" end="${vo.indent}">
-		${i eq vo.indent ? "<img src='imgs/re.gif'/>" : "&nbsp;&nbsp;" }
+		${i eq vo.indent ? "<img src='imgs/comment.png' style='width:20px;' />" : "&nbsp;&nbsp;" }
 		</c:forEach>
 		<a href='view.qa?board_no=${vo.board_no}'>${vo.board_title}</a></td>
 	<td>${vo.name}</td>

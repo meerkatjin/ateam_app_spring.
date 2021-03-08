@@ -47,7 +47,7 @@ table { width: 1024px; }
 	<td>${vo.name}</td>
 	<fmt:formatDate value="${vo.create_dt}" var="create_dt" pattern="yyyy-MM-dd" />
 	<td>${create_dt}</td>
-	<td>${empty vo.filename ? '' : '<img class="file-img" src="imgs/attach.png"/>'}</td>
+	<td>${empty vo.filename ? '' : '<img class="file-img" src="imgs/file.jpg"/>'}</td>
 	<td>${vo.board_readcount}</td>
 </tr>
 </c:forEach>
