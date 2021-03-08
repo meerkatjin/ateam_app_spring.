@@ -74,7 +74,7 @@ public class BoardController {
 	
 	//게시판글 수정처리
 	@RequestMapping("/update.bo")
-	public String update(BoardVO vo, String attach, HttpSession session, MultipartFile file, Model model) {
+	public String update(BoardVO vo, String filename, HttpSession session, MultipartFile file, Model model) {
 		BoardVO board = service.board_view( vo.getBoard_no() );
 		String uuid = session.getServletContext().getRealPath("resources") + "/" + board.getFilepath();
 		
@@ -90,7 +90,7 @@ public class BoardController {
 			}
 		}else {
 			//원래 첨부된 파일을 삭제/ 원래부터 첨부파일이 없는 경우
-			if( attach.isEmpty() ) {
+			if( filename.isEmpty() ) {
 				if( board.getFilename() != null ) {
 					File f = new File( uuid );
 					if( f.exists() ) f.delete();

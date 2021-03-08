@@ -15,7 +15,6 @@
 </tr>
 </table>
 <input type='hidden' name='board_no' value='${vo.board_no}'/>
-<input type='hidden' name='filename' />
 </form>
 
 <div class='btnSet'>

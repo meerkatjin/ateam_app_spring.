@@ -32,3 +32,8 @@
 	<a class='btn-empty' href='javascript:history.go(-1)'>취소</a>
 </div>
 <script type="text/javascript" src="js/file_check.js"></script>
+<script type="text/javascript">
+if( ${!empty vo.filename} ){
+	$('#delete-file').css('display','inline');
+}
+</script>
