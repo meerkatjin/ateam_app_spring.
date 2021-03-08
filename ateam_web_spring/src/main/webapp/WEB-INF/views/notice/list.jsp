@@ -19,8 +19,20 @@ table { width: 1024px; }
 	</ul>
 </div>
 
+<div id="list-top">
 <form action="list.no" method="post">
 <div class="btn-write">
+	<ul>
+		<li><select name="search">
+			<option value="all" ${page.search eq 'all' ? 'selected' :''}>전체</option>
+			<option value='title' ${page.search eq 'title' ? 'selected' :''}>제목</option>
+			<option value='content' ${page.search eq 'content' ? 'selected' :''}>내용</option>
+			<option value='name' ${page.search eq 'name' ? 'selected' :''}>작성자</option>
+			</select>
+		</li>
+		<li><input type='text' name='keyword' value='${page.keyword}' class='w-px200'/></li>
+		<li><a class='btn-fill' onclick="$('form').submit()">검색</a></li>
+	</ul>
 	<ul>
 		<!-- 관리자일때만 글쓰기 버튼 보이게 -->
 		<c:if test="${loginInfo.user_grade eq '2'}">
@@ -30,6 +42,7 @@ table { width: 1024px; }
 </div>
 <input type='hidden' name='curPage' value='1'/>
 </form>
+</div>
 
 <table>
 <tr>

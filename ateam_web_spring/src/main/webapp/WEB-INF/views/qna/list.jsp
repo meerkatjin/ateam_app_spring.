@@ -20,8 +20,20 @@ table { width: 1024px; }
 
 </div>
 
+<div id="list-top">
 <form action="list.qa" method="post">
 <div class="btn-write">
+	<ul>
+		<li><select>
+			<option>전체</option>
+			<option>제목</option>
+			<option>내용</option>
+			<option>작성자</option>
+			</select>
+		</li>
+		<li><input type='text' name='keyword' value='${page.keyword}' class='w-px200'/></li>
+		<li><a class='btn-fill' onclick="$('form').submit()">검색</a></li>
+	</ul>
 	<ul>
 		<!-- 로그인한 경우에만 글쓰기 버튼 보이게 -->
 		<c:if test="${!empty loginInfo}">
@@ -31,7 +43,7 @@ table { width: 1024px; }
 </div>
 <input type='hidden' name='curPage' value='1'/>
 </form>
-
+</div>
 <table>
 <tr>
 	<th class="w-px80">번호</th>
