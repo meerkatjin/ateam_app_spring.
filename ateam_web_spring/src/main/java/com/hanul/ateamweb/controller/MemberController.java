@@ -45,6 +45,13 @@ public class MemberController {
 		return "member/modify";
 	}
 	
+	//회원관리화면 요청 처리
+	@RequestMapping("/manage.me")
+	public String manage(HttpSession session) {
+		session.removeAttribute("category");
+		return "member/manage";
+	}
+	
 	//회원가입처리 요청
 	@ResponseBody @RequestMapping(value="/joinRequest", produces="text/html; charset=utf-8")
 	public String join(MemberVO vo, HttpSession session, HttpServletRequest request) { 
@@ -168,7 +175,7 @@ public class MemberController {
 	
 	//회원정보수정 처리 요청
 	@RequestMapping("/modifyRequest")
-	public String modifyRequest() {
+	public String modifyRequest(HttpSession session) {
 		return "";
 	}
 

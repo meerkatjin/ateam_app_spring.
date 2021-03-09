@@ -9,7 +9,7 @@
 #join { width:100%; border:1px solid #ccc; padding:30px 0; }
 .join-box { width:70%; height:100px; padding: 10px 0; position: relative; }
 input[type="text"], input[type="password"] {
-	width:100%; height:40px;
+	width:100%; height:50px;
 	padding:5px 3%;
 	border: 0px;
 	border-style: none;
@@ -34,9 +34,6 @@ input[type="text"], input[type="password"] {
 .valid, .invalid { font-size:13px; font-weight:bold; float: left; margin-left: 5%; display: none; }
 .valid { color:green; }
 .invalid { color:red; }
-#btn-email { width: 27%; text-align: center; background-color: #ddd; 
-	height:30px; line-height: 30px; border-radius: 5px; 
-	box-shadow:2px 2px 3px #555555; margin-left: 3%;}
 span{ position: absolute; top:15px; left: 3%; transition: transform 0.35s; color: #bbb;}
 
 input:focus { border-bottom: 2px solid #000; }
@@ -64,9 +61,8 @@ input:focus + span {
 			float: right; margin-right: 15%;'>* 는 필수입력항목입니다</p>
 		<form method="post" action="joinRequest">
 			<div class="join-box flexSet-wrap">
-				<input type='text' name="user_email" class="chk" style="width: 70%;"/>
+				<input type='text' name="user_email" class="chk" />
 				<span>* 이메일</span>
-				<a id="btn-email">중복확인</a>
 				<div class='valid'>유효한 이메일을 입력하세요</div>
 			</div>
 			
@@ -105,7 +101,7 @@ function go_join(){
 	//중복확인 한 경우 : chked 클래스가 있음
 	if( $('[name=user_email]').hasClass('chked') ){
 		if( $('[name=user_email]').siblings('div').hasClass('invalid') ){
-			alert('회원가입 불가!\n' + join.id.unusable.desc );
+			alert('회원가입 불가!\n' + join.email.unusable.desc );
 			$('[name=user_email]').focus();
 			return;
 		}
@@ -121,7 +117,7 @@ function go_join(){
 	}
 	
 	if( ! item_check( $('[name=user_pw]') ) ) return;
-	if( ! item_check( $('[name="user_pwck"]') ) ) return;
+	if( ! item_check( $('[name=user_pwck]') ) ) return;
 	if( ! item_check( $('[name=user_email]') ) ) return;
 	
 	$('form').submit();
@@ -136,7 +132,7 @@ function item_check( tag ){
 	}else return true;
 }
 
-$('#btn-email').on('click', function(){
+$('[name=user_email]').on('blur', function(){
 	email_check();
 });
 
@@ -144,7 +140,6 @@ function email_check(){
 	var $user_email = $('[name=user_email]');
 	var data = join.tag_status( $user_email );
 	if( data.code == 'invalid'){
-		alert( data.desc );
 		$user_email.focus();
 		return;
 	}
