@@ -25,9 +25,9 @@ table { width: 1024px; }
 	<ul>
 		<li><select name="search">
 			<option value="all" ${page.search eq 'all' ? 'selected' :''}>전체</option>
-			<option value='title' ${page.search eq 'title' ? 'selected' :''}>제목</option>
-			<option value='content' ${page.search eq 'content' ? 'selected' :''}>내용</option>
-			<option value='name' ${page.search eq 'name' ? 'selected' :''}>작성자</option>
+			<option value='board_title' ${page.search eq 'board_title' ? 'selected' :''}>제목</option>
+			<option value='board_content' ${page.search eq 'board_content' ? 'selected' :''}>내용</option>
+			<option value='writer' ${page.search eq 'writer' ? 'selected' :''}>작성자</option>
 			</select>
 		</li>
 		<li><input type='text' name='keyword' value='${page.keyword}' class='w-px200'/></li>
