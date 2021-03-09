@@ -35,8 +35,8 @@ public class MemberDAO implements MemberService {
 	}
 
 	@Override
-	public boolean member_update(MemberVO vo) {
-		return (Integer)sql.update("member.mapper.member_update", vo) > 0 ? true : false;
+	public int member_update(MemberVO vo) {
+		return sql.update("member.mapper.member_update", vo);
 	}
 
 	@Override

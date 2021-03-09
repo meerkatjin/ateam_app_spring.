@@ -30,7 +30,7 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public boolean member_update(MemberVO vo) {
+	public int member_update(MemberVO vo) {
 		return dao.member_update(vo);
 	}
 

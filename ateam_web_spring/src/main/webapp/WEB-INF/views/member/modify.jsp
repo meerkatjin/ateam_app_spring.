@@ -159,7 +159,12 @@ function email_check(){
 	});
 }
 
-$('.chk').on('keyup', function(e){
+/*  */
+$('.chk').on(function(e) {
+	if ($('.chk').val() != ''){
+		$(this).siblings('span').addClass('infrom');
+	}
+}).on('keyup', function(e){
 	if( $(this).attr('name')=='user_email' ){
 		if( e.keyCode==13 ){
 			email_check();

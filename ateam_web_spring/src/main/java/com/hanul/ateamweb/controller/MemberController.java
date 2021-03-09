@@ -175,8 +175,11 @@ public class MemberController {
 	
 	//회원정보수정 처리 요청
 	@RequestMapping("/modifyRequest")
-	public String modifyRequest(HttpSession session) {
-		return "";
+	public String modifyRequest(MemberVO vo) {
+		System.out.println("memberModify" + vo.getUser_id());
+		service.member_update(vo);
+		
+		return "redirect:/modify.me";
 	}
 
 }
