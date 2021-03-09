@@ -22,8 +22,7 @@ public class QnaDAO implements QnaService {
 
 	@Override
 	public List<BoardVO> qna_list() {
-		// TODO Auto-generated method stub
-		return null;
+		return sql.selectList("qna.mapper.list");
 	}
 
 	@Override

@@ -22,7 +22,7 @@ public class QnaServiceImpl implements QnaService {
 	@Override
 	public List<BoardVO> qna_list() {
 		// TODO Auto-generated method stub
-		return null;
+		return dao.qna_list();
 	}
 
 	@Override
