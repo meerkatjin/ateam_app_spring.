@@ -9,7 +9,7 @@
 #join { width:100%; border:1px solid #ccc; padding:30px 0; }
 .join-box { width:70%; height:100px; padding: 10px 0; position: relative; }
 input[type="text"], input[type="password"] {
-	width:100%; height:40px;
+	width:100%; height:50px;
 	padding:5px 3%;
 	border: 0px;
 	border-style: none;
@@ -19,17 +19,9 @@ input[type="text"], input[type="password"] {
 	display: block;
 	position: relative;
 }
-#btn-join, #btn-join-cancel {
-	padding-left: 90px;
-	padding-right: 90px;
-}
-#btn-join {
-	position: relative;
-	left: 0%;
-}
-#btn-join-cancel {
-	position: relative;
-	right: 0%;
+.btnSet a {
+	display: inline-block;
+	width: 23%;
 }
 .valid, .invalid { font-size:13px; font-weight:bold; float: left; margin-left: 5%; display: none; }
 .valid { color:green; }
@@ -61,7 +53,7 @@ input:focus + span {
 			float: right; margin-right: 15%;'>* 는 필수입력항목입니다</p>
 		<form method="post" action="modifyRequest">
 			<div class="join-box flexSet-wrap">
-				<input type='text' name="user_email" class="chk" value="${loginInfo.user_email }" readonly="readonly"/>
+				<input type='text' name="user_email" class="chk" value="${loginInfo.user_email }" />
 				<span>* 이메일 변경</span>
 				<div class='valid'>유효한 이메일을 입력하세요</div>
 			</div>
@@ -88,7 +80,8 @@ input:focus + span {
 		</form>
 		
 		<div class="btnSet">
-			<a class="btn-fill" id="btn-join" onclick="go_join()">변경</a>
+			<a class="btn-fill" id="btn-join" onclick="go_modify()">변경</a>
+			<a class="btn-empty" id="btn-withdrawal" onclick="go_withdrawal()">회원탈퇴</a>
 			<a class="btn-empty" id="btn-join-cancel" href='<c:url value="/" />'>취소</a>
 		</div>
 	</div>
@@ -97,11 +90,11 @@ input:focus + span {
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script type="text/javascript" src="js/join_check.js"></script>
 <script type="text/javascript">
-function go_join(){
+function go_modify(){
 	//중복확인 한 경우 : chked 클래스가 있음
 	if( $('[name=user_email]').hasClass('chked') ){
 		if( $('[name=user_email]').siblings('div').hasClass('invalid') ){
-			alert('수정할 수 없습니다!\n' + join.id.unusable.desc );
+			alert('회원가입 불가!\n' + join.email.unusable.desc );
 			$('[name=user_email]').focus();
 			return;
 		}
@@ -117,10 +110,16 @@ function go_join(){
 	}
 	
 	if( ! item_check( $('[name=user_pw]') ) ) return;
-	if( ! item_check( $('[name="user_pwck"]') ) ) return;
+	if( ! item_check( $('[name=user_pwck]') ) ) return;
 	if( ! item_check( $('[name=user_email]') ) ) return;
 	
 	$('form').submit();
+}
+
+function go_withdrawal() {
+	if (confirm('정말로 탈퇴하시겠습니까?')) {
+		
+	}
 }
 
 function item_check( tag ){
@@ -132,7 +131,7 @@ function item_check( tag ){
 	}else return true;
 }
 
-$('#btn-email').on('click', function(){
+$('[name=user_email]').on('blur', function(){
 	email_check();
 });
 
@@ -140,7 +139,6 @@ function email_check(){
 	var $user_email = $('[name=user_email]');
 	var data = join.tag_status( $user_email );
 	if( data.code == 'invalid'){
-		alert( data.desc );
 		$user_email.focus();
 		return;
 	}

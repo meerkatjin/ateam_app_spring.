@@ -31,4 +31,10 @@
 	<select id="member_select">
 		SELECT * FROM MST_USER_INFO_TB WHERE user_id = #{user_id}
 	</select>
+	
+	<update id="member_update">
+		UPDATE MST_USER_INFO_TB SET 
+		user_email = #{user_email}, user_pw = #{user_pw}, user_nm = #{user_nm} 
+		WHERE user_id = #{user_id}
+	</update>
 </mapper>

@@ -27,14 +27,13 @@
 		</c:if>
 		<!-- 로그인한 경우 -->
 		<c:if test='${!empty loginInfo}'>
+		<li style='padding-right:10px; color:#FFFFFF;'>
+			<strong>${loginInfo.user_nm}</strong> 님</li>
+		<li><a href="modify.me" style="color: #ffffff; margin-right: 10px;">회원정보 수정</a></li>
+		<c:if test="${loginInfo.user_grade eq '2' }">
+			<li><a href="manage.me" style="color: #ffffff; margin-right: 10px;">회원관리</a></li>
+		</c:if>
 		<li><a class='btn-fill' href='logout'>로그아웃</a></li>
-		<li style='padding-left:10px; color:#FFFFFF;'>
-			<strong>${loginInfo.user_nm}</strong> 님 <i class="fa fa-caret-down"></i></li>
-			<div class="subnav-content">
-		      <a href='modify.me'>회원정보수정</a>
-		      <a href='withdrawal.me'>회원탈퇴</a>
-		      <a href='manage.me'>회원관리</a>
-		    </div>
 		</c:if>
 	</ul>
 	</div>
