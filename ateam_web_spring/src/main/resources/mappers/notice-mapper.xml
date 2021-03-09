@@ -45,22 +45,22 @@
 	where board_title like '%'|| #{keyword} || '%' 
 	or board_content like '%'|| #{keyword} || '%' 
 	or user_id in ( select user_id from mst_user_info_tb 
-	               where user_nm like '%'|| #{keyword} || '%' ) 
+	               where upper(user_nm) like '%'|| upper(#{keyword}) || '%' ) 
 	</if>
 	<if test=' search=="writer" ' >
 	where user_id in ( select user_id from mst_user_info_tb
-	                  where user_nm like '%'|| #{keyword} || '%' )
+	                  where upper(user_nm) like '%'|| upper(#{keyword}) || '%' )
 	</if>
 </sql>
 
 <select id="totalList" resultType="integer">
-	select count(*) from ( select * from mst_board_tb where board_gp = 1 ) b <include refid="search_where"/>
+	select count(*) from ( select * from mst_board_tb where board_gp = 1 ) <include refid="search_where"/>
 </select>
 
 <select id="list" resultType="common.BoardVO">
-	select * from (select rownum no, b.*, ( select user_nm from mst_user_info_tb u where b.user_id=u.user_id ) name
-	from (select * from mst_board_tb where board_gp = 1 order by board_no) b 
-	order by no desc)
+	select * from ( select rownum no, b.*, ( select user_nm from mst_user_info_tb u where b.user_id=u.user_id ) name
+	from ( select * from ( select * from mst_board_tb where board_gp = 1 ) <include refid="search_where"/> order by board_no ) b 
+	order by no desc )
 	where no between #{beginList} and #{endList}
 	
 </select>
