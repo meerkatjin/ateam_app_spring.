@@ -66,7 +66,8 @@ input[type="checkbox"], input[type="radio"] {
 
 #content_items {
 	margin-top: 10px;
-	border: 1px solid #000000;
+	overflow-y: scroll;
+	height: 600px;
 }
 
 #content_search {
@@ -140,7 +141,7 @@ input[type="checkbox"], input[type="radio"] {
 				<c:forEach var="vo" items="${list }">
 					<div class="content_list" onclick="detail(${vo.content_list_id})">
 						<p>${vo.content_nm }</p>
-						<p>${vo.shelf_life_end }</p>
+						<p><fmt:formatDate value="${vo.shelf_life_end }" pattern="yyyy년 MM월 dd일" /></p>
 					</div>
 					<input type='hidden' name='content_list_id'
 						value=${vo.content_list_id } />

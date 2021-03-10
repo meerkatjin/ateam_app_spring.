@@ -75,7 +75,7 @@ input[type="text"]:focus {
 			</ul>
 			<p><input type="hidden" name="content_ty" value="${detail.content_ty }" readonly /></p>
 			<p style="margin-top: 70px; font-size: 1.2rem;">적정 최대 보관일</p>
-			<p><input type="text" name="shelf_life_end" value="${detail.shelf_life_end }" readonly /></p>
+			<p><input type="text" name="shelf_life_end" value="<fmt:formatDate value="${detail.shelf_life_end }" pattern="yyyy년 MM월 dd일" />" readonly /></p>
 		</form>
 	</div>
 	
