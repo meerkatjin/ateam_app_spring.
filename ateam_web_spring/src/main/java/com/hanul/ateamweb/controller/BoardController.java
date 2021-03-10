@@ -145,8 +145,10 @@ public class BoardController {
 
 	//게시판화면 요청
 	@RequestMapping("/list.bo")
-	public String board(HttpSession session, Model model, @RequestParam(defaultValue = "1") int curPage) {
+	public String board(HttpSession session, Model model, @RequestParam(defaultValue = "1") int curPage, String search, String keyword) {
 		page.setCurPage(curPage);
+		page.setSearch(search);
+		page.setKeyword(keyword);
 		model.addAttribute("page", service.board_list(page));
 
 		return "board/list";
