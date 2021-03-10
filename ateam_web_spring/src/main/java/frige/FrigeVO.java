@@ -1,12 +1,13 @@
 package frige;
 
 import java.io.Serializable;
+import java.sql.Date;
 
 public class FrigeVO implements Serializable {
 	private long user_id;
 	private int content_list_id;
 	private String content_nm, content_ty;
-	private String shelf_life_start, shelf_life_end;
+	private Date shelf_life_start, shelf_life_end;
 	private double x1, y1, x2, y2;
 	
 	public long getUser_id() {
@@ -33,16 +34,16 @@ public class FrigeVO implements Serializable {
 	public void setContent_ty(String content_ty) {
 		this.content_ty = content_ty;
 	}
-	public String getShelf_life_start() {
+	public Date getShelf_life_start() {
 		return shelf_life_start;
 	}
-	public void setShelf_life_start(String shelf_life_start) {
+	public void setShelf_life_start(Date shelf_life_start) {
 		this.shelf_life_start = shelf_life_start;
 	}
-	public String getShelf_life_end() {
+	public Date getShelf_life_end() {
 		return shelf_life_end;
 	}
-	public void setShelf_life_end(String shelf_life_end) {
+	public void setShelf_life_end(Date shelf_life_end) {
 		this.shelf_life_end = shelf_life_end;
 	}
 	public double getX1() {

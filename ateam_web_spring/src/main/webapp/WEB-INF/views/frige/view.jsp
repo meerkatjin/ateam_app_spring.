@@ -3,14 +3,32 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <style type="text/css">
-.container {width: 100%;}
-.view {width: 49.5%; margin-bottom: 30px; float: left;}
-#camera {padding-bottom: 49%; background-color: #ccc;}
-input[type="checkbox"], input[type="radio"] {display: none;}
-#filter_tabs, #filter_type {
-	overflow: hidden; width: 100%;
-	margin: 0; padding: 0;
+.container {
+	width: 100%;
 }
+
+.view {
+	width: 49.5%;
+	margin-bottom: 30px;
+	float: left;
+}
+
+#camera {
+	padding-bottom: 49%;
+	background-color: #ccc;
+}
+
+input[type="checkbox"], input[type="radio"] {
+	display: none;
+}
+
+#filter_tabs, #filter_type {
+	overflow: hidden;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+}
+
 #filter_tabs li {
 	margin: 0px;
 	display: inline-block;
@@ -22,14 +40,17 @@ input[type="checkbox"], input[type="radio"] {display: none;}
 	transition: 0.25s;
 	cursor: pointer;
 }
+
 #filter_tabs li:hover, #filter_type li:hover {
 	background-color: #ccc;
 }
+
 #filter_tabs li.active, #filter_type li.active {
 	background-color: #000000;
 	color: #ffffff;
 	font-weight: bold;
 }
+
 #filter_type li {
 	margin: 0px;
 	display: inline-block;
@@ -39,22 +60,26 @@ input[type="checkbox"], input[type="radio"] {display: none;}
 	line-height: 27px;
 	border: 1px solid #000000;
 	transition: 0.25s;
-	font-size: 0.7rem;
+	font-size: 0.8rem;
 	cursor: pointer;
 }
+
 #content_items {
 	margin-top: 10px;
 	border: 1px solid #000000;
 }
+
 #content_search {
 	width: 80%;
 	float: left;
 }
+
 #btn_content_search {
 	width: 18%;
 	float: right;
 	box-shadow: 0 0 0;
 }
+
 .content_list {
 	overflow: hidden;
 	width: 100%;
@@ -62,17 +87,27 @@ input[type="checkbox"], input[type="radio"] {display: none;}
 	background-color: #ccc;
 	cursor: pointer;
 }
-.content_list:last-child {margin-bottom: 0px;}
-.content_list p {display: inline-block;}
+
+.content_list:last-child {
+	margin-bottom: 0px;
+}
+
+.content_list p {
+	display: inline-block;
+}
+
 .content_list p:first-child {
 	width: 40%;
 	font-size: 1.3rem;
 }
-.content_list p:last-child {width: 59%;}
+
+.content_list p:last-child {
+	width: 58%;
+}
 </style>
 
 <div class="container">
-	<h3 align="left">My 냉장고</h3>
+	<h3 align="left">내 냉장고</h3>
 	<div class="view" id="camera"></div>
 	<div class="view" id="irdnt_list" style="float: right;">
 		<ul id="filter_tabs">
@@ -101,7 +136,7 @@ input[type="checkbox"], input[type="radio"] {display: none;}
 			<input type='hidden' name='user_id' value=${loginInfo.user_id } />
 			<div id="content_items">
 				<p style="display: inline-block; width: 40%;">재료이름</p>
-				<p style="display: inline-block; width: 59%;">적정 최대 보관일</p>
+				<p style="display: inline-block; width: 58%;">적정 최대 보관일</p>
 				<c:forEach var="vo" items="${list }">
 					<div class="content_list" onclick="detail(${vo.content_list_id})">
 						<p>${vo.content_nm }</p>

@@ -2,8 +2,8 @@
 <div>
 <h3 align="left">소개</h3>
 <img src='imgs/intro.jpg' style='width:100%;'/>
-	<div style="text-align: left;">
-		<h4>내가 쓰는 냉장고를 더 스마트하게!</h4>
+	<h3 align="left">내가 쓰는 냉장고를 더 스마트하게!</h3>
+	<div class="intro_content">
 		사물 인터넷이 핵심산업으로 떠오르면서 다양한 상품이 나오고 있고 스마트 냉장고도 그 중 하나입니다. <br />
 		기존 냉장고를 이용할 때 유통기한 관리 및 내부 재료 등을 알기가 어려웠습니다. <br />
 		그래서 오랜만에 냉장고 청소를 해보면 나도 모르게 안에 방치되어있던 식재료를 발견하게 됩니다. <br />
@@ -18,3 +18,11 @@
 		<br /><br />
 	</div>
 </div>
+
+<style>
+.intro_content {
+	text-align: left;
+	font-size: 1.1rem;
+	font-weight: lighter;
+}
+</style>

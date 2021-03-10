@@ -3,8 +3,9 @@
 <header id="top">
 	<div class='category' style='margin-left:100px;'>
 	<ul class="nav-list">
-		<li class="nav-list"><a class="${category eq 'it' ? 'active' : ''} nav" href='intro.it'>소개글</a></li>
-		<li class="nav-list"><a class="${category eq 'fc' ? 'active' : ''} nav" href='view.fc'>My 냉장고</a></li>
+		<li class="nav-list"><a href='<c:url value="/" />'><img src='imgs/logo.white.horizontal.png' class="logo-header-size"/></a></li>
+		<li class="nav-list"><a class="${category eq 'it' ? 'active' : ''} nav" href='intro.it'>소개</a></li>
+		<li class="nav-list"><a class="${category eq 'fc' ? 'active' : ''} nav" href='view.fc'>내 냉장고</a></li>
 		<li class="nav-list"><a class="${category eq 'rp' ? 'active' : ''} nav" href='list.rp'>레시피</a></li>
 		<li class="nav-list commu">
 			<a class="${category eq 'cu' ? 'active' : ''} nav" style="cursor: default;">커뮤니티 <i class="fa fa-caret-down"></i></a>
@@ -15,10 +16,6 @@
 		    </div>
 		</li>
 	</ul>
-	</div>
-	
-	<div>
-		<a href='<c:url value="/" />'><img src='imgs/logo.white.horizontal.png' class="logo-header-size"/></a>
 	</div>
 	
 	<div style='position:absolute; right:0; top:25px; margin-right:100px; display: inline;'>

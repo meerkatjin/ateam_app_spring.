@@ -1,10 +1,25 @@
 @charset "UTF-8";
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
 
+@font-face {
+    font-family: 'KBIZ한마음고딕 R';
+    src: url('KBIZ한마음고딕 R.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'JejuGothic';
+    src: url('JejuGothic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 body{
 	margin:0 auto;
 	text-align:center;
-	font-family: 'Noto Sans KR', sans-serif; 
+	font-family: 'KBIZ한마음고딕 R', 'JejuGothic', 'Noto Sans KR', sans-serif;
+	vertical-align: top;
 }
 
 *{ box-sizing: border-box; }
@@ -132,4 +147,8 @@ ul.submenu > li { display:block; width:120px; padding:5px 10px; text-align:cente
 .w-px160 { width:160px; }
 .w-px140 { width:140px; }
 .w-px120 { width:120px; }
+
+/* 텍스트 디자인 */
+.text-border-w { text-shadow: 0 0 2px #fff; }
+.text-border-b { text-shadow: 0 0 2px #000; }
 

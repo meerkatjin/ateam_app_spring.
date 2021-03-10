@@ -159,12 +159,15 @@ function email_check(){
 	});
 }
 
-/*  */
-$('.chk').on(function(e) {
-	if ($('.chk').val() != ''){
-		$(this).siblings('span').addClass('infrom');
-	}
-}).on('keyup', function(e){
+$(function(){
+	$('.chk').each(function(){
+		if( $(this).val()!='' ){
+			$(this).focus();
+		}
+	});
+});
+
+$('.chk').on('keyup', function(e){
 	if( $(this).attr('name')=='user_email' ){
 		if( e.keyCode==13 ){
 			email_check();
