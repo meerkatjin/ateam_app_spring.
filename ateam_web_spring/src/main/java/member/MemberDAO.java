@@ -40,9 +40,8 @@ public class MemberDAO implements MemberService {
 	}
 
 	@Override
-	public boolean member_delete(int user_id) {
-		// TODO Auto-generated method stub
-		return false;
+	public int member_delete(long user_id) {
+		return sql.delete("member.mapper.member_delete", user_id);
 	}
 
 	@Override

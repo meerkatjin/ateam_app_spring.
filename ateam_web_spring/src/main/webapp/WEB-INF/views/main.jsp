@@ -14,7 +14,7 @@
 .main-content-title a { line-height: 64px; font-size: 12px; }
 .main-content-title a:hover { color: #0000ff; }
 .main-content-bord:not(:first-child) { margin-top: 20px; }
-.main-content-con { width: 100%; padding: 5px 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.main-content-con { width: 100%; padding: 5px 0; }
 .main-content-bord .main-content-con div { display: block; width: 100%; height: 45px; line-height: 45px; border-bottom: 1px solid #bbb; }
 .main-content-bord .main-content-con div:last-child{ border-bottom: none; }
 
@@ -101,7 +101,7 @@
 		</div>
 		<div class="main-content-con bottomtop-border-2px">
 		<c:forEach var="i" begin="0" end="4">
-			<div class="">
+			<div style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
 			<c:if test="${!empty notice[i]}">
 				<a href='view.no?board_no=${notice[i].board_no}'>${notice[i].board_title}</a>
 			</c:if>
@@ -116,7 +116,7 @@
 		</div>
 		<div class="main-content-con bottomtop-border-2px">
 			<c:forEach var="i" begin="0" end="4">
-			<div class="">
+			<div style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
 			<c:if test="${!empty qna[i]}">
 				<a href='view.qa?board_no=${qna[i].board_no}'>${qna[i].board_title}</a>
 			</c:if>
@@ -131,7 +131,7 @@
 		</div>
 		<div class="main-content-con bottomtop-border-2px">
 			<c:forEach var="i" begin="0" end="4">
-			<div class="">
+			<div style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
 			<c:if test="${!empty board[i]}">
 				<a href='view.bo?board_no=${board[i].board_no}'>${board[i].board_title}</a>
 			</c:if>

@@ -52,8 +52,9 @@ input:focus + span {
 		<p class='w-pct30 right' style='margin:0 auto; padding-bottom:10px; 
 			float: right; margin-right: 15%;'>* 는 필수입력항목입니다</p>
 		<form method="post" action="modifyRequest">
+		<input type="hidden" name="user_id" value="${loginInfo.user_id }" />
 			<div class="join-box flexSet-wrap">
-				<input type='text' name="user_email" class="chk" value="${loginInfo.user_email }" />
+				<input type='text' name="user_email" class="chk" value="${loginInfo.user_email }" readonly="readonly" />
 				<span>* 이메일 변경</span>
 				<div class='valid'>유효한 이메일을 입력하세요</div>
 			</div>
@@ -91,41 +92,50 @@ input:focus + span {
 <script type="text/javascript" src="js/join_check.js"></script>
 <script type="text/javascript">
 function go_modify(){
-	//중복확인 한 경우 : chked 클래스가 있음
-	if( $('[name=user_email]').hasClass('chked') ){
-		if( $('[name=user_email]').siblings('div').hasClass('invalid') ){
-			alert('회원가입 불가!\n' + join.email.unusable.desc );
-			$('[name=user_email]').focus();
-			return;
-		}
+// 	//중복확인 한 경우 : chked 클래스가 있음
+// 	if( $('[name=user_email]').hasClass('chked') ){
+// 		if( $('[name=user_email]').siblings('div').hasClass('invalid') ){
+// 			alert('회원가입 불가!\n' + join.email.unusable.desc );
+// 			$('[name=user_email]').focus();
+// 			return;
+// 		}
 	
-	}else{
-	//중복확인 하지 않은 경우
-		if( ! item_check( $('[name=user_email]') ) ) return;
-		else{
-			alert( join.email.valid.desc );
-			$('[name=user_email]').focus();
-			return;
-		}
+// 	}else{
+// 	//중복확인 하지 않은 경우
+// 		if( ! item_check( $('[name=user_email]') ) ) return;
+// 		else{
+// 			alert( join.email.valid.desc );
+// 			$('[name=user_email]').focus();
+// 			return;
+// 		}
+// 	}
+	if (confirm('입력하신 내용으로 회원정보를 수정합니다.\n수정하시겠습니까?')) {
+		if( ! item_check( $('[name=user_pw]') ) ) return;
+		if( ! item_check( $('[name=user_pwck]') ) ) return;
+		if( ! item_check( $('[name=user_nm]') ) ) return;
+		
+		$('form').submit();
+
 	}
-	
-	if( ! item_check( $('[name=user_pw]') ) ) return;
-	if( ! item_check( $('[name=user_pwck]') ) ) return;
-	if( ! item_check( $('[name=user_email]') ) ) return;
-	
-	$('form').submit();
 }
 
 function go_withdrawal() {
-	if (confirm('정말로 탈퇴하시겠습니까?')) {
-		
+	var inputEmail = prompt('회원탈퇴를 진행합니다.\n이메일을 입력해주세요.');
+	if ($('[name=user_email]').val() == inputEmail) {
+		if (confirm('정말로 탈퇴하시겠습니까?')) {
+			
+			$('form').attr('action', 'withdrawal');
+			$('form').submit();
+		}
+	} else {
+		alert('이메일이 일치하지 않습니다.');
 	}
 }
 
 function item_check( tag ){
 	var result = join.tag_status( tag );
 	if( result.code =='invalid' ){
-		alert( '수정할 수 없습니다!\n' + result.desc );
+		alert( '오류가 발생했습니다!\n' + result.desc );
 		tag.focus();
 		return false;
 	}else return true;

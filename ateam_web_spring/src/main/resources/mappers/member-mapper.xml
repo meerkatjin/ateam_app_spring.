@@ -37,4 +37,8 @@
 		user_email = #{user_email}, user_pw = #{user_pw}, user_nm = #{user_nm} 
 		WHERE user_id = #{user_id}
 	</update>
+	
+	<delete id="member_delete">
+		DELETE FROM MST_USER_INFO_TB WHERE user_id = #{user_id}
+	</delete>
 </mapper>

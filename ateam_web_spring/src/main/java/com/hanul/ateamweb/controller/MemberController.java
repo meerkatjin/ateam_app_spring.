@@ -173,13 +173,38 @@ public class MemberController {
 		return "redirect:/";
 	}
 	
+	//메인화면 이동 처리
+	@RequestMapping("/main")
+	public String main() {
+		return "redirect:/";
+	}
+	
 	//회원정보수정 처리 요청
 	@RequestMapping("/modifyRequest")
-	public String modifyRequest(MemberVO vo) {
-		System.out.println("memberModify" + vo.getUser_id());
-		service.member_update(vo);
+	public String modifyRequest(MemberVO vo, Model model) {
+		int succ = service.member_update(vo);
+		if (succ > 0) {
+			model.addAttribute("message", "정상적으로 수정되었습니다.");
+		} else {
+			model.addAttribute("message", "오류가 발생하여 수정되지 않았습니다.");
+		}
+		model.addAttribute("returnPath", "main");
 		
-		return "redirect:/modify.me";
+		return "redirect";
+	}
+	
+	//회원탈퇴 처리 요청
+	@RequestMapping("/withdrawal")
+	public String withdrawal(MemberVO vo, Model model) {
+		int succ = service.member_delete(vo.getUser_id());
+		if (succ > 0) {
+			model.addAttribute("message", "정상적으로 회원탈퇴되었습니다. 이용해주셔서 감사합니다.");
+		} else {
+			model.addAttribute("message", "오류가 발생하여 탈퇴되지 않았습니다.");
+		}
+		model.addAttribute("returnPath", "logout");
+		
+		return "redirect";
 	}
 
 }
