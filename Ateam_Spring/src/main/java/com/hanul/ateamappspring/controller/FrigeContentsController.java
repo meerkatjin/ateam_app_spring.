@@ -1,11 +1,18 @@
 package com.hanul.ateamappspring.controller;
 
+import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
+import org.apache.ibatis.type.TypeException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import frigecontents.dto.FrigeConfrimVO;
+import frigecontents.dto.FrigeContentsDTO;
 import frigecontents.dto.FrigeDeleteDTO;
 import frigecontents.dto.FrigeViewDTO;
 import frigecontents.dto.InsertDTO;
@@ -95,5 +102,32 @@ public class FrigeContentsController {
 	public String getNewContentList(Model model, long user_id) {
 		model.addAttribute("getIDList", service.getNewContentList(user_id));
 		return "frige/getIDList";
+	}
+	
+	//새로 등록된 내용물을 확인했을때
+	@RequestMapping("/irdntConfirm")
+	public String irdntConfirm(Model model, FrigeContentsDTO dto) {
+		FrigeConfrimVO vo = new FrigeConfrimVO();
+		vo.setContent_list_id(dto.getContent_list_id());
+		vo.setContent_nm(dto.getContent_nm());
+		vo.setContent_ty(dto.getContent_ty());
+			SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd");
+			try {
+				vo.setShelf_life_start(transFormat.parse(dto.getShelf_life_start()));				
+			} catch (TypeException e) {
+				vo.setShelf_life_start(null);
+			} catch (ParseException e) {
+				vo.setShelf_life_start(null);
+			}
+			
+			try {
+				vo.setShelf_life_end(transFormat.parse(dto.getShelf_life_end()));				
+			} catch (TypeException e) {
+				vo.setShelf_life_end(null);
+			} catch (ParseException e) {
+				vo.setShelf_life_start(null);
+			}
+		model.addAttribute("requestSuccess", String.valueOf(service.irdntConfirm(vo)));
+		return "requestSuccess";
 	}
 }

@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import frigecontents.dto.FrigeConfrimVO;
 import frigecontents.dto.FrigeContentsDTO;
 import frigecontents.dto.FrigeDeleteDTO;
 import frigecontents.dto.FrigeViewDTO;
@@ -67,6 +68,11 @@ public class FrigeContentsService implements FrigeContentsInterface {
 	@Override
 	public List<Long> getNewContentList(long user_id) {
 		return dao.getNewContentList(user_id);
+	}
+
+	@Override
+	public int irdntConfirm(FrigeConfrimVO vo) {
+		return dao.irdntConfirm(vo);
 	}
 
 }

@@ -3,7 +3,8 @@
 <mapper namespace="search.mapper">
 
 	<select id="searchIrdnt" parameterType="search.dto.SearchDTO" resultType="frigecontents.dto.FrigeContentsDTO">
-		SELECT content_list_id, content_nm, content_ty, TO_CHAR(shelf_life_end, 'YYYY-MM-DD')
+		SELECT content_list_id, content_nm, content_ty, TO_CHAR(shelf_life_start, 'YYYY-MM-DD')
+			, TO_CHAR(shelf_life_end, 'YYYY-MM-DD'), image_name, image_path 
 		FROM APP_FRIGE_CONTENTS_LIST_TB 
 		WHERE user_id = #{user_id}
 		AND content_nm LIKE #{searchText}
