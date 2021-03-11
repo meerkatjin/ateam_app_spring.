@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="vision.mapper">
+	<insert id="inputData">
+		insert into app_frige_contents_list_tb(user_id, content_list_id, content_nm, content_ty
+		, shelf_life_start, shelf_life_end, image_name, image_path, content_check)
+		values((select user_id from mst_user_info_tb where product_id like #{product_id}), 
+			list_id.nextval, #{content_nm}, 
+			(SELECT content_ty FROM APP_FRIGE_CONTENTS_TB WHERE irdnt_nm LIKE #{content_nm}), SYSDATE,
+			SYSDATE+(SELECT due_date FROM APP_FRIGE_CONTENTS_TB WHERE irdnt_nm LIKE #{content_nm}),
+			#{image_name}, #{image_path}, 0)
+	</insert>
+	
+	<select id="checkCount" resultType="vision.VisionVO">		
+		select count(*) checkCount, u.device_token device_token
+		from app_frige_contents_list_tb f, mst_user_info_tb u
+		where f.user_id = u.user_id
+		and f.user_id = (select user_id from mst_user_info_tb where product_id like #{product_id})
+		and content_check = 0 
+		group by u.device_token
+	</select>
+</mapper>
