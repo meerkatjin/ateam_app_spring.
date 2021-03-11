@@ -12,7 +12,7 @@
 <div class="container">
 	<h3 align="left">내 냉장고</h3>
 	<div class="view" id="camera">
-		<img src="http://112.164.58.217:8999/ateamiot/resources/2021/03/03/8ddf5229-d7a3-4182-a92f-132ddefc847e.jpg" />
+		<img src="http://112.164.58.217:8999/ateamiot/resources/2021/03/11/2541a899-b7e3-456e-9f7a-8ae3cc8835ec.jpg" />
 	</div>
 	
 	<div class="view" id="irdnt_list" style="float: right;">
