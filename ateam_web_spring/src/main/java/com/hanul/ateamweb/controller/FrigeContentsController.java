@@ -20,7 +20,7 @@ public class FrigeContentsController {
 	
 	//냉장고 페이지 요청
 	@RequestMapping("/view.fc")
-	public String frigeView(HttpSession session, Model model, String keyword, String filter, String type) {
+	public String frigeView(HttpSession session, Model model, String keyword) {
 		session.setAttribute("category", "fc");
 		MemberVO member = (MemberVO)session.getAttribute("loginInfo");
 		if (member == null) {
@@ -42,7 +42,7 @@ public class FrigeContentsController {
 		session.setAttribute("category", "fc");
 		System.out.println(content_list_id);
 		model.addAttribute("detail", service.frige_detail(content_list_id));
-		return "frige/detail";
+		return "frige/list";
 	}
 	
 	//재료 정보 수정요청

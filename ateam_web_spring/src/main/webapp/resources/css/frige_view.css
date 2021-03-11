@@ -1,36 +1,15 @@
 @charset "UTF-8";
 .container {width: 100%;}
-.view {width: 49.5%; margin-bottom: 30px; float: left;}
-#camera {padding-bottom: 49%; background-color: #ccc;}
-#camera img {height: 49.5%;}
+.view {width: 49.5%; margin-bottom: 30px; float: left; overflow: hidden;}
+#camera {background-color: #ccc;}
+#camera img {
+	height: 49.5%; min-width: 49.5%;
+	-webkit-transform: translate(-13%, 0px);
+	-ms-transform: translate(-13%, 0px);
+	transform: translate(-13%, 0px);
+}
 input[type="checkbox"], input[type="radio"] {display: none;}
-#filter_tabs, #filter_type {overflow: hidden; width: 100%; margin: 0; padding: 0;}
-#filter_tabs li {
-	margin: 0px;
-	display: inline-block;
-	float: left;
-	width: calc(100%/ 3);
-	height: 30px;
-	line-height: 27px;
-	border: 1px solid #000000;
-	transition: 0.25s;
-	cursor: pointer;
-}
-#filter_tabs li:hover, #filter_type li:hover {background-color: #ccc;}
-#filter_tabs li.active, #filter_type li.active {background-color: #000000; color: #ffffff; font-weight: bold;}
-#filter_type li {
-	margin: 0px;
-	display: inline-block;
-	float: left;
-	width: calc(100%/ 8);
-	height: 30px;
-	line-height: 27px;
-	border: 1px solid #000000;
-	transition: 0.25s;
-	font-size: 0.8rem;
-	cursor: pointer;
-}
-#content_items {margin-top: 10px; overflow-y: scroll; height: 600px;}
+#content_items {margin-top: 10px; overflow-y: scroll; height: 650px;}
 #content_search {width: 80%; float: left;}
 #btn_content_search {width: 18%; float: right; box-shadow: 0 0 0;}
 .content_list {
@@ -44,3 +23,48 @@ input[type="checkbox"], input[type="radio"] {display: none;}
 .content_list p {display: inline-block;}
 .content_list p:first-child {width: 40%; font-size: 1.3rem;}
 .content_list p:last-child {width: 58%;}
+
+#irdnt_detail { border:1px solid #ccc; padding:10px; }
+.detail_input {
+	width: 100%;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	border: 0px;
+	border-collapse: collapse;
+	outline: none;
+	background: none;
+	border-bottom: 1px solid #ccc;
+	font-size: 1.2rem;
+	transition: 0.25s;
+}
+.detail_input:focus {
+	border-bottom: 2px solid black;
+	font-weight: bold;
+}
+#filter_type {
+	overflow:hidden; width: 100%;
+	margin:0 auto; padding:0;
+}
+#filter_type li {
+	display: inline-block;
+	float: left;
+	width: calc(100% / 8);
+	height: 60px;
+	line-height: 57px;
+	transition: 0.25s;
+	font-size: 0.75rem;
+	cursor: pointer;
+}
+#filter_type li:hover {
+	background-color: #ccc;
+}
+#filter_type li.active {
+	background-color: #000000;
+	color: #ffffff;
+	font-weight: bold;
+}
+.btnSet a {
+	padding-left: 64px;
+	padding-right: 64px;
+}
