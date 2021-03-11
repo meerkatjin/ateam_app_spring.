@@ -5,52 +5,7 @@
 
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <style type="text/css">
-.container {
-	width: 100%; 
-}
-#content_detail { width:100%; border:1px solid #ccc; padding:30px; }
-input[type="text"] {
-	width: 100%;
-	height: 60px;
-	line-height: 57px;
-	text-align: center;
-	border: 0px;
-	border-collapse: collapse;
-	outline: none;
-	background: none;
-	border-bottom: 1px solid #ccc;
-	font-size: 1.2rem;
-	transition: 0.25s;
-}
-input[type="text"]:focus {
-	border-bottom: 2px solid black;
-	font-weight: bold;
-}
-#filter_type {
-	overflow:hidden; width: 100%;
-	margin:0 auto; padding:0;
-}
-#filter_type li {
-	display: inline-block;
-	float: left;
-	width: calc(100% / 8);
-	height: 60px;
-	line-height: 57px;
-	transition: 0.25s;
-	cursor: pointer;
-}
-#filter_type li:hover {
-	background-color: #ccc;
-}
-#filter_type li.active {
-	background-color: #000000;
-	color: #ffffff;
-	font-weight: bold;
-}
-.btnSet a {
-	padding-left: 90px;
-	padding-right: 90px;
-}
+	@import url(resources/css/frige_detail.css);
 </style>
 
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>

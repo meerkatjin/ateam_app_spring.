@@ -119,7 +119,6 @@ function go_modify(){
 		if( ! item_check( $('[name=user_nm]') ) ) return;
 		
 		$('form').submit();
-
 	}
 }
 
