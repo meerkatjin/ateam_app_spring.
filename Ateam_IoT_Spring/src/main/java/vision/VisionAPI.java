@@ -44,6 +44,7 @@ public class VisionAPI {
 			
 			//이미지 저장 경로 가져오기
 			String imageFilePath =  req.getSession().getServletContext().getRealPath("resources/") + path;
+			System.out.println(imageFilePath);
 
 			ByteString imgBytes = ByteString.readFrom(new FileInputStream(imageFilePath));
 
@@ -76,7 +77,11 @@ public class VisionAPI {
 							        Translate.TranslateOption.model("base"));
 						
 						//번역한 내용 전달
-						entityName.add(translation.getTranslatedText());
+						if(translation.getTranslatedText().equals("주황색")) {
+							entityName.add("오렌지");
+						}else {
+							entityName.add(translation.getTranslatedText());							
+						}
 					}
 				}
 			}

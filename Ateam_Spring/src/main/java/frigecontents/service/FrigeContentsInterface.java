@@ -2,6 +2,7 @@ package frigecontents.service;
 
 import java.util.List;
 
+import frigecontents.dto.FrigeConfrimVO;
 import frigecontents.dto.FrigeContentsDTO;
 import frigecontents.dto.FrigeDeleteDTO;
 import frigecontents.dto.FrigeViewDTO;
@@ -23,4 +24,6 @@ public interface FrigeContentsInterface {
 	
 	int getNewContentNum(long user_id);	
 	List<Long> getNewContentList(long user_id);
+	
+	int irdntConfirm(FrigeConfrimVO vo);
 }

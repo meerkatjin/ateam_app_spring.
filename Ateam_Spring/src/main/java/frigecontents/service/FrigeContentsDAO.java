@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
+import frigecontents.dto.FrigeConfrimVO;
 import frigecontents.dto.FrigeContentsDTO;
 import frigecontents.dto.FrigeDeleteDTO;
 import frigecontents.dto.FrigeViewDTO;
@@ -83,6 +84,11 @@ public class FrigeContentsDAO implements FrigeContentsInterface {
 	@Override
 	public List<Long> getNewContentList(long user_id) {
 		return sql.selectList("frige.mapper.getNewContentList", user_id);
+	}
+
+	@Override
+	public int irdntConfirm(FrigeConfrimVO vo) {
+		return sql.update("frige.mapper.irdntConfirm",vo);
 	}
 	
 }

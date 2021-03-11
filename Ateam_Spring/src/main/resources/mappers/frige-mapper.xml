@@ -1,6 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="frige.mapper">
+	<sql id="update">
+		<if test="shelf_life_start != null and shelf_life_end != null">
+			app_frige_contents_list_tb set content_nm = #{content_nm}, content_ty = #{content_ty},
+			shelf_life_start = #{shelf_life_start}, shelf_life_end = #{shelf_life_end}, content_check = 1
+		</if>
+		<if test="shelf_life_start != null and shelf_life_end == null">
+			app_frige_contents_list_tb set content_nm = #{content_nm}, content_ty = #{content_ty},
+			shelf_life_start = #{shelf_life_start}, content_check = 1
+		</if>
+		<if test="shelf_life_start == null and shelf_life_end != null ">
+			app_frige_contents_list_tb set content_nm = #{content_nm}, content_ty = #{content_ty},
+			shelf_life_end = #{shelf_life_end}, content_check = 1
+		</if>
+		<if test="shelf_life_start == null and shelf_life_end == null">
+			app_frige_contents_list_tb set content_nm = #{content_nm}, content_ty = #{content_ty},
+			content_check = 1
+		</if>
+	</sql>
+
+	<update id="irdntConfirm">
+		update <include refid="update"></include>
+		where content_list_id = #{content_list_id}
+	</update>
+
 	<insert id="insert">
 		INSERT INTO APP_FRIGE_CONTENTS_LIST_TB(user_id, content_list_id, content_nm, content_ty, shelf_life_start, shelf_life_end)
 		VALUES(#{user_id}, list_id.nextval, #{content_nm}, 
@@ -8,25 +32,26 @@
 			SYSDATE+(SELECT due_date FROM APP_FRIGE_CONTENTS_TB WHERE irdnt_nm LIKE #{content_nm}))
 	</insert>
 	
-	<select id="irdntListType" parameterType="frigecontents.dto.FrigeViewDTO" resultType="frigecontents.dto.FrigeContentsDTO">
-		SELECT content_list_id, content_nm, content_ty, TO_CHAR(shelf_life_end, 'YYYY-MM-DD')
+	<sql id="select_irdnt">
+		content_list_id, content_nm, content_ty, TO_CHAR(shelf_life_start, 'YYYY-MM-DD') shelf_life_start
+			, TO_CHAR(shelf_life_end, 'YYYY-MM-DD') shelf_life_end, image_name, image_path 
 		FROM APP_FRIGE_CONTENTS_LIST_TB 
 		WHERE user_id = #{user_id}
+	</sql>
+	
+	<select id="irdntListType" parameterType="frigecontents.dto.FrigeViewDTO" resultType="frigecontents.dto.FrigeContentsDTO">
+		SELECT <include refid="select_irdnt"/>
 		AND content_ty = #{content_ty}
 		ORDER BY shelf_life_end
 	</select>	
 	
 	<select id="irdntListDate" resultType="frigecontents.dto.FrigeContentsDTO">
-		SELECT content_list_id, content_nm, content_ty, TO_CHAR(shelf_life_end, 'YYYY-MM-DD')
-		FROM APP_FRIGE_CONTENTS_LIST_TB 
-		WHERE user_id = #{user_id}
+		SELECT <include refid="select_irdnt"/>
 		ORDER BY shelf_life_end
 	</select>
 	
 	<select id="irdntListName" resultType="frigecontents.dto.FrigeContentsDTO">
-		SELECT content_list_id, content_nm, content_ty, TO_CHAR(shelf_life_end, 'YYYY-MM-DD')
-		FROM APP_FRIGE_CONTENTS_LIST_TB 
-		WHERE user_id = #{user_id}
+		SELECT <include refid="select_irdnt"/>
 		ORDER BY content_nm
 	</select>
 	
