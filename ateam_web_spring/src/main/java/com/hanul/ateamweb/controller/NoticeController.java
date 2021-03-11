@@ -15,6 +15,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import common.BoardVO;
 import common.CommonService;
+import member.MemberVO;
 import notice.NoticePage;
 import notice.NoticeServiceImpl;
 
@@ -36,9 +37,7 @@ public class NoticeController {
 	public String delete(int board_no, HttpSession session, Model model) {
 		BoardVO vo = service.notice_view(board_no);
 		if( vo.getFilename()!=null  ) {
-			File file = new File( session.getServletContext()
-									.getRealPath("resources")
-											+ "/" + vo.getFilepath() );
+			File file = new File( "D:\\ateam_app_springs\\ateam_web_spring\\resources" + "/" + vo.getFilepath() );
 			if( file.exists() ) file.delete();
 		}
 		service.notice_delete(board_no);
@@ -49,7 +48,7 @@ public class NoticeController {
 	@RequestMapping("/update.no")
 	public String update(BoardVO vo, String filename, HttpSession session, MultipartFile file) {
 		BoardVO board = service.notice_view( vo.getBoard_no() );
-		String uuid = session.getServletContext().getRealPath("resources") + "/" + board.getFilepath();
+		String uuid = "D:\\ateam_app_springs\\ateam_web_spring\\resources" + "/" + board.getFilepath();
 		//첨부파일 관련처리
 		if( ! file.isEmpty() ) { //첨부파일 있는 경우
 			vo.setFilename( file.getOriginalFilename() );
@@ -74,8 +73,6 @@ public class NoticeController {
 				vo.setFilepath( board.getFilepath() );
 			}
 		}
-		
-		
 		service.notice_update(vo);
 		return "redirect:list.no?board_no=" + vo.getBoard_no();
 	}
@@ -101,12 +98,16 @@ public class NoticeController {
 	
 	//공지글쓰기처리 요청
 	@RequestMapping("/insert.no")
-	public String insert(BoardVO vo, HttpSession session, MultipartFile file) {
+	public String insert(BoardVO vo, HttpSession session, MultipartFile file, Model model) {
 		
 		if( ! file.isEmpty() ) {
 			vo.setFilename( file.getOriginalFilename() );
 			vo.setFilepath( common.fileUpload(session, file, "notice") );
 		}
+		
+		MemberVO user = (MemberVO) session.getAttribute("loginInfo");
+		vo.setUser_id(user.getUser_id());
+		vo.setUser_type(user.getUser_type());
 		
 		service.notice_insert(vo);
 		return "redirect:list.no";
@@ -121,7 +122,7 @@ public class NoticeController {
 	//공지사항 화면 요청
 	@RequestMapping("/list.no")
 	public String noticeView(HttpSession session, Model model, @RequestParam(defaultValue="10") int pageList, @RequestParam(defaultValue = "1") int curPage, String search, String keyword) {
-		session.setAttribute("category", "cu");
+		session.setAttribute("category", "no");
 		page.setCurPage(curPage);
 		page.setSearch(search);
 		page.setKeyword(keyword);
