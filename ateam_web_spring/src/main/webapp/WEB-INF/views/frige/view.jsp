@@ -3,32 +3,12 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <style type="text/css">
-.container {
-	width: 100%;
-}
-
-.view {
-	width: 49.5%;
-	margin-bottom: 30px;
-	float: left;
-}
-
-#camera {
-	padding-bottom: 49%;
-	background-color: #ccc;
-}
-
-input[type="checkbox"], input[type="radio"] {
-	display: none;
-}
-
-#filter_tabs, #filter_type {
-	overflow: hidden;
-	width: 100%;
-	margin: 0;
-	padding: 0;
-}
-
+.container {width: 100%;}
+.view {width: 49.5%; margin-bottom: 30px; float: left;}
+#camera {padding-bottom: 49%; background-color: #ccc;}
+#camera img {height: 49.5%;}
+input[type="checkbox"], input[type="radio"] {display: none;}
+#filter_tabs, #filter_type {overflow: hidden; width: 100%; margin: 0; padding: 0;}
 #filter_tabs li {
 	margin: 0px;
 	display: inline-block;
@@ -40,17 +20,8 @@ input[type="checkbox"], input[type="radio"] {
 	transition: 0.25s;
 	cursor: pointer;
 }
-
-#filter_tabs li:hover, #filter_type li:hover {
-	background-color: #ccc;
-}
-
-#filter_tabs li.active, #filter_type li.active {
-	background-color: #000000;
-	color: #ffffff;
-	font-weight: bold;
-}
-
+#filter_tabs li:hover, #filter_type li:hover {background-color: #ccc;}
+#filter_tabs li.active, #filter_type li.active {background-color: #000000; color: #ffffff; font-weight: bold;}
 #filter_type li {
 	margin: 0px;
 	display: inline-block;
@@ -63,24 +34,9 @@ input[type="checkbox"], input[type="radio"] {
 	font-size: 0.8rem;
 	cursor: pointer;
 }
-
-#content_items {
-	margin-top: 10px;
-	overflow-y: scroll;
-	height: 600px;
-}
-
-#content_search {
-	width: 80%;
-	float: left;
-}
-
-#btn_content_search {
-	width: 18%;
-	float: right;
-	box-shadow: 0 0 0;
-}
-
+#content_items {margin-top: 10px; overflow-y: scroll; height: 600px;}
+#content_search {width: 80%; float: left;}
+#btn_content_search {width: 18%; float: right; box-shadow: 0 0 0;}
 .content_list {
 	overflow: hidden;
 	width: 100%;
@@ -88,28 +44,17 @@ input[type="checkbox"], input[type="radio"] {
 	background-color: #ccc;
 	cursor: pointer;
 }
-
-.content_list:last-child {
-	margin-bottom: 0px;
-}
-
-.content_list p {
-	display: inline-block;
-}
-
-.content_list p:first-child {
-	width: 40%;
-	font-size: 1.3rem;
-}
-
-.content_list p:last-child {
-	width: 58%;
-}
+.content_list:last-child {margin-bottom: 0px;}
+.content_list p {display: inline-block;}
+.content_list p:first-child {width: 40%; font-size: 1.3rem;}
+.content_list p:last-child {width: 58%;}
 </style>
 
 <div class="container">
 	<h3 align="left">내 냉장고</h3>
-	<div class="view" id="camera"></div>
+	<div class="view" id="camera">
+		<img src="http://112.164.58.217:8999/ateamiot/resources/2021/03/03/8ddf5229-d7a3-4182-a92f-132ddefc847e.jpg" />
+	</div>
 	<div class="view" id="irdnt_list" style="float: right;">
 		<ul id="filter_tabs">
 			<li class="active" onclick="#">유통기한</li>
@@ -155,6 +100,12 @@ input[type="checkbox"], input[type="radio"] {
 $(function() {
 	$('#filter_tabs li:eq(0)').trigger('click');
 	$('#filter_type li:eq(0)').trigger('click');
+
+	var sdate = new Date();
+	sdate.setDate(sdate.getDate() - 3);
+	$('.content_list').each(function() {
+		$('.content_list').css('background-color', 'pink');
+	});
 });
 
 $(document).on('click', '#filter_tabs li', function(){

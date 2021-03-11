@@ -66,14 +66,6 @@ var join = {
 		else if( !upper.test(pw) || !lower.test(pw) || !digit.test(pw) )  
 						return this.pw.lack;
 		else                      return this.pw.valid;
-	},
+	}
 }
 var space = /\s/g;
-
-
-
-
-
-
-
-

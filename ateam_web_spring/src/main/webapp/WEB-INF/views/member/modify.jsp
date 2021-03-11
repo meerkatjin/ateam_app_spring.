@@ -19,6 +19,7 @@ input[type="text"], input[type="password"] {
 	display: block;
 	position: relative;
 }
+#btn-email {margin-top: 8px; margin-left: 7%; height: 30px;}
 .btnSet a {
 	display: inline-block;
 	width: 23%;
@@ -54,8 +55,11 @@ input:focus + span {
 		<form method="post" action="modifyRequest">
 		<input type="hidden" name="user_id" value="${loginInfo.user_id }" />
 			<div class="join-box flexSet-wrap">
-				<input type='text' name="user_email" class="chk" value="${loginInfo.user_email }" readonly="readonly" />
+				<input type='text' name="user_email" class="chk" 
+					style="width: 70%"
+					value="${loginInfo.user_email }" readonly />
 				<span>* 이메일 변경</span>
+				<a class="btn-fill" id="btn-email" onclick="email_modify()">이메일 변경</a>
 				<div class='valid'>유효한 이메일을 입력하세요</div>
 			</div>
 			
@@ -139,6 +143,12 @@ function item_check( tag ){
 		tag.focus();
 		return false;
 	}else return true;
+}
+
+function email_modify() {
+	if(confirm('이메일을 변경합니다.\n지금 사용중인 이메일로 변경하실 수 없습니다.')) {
+		$('[name=user_email]').attr('readonly', false);
+	}
 }
 
 $('[name=user_email]').on('blur', function(){

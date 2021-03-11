@@ -97,6 +97,9 @@ input[type=radio] {
 input[type=password] {
     font-family: sans-serif;
 }
+input::placeholder {
+	font-family: 'KBIZ한마음고딕 R';
+}
 table tr td label:not(:first-child) { margin-left:20px; }
 
 ul { list-style:none; padding:0; }
