@@ -9,7 +9,27 @@ public class FrigeVO implements Serializable {
 	private String content_nm, content_ty;
 	private Date shelf_life_start, shelf_life_end;
 	private double x1, y1, x2, y2;
+	private String image_name, image_path;
+	private int content_check;
 	
+	public String getImage_name() {
+		return image_name;
+	}
+	public void setImage_name(String image_name) {
+		this.image_name = image_name;
+	}
+	public String getImage_path() {
+		return image_path;
+	}
+	public void setImage_path(String image_path) {
+		this.image_path = image_path;
+	}
+	public int getContent_check() {
+		return content_check;
+	}
+	public void setContent_check(int content_check) {
+		this.content_check = content_check;
+	}
 	public long getUser_id() {
 		return user_id;
 	}
