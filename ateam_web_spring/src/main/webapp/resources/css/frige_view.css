@@ -1,9 +1,8 @@
 @charset "UTF-8";
-.container {width: 100%;}
-.view {width: 49.5%; margin-bottom: 30px; float: left; }
+.container {width: 100%; overflow: hidden;}
+.view {width: 49.5%; margin-bottom: 30px; }
 
-input[type="checkbox"], input[type="radio"] {display: none;}
-#content_items {margin-top: 10px; overflow-y: scroll; height: 650px;}
+#content_items {margin-top: 10px; overflow-y: scroll; height: 782px;}
 #content_search {width: 80%; float: left;}
 #btn_content_search {width: 18%; float: right; box-shadow: 0 0 0;}
 .content_list {

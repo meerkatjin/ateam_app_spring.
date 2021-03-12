@@ -50,6 +50,7 @@ public class FrigeContentsController {
 		long user_id = member.getUser_id();
 		model.addAttribute("detail", service.frige_detail(content_list_id));
 		model.addAttribute("list", service.frige_list(user_id));
+		System.out.println("소환 : " + vo.getContent_list_id());
 		return "frige/view";
 	}
 	

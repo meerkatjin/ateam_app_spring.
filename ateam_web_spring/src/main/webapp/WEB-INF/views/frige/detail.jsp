@@ -10,43 +10,61 @@
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 <div class="view" id="detail">
-	<div style="overflow: hidden;">
-		<c:if test="${!empty detail }">
-			<img src="http://112.164.58.217:8999/ateamiot/resources/<c:out value='${detail.image_path}'/>"/>		
+	<div id="content_image">
+		<c:if test="${!empty detail.image_path }">
+			<img src="http://112.164.58.217:8999/ateamiot/resources/<c:out value='${detail.image_path}' default='#'/>"/>		
 		</c:if>
 		<c:if test="${empty detail }">
 			<img src="resources/images/frige_default.png"/>		
 		</c:if>
 	</div>
 
-	<div id="content_detail">
-	<h3>내용 상세 및 수정</h3>
-		<form method="post" action="modify.fc">
-			<p><input type="hidden" name="content_list_id" value="${detail.content_list_id }" /></p>
-			<p style="font-size: 1.2rem;">재료명</p>
-			<p><input type="text" class="detail_input" name="content_nm" value="${detail.content_nm }" /></p>
-			<p style="margin-top: 70px; font-size: 1.2rem;">재료종류</p>
-			<ul id="filter_type">
-				<li>고기</li>
-				<li>수산물</li>
-				<li>채소</li>
-				<li>과일</li>
-				<li>유제품</li>
-				<li>곡류</li>
-				<li>조미료/주류</li>
-				<li>음료/기타</li>
-			</ul>
-			<p><input type="hidden" name="content_ty" value="${detail.content_ty }" readonly /></p>
-			<p style="margin-top: 70px; font-size: 1.2rem;">적정 최대 보관일</p>
-			<p><input type="text" class="detail_input" name="shelf_life_end" value="<fmt:formatDate value="${detail.shelf_life_end }" pattern="yyyy-MM-dd" />" readonly /></p>
-		</form>
-	</div>
-	
-	<div class="btnSet">
-		<a class="btn-fill" id="btn-irdnt-modify" onclick="do_modify()">수정</a>
-		<a class="btn-fill" id="btn-irdnt-delete" onclick="do_delete()">삭제</a>
-		<a class="btn-empty" id="btn-irdnt-cancel" href='<c:url value="/view.fc" />'>취소</a>
-	</div>
+	<c:if test="${!empty detail }">
+		<div id="content_detail">
+			<form method="post" action="modify.fc">
+				<input type="hidden" name="content_list_id" value="${detail.content_list_id }" />
+				<div style="overflow: hidden;">
+					<div style="width:49%; display:inline-block; float: left;">
+						<p style="font-size: 1.2rem;">재료명</p>
+						<p><input type="text" class="detail_input" name="content_nm" value="${detail.content_nm }" /></p>
+					</div>
+					
+					<div style="width:49%; display:inline-block; float: right;">
+						<p style="font-size: 1.2rem;">재료종류</p>
+						<select id="filter_type" onchange="filterType()">
+							<option selected="selected">종류를 선택하세요</option>
+							<option value="고기">고기</option>
+							<option value="수산물">수산물</option>
+							<option value="채소">채소</option>
+							<option value="과일">과일</option>
+							<option value="유제품">유제품</option>
+							<option value="곡류">곡류</option>
+							<option value="조미료/주류">조미료/주류</option>
+							<option value="음료/기타">음료/기타</option>
+						</select>
+						<input type="hidden" name="content_ty" value="${detail.content_ty }" readonly />
+					</div>
+				</div>
+				
+				<div style="overflow: hidden;">
+					<div style="width:49%; display:inline-block; float: left;">
+						<p style="margin-top: 20px; font-size: 1.2rem;">재료 저장일</p>
+						<p><input type="text" class="detail_input" name="shelf_life_start" value="<fmt:formatDate value="${detail.shelf_life_start }" pattern="yyyy-MM-dd" />" readonly /></p>
+					</div>
+					<div style="width:49%; display:inline-block; float: right;">
+						<p style="margin-top: 20px; font-size: 1.2rem;">적정 최대 보관일</p>
+						<p><input type="text" class="detail_input" name="shelf_life_end" value="<fmt:formatDate value="${detail.shelf_life_end }" pattern="yyyy-MM-dd" />" readonly /></p>
+					</div>
+				</div>
+			</form>
+		</div>
+		
+		<div class="btnSet">
+			<a class="btn-fill" id="btn-irdnt-modify" onclick="do_modify()">수정</a>
+			<a class="btn-fill" id="btn-irdnt-delete" onclick="do_delete()">삭제</a>
+			<a class="btn-empty" id="btn-irdnt-cancel" href='<c:url value="/view.fc" />'>취소</a>
+		</div>
+	</c:if>
 </div>
 
 <script src="resources/js/frige_detail.js"></script>
