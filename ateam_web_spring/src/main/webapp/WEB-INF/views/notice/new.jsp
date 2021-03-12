@@ -6,7 +6,7 @@
 <table>
 <tr>
 	<th>제목</th>
-	<td><input type="text" name="board_title" title="제목" class="chk"></td>
+	<td><input id="board_subject" type="text" name="board_title" title="제목" class="chk"></td>
 </tr>
 <tr>
 	<th>작성자</th>
@@ -123,7 +123,7 @@ function sendFile(file, editor) {
 	$.ajax({
 		data : data,
 		type : "POST",
-		url : "uploadSummernoteImageFile",
+		url : "noticeUploadSummernoteImageFile",
 		contentType : false,
 		processData : false,
 		success : function(data) {

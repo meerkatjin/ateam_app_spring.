@@ -8,6 +8,6 @@ public class WebMvcConfig implements WebMvcConfigurer {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/summernoteImage/**")
-                .addResourceLocations("file:///d:/ateam_app_springs/ateam_web_spring/img/summernote_img/");
+                .addResourceLocations("file:///D:/ateam_app_springs/ateam_web_spring/resources/");
     }
 }

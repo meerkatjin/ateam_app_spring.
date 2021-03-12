@@ -1,13 +1,19 @@
 package com.hanul.ateamweb.controller;
 
 import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.HashMap;
+import java.util.UUID;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -130,4 +136,47 @@ public class NoticeController {
 		model.addAttribute("page", service.notice_list(page));
 		return "notice/list";
 	}
+	
+	   //summernote 파일 업로드
+	   @PostMapping(value="/noticeUploadSummernoteImageFile")
+	//   @PostMapping(value="/uploadSummernoteImageFile", produces = "application/json; charset=utf-8")
+	    @ResponseBody
+	    public HashMap<String, Object> uploadSummernoteImageFile(@RequestParam("file") MultipartFile multipartFile, @RequestParam("category") String category) {
+	      HashMap<String, Object> jsonObject = new HashMap<String, Object>();
+//	      JSONObject jsonObject = new JSONObject();
+	      String fileRoot="";
+	      if(category.contains("no")) {
+	         fileRoot = "D:\\ateam_app_springs\\ateam_web_spring\\resources\\notice\\";   //저장될 파일 경로
+	      } else if (category.contains("qa")){
+	         fileRoot = "D:\\ateam_app_springs\\ateam_web_spring\\resources\\qna\\";   //저장될 파일 경로
+	      } else if (category.contains("bo")){
+	         fileRoot = "D:\\ateam_app_springs\\ateam_web_spring\\resources\\board\\";   //저장될 파일 경로
+	      }
+	        String originalFileName = multipartFile.getOriginalFilename();   //오리지날 파일명
+	        String extension = originalFileName.substring(originalFileName.lastIndexOf("."));   //파일 확장자
+
+	        // 랜덤 UUID+확장자로 저장될 savedFileName
+	        String savedFileName = UUID.randomUUID() + extension;   
+	        
+	        File targetFile = new File(fileRoot + savedFileName);
+
+	        try {
+	            InputStream fileStream = multipartFile.getInputStream();
+	            FileUtils.copyInputStreamToFile(fileStream, targetFile);   //파일 저장
+	            if(category.contains("no")) {
+	               jsonObject.put("url", "summernoteNotice/"+savedFileName);
+	            } else if (category.contains("qa")) {
+	               jsonObject.put("url", "summernoteQna/"+savedFileName);
+	            } else if (category.contains("bo")) {
+	               jsonObject.put("url", "summernoteBoard/"+savedFileName);
+	            }
+	            jsonObject.put("responseCode", "success");
+
+	        } catch (IOException e) {
+	            FileUtils.deleteQuietly(targetFile);   // 실패시 저장된 파일 삭제
+	            jsonObject.put("responseCode", "error");
+	            e.printStackTrace();
+	        }
+	        return jsonObject;
+	    }
 }
