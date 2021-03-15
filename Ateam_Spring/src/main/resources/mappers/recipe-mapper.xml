@@ -8,6 +8,7 @@
 	-->
 	<select id="recipeInfo" resultType="recipe.dto.RecipeInfoDTO">
 		select * from APP_RECIPE_INFO_TB
+		order by recipe_id desc
 	</select>
 	
 	<select id="recipeInfoMf" resultType="recipe.dto.RecipeInfoDTO">

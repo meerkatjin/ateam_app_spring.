@@ -6,7 +6,7 @@ public class PageVO {
 	private int totalBlock; //총 블록수
 	private int pageList = 10; //페이지당 보여질 목록 수
 	private int blockPage = 10; // 블럭당 보여질 페이지의 수
-	private int curPage; // 현재 페이지
+	private int curPage = 1; // 현재 페이지 2021-03-13 디폴트값 1로 줬음, 목록으로 버튼을 누르면 에러가 떴었음
 	private int beginList, endList; // 각 페이지에 보여질 목록번호
 	private int curBlock; // 현재블럭
 	private int beginPage, endPage; //  각 블럭에 보여질 페이지번호
