@@ -1,6 +1,7 @@
 package com.hanul.ateamweb.controller;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.UUID;
 
 import javax.mail.Session;
@@ -17,12 +18,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import common.CommonService;
+import frige.FrigeServiceImpl;
 import member.MemberServiceImpl;
 import member.MemberVO;
 
 @Controller
 public class MemberController {
 	@Autowired private MemberServiceImpl service;
+	@Autowired private FrigeServiceImpl frige;
 	@Autowired private CommonService common;
 	private String kakao_client_key = "023c7753cf994a68fb4bfd14b7c1b4db";
 	private String google_client_key = "AIzaSyC7fhf9A1XZUpdS3EYBkB6UP8PkMqBBlig";
@@ -81,8 +84,14 @@ public class MemberController {
 		map.put("user_email", user_email);
 		map.put("user_pw", user_pw);
 		MemberVO vo = service.member_login(map);
+		List<Integer> end_content_is = frige.getLifeEndList(vo.getUser_id());
+		List<Integer> new_content_ids = frige.getNewContentList(vo.getUser_id());
 		//로그인한 회원정보를 세션에 저장
 		session.setAttribute("loginInfo", vo);
+		//로그인 하면서 유통기한이 끝나가는 재료 목록도 세션에 저장
+		session.setAttribute("getLifeEndList", end_content_is);
+		//로그인 하면서 새로 등록된 재료 목록도 세션에 저장
+		session.setAttribute("getNewContentList", new_content_ids);
 
 		return vo == null ? false : true;
 	}

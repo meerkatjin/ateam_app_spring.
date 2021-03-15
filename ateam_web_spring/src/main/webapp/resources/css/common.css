@@ -29,14 +29,17 @@ a:link, a:visited { text-decoration:none; color:#000; }
 
 img { vertical-align:middle; }
 
+.board{width: 1024px; }
+
 table {
 	width:100%;
 	margin:0 auto;
-	border:1px solid;
+	border-top : 2px solid #000;
 	border-collapse:collapse; 
 }
 table th, table td { 
-	border:1px solid;
+	border-bottom: 1px solid #ddd;
+	height : 40px;
 	padding: 5px 10px; 
 }
 table tr td a:hover, ul.grid li div:first-child a:hover { font-weight:bold; }
@@ -156,3 +159,10 @@ ul.submenu > li { display:block; width:120px; padding:5px 10px; text-align:cente
 .text-border-w { text-shadow: 0 0 2px #fff; }
 .text-border-b { text-shadow: 0 0 2px #000; }
 
+@media only screen and (max-width: 600px) {
+header, footer, .left-container {display: none;}
+#content {width: 90%;}
+.board {width: 100%;}
+.w-px120 { width:10%; }
+.w-px80 { width:5%; }
+}

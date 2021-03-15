@@ -16,8 +16,12 @@
 	<th class='w-px80'>조회수</th>
 	<td class='w-px80'>${vo.board_readcount}</td>
 </tr>
-<tr><th>내용</th>
-	<td colspan='5' class='left'>${ fn:replace( fn:replace(vo.board_content, crlf, '<br>') , lf, '<br>') }</td>
+<tr>
+	<td colspan='6' class='left'">
+		<div style="min-height: 300px; margin-left: 30px; margin-right: 30px;">
+			${ fn:replace( fn:replace(vo.board_content, crlf, '<br>') , lf, '<br>') }
+		</div>
+	</td>
 </tr>
 <tr><th>첨부파일</th>
 	<td colspan='5' class='left'>${vo.filename}

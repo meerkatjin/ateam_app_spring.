@@ -76,6 +76,8 @@ public class QnaController {
 		
 		model.addAttribute("vo", service.qna_view(board_no));
 		model.addAttribute("page", page);
+		model.addAttribute("crlf", "\r\n");
+		model.addAttribute("lf", "\n");
 		return "qna/view";
 	}
 	
