@@ -97,7 +97,7 @@ public class MemberController {
 		MemberVO vo = service.member_login(map);
 		//로그인한 회원정보를 세션에 저장
 		session.setAttribute("loginInfo", vo);
-		return "notice/list";
+		return "redirect:list.no";
 	}
 	
 	@RequestMapping(value = "/appKakaoLogin")
@@ -108,7 +108,7 @@ public class MemberController {
 		MemberVO vo = service.member_login(map);
 		//로그인한 회원정보를 세션에 저장
 		session.setAttribute("loginInfo", vo);
-		return "notice/list";
+		return "redirect:list.no";
 	}
 	
 	//이메일 중복 확인
