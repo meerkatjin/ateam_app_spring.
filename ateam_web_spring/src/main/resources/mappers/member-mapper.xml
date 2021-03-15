@@ -1,8 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="member.mapper">
+	<sql id="select_type">
+		<!-- 일반 로그인시 -->
+		<if test="user_type==null">
+			where user_email = #{user_email} and user_pw = #{user_pw} and user_type='nomal'
+		</if>
+		<!-- 소셜로그인시 -->
+		<if test="user_type != null">
+			where user_id = #{user_id} and user_type = #{user_type}
+		</if>
+	</sql>
+	
 	<select id="login" resultType="member.MemberVO">
-		SELECT * FROM MST_USER_INFO_TB WHERE user_email = #{user_email} AND user_pw = #{user_pw}
+		SELECT * FROM MST_USER_INFO_TB <include refid="select_type"/>
 	</select>
 	
 	<select id="email_check" resultType="integer">

@@ -88,8 +88,8 @@ public class MemberController {
 	}
 	
 	//테스트 로그인
-	@RequestMapping(value = "/testLogin")
-	public String testLogin(Model model, String user_email, String user_pw, HttpSession session, HttpServletResponse response) {
+	@RequestMapping(value = "/appNomalLogin")
+	public String appNomalLogin(Model model, String user_email, String user_pw, HttpSession session) {
 		//입력한 이메일과 비밀번호가 일치하는 회원정보 조회
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		map.put("user_email", user_email);
@@ -97,20 +97,17 @@ public class MemberController {
 		MemberVO vo = service.member_login(map);
 		//로그인한 회원정보를 세션에 저장
 		session.setAttribute("loginInfo", vo);
-//		if(vo == null){
-//			model.addAttribute("test","0");
-//		}else {
-//			// 쿠키를 생성하고 현재 로그인되어 있을 때 생성되었던 세션의 id를 쿠키에 저장한다.
-//            Cookie cookie =new Cookie("loginCookie", session.getId());
-//            // 쿠키를 찾을 경로를 컨텍스트 경로로 변경해 주고...
-//            cookie.setPath("/");
-//            cookie.setMaxAge(60*60*24*7);// 단위는 (초)임으로 7일정도로 유효시간을 설정해 준다.
-//            // 쿠키를 적용해 준다.
-//            response.addCookie(cookie);
-//			model.addAttribute("test","1");
-//		}
-//		
-//		System.out.println("아이고 이거 작동하는거 맞죠?");
+		return "notice/list";
+	}
+	
+	@RequestMapping(value = "/appKakaoLogin")
+	public String appKakaoLogin(Model model, long user_id, String user_type, HttpSession session) {
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("user_id", user_id);
+		map.put("user_type", user_type);
+		MemberVO vo = service.member_login(map);
+		//로그인한 회원정보를 세션에 저장
+		session.setAttribute("loginInfo", vo);
 		return "notice/list";
 	}
 	
