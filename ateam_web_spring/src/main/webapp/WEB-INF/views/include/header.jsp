@@ -10,8 +10,8 @@
 		<li class="nav-list commu">
 			<a class="${category eq 'cu' ? 'active' : ''} nav" style="cursor: default;">커뮤니티 <i class="fa fa-caret-down"></i></a>
 			<div class="subnav-content">
-		      <a href='list.no'>공지</a>
-		      <a href='list.qa'>자주묻는 질문</a>
+		      <a href='list.no'>공지사항</a>
+		      <a href='list.qa'>Q&amp;A</a>
 		      <a href='list.bo'>게시판</a>
 		    </div>
 		</li>

@@ -39,7 +39,6 @@ public class FrigeContentsController {
 	//재료 상세 및 수정페이지 요청
 	@RequestMapping("/detail.fc")
 	public String frigeDetail(HttpSession session, @RequestParam(defaultValue="0") int content_list_id, Model model) {
-		session.setAttribute("category", "fc");
 		MemberVO member = (MemberVO)session.getAttribute("loginInfo");
 		if (member == null) {
 			model.addAttribute("message", "로그인이 필요한 서비스입니다!");
@@ -48,15 +47,17 @@ public class FrigeContentsController {
 			return "redirect";
 		}
 		long user_id = member.getUser_id();
-		model.addAttribute("detail", service.frige_detail(content_list_id));
 		model.addAttribute("list", service.frige_list(user_id));
-//		System.out.println("소환 : " + vo.getContent_list_id());
+		model.addAttribute("detail", service.frige_detail(content_list_id));
 		return "frige/view";
 	}
 	
 	//재료 정보 수정요청
 	@RequestMapping("/modify.fc")
 	public String frigeModify(FrigeVO vo) {
+		System.out.println(vo.getContent_list_id());
+		System.out.println(vo.getContent_nm());
+		System.out.println(vo.getShelf_life_end());
 		service.frige_update(vo);
 		
 		return "redirect:view.fc";
@@ -65,8 +66,8 @@ public class FrigeContentsController {
 	//재료 삭제요청
 	@RequestMapping("/delete.fc")
 	public String frigeDelete(int content_list_id) {
-		System.out.println(content_list_id);
 		service.frige_delete(content_list_id);
+		
 		return "redirect:view.fc";
 	}
 }

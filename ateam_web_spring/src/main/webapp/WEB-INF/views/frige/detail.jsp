@@ -61,7 +61,7 @@
 		
 		<div class="btnSet">
 			<a class="btn-fill" id="btn-irdnt-modify" onclick="do_modify()">수정</a>
-			<a class="btn-fill" id="btn-irdnt-delete" onclick="do_delete()">삭제</a>
+			<a class="btn-fill" id="btn-irdnt-delete" onclick="do_delete(${detail.content_list_id})">삭제</a>
 			<a class="btn-empty" id="btn-irdnt-cancel" href='<c:url value="/view.fc" />'>취소</a>
 		</div>
 	</c:if>
