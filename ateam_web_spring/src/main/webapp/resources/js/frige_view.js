@@ -10,8 +10,8 @@ $(function() {
 });
 
 function detail(id) {
-	$('[name=content_list_id]').val(id);
-	
+	$('[name=content_list_id').val(id);
+
 	$('form').attr('action', 'detail.fc');
 	$('form').submit();
 }

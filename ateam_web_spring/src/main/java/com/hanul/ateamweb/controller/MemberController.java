@@ -22,7 +22,7 @@ public class MemberController {
 	@Autowired private MemberServiceImpl service;
 	@Autowired private CommonService common;
 	private String kakao_client_key = "023c7753cf994a68fb4bfd14b7c1b4db";
-	private String google_client_key;
+	private String google_client_key = "AIzaSyC7fhf9A1XZUpdS3EYBkB6UP8PkMqBBlig";
 	
 	//로그인화면 요청 처리
 	@RequestMapping("/login")
@@ -163,6 +163,22 @@ public class MemberController {
 			session.setAttribute("loginInfo", vo);
 		}
 		return "redirect:/";
+	}
+	
+	//구글 아이디로 로그인 요청
+	@RequestMapping("/googleLogin")
+	public String googleLogin(HttpSession session) {
+		String state = UUID.randomUUID().toString();
+		session.setAttribute("state", state);
+		
+		StringBuffer url = new StringBuffer("https://kauth.kakao.com/oauth/authorize?response_type=code");
+		url.append("&client_id=").append(kakao_client_key);
+		url.append("&state=").append(state);
+		url.append("&redirect_uri=").append("http://localhost/ateamweb/kakaocallback");
+		//시연용 접속시
+		//url.append("&redirect_uri=").append("http://112.164.58.217:8999/ateamweb/kakaocallback");
+		
+		return "redirect:" + url.toString();
 	}
 	
 

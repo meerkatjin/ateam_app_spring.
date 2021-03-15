@@ -14,7 +14,7 @@ table { width: 1024px; }
 <div class="menu">
 <ul>
 	<li><a href="list.no">공지사항</a></li>
-	<li><a href="list.qa">자주묻는 질문</a></li>
+	<li><a href="list.qa">Q&amp;A</a></li>
 	<li><a href="list.bo">게시판</a></li>
 </ul>
 </div>
