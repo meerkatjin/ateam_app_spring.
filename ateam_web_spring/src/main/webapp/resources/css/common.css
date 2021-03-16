@@ -29,8 +29,6 @@ a:link, a:visited { text-decoration:none; color:#000; }
 
 img { vertical-align:middle; }
 
-.board{width: 1024px; }
-
 table {
 	width:100%;
 	margin:0 auto;
@@ -60,6 +58,10 @@ table tr td a:hover, ul.grid li div:first-child a:hover { font-weight:bold; }
 .bottomtop-border-2px { border-style: solid none;
 						border-width: 2px 0px; 
 						border-color: #000000 ;  }
+						
+.txt_line {max-width:300px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; display: inline-block;}
+
+.board{width: 1024px; table-layout: fixed;}
 
 /*버튼 만들기 클래스*/
 a.btn-fill, a.btn-empty {
@@ -67,7 +69,8 @@ a.btn-fill, a.btn-empty {
 	padding: 3px 10px;
 	border:1px solid #ddd;
 	border-radius:3px; 
-	box-shadow:2px 2px 3px #555555; 
+	box-shadow:2px 2px 3px #555555;
+	display: inline-block;
 }
 a.btn-fill { 
 	background-color: #ddd;

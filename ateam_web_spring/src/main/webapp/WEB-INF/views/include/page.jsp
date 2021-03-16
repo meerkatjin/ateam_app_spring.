@@ -18,7 +18,7 @@
 </c:forEach>
 
 <!-- 다음/마지막 -->
-<c:if test="${page.curBlock lt page.totalPage }">
+<c:if test="${page.curBlock lt page.totalBlock }">
 	<a class="page_next" title="다음" onclick="go_page(${page.endPage+1})">다음</a>
 	<a class="page_last" title="마지막" onclick="go_page(${page.totalPage})">마지막</a>
 </c:if>

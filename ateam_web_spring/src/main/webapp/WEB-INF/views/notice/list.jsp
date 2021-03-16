@@ -49,17 +49,18 @@
 	<th>제목</th>
 	<th class="w-px120">작성자</th>
 	<th class="w-px120">작성일</th>
-	<th class="w-px120">첨부파일</th>
 	<th class="w-px120">조회수</th>
 </tr>
 <c:forEach items="${page.list}" var="vo">
 <tr>
 	<td style="color: #999;">${vo.no}</td>
-	<td class="left"><a href='view.no?board_no=${vo.board_no}'>${vo.board_title}</a></td>
+	<td class="left">
+		<a class="txt_line"  href='view.no?board_no=${vo.board_no}'>${vo.board_title}</a>
+		${empty vo.filename ? '' : '&nbsp;<i class="fas fa-file-alt"></i>'}
+	</td>
 	<td>${vo.name}</td>
 	<fmt:formatDate value="${vo.create_dt}" var="create_dt" pattern="yyyy-MM-dd" />
 	<td>${create_dt}</td>
-	<td>${empty vo.filename ? '' : '<img class="file-img" src="imgs/file.jpg"/>'}</td>
 	<td>${vo.board_readcount}</td>
 </tr>
 </c:forEach>

@@ -12,8 +12,7 @@
 	<td>${loginInfo.user_nm}</td>
 </tr>
 <tr>
-	<th>내용</th>
-	<td><textarea id="summernote" name="board_content" title="내용" ></textarea></td>
+	<td colspan="2"><textarea id="summernote" name="board_content" title="내용" ></textarea></td>
 </tr>
 <tr>
 	<th>파일첨부</th>
