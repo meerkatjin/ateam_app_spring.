@@ -21,7 +21,7 @@
 
 	<c:if test="${!empty detail }">
 		<div id="content_detail">
-			<form method="post" action="modify.fc" id="formModify">
+			<form method="post" action="modify.fc" id="formM">
 				<input type="hidden" name="content_list_id" value="${detail.content_list_id }" />
 				<div style="overflow: hidden;">
 					<div style="width:49%; display:inline-block; float: left;">
