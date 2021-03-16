@@ -17,7 +17,7 @@
 	<td class='w-px80'>${vo.board_readcount}</td>
 </tr>
 <tr>
-	<td colspan='6' class='left'">
+	<td colspan='6' class='left'>
 		<div style="min-height: 300px; margin-left: 30px; margin-right: 30px;">
 			${ fn:replace( fn:replace(vo.board_content, crlf, '<br>') , lf, '<br>') }
 		</div>

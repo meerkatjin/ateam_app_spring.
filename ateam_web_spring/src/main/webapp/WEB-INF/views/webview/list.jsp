@@ -36,12 +36,12 @@
 </form>
 
 <c:forEach items="${page.list}" var="vo">
-<c:forEach var="i" begin="1" end="${vo.indent}">
-	${i eq vo.indent ? "<img src='imgs/comment.png' style='width:20px;' />" : "&nbsp;&nbsp;" }
-</c:forEach>
 <div class="web-view" onclick="location.href='view.no?board_no=${vo.board_no}'">
 	<div class="left">
 		<div class="title txt_line">
+		<c:forEach var="i" begin="1" end="${vo.indent}">
+		${i eq vo.indent ? "<img src='imgs/comment.png' style='width:20px;' />" : "&nbsp;&nbsp;" }
+		</c:forEach>
 			${vo.board_title}
 			${empty vo.filename ? '' : '&nbsp;<i class="fas fa-file-alt"></i>'}
 		</div>
