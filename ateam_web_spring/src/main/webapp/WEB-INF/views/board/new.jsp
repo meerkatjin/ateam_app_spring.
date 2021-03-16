@@ -47,7 +47,6 @@ var fonts = ['맑은 고딕', '돋움', '궁서', '굴림', '굴림체', '궁서
 $(document).ready(function() {
 	
 $('#summernote').summernote({
-	  placeholder: '이 입력란 안에 작성하세요.',
 	  height: 350,
 	  minHeight: null, 
   maxHeight: null,

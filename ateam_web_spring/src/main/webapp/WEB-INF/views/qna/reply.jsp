@@ -44,7 +44,6 @@ var fonts = ['맑은 고딕', '돋움', '궁서', '굴림', '굴림체', '궁서
 $(document).ready(function() {
 	
 $('#summernote').summernote({
-	  placeholder: '자유롭게 글을 작성할 수 있습니다. <br>명예훼손이나 상대방을 비방, 불쾌감을 주는 글, 욕설, 남을 모욕하는 글은 <br>임의로 제제가 있을 수 있습니다.',
 	  height: 350,
 	  minHeight: null, 
   maxHeight: null,
