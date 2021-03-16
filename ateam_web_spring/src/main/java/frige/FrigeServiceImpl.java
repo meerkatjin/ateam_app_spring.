@@ -29,6 +29,13 @@ public class FrigeServiceImpl implements FrigeService {
 		return dao.frige_delete(content_list_id);
 	}
 
-	
-	
+	@Override
+	public List<Integer> getLifeEndList(long user_id) {
+		return dao.getLifeEndList(user_id);
+	}
+
+	@Override
+	public List<Integer> getNewContentList(long user_id) {
+		return dao.getNewContentList(user_id);
+	}
 }

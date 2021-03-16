@@ -126,6 +126,8 @@ public class BoardController {
 		
 		model.addAttribute("vo", service.board_view(board_no));
 		model.addAttribute("page", page);
+		model.addAttribute("crlf", "\r\n");
+		model.addAttribute("lf", "\n");
 		return "board/view";
 	}
 	

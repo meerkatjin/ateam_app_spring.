@@ -6,7 +6,6 @@
 .btn-write ul { margin: 0; }
 .btn-write ul li { float: right; margin-bottom: 20px; font-weight: bold;}
 .menu { height: 50px; }
-table { width: 1024px; }
 .btn-write ul { margin: 0; }
 .btn-write ul li { float: right; margin-bottom: 20px; font-weight: bold; }
 </style>
@@ -14,7 +13,7 @@ table { width: 1024px; }
 <div class="menu">
 <ul>
 	<li><a href="list.no">공지사항</a></li>
-	<li><a href="list.qa">자주묻는 질문</a></li>
+	<li><a href="list.qa">Q&amp;A</a></li>
 	<li><a href="list.bo">게시판</a></li>
 </ul>
 </div>
@@ -44,7 +43,7 @@ table { width: 1024px; }
 </form>
 </div>
 
-<table>
+<table class="board">
 <tr>
 	<th class="w-px80">번호</th>
 	<th>제목</th>
@@ -55,7 +54,7 @@ table { width: 1024px; }
 </tr>
 <c:forEach items="${page.list}" var="vo">
 <tr>
-	<td>${vo.no}</td>
+	<td style="color: #999;">${vo.no}</td>
 	<td class="left"><a href="view.bo?board_no=${vo.board_no}">${vo.board_title}</a></td>
 	<td>${vo.name}</td>
 	<fmt:formatDate value="${vo.create_dt}" var="create_dt" pattern="yyyy-MM-dd" />

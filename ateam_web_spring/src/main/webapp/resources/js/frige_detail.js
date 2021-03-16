@@ -37,13 +37,14 @@ function filterType() {
 }
 
 function do_modify() {
-	var content_list_id = $('[name=content_list_id]').val();
-	$('form').attr('action', 'modify.fc');
+	if(confirm('수정하시겠습니까?')) {
+		$('form').attr('action', 'modify.fc');
 		$('form').submit();
+	}
 }
 
-function do_delete() {
-	var content_list_id = $('[name=content_list_id]').val();
+function do_delete(id) {
+	$('[name=content_list_id').val(id);
 	if(confirm('정말 삭제하시겠습니까?')) {
 		$('form').attr('action', 'delete.fc');
 		$('form').submit();

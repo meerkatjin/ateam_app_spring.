@@ -1,9 +1,13 @@
 package com.hanul.ateamweb.controller;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.UUID;
 
+import javax.mail.Session;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.json.JSONObject;
@@ -14,15 +18,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import common.CommonService;
+import frige.FrigeServiceImpl;
 import member.MemberServiceImpl;
 import member.MemberVO;
 
 @Controller
 public class MemberController {
 	@Autowired private MemberServiceImpl service;
+	@Autowired private FrigeServiceImpl frige;
 	@Autowired private CommonService common;
 	private String kakao_client_key = "023c7753cf994a68fb4bfd14b7c1b4db";
-	private String google_client_key;
+	private String google_client_key = "AIzaSyC7fhf9A1XZUpdS3EYBkB6UP8PkMqBBlig";
 	
 	//로그인화면 요청 처리
 	@RequestMapping("/login")
@@ -78,10 +84,40 @@ public class MemberController {
 		map.put("user_email", user_email);
 		map.put("user_pw", user_pw);
 		MemberVO vo = service.member_login(map);
+		List<Integer> end_content_is = frige.getLifeEndList(vo.getUser_id());
+		List<Integer> new_content_ids = frige.getNewContentList(vo.getUser_id());
 		//로그인한 회원정보를 세션에 저장
 		session.setAttribute("loginInfo", vo);
+		//로그인 하면서 유통기한이 끝나가는 재료 목록도 세션에 저장
+		session.setAttribute("getLifeEndList", end_content_is);
+		//로그인 하면서 새로 등록된 재료 목록도 세션에 저장
+		session.setAttribute("getNewContentList", new_content_ids);
 
 		return vo == null ? false : true;
+	}
+	
+	//테스트 로그인
+	@RequestMapping(value = "/appNomalLogin")
+	public String appNomalLogin(Model model, String user_email, String user_pw, HttpSession session) {
+		//입력한 이메일과 비밀번호가 일치하는 회원정보 조회
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("user_email", user_email);
+		map.put("user_pw", user_pw);
+		MemberVO vo = service.member_login(map);
+		//로그인한 회원정보를 세션에 저장
+		session.setAttribute("loginInfo", vo);
+		return "redirect:list.no";
+	}
+	
+	@RequestMapping(value = "/appKakaoLogin")
+	public String appKakaoLogin(Model model, long user_id, String user_type, HttpSession session) {
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("user_id", user_id);
+		map.put("user_type", user_type);
+		MemberVO vo = service.member_login(map);
+		//로그인한 회원정보를 세션에 저장
+		session.setAttribute("loginInfo", vo);
+		return "redirect:list.no";
 	}
 	
 	//이메일 중복 확인
@@ -163,6 +199,22 @@ public class MemberController {
 			session.setAttribute("loginInfo", vo);
 		}
 		return "redirect:/";
+	}
+	
+	//구글 아이디로 로그인 요청
+	@RequestMapping("/googleLogin")
+	public String googleLogin(HttpSession session) {
+		String state = UUID.randomUUID().toString();
+		session.setAttribute("state", state);
+		
+		StringBuffer url = new StringBuffer("https://kauth.kakao.com/oauth/authorize?response_type=code");
+		url.append("&client_id=").append(kakao_client_key);
+		url.append("&state=").append(state);
+		url.append("&redirect_uri=").append("http://localhost/ateamweb/kakaocallback");
+		//시연용 접속시
+		//url.append("&redirect_uri=").append("http://112.164.58.217:8999/ateamweb/kakaocallback");
+		
+		return "redirect:" + url.toString();
 	}
 	
 

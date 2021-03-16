@@ -23,7 +23,7 @@ public class AppUserController {
 	@RequestMapping(value = "/getUserList")
 	public String getUserList(Model model) {
 		model.addAttribute("getUserList", service.getUserList());
-		return "getUserList";
+		return "user/getUserList";
 	}
 
 	//회원가입
@@ -47,8 +47,9 @@ public class AppUserController {
 	//로그인
 	@RequestMapping(value = "/appLogin")
 	public String appLogin(Model model, AppUserDTO dto) {
-		model.addAttribute("appLogin", service.appLogin(dto));			
-		return "appLogin";
+		model.addAttribute("appLogin", service.appLogin(dto));		
+		System.out.println(dto.getUser_email()+", "+ dto.getUser_pw());
+		return "user/appLogin";
 	}
 	
 	//카카오 로그인
@@ -62,7 +63,7 @@ public class AppUserController {
 		}
 		model.addAttribute("appLogin", service.appLogin(dto));		
 		
-		return "appLogin";
+		return "user/appLogin";
 	}
 	
 	//회원정보수정
