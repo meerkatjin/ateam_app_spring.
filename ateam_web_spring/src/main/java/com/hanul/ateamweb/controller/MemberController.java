@@ -96,7 +96,7 @@ public class MemberController {
 		return vo == null ? false : true;
 	}
 	
-	//테스트 로그인
+	//앱 로그인 세션용
 	@RequestMapping(value = "/appNomalLogin")
 	public String appNomalLogin(Model model, String user_email, String user_pw, HttpSession session) {
 		//입력한 이메일과 비밀번호가 일치하는 회원정보 조회
@@ -106,7 +106,7 @@ public class MemberController {
 		MemberVO vo = service.member_login(map);
 		//로그인한 회원정보를 세션에 저장
 		session.setAttribute("loginInfo", vo);
-		return "redirect:list.no";
+		return "redirect:list.ap";
 	}
 	
 	@RequestMapping(value = "/appKakaoLogin")
@@ -117,7 +117,7 @@ public class MemberController {
 		MemberVO vo = service.member_login(map);
 		//로그인한 회원정보를 세션에 저장
 		session.setAttribute("loginInfo", vo);
-		return "redirect:list.no";
+		return "redirect:list.ap";
 	}
 	
 	//이메일 중복 확인

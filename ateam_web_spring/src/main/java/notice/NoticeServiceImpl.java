@@ -58,6 +58,4 @@ public class NoticeServiceImpl implements NoticeService {
 		return dao.gethome();
 	}
 
-	
-
 }

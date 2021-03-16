@@ -63,8 +63,10 @@ table tr td a:hover, ul.grid li div:first-child a:hover { font-weight:bold; }
 
 .board{width: 1024px; table-layout: fixed;}
 
+.web-view{max-width: 600px;}
+
 /*버튼 만들기 클래스*/
-a.btn-fill, a.btn-empty {
+.btn-fill, .btn-empty {
 	text-align:center;
 	padding: 3px 10px;
 	border:1px solid #ddd;
@@ -72,16 +74,16 @@ a.btn-fill, a.btn-empty {
 	box-shadow:2px 2px 3px #555555;
 	display: inline-block;
 }
-a.btn-fill { 
+.btn-fill { 
 	background-color: #ddd;
 	color: #000;
 }
-a.btn-empty {
+.btn-empty {
 	background-color: #fff;
 	color: #000;
 }
 
-a.btn-fill-s, a.btn-empty-s {
+.btn-fill-s, .btn-empty-s {
 	font-size:13px;	font-weight:bold;
 	text-align:center; padding: 1px 10px;
 	border:1px solid #c4dafc;
@@ -89,8 +91,8 @@ a.btn-fill-s, a.btn-empty-s {
 	box-shadow:2px 2px 2px #022d72;
 	color:#0000cd;   
 }
-a.btn-fill-s { background-color:#ddd;}
-a.btn-empty-s { background-color:#fff; }
+.btn-fill-s { background-color:#ddd;}
+.btn-empty-s { background-color:#fff; }
 a { cursor:pointer; }
 input {
 	height:32px; padding: 5px 10px;
@@ -137,6 +139,8 @@ textarea[name=board_content] { width:calc(100% - 6px); resize:none; height:150px
 
 ul.submenu > li { display:block; width:120px; padding:5px 10px; text-align:center; }
 
+.menu { height: 50px; }
+
 /*로고 사이즈 클래스 */
 .logo-header-size{height: 70px;}
 .logo-footer-size{height: 60px;}
@@ -164,8 +168,9 @@ ul.submenu > li { display:block; width:120px; padding:5px 10px; text-align:cente
 
 @media only screen and (max-width: 600px) {
 header, footer, .left-container {display: none;}
-#content {width: 90%;}
+#content {width: 100%; min-height: 100%;}
 .board {width: 100%;}
 .w-px120 { width:10%; }
 .w-px80 { width:5%; }
+.txt_line {max-width: 70%;}
 }
