@@ -72,7 +72,7 @@ label:hover {
 			
 			<div align="right" style="width:60%;">
 				<a href="join" class="bottom">회원가입</a>
-				<a href="find" class="bottom">아이디/비밀번호 찾기</a>
+				<a onclick="do_find()" class="bottom">아이디/비밀번호 찾기</a>
 			</div>
 		</div>
 	</div>
@@ -107,5 +107,13 @@ function do_login() {
 			alert(text + ':' + req.status);
 		}
 	});
+}
+
+function do_find() {
+	if (confirm('비밀번호를 찾습니다\n아이디를 먼저 찾고자 한다면 \'취소\'를 눌러주세요')) {
+		prompt('아이디를 입력해주세요');
+	} else {
+		prompt('가입하신 이름을 입력해주세요');
+	}
 }
 </script>

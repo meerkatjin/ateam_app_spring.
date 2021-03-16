@@ -38,8 +38,7 @@ function filterType() {
 
 function do_modify() {
 	if(confirm('수정하시겠습니까?')) {
-		$('form').attr('action', 'modify.fc');
-		$('form').submit();
+		$('form#formModify').submit();
 	}
 }
 
