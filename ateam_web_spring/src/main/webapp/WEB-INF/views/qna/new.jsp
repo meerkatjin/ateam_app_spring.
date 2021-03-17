@@ -1,4 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<style>
+.note-editable {
+  text-align: left;
+}
+</style>
 <h3>질문글쓰기</h3>
 
 <form action="insert.qa" method="post" enctype="multipart/form-data" >
@@ -79,19 +84,17 @@ $('#summernote').summernote({
   	    ['insert', ['link', 'picture']]
   	  ]
   },
-	  toolbar: [
-			    ['Font Style', ['fontname']],
-			    ['fontsize', ['fontsize']],
-					['style', ['style']],
-			    ['style', ['bold', 'italic', 'underline','strikethrough', 'clear']],
-			    ['color', ['forecolor','color']],
-			    ['table', ['table']],
-			    ['para', ['paragraph']],
-			    ['height', ['height']],
-			    ['insert', ['picture','link','video']],
-			    ['highlight', ['highlight']],
-			    ['view', ['fullscreen', 'help']]
-		  ],
+  toolbar: [
+	    ['Font Style', ['fontname']],
+	    ['fontsize', ['fontsize']],
+			['style', ['style']],
+	    ['style', ['bold', 'italic', 'underline','strikethrough']],
+	    ['color', ['forecolor']],
+	    ['table', ['table']],
+	    ['para', ['paragraph']],
+	    ['insert', ['picture','link','video']],
+	    ['highlight', ['highlight']],
+	],
 	  callbacks: {
 		  onImageUpload : function(files, editor, welEditable) {  //얘만 들어가면 그림 삽입이 안됨
 			  for (var i = files.length - 1; i >= 0; i--) {

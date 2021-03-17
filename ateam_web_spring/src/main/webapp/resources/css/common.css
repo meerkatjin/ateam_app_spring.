@@ -58,12 +58,19 @@ table tr td a:hover, ul.grid li div:first-child a:hover { font-weight:bold; }
 .bottomtop-border-2px { border-style: solid none;
 						border-width: 2px 0px; 
 						border-color: #000000 ;  }
+.border-2px-1px { border-style: solid none;
+						border-width: 2px 0px 1px 0px; 
+						border-color: #000000 ;  }
 						
 .txt_line {max-width:300px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; display: inline-block;}
 
 .board{width: 1024px; table-layout: fixed;}
 
 .web-view{max-width: 600px;}
+.webview-menu { height: 50px; background-color: #000; justify-content: space-around;}
+.menu-font {font-size: 18px; color: #fff;  line-height: 50px;}
+.webview-button{width:60px; height: 30px; line-height: 30px; border: 2px solid #999;  margin: 10px 0; border-radius: 15px; text-align: center; cursor: pointer;}
+.sub-data{font-size:14px; color: #999; margin: 5px;}
 
 /*버튼 만들기 클래스*/
 .btn-fill, .btn-empty {
