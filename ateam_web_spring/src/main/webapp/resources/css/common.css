@@ -20,7 +20,7 @@ body{
 	text-align:center;
 }
 
-*{ box-sizing: border-box; font-family: 'KBIZ한마음고딕 R', 'JejuGothic', 'Noto Sans KR', sans-serif; }
+*{ font-family: 'KBIZ한마음고딕 R', 'JejuGothic', 'Noto Sans KR', sans-serif; }
 
 
 a:link, a:visited { text-decoration:none; color:#000; }
@@ -49,7 +49,13 @@ table tr td a:hover, ul.grid li div:first-child a:hover { font-weight:bold; }
 	background-color:#000; opacity:0.3;  display:none; 
 }
 
-.btnSet { margin-top:20px; }
+.btnSet { 
+	margin-top:20px; 
+	height: 100%;
+  	display: flex;
+  	align-items: center;
+  	justify-content: center;
+}
 
 .flexSet-wrap { display: flex; flex-wrap: wrap; }
 
@@ -67,20 +73,46 @@ table tr td a:hover, ul.grid li div:first-child a:hover { font-weight:bold; }
 
 /*버튼 만들기 클래스*/
 .btn-fill, .btn-empty {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ffffff), color-stop(1, #f6f6f6) );
+	background:-moz-linear-gradient( center top, #ffffff 5%, #f6f6f6 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#f6f6f6');
+	background-color:#ffffff;
+	-webkit-border-top-left-radius:6px;
+	-moz-border-radius-topleft:6px;
+	border-top-left-radius:6px;
+	-webkit-border-top-right-radius:6px;
+	-moz-border-radius-topright:6px;
+	border-top-right-radius:6px;
+	-webkit-border-bottom-right-radius:6px;
+	-moz-border-radius-bottomright:6px;
+	border-bottom-right-radius:6px;
+	-webkit-border-bottom-left-radius:6px;
+	-moz-border-radius-bottomleft:6px;
+	border-bottom-left-radius:6px;
+	text-indent:0;
+	border:1px solid #dcdcdc;
+	display:inline-block;
+	color:#a899a8;
+	font-family:arial;
+	font-size:15px;
+	font-weight:bold;
+	font-style:normal;
+	height:33px;
+	line-height:33px;
+	width:88px;
+	text-decoration:none;
 	text-align:center;
-	padding: 3px 10px;
-	border:1px solid #ddd;
-	border-radius:3px; 
-	box-shadow:2px 2px 3px #555555;
-	display: inline-block;
 }
-.btn-fill { 
-	background-color: #ddd;
-	color: #000;
+
+.btn-fill:hover, .btn-empty:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #f6f6f6), color-stop(1, #ffffff) );
+	background:-moz-linear-gradient( center top, #f6f6f6 5%, #ffffff 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f6f6f6', endColorstr='#ffffff');
+	background-color:#f6f6f6;
 }
-.btn-empty {
-	background-color: #fff;
-	color: #000;
+.btn-fill:active, .btn-empty:active {
+	position:relative;
+	top:1px;
 }
 
 .btn-fill-s, .btn-empty-s {
@@ -95,7 +127,7 @@ table tr td a:hover, ul.grid li div:first-child a:hover { font-weight:bold; }
 .btn-empty-s { background-color:#fff; }
 a { cursor:pointer; }
 input {
-	height:32px; padding: 5px 10px;
+	height:19px; padding: 5px 10px;
 	font-size:15px;  
 }
 input[type=radio] { 
