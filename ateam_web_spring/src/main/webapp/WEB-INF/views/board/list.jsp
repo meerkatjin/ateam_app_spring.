@@ -5,7 +5,6 @@
 .menu ul li { float: left; margin-right: 40px; font-size: 18px; font-weight: bold;}
 .btn-write ul { margin: 0; }
 .btn-write ul li { float: right; margin-bottom: 20px; font-weight: bold;}
-.menu { height: 50px; }
 .btn-write ul { margin: 0; }
 .btn-write ul li { float: right; margin-bottom: 20px; font-weight: bold; }
 </style>

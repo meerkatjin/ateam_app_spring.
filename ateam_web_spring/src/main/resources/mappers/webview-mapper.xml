@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="webview.mapper">
+<sql id='search_where'>
+	<if test=" search=='board_title' or search=='board_content' ">
+	where ${search} like '%'|| #{keyword} || '%' 
+	</if>
+	<if test=' search=="all" '>
+	where board_title like '%'|| #{keyword} || '%' 
+	or board_content like '%'|| #{keyword} || '%' 
+	or user_id in ( select user_id from mst_user_info_tb 
+	               where upper(user_nm) like '%'|| upper(#{keyword}) || '%' ) 
+	</if>
+	<if test=' search=="writer" ' >
+	where user_id in ( select user_id from mst_user_info_tb
+	                  where upper(user_nm) like '%'|| upper(#{keyword}) || '%' )
+	</if>
+</sql>
+
+<select id="totalList" resultType="integer">
+	select count(*) from ( select * from mst_board_tb where board_gp = #{gp} ) <include refid="search_where"/>
+</select>
+
+<select id="list" resultType="common.BoardVO">
+	select * from (select rownum no, b.*, ( select user_nm from mst_user_info_tb u where b.user_id=u.user_id ) name
+	from (select * from ( select * from mst_board_tb where board_gp = #{gp} ) <include refid="search_where"/> order by root, step desc ) b
+	order by no desc)
+	where no between #{beginList} and #{endList}
+</select>
+	
+</mapper>

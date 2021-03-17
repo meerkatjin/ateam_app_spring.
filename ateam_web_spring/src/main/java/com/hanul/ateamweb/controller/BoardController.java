@@ -154,7 +154,7 @@ public class BoardController {
 	//게시판화면 요청
 	@RequestMapping("/list.bo")
 	public String board(HttpSession session, Model model, @RequestParam(defaultValue = "1") int curPage, String search, String keyword) {
-		session.setAttribute("category", "bo");
+		session.setAttribute("category", "cu");
 		page.setCurPage(curPage);
 		page.setSearch(search);
 		page.setKeyword(keyword);

@@ -104,8 +104,11 @@ public class QnaController {
 
 	//질문게시판 화면요청
 	@RequestMapping("/list.qa")
-	public String qna(HttpSession session, Model model, @RequestParam(defaultValue = "1") int curPage, String search, String keyword) {
-		session.setAttribute("category", "qa");
+	public String qna(HttpSession session, Model model, 
+			@RequestParam(defaultValue = "1") int curPage, 
+			String search, 
+			String keyword) {
+		session.setAttribute("category", "cu");
 		page.setCurPage(curPage);
 		page.setSearch(search);
 		page.setKeyword(keyword);

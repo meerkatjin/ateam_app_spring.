@@ -128,7 +128,7 @@ public class NoticeController {
 	//공지사항 화면 요청
 	@RequestMapping("/list.no")
 	public String noticeView(HttpSession session, Model model, @RequestParam(defaultValue="10") int pageList, @RequestParam(defaultValue = "1") int curPage, String search, String keyword) {
-		session.setAttribute("category", "no");
+		session.setAttribute("category", "cu");
 		page.setCurPage(curPage);
 		page.setSearch(search);
 		page.setKeyword(keyword);
