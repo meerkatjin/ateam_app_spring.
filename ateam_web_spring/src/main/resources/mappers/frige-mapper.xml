@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="frige.mapper">
 	<select id="frige_list" resultType="frige.FrigeVO">
-	select case when case1 > 0 then 'pink' when case2 > 0 then 'yellow' else 'default' end color, b.* from (    
+	select b.* from (    
     select  case when round(shelf_life_end - sysdate) - ceil((shelf_life_end - shelf_life_start)/5) <![CDATA[<=]]> 0 then 1 else 0 end case1
     , case content_check when 0 then 1 else 0 end case2       
     , f.* from app_frige_contents_list_tb f 
