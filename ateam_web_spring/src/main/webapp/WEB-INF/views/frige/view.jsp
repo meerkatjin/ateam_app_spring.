@@ -16,7 +16,7 @@
 	<form method="post" action="view.fc">
 	<div class="view" id="irdnt_list" style="float: right;">
 			<div style="overflow: hidden;">
-				<input type="text" id="content_search" placeholder="조회하실 재료명을 입력해주세요" value="${keyword }" />
+				<input type="text" name="keyword" id="content_search" placeholder="조회하실 재료명을 입력해주세요" value="${keyword }" />
 				<a class="btn-fill" id="btn_content_search" onclick="$('form').submit()">검색</a>
 			</div>
 		
@@ -37,4 +37,17 @@
 	</form>
 </div>
 
-<script src="resources/js/frige_view.js"></script>
+<script>
+$(function() {
+	$('.content_list').each(function() {
+		
+	});
+});
+
+function detail(id) {
+	$('[name=content_list_id').val(id);
+
+	$('form').attr('action', 'detail.fc');
+	$('form').submit();
+}
+</script>

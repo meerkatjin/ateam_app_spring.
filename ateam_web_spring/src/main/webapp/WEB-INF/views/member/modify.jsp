@@ -15,10 +15,10 @@
 		<input type="hidden" name="user_id" value="${loginInfo.user_id }" />
 			<div class="join-box flexSet-wrap">
 				<input type='text' name="user_email" class="chk" 
-					style="width: 70%"
+					style="width: 100%"
 					value="${loginInfo.user_email }" readonly />
 				<span>* 이메일 변경</span>
-				<a class="btn-fill" id="btn-email" onclick="email_modify()">이메일 변경</a>
+				<!-- <a class="btn-fill" id="btn-email" onclick="email_modify()">이메일 변경</a> -->
 				<div class='valid'>유효한 이메일을 입력하세요</div>
 			</div>
 			
@@ -45,7 +45,7 @@
 		
 		<div class="btnSet">
 			<a class="btn-fill" id="btn-join" onclick="go_modify()">변경</a>
-			<a class="btn-empty" id="btn-withdrawal" onclick="go_withdrawal()">회원탈퇴</a>
+			<a class="btn-empty" id="btn-withdrawal" onclick="go_withdrawal(${loginInfo.user_id})">회원탈퇴</a>
 			<a class="btn-empty" id="btn-join-cancel" href='<c:url value="/" />'>취소</a>
 		</div>
 	</div>

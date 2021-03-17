@@ -1,5 +1,6 @@
 package frige;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,8 +11,8 @@ public class FrigeServiceImpl implements FrigeService {
 	@Autowired private FrigeDAO dao;
 
 	@Override
-	public List<FrigeVO> frige_list(long user_id) {
-		return dao.frige_list(user_id);
+	public List<FrigeVO> frige_list(HashMap<String, Object> map) {
+		return dao.frige_list(map);
 	}
 
 	@Override
@@ -38,4 +39,5 @@ public class FrigeServiceImpl implements FrigeService {
 	public List<Integer> getNewContentList(long user_id) {
 		return dao.getNewContentList(user_id);
 	}
+
 }
