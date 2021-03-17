@@ -32,7 +32,7 @@
 					<div style="width:49%; display:inline-block; float: right;">
 						<p style="font-size: 1.2rem;">재료종류</p>
 						<select id="filter_type" onchange="filterType()">
-							<option selected="selected">종류를 선택하세요</option>
+							<option selected="selected">미분류</option>
 							<option value="고기">고기</option>
 							<option value="수산물">수산물</option>
 							<option value="채소">채소</option>
