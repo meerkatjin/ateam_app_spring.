@@ -51,13 +51,6 @@ public class MemberController {
 		return "member/modify";
 	}
 	
-	//회원관리화면 요청 처리
-	@RequestMapping("/manage.me")
-	public String manage(HttpSession session) {
-		session.removeAttribute("category");
-		return "member/manage";
-	}
-	
 	//회원가입처리 요청
 	@ResponseBody @RequestMapping(value="/joinRequest", produces="text/html; charset=utf-8")
 	public String join(MemberVO vo, HttpSession session, HttpServletRequest request) { 
@@ -84,14 +77,8 @@ public class MemberController {
 		map.put("user_email", user_email);
 		map.put("user_pw", user_pw);
 		MemberVO vo = service.member_login(map);
-		List<Integer> end_content_is = frige.getLifeEndList(vo.getUser_id());
-		List<Integer> new_content_ids = frige.getNewContentList(vo.getUser_id());
 		//로그인한 회원정보를 세션에 저장
 		session.setAttribute("loginInfo", vo);
-		//로그인 하면서 유통기한이 끝나가는 재료 목록도 세션에 저장
-		session.setAttribute("getLifeEndList", end_content_is);
-		//로그인 하면서 새로 등록된 재료 목록도 세션에 저장
-		session.setAttribute("getNewContentList", new_content_ids);
 
 		return vo == null ? false : true;
 	}
@@ -247,8 +234,8 @@ public class MemberController {
 	
 	//회원탈퇴 처리 요청
 	@RequestMapping("/withdrawal")
-	public String withdrawal(MemberVO vo, Model model) {
-		int succ = service.member_delete(vo.getUser_id());
+	public String withdrawal(long user_id, Model model) {
+		int succ = service.member_delete(user_id);
 		if (succ > 0) {
 			model.addAttribute("message", "정상적으로 회원탈퇴되었습니다. 이용해주셔서 감사합니다.");
 		} else {

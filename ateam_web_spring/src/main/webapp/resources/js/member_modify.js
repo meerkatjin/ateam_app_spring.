@@ -24,11 +24,11 @@ function go_modify(){
 	}
 }
 
-function go_withdrawal() {
+function go_withdrawal(id) {
 	var inputEmail = prompt('회원탈퇴를 진행합니다.\n이메일을 입력해주세요.');
 	if ($('[name=user_email]').val() == inputEmail) {
+		$('[name=user_id]').val(id);
 		if (confirm('정말로 탈퇴하시겠습니까?')) {
-			
 			$('form').attr('action', 'withdrawal');
 			$('form').submit();
 		}

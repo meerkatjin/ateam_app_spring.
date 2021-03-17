@@ -1,5 +1,7 @@
 package com.hanul.ateamweb.controller;
 
+import java.util.HashMap;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,9 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
-import common.CommonService;
 import frige.FrigeServiceImpl;
 import frige.FrigeVO;
 import member.MemberVO;
@@ -31,8 +31,11 @@ public class FrigeContentsController {
 		}
 		long user_id = member.getUser_id();
 		
-		model.addAttribute("list", service.frige_list(user_id));
-		
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("user_id", user_id);
+		map.put("keyword", keyword);
+		model.addAttribute("list", service.frige_list(map));
+				
 		return "frige/view";
 	}
 	
@@ -47,7 +50,11 @@ public class FrigeContentsController {
 			return "redirect";
 		}
 		long user_id = member.getUser_id();
-		model.addAttribute("list", service.frige_list(user_id));
+		
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("user_id", user_id);
+		map.put("keyword", "");
+		model.addAttribute("list", service.frige_list(map));
 		model.addAttribute("detail", service.frige_detail(content_list_id));
 		return "frige/view";
 	}

@@ -28,11 +28,8 @@
 		<!-- 로그인한 경우 -->
 		<c:if test='${!empty loginInfo}'>
 		<li style='padding-right:10px; color:#FFFFFF;'>
-			<strong>${loginInfo.user_nm}</strong> 님</li>
+			<strong>${loginInfo.user_nm}</strong> <c:if test="${loginInfo.user_grade eq '2' }">관리자</c:if>님</li>
 		<li><a href="modify.me" style="color: #ffffff; margin-right: 10px;">회원정보 수정</a></li>
-		<c:if test="${loginInfo.user_grade eq '2' }">
-			<li><a href="manage.me" style="color: #ffffff; margin-right: 10px;">회원관리</a></li>
-		</c:if>
 		<li><a class='btn-fill' href='logout'>로그아웃</a></li>
 		</c:if>
 	</ul>
