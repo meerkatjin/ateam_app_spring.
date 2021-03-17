@@ -1,4 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<style>
+.note-editable {
+  text-align: left;
+}
+</style>
 <h3>공지글 수정</h3>
 
 <form method="post" action='update.no' enctype="multipart/form-data">
@@ -9,8 +14,8 @@
 <tr><th>작성자</th>
 	<td>${vo.name}</td>
 </tr>
-<tr><th>내용</th>
-	<td><textarea id="summernote" class='chk' title='내용' name='board_content'>${vo.board_content}</textarea></td>
+<tr>
+	<td colspan="2"><textarea id="summernote" class='chk' title='내용' name='board_content'>${vo.board_content}</textarea></td>
 </tr>
 
 <tr><th>첨부파일</th>
@@ -79,14 +84,13 @@ $('#summernote').summernote({
 			    ['Font Style', ['fontname']],
 			    ['fontsize', ['fontsize']],
 					['style', ['style']],
-			    ['style', ['bold', 'italic', 'underline','strikethrough', 'clear']],
-			    ['color', ['forecolor','color']],
+			    ['style', ['bold', 'italic', 'underline','strikethrough']],
+			    ['color', ['forecolor']],
 			    ['table', ['table']],
 			    ['para', ['paragraph']],
 			    ['height', ['height']],
 			    ['insert', ['picture','link','video']],
-			    ['highlight', ['highlight']],
-			    ['view', ['fullscreen', 'help']]
+			    ['highlight', ['highlight']]
 		  ],
 	  callbacks: {
 		  onImageUpload : function(files, editor, welEditable) {  //얘만 들어가면 그림 삽입이 안됨

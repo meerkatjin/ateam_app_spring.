@@ -11,7 +11,20 @@ public class FrigeVO implements Serializable {
 	private double x1, y1, x2, y2;
 	private String image_name, image_path;
 	private int content_check;
+	private int case1, case2;
 	
+	public int getCase1() {
+		return case1;
+	}
+	public void setCase1(int case1) {
+		this.case1 = case1;
+	}
+	public int getCase2() {
+		return case2;
+	}
+	public void setCase2(int case2) {
+		this.case2 = case2;
+	}
 	public String getImage_name() {
 		return image_name;
 	}

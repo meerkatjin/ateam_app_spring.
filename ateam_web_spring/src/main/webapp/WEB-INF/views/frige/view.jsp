@@ -24,13 +24,23 @@
 		<div id="content_items">
 			<p style="display: inline-block; width: 40%;">재료이름</p>
 			<p style="display: inline-block; width: 58%;">적정 최대 보관일</p>
-			<c:forEach var="vo" items="${list }">
-				<div class="content_list" onclick="detail(${vo.content_list_id})">
+			<c:forEach var="vo" items="${list }" varStatus="status">
+				<c:choose>
+					<c:when test="${vo.case1 eq 1 }">
+						<div class="content_list" onclick="detail(${vo.content_list_id})" style="background-color: pink;">
+					</c:when>
+					<c:when test="${vo.case2 eq 1 }">
+						<div class="content_list" onclick="detail(${vo.content_list_id})" style="background-color: yellow;">
+					</c:when>
+					<c:otherwise>
+						<div class="content_list" onclick="detail(${vo.content_list_id})">
+					</c:otherwise>
+				</c:choose>
 					<p>${vo.content_nm }</p>
 					<p><fmt:formatDate value="${vo.shelf_life_end }" pattern="yyyy-MM-dd" /></p>
-				</div>
-				<input type='hidden' name='content_list_id'
-					value=${vo.content_list_id } />
+					</div>
+					<input type='hidden' name='content_list_id'
+						value=${vo.content_list_id } />
 			</c:forEach>
 		</div>
 	</div>
@@ -38,12 +48,6 @@
 </div>
 
 <script>
-$(function() {
-	$('.content_list').each(function() {
-		
-	});
-});
-
 function detail(id) {
 	$('[name=content_list_id').val(id);
 

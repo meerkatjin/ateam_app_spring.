@@ -27,5 +27,14 @@
 	order by no desc)
 	where no between #{beginList} and #{endList}
 </select>
-	
+
+<update id="read">
+	update mst_board_tb set board_readcount = board_readcount+1 where board_no=#{board_no}
+</update>
+
+<select id="view" resultType="common.BoardVO">
+	select b.*, ( select user_nm from mst_user_info_tb u where b.user_id=u.user_id ) name
+	from mst_board_tb b
+	where board_no = #{board_no}
+</select>
 </mapper>

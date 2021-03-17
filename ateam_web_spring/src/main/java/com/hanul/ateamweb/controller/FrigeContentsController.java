@@ -10,7 +10,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import frige.FrigePage;
 import frige.FrigeServiceImpl;
 import frige.FrigeVO;
 import member.MemberVO;
@@ -18,7 +17,6 @@ import member.MemberVO;
 @Controller
 public class FrigeContentsController {
 	@Autowired private FrigeServiceImpl service;
-	@Autowired private FrigePage page;
 	
 	//냉장고 페이지 요청
 	@RequestMapping("/view.fc")
@@ -37,7 +35,7 @@ public class FrigeContentsController {
 		map.put("user_id", user_id);
 		map.put("keyword", keyword);
 		model.addAttribute("list", service.frige_list(map));
-		
+				
 		return "frige/view";
 	}
 	
