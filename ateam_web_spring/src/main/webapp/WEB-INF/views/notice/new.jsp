@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<style>
+.note-editable {
+  text-align: left;
+}
+</style>
 <h3>공지글 쓰기</h3>
 
 <form action="insert.no" method="post" enctype="multipart/form-data">
@@ -83,14 +88,12 @@ $('#summernote').summernote({
 			    ['Font Style', ['fontname']],
 			    ['fontsize', ['fontsize']],
 					['style', ['style']],
-			    ['style', ['bold', 'italic', 'underline','strikethrough', 'clear']],
-			    ['color', ['forecolor','color']],
+			    ['style', ['bold', 'italic', 'underline','strikethrough']],
+			    ['color', ['forecolor']],
 			    ['table', ['table']],
 			    ['para', ['paragraph']],
-			    ['height', ['height']],
 			    ['insert', ['picture','link','video']],
 			    ['highlight', ['highlight']],
-			    ['view', ['fullscreen', 'help']]
 		  ],
 	  callbacks: {
 		  onImageUpload : function(files, editor, welEditable) {  //얘만 들어가면 그림 삽입이 안됨

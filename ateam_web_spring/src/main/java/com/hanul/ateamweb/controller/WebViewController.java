@@ -34,4 +34,15 @@ public class WebViewController {
 		model.addAttribute("page",service.webview_list(page));
 		return "webview/list";
 	}
+	
+	@RequestMapping("/view.ap")
+	public String view(Model model, int board_no) {
+		service.webview_read(board_no);
+		
+		model.addAttribute("vo", service.webview_view(board_no));
+		model.addAttribute("page", page);
+		model.addAttribute("crlf", "\r\n");
+		model.addAttribute("lf", "\n");
+		return "webview/view";
+	}
 }

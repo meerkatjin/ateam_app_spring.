@@ -30,14 +30,12 @@ public class WebViewServiceImple implements WebViewService {
 
 	@Override
 	public BoardVO webview_view(int board_no) {
-		// TODO Auto-generated method stub
-		return null;
+		return dao.webview_view(board_no);
 	}
 
 	@Override
 	public void webview_read(int board_no) {
-		// TODO Auto-generated method stub
-		
+		dao.webview_read(board_no);
 	}
 
 	@Override

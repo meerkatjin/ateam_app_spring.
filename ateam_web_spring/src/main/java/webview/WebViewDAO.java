@@ -33,14 +33,12 @@ public class WebViewDAO implements WebViewService {
 
 	@Override
 	public BoardVO webview_view(int board_no) {
-		// TODO Auto-generated method stub
-		return null;
+		return sql.selectOne("webview.mapper.view", board_no);
 	}
 
 	@Override
 	public void webview_read(int board_no) {
-		// TODO Auto-generated method stub
-		
+		sql.update("webview.mapper.read", board_no);
 	}
 
 	@Override
