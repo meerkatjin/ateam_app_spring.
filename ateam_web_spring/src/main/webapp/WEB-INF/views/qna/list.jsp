@@ -8,6 +8,7 @@
 .menu { height: 50px; }
 .btn-write ul { margin: 0; }
 .btn-write ul li { float: right; margin-bottom: 20px; font-weight: bold; }
+.btn-fill { color: black; }
 </style>
 
 <div class="menu">
