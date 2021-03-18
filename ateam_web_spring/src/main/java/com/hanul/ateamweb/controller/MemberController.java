@@ -1,24 +1,24 @@
 package com.hanul.ateamweb.controller;
 
+import java.io.File;
 import java.util.HashMap;
-import java.util.List;
 import java.util.UUID;
 
-import javax.mail.Session;
-import javax.servlet.http.Cookie;
+import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.FileSystemResource;
+import org.springframework.mail.javamail.JavaMailSenderImpl;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import common.CommonService;
-import frige.FrigeServiceImpl;
 import member.MemberServiceImpl;
 import member.MemberVO;
 
@@ -26,6 +26,7 @@ import member.MemberVO;
 public class MemberController {
 	@Autowired private MemberServiceImpl service;
 	@Autowired private CommonService common;
+	@Autowired JavaMailSenderImpl mailSender;
 	private String kakao_client_key = "023c7753cf994a68fb4bfd14b7c1b4db";
 	//private String google_client_key = "AIzaSyC7fhf9A1XZUpdS3EYBkB6UP8PkMqBBlig";
 	
@@ -244,6 +245,42 @@ public class MemberController {
 		model.addAttribute("returnPath", "logout");
 		
 		return "redirect";
+	}
+	
+	//비밀번호를 이메일로 전송 요청
+	@RequestMapping("/findPw")
+	public String findPw(String user_email, HttpSession session) throws Exception {
+		MemberVO vo = service.member_find(user_email);
+		String subject = "[속보이는 냉장고] 비밀번호를 알려드립니다";
+        String content = "<img src='http://i.imgur.com/ZEMOiq2.png' style='width: 40%; height: 40%;'/>"
+        		+ "<br /><br />"
+        		+ "안녕하세요. '속보이는 냉장고'에서 회원님의 요청에 따라 비밀번호를 알려드립니다.<br /><br />"
+        		+ "회원님의 이메일은 " + user_email
+        		+ "<br />회원님의 비밀번호는 " + vo.getUser_pw() + " 입니다."
+        		+ "<br /><br />속보이는 냉장고를 이용해주셔서 감사합니다."
+        		+ "<br /><br />ⓒ VisibleFreezer_Hanul All rights reserved.";
+        String from = "vesteira2018@naver.com";
+        String to = user_email;
+        
+        try {
+            MimeMessage mail = mailSender.createMimeMessage();
+            MimeMessageHelper mailHelper = new MimeMessageHelper(mail, "UTF-8");
+            
+            mailHelper.setFrom(from);
+            mailHelper.setTo(to);
+            mailHelper.setSubject(subject);
+            mailHelper.setText("<html><body>" + content + "</body></html>", true);
+            
+//          FileSystemResource file = new FileSystemResource(new File("D:\\test.txt")); 
+//          mailHelper.addAttachment("test.txt", file);            
+            
+            mailSender.send(mail);
+            
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+        
+        return "redirect:/";
 	}
 	
 

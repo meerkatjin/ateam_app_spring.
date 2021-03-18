@@ -52,4 +52,8 @@
 	<delete id="member_delete">
 		DELETE FROM MST_USER_INFO_TB WHERE user_id = #{user_id}
 	</delete>
+	
+	<select id="member_find" resultType="member.MemberVO">
+		SELECT * FROM MST_USER_INFO_TB WHERE user_email = #{user_email}
+	</select>
 </mapper>

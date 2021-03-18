@@ -175,9 +175,14 @@
 				
 		<!-- 이메일전송을 위한 라이브러리 -->
 		<dependency>
-		    <groupId>org.apache.commons</groupId>
-		    <artifactId>commons-email</artifactId>
-		    <version>1.5</version>
+			<groupId>javax.mail</groupId>
+    		<artifactId>mail</artifactId>
+    		<version>1.4.7</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+			<version>${org.springframework-version}</version>
 		</dependency>
 				
 		<!-- 파일업로드를 위한 라이브러리 -->

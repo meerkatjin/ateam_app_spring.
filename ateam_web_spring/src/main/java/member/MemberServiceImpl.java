@@ -54,4 +54,9 @@ public class MemberServiceImpl implements MemberService {
 		return false;
 	}
 
+	@Override
+	public MemberVO member_find(String user_email) {
+		return dao.member_find(user_email);
+	}
+
 }

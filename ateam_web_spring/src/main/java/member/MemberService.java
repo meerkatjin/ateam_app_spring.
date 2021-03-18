@@ -12,4 +12,5 @@ public interface MemberService {
 	boolean member_social_id(MemberVO vo);	//소셜로그인 시 아이디 존재 여부 확인
 	boolean	member_social_join(MemberVO vo);	//소셜아이디로 회원가입
 	boolean member_social_update(MemberVO vo);	//소셜아이디 회원정보 수정
+	MemberVO member_find(String user_email);	//비밀번호 찾기
 }

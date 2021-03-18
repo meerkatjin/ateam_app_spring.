@@ -46,14 +46,8 @@ function item_check( tag ){
 	}else return true;
 }
 
-function email_modify() {
-	if(confirm('이메일을 변경합니다.\n지금 사용중인 이메일로 변경하실 수 없습니다.')) {
-		$('[name=user_email]').attr('readonly', false);
-	}
-}
-
 $('[name=user_email]').on('blur', function(){
-	email_check();
+	//email_check();
 });
 
 function email_check(){

@@ -31,7 +31,7 @@ label:hover {
 	font-weight: bold;
 }
 #email_keep:checked ~ label {
-	color: #000000;
+	color: rgb(0, 0, 255);
 	font-weight: bold;
 }
 .social {

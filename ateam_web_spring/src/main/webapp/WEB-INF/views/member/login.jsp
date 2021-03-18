@@ -130,7 +130,16 @@ function do_find() {
 				//가입된 이메일이라면 이메일로 비밀번호 전송
 				if( response ){
 					if (confirm('이메일로 비밀번호를 전송합니다')) {
-						alert('이메일로 비밀번호를 전송했습니다\n이메일에서 확인 후 로그인해주세요');
+						$.ajax({
+							type: 'post',
+							url: 'findPw',
+							data: {user_email: confEmail},
+							success: function(response) {
+								alert(confEmail + '로 이메일을 보냈습니다\n확인 후 로그인 바랍니다');
+							}, error: function(req, text) {
+								alert(text + ":" + req.status);
+							}
+						});
 					}
 				//없는 이메일이라면 알림으로 알려주고 찾기 종료
 				} else {
