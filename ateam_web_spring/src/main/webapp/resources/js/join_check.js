@@ -22,6 +22,8 @@ var join = {
 			return this.pw_ck_status( data );
 		}else if( tag=='user_email' ){
 			return this.email_status( data );
+		}else if( tag=='user_nm'){
+			return this.name_status( data );
 		}else {
 			return null;
 		}
@@ -63,9 +65,17 @@ var join = {
 		else if( reg.test(pw) ) return this.pw.invalid;
 		else if( pw.length < 5 ) return this.common.min;
 		else if( pw.length > 10 ) return this.common.max;
-		else if( !upper.test(pw) || !lower.test(pw) || !digit.test(pw) )  
-						return this.pw.lack;
-		else                      return this.pw.valid;
+		else if( !upper.test(pw) || !lower.test(pw) || !digit.test(pw) )  return this.pw.lack;
+		else return this.pw.valid;
+	},
+	
+	name_status: function( nm ){
+		if( nm=='') return this.common.empty;
+		else return this.name.valid;
+	},
+	
+	name : {
+		valid: { code:'valid', desc:'멋진 별명이네요!'}
 	}
 }
 var space = /\s/g;
