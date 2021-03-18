@@ -4,7 +4,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <style>
 .board_content {min-height: 300px; padding-left: 10px; padding-right: 10px;}
-.big-button {width: 100%; height: 60px; line-height:60px; text-align: center; font-size: 28px; font-weight: bold; margin-top: 20px; background: #000; }
+.big-button {width: 100%; height: 60px; line-height:60px; text-align: center; font-size: 28px; font-weight: bold; margin-top: 20px; background: #000; color: #fff; }
 </style>
 <div class="flexSet-wrap left webview-menu">
 	<div class="menu-font left" style="width: 60%;" onclick="jabascript:history.back();">&lt;
