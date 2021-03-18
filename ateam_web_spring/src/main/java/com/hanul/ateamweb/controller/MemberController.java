@@ -25,10 +25,9 @@ import member.MemberVO;
 @Controller
 public class MemberController {
 	@Autowired private MemberServiceImpl service;
-	@Autowired private FrigeServiceImpl frige;
 	@Autowired private CommonService common;
 	private String kakao_client_key = "023c7753cf994a68fb4bfd14b7c1b4db";
-	private String google_client_key = "AIzaSyC7fhf9A1XZUpdS3EYBkB6UP8PkMqBBlig";
+	//private String google_client_key = "AIzaSyC7fhf9A1XZUpdS3EYBkB6UP8PkMqBBlig";
 	
 	//로그인화면 요청 처리
 	@RequestMapping("/login")
@@ -71,7 +70,7 @@ public class MemberController {
 	
 	//로그인 요청 처리
 	@ResponseBody @RequestMapping("/memberLogin")
-	public boolean login(String user_email, String user_pw, HttpSession session) {
+	public boolean login(String user_email, String user_pw, HttpSession session) {	
 		//입력한 이메일과 비밀번호가 일치하는 회원정보 조회
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		map.put("user_email", user_email);
