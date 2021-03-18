@@ -36,6 +36,8 @@
 	</div>
 </header>
 <style>
+.btn-fill { font-family: 'KBIZ한마음고딕 R', 'JejuGothic', 'Noto Sans KR', sans-serif; }
+
 header ul, header ul li { 
 	margin:0px auto; padding:0; display:inline;}
 #top { border-bottom:1px solid #ccc; padding:0px 0; text-align:left; background-color: #000000; overflow:hidden; min-width: 1024px; }
