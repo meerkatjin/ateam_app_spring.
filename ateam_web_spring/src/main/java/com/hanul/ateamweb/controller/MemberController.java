@@ -219,7 +219,7 @@ public class MemberController {
 	
 	//회원정보수정 처리 요청
 	@RequestMapping("/modifyRequest")
-	public String modifyRequest(MemberVO vo, Model model) {
+	public String modifyRequest(MemberVO vo, Model model, HttpSession session) {
 		int succ = service.member_update(vo);
 		if (succ > 0) {
 			model.addAttribute("message", "정상적으로 수정되었습니다.");
@@ -228,6 +228,7 @@ public class MemberController {
 		}
 		model.addAttribute("returnPath", "main");
 		
+		session.setAttribute("loginInfo", vo);
 		return "redirect";
 	}
 	
@@ -244,5 +245,6 @@ public class MemberController {
 		
 		return "redirect";
 	}
+	
 
 }

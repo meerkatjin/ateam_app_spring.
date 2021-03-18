@@ -24,12 +24,12 @@
 			<form method="post" action="modify.fc" id="formM">
 				<input type="hidden" name="content_list_id" value="${detail.content_list_id }" />
 				<div style="overflow: hidden;">
-					<div style="width:49%; display:inline-block; float: left;">
+					<div style="width:46%; display:inline-block; float: left;">
 						<p style="font-size: 1.2rem;">재료명</p>
 						<p><input type="text" class="detail_input" name="content_nm" value="${detail.content_nm }" /></p>
 					</div>
 					
-					<div style="width:49%; display:inline-block; float: right;">
+					<div style="width:46%; display:inline-block; float: right;">
 						<p style="font-size: 1.2rem;">재료종류</p>
 						<select id="filter_type" onchange="filterType()">
 							<option selected="selected">미분류</option>
@@ -47,11 +47,11 @@
 				</div>
 				
 				<div style="overflow: hidden;">
-					<div style="width:49%; display:inline-block; float: left;">
+					<div style="width:46%; display:inline-block; float: left;">
 						<p style="margin-top: 20px; font-size: 1.2rem;">재료 저장일</p>
 						<p><input type="text" class="detail_input" name="shelf_life_start" value="<fmt:formatDate value="${detail.shelf_life_start }" pattern="yyyy-MM-dd" />" readonly /></p>
 					</div>
-					<div style="width:49%; display:inline-block; float: right;">
+					<div style="width:46%; display:inline-block; float: right;">
 						<p style="margin-top: 20px; font-size: 1.2rem;">적정 최대 보관일</p>
 						<p><input type="text" class="detail_input" name="shelf_life_end" value="<fmt:formatDate value="${detail.shelf_life_end }" pattern="yyyy-MM-dd" />" readonly /></p>
 					</div>

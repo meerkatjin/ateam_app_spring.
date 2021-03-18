@@ -187,7 +187,7 @@
 		    <version>1.4</version>
 		</dependency>
 		        
-		<!-- gson josn을 쉽게 처리가능 -->
+		<!-- gson json을 쉽게 처리가능 -->
 		<dependency>
 			<groupId>com.google.code.gson</groupId>
 			 <artifactId>gson</artifactId>
