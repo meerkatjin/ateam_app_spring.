@@ -18,8 +18,8 @@
 	<insert id="appJoin">
 		<!-- 일반 회원가입시 -->
 		<if test="user_type==null">
-			insert into MST_USER_INFO_TB(user_id, user_email, user_pw, user_nm, user_addr, user_phone_no)
-			values(#{user_id},#{user_email},#{user_pw},#{user_nm},#{user_addr},#{user_phone_no})
+			insert into MST_USER_INFO_TB(user_id, user_email, user_pw, user_nm)
+			values(#{user_id},#{user_email},#{user_pw},#{user_nm})
 		</if>
 		<!--소셜 회원가입시 -->
 		<if test="user_type!=null">

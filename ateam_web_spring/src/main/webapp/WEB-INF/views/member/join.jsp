@@ -84,6 +84,7 @@ input:focus + span {
 			<div class="join-box flexSet-wrap">
 				<input type='text' name='user_nm' class="chk" />
 				<span>* 이름(별명)</span>
+				<div class='valid'>이름(별명)을 입력하세요!</div>
 			</div>
 		</form>
 		
@@ -119,6 +120,7 @@ function go_join(){
 	if( ! item_check( $('[name=user_pw]') ) ) return;
 	if( ! item_check( $('[name=user_pwck]') ) ) return;
 	if( ! item_check( $('[name=user_email]') ) ) return;
+	if( ! item_check( $('[name=user_nm]') ) ) return;
 	
 	$('form').submit();
 }
