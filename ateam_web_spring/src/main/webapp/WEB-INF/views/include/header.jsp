@@ -18,7 +18,7 @@
 	</ul>
 	</div>
 	
-	<div style='position:absolute; right:0; top:25px; margin-right:100px; display: inline;'>
+	<div style='position:absolute; right:0; top:18px; margin-right:100px; display: inline;'>
 	<ul>
 		<!-- 로그인하지 않은 경우 -->
 		<c:if test='${empty loginInfo}'>

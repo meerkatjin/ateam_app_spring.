@@ -2,54 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <style>
-.container {
-	width: 50%; 
-	margin: 50px auto;
-}
-#login { width:100%; border:1px solid #ccc; padding:30px 0; }
-#user_email, #user_pw { 
-	width:60%; height:40px; 
-	padding:5px 3%; margin-bottom:10px;
-	border-collapse: collapse;
-	border: 0px;
-	border-style: none;
-	background: none;
-	outline: none;
-	border-bottom: 1px solid #000000;
-	display: block;  }
-.email_keep{
-	height: 30px;
-	line-height: 30px;
-	margin-bottom:10px;
-}
-#email_keep{
-	display: none;
-}
-label {
-	color: #888888;
-	transition: 0.25s;
-	cursor: pointer;
-}
-label:hover {
-	font-weight: bold;
-}
-#email_keep:checked ~ label {
-	color: #000000;
-	font-weight: bold;
-}
-.social {
-	display: block;
-	margin: 10px 0px;
-}
-.social img { width:60%; height:42px; }
-.bottom {
-	font-size: 14px;
-	margin-left: 10px;
-	transition: 0.25s;
-}
-.bottom:hover {
-	font-weight: bold;
-}
+	@import url(resources/css/login.css);
 </style>
 
 <div class="container" align="center">
@@ -60,9 +13,9 @@ label:hover {
 			<input type='password' id='user_pw' placeholder="비밀번호"
 				onkeypress="if( event.keyCode==13 ) do_login()"	 />
 			<div align="left" style="width:60%;" class="email_keep">
-				<input type="checkbox" id="email_keep" name="email_keep" /><label for="email_keep">이메일 저장</label>
+				<input type="checkbox" id="email_keep" name="email_keep" /><label for="email_keep">이메일 기억하기</label>
 			</div>
-			<a onclick='do_login()' class='btn-fill' style='display:block; margin:auto; width:60%; height:42px; line-height:33px; box-shadow:none;'>로그인</a>
+			<a onclick='do_login()' class='btn-fill' style='display:block; margin:auto; width:60%; height:42px; line-height:42px; box-shadow:none;'>로그인</a>
 		</form>
 		<hr style='width:80%; margin:25px auto'>
 		<a class='social' href='kakaoLogin'><img src='imgs/kakao_login.png' alt='카카오로그인' /></a>
@@ -83,38 +36,41 @@ $(document).ready(function(){
     $("#user_email").val(key); 
      
     if($("#user_email").val() != ""){ // 그 전에 이메일를 저장해서 처음 페이지 로딩 시, 입력 칸에 저장된 이메일이 표시된 상태라면,
-        $("#email_keep").attr("checked", true); // 이메일 저장하기를 체크 상태로 두기.
+        $("#email_keep").attr("checked", true); // 이메일 기억하기를 체크 상태로 두기.
     }
      
     $("#email_keep").change(function(){ // 체크박스에 변화가 있다면,
-        if($("#email_keep").is(":checked")){ // 이메일 저장하기 체크했을 때,
+        if($("#email_keep").is(":checked")){ // 이메일 기억하기 체크했을 때,
             setCookie("key", $("#user_email").val(), 7); // 7일 동안 쿠키 보관
-        }else{ // 이메일 저장하기 체크 해제 시,
+        }else{ // 이메일 기억하기 체크 해제 시,
             deleteCookie("key");
         }
     });
      
-    // 이메일 저장하기를 체크한 상태에서 이메일을 입력하는 경우, 이럴 때도 쿠키 저장.
+    // 이메일 기억하기를 체크한 상태에서 이메일을 입력하는 경우, 이럴 때도 쿠키 저장.
     $("#user_email").keyup(function(){ // 이메일 입력 칸에 이메일을 입력할 때,
-        if($("#email_keep").is(":checked")){ // 이메일 저장하기를 체크한 상태라면,
+        if($("#email_keep").is(":checked")){ // 이메일 기억하기를 체크한 상태라면,
             setCookie("key", $("#user_email").val(), 7); // 7일 동안 쿠키 보관
         }
     });
 });
- 
+
+//쿠키 설정
 function setCookie(cookieName, value, exdays){
     var exdate = new Date();
     exdate.setDate(exdate.getDate() + exdays);
     var cookieValue = escape(value) + ((exdays==null) ? "" : "; expires=" + exdate.toGMTString());
     document.cookie = cookieName + "=" + cookieValue;
 }
- 
+
+//쿠키 삭제
 function deleteCookie(cookieName){
     var expireDate = new Date();
     expireDate.setDate(expireDate.getDate() - 1);
     document.cookie = cookieName + "= " + "; expires=" + expireDate.toGMTString();
 }
- 
+
+//쿠키에서 값 가져오기
 function getCookie(cookieName) {
     cookieName = cookieName + '=';
     var cookieData = document.cookie;
@@ -155,7 +111,7 @@ function do_login() {
 			} else {
 				alert('이메일이나 비밀번호가 일치하지 않습니다!');
 			}
-		},error: function(req, text){
+		}, error: function(req, text){
 			alert(text + ':' + req.status);
 		}
 	});
@@ -164,7 +120,26 @@ function do_login() {
 //비밀번호 찾기 기능
 function do_find() {
 	if (confirm('비밀번호를 찾습니다\n비밀번호를 찾고자 한다면 \'확인\'을 눌러주세요')) {
-		var confEmail = prompt('이메일을 입력해주세요');
+		var confEmail = prompt('이메일을 입력해주세요').trim();
+
+		$.ajax({
+			type: 'post',
+			url: 'email_check',
+			data: {user_email: confEmail},
+			success: function( response ){
+				//가입된 이메일이라면 이메일로 비밀번호 전송
+				if( response ){
+					if (confirm('이메일로 비밀번호를 전송합니다')) {
+						alert('이메일로 비밀번호를 전송했습니다\n이메일에서 확인 후 로그인해주세요');
+					}
+				//없는 이메일이라면 알림으로 알려주고 찾기 종료
+				} else {
+					alert('가입되어있지 않은 이메일입니다!');
+				}
+			}, error: function(req, text){
+				alert(text + ':' + req.status);
+			}
+		});		
 	} 
 }
 </script>

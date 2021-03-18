@@ -7,7 +7,7 @@
 
 <div class="container">
 	<div id="join" align="center">
-		<h3>회원정보수정</h3>
+		<h3>회원정보수정 / 회원탈퇴</h3>
 		
 		<p class='w-pct30 right' style='margin:0 auto; padding-bottom:10px; 
 			float: right; margin-right: 15%;'>* 는 필수입력항목입니다</p>

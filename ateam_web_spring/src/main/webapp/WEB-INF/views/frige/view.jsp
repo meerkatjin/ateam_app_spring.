@@ -5,7 +5,23 @@
 
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <style type="text/css">
-	@import url(resources/css/frige_view.css);
+.container {width: 100%; overflow: hidden;}
+.view {width: 49.5%; }
+
+#content_items {margin-top: 10px; overflow-y: scroll; height: 828px;}
+#content_search {width: 80%; float: left;}
+#btn_content_search {width: 18%; float: right; box-shadow: 0 0 0;}
+.content_list {
+	overflow: hidden;
+	width: 100%;
+	margin-bottom: 5px;
+	background-color: #ccc;
+	cursor: pointer;
+}
+.content_list:last-child {margin-bottom: 0px;}
+.content_list p {display: inline-block;}
+.content_list p:first-child {width: 40%; font-size: 1.3rem;}
+.content_list p:last-child {width: 58%;}
 </style>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 

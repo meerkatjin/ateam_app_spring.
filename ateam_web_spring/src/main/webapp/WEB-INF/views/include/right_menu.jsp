@@ -5,9 +5,9 @@
 .left-container{ position:fixed; margin-left:max(1030px); top:25%; width: 90px; height: 350px; }
 .left-content{ height:100%; position: relative; }
 .left-top{ height:80%; border: 1px solid #aaa; margin-bottom: 10px; }
-.left-top a:first-child {display: block; text-align: center; background-color: #aaa; width: 100%; height: 40px; line-height:35px; color: #fff;
+.left-top a:first-child {display: block; text-align: center; background-color: #aaa; width: 100%; height: 40px; line-height:39px; color: #fff;
 border: 1px solid #fff; font-size: 30px;}
-.left-bottom{ height: 10%; width:100%; background-color: #aaa; color: #fff; font-size: 22px; text-align: center;}
+.left-bottom{ height: 33px; width:100%; background-color: #aaa; color: #fff; font-size: 22px; text-align: center;}
 .alram-boll{width: 88px; height: 88px; border-radius: 50%; font-size: 50px; text-align: center; line-height: 88px; color: #fff}
 </style>
 <div class="left-container">
