@@ -27,9 +27,7 @@
 
 	<insert id="insert">
 		INSERT INTO APP_FRIGE_CONTENTS_LIST_TB(user_id, content_list_id, content_nm, content_ty, shelf_life_start, shelf_life_end)
-		VALUES(#{user_id}, list_id.nextval, #{content_nm}, 
-			(SELECT content_ty FROM APP_FRIGE_CONTENTS_TB WHERE irdnt_nm LIKE #{content_nm}), SYSDATE,
-			SYSDATE+(SELECT due_date FROM APP_FRIGE_CONTENTS_TB WHERE irdnt_nm LIKE #{content_nm}))
+		VALUES(#{user_id}, list_id.nextval, #{content_nm}, #{content_ty}, #{shelf_life_start}, #{shelf_life_end})
 	</insert>
 	
 	<sql id="select_irdnt">

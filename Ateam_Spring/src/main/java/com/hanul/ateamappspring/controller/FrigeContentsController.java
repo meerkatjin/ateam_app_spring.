@@ -1,6 +1,5 @@
 package com.hanul.ateamappspring.controller;
 
-import java.sql.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
@@ -15,7 +14,6 @@ import frigecontents.dto.FrigeConfrimVO;
 import frigecontents.dto.FrigeContentsDTO;
 import frigecontents.dto.FrigeDeleteDTO;
 import frigecontents.dto.FrigeViewDTO;
-import frigecontents.dto.InsertDTO;
 import frigecontents.service.FrigeContentsService;
 
 @Controller
@@ -23,15 +21,8 @@ public class FrigeContentsController {
 	@Autowired private FrigeContentsService service;
 	
 	@RequestMapping(value = "/insert", method = { RequestMethod.GET, RequestMethod.POST })
-	public String insert(String content_nm, Long user_id, Model model) {
-		model.addAttribute("insert", content_nm);
-		model.addAttribute("user_id", user_id);
-		InsertDTO dto = new InsertDTO();
-		dto.setContent_nm(content_nm);
-		dto.setUser_id(user_id);
-		//System.out.println(dto.getContent_nm());
-		//System.out.println(dto.getUser_id());
-		service.irdntInsert(dto);
+	public String insert(FrigeContentsDTO dto, Model model) {
+		model.addAttribute("insert", String.valueOf(service.irdntInsert(dto)));
 		return "frige/insert";
 	}
 	

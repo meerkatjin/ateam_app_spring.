@@ -9,17 +9,14 @@ import frigecontents.dto.FrigeConfrimVO;
 import frigecontents.dto.FrigeContentsDTO;
 import frigecontents.dto.FrigeDeleteDTO;
 import frigecontents.dto.FrigeViewDTO;
-import frigecontents.dto.InsertDTO;
 
 @Service
 public class FrigeContentsService implements FrigeContentsInterface {
 	@Autowired private FrigeContentsDAO dao;
 
 	@Override
-	public int irdntInsert(InsertDTO dto) {
-		int state = -1;
-		state = dao.irdntInsert(dto);
-		return state;
+	public int irdntInsert(FrigeContentsDTO dto) {
+		return dao.irdntInsert(dto);
 	}
 	
 	@Override

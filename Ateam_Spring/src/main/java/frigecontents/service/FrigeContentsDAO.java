@@ -11,7 +11,6 @@ import frigecontents.dto.FrigeConfrimVO;
 import frigecontents.dto.FrigeContentsDTO;
 import frigecontents.dto.FrigeDeleteDTO;
 import frigecontents.dto.FrigeViewDTO;
-import frigecontents.dto.InsertDTO;
 
 @Repository
 public class FrigeContentsDAO implements FrigeContentsInterface {
@@ -19,13 +18,8 @@ public class FrigeContentsDAO implements FrigeContentsInterface {
 	
 	//내 냉장고 목록에 식재료 정보 저장하기
 	@Override
-	public int irdntInsert(InsertDTO dto) {
-		//System.out.println(dto.getContent_nm());
-		//System.out.println(dto.getUser_id());
-
-		int succ = sql.insert("frige.mapper.insert", dto);
-		System.out.println(succ);
-		return succ;
+	public int irdntInsert(FrigeContentsDTO dto) {
+		return sql.insert("frige.mapper.insert", dto);
 	}
 	
 	//내 식재료 정보 보여주기(종류별)
