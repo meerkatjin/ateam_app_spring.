@@ -24,7 +24,7 @@
 <form action="list.qa" method="post">
 <div class="btn-write">
 	<ul>
-		<li><select name="search">
+		<li><select name="search" onchange="search_change()">
 			<option value="all" ${page.search eq 'all' ? 'selected' :''}>전체</option>
 			<option value="board_title" ${page.search eq 'board_title' ? 'selected' :''}>제목</option>
 			<option value="board_content" ${page.search eq 'board_content' ? 'selected' :''}>내용</option>
@@ -71,4 +71,12 @@
 
 <div class="btnSet">
 	<jsp:include page="/WEB-INF/views/include/page.jsp"/>
-</div>	
+</div>
+
+<script>
+function search_change() {
+	if ($('[name=keyword]').val() != "") {
+		$('form').submit();
+	}
+}
+</script>

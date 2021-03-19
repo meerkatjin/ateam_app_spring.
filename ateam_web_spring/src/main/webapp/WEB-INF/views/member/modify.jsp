@@ -17,7 +17,7 @@
 				<input type='text' name="user_email" class="chk" 
 					style="width: 100%"
 					value="${loginInfo.user_email }" readonly />
-				<span>* 이메일 변경</span>
+				<span>이메일은 변경사항이 아닙니다</span>
 				<!-- <a class="btn-fill" id="btn-email" onclick="email_modify()">이메일 변경</a> -->
 				<div class='valid'>유효한 이메일을 입력하세요</div>
 			</div>

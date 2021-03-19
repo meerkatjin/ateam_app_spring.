@@ -45,7 +45,7 @@
 	</ul>
 	<ul>
 		<li>
-			<select name='search' class='w-px80'>
+			<select name='search' class='w-px80' onchange="search_change()">
 				<option value="all" ${page.search eq 'all' ? 'selected' : ''}>전체</option>
 				<option value="recipe_nm_ko" ${page.search eq 'recipe_nm_ko' ? 'selected' : ''}>이름</option>
 				<option value="nation_nm" ${page.search eq 'nation_nm' ? 'selected' : ''}>나라</option>
@@ -92,6 +92,12 @@
 </div>
 
 <script type="text/javascript">
+function search_change() {
+	if ($('[name=keyword]').val() != "") {
+		$('form').submit();
+	}
+}
+
 function go_view(id){
 	$('[name=recipe_id]').val(id);
 	$('form').attr('action', 'view.rp');
