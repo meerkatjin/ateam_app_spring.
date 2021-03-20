@@ -31,6 +31,12 @@
 <link rel='stylesheet' type='text/css' href='css/common.css?v=<%=new java.util.Date().getTime() %>'>
 <script src='https://code.jquery.com/jquery-3.5.1.min.js'></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/js/all.min.js"></script>
+<script>
+setTimeout(function(){
+	location.reload();
+}, 60*1000*15); 
+</script>
+
 </head>
 <body>
 <tiles:insertAttribute name="header" />

@@ -18,7 +18,7 @@
 	<!-- Root Context: defines shared resources visible to all other web components -->
 	<import resource="classpath:data/default.xml" />
 
-	<!-- navermail설정 -->
+	<!-- 네이버메일 설정 -->
 	<bean id="mailSender"
 		class="org.springframework.mail.javamail.JavaMailSenderImpl">
 		<property name="host" value="smtp.naver.com" /> <!-- 메이서버 호스트 -->

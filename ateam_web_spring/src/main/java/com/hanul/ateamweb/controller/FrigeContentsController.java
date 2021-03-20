@@ -1,6 +1,7 @@
 package com.hanul.ateamweb.controller;
 
 import java.util.HashMap;
+import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
@@ -34,14 +35,21 @@ public class FrigeContentsController {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		map.put("user_id", user_id);
 		map.put("keyword", keyword);
+		model.addAttribute("keyword", keyword);
 		model.addAttribute("list", service.frige_list(map));
+		
+		List<Integer> end_content = service.getLifeEndList(user_id);
+		List<Integer> new_content = service.getNewContentList(user_id);
+		//확인해야할 재료 개수를 세션에 저장
+		session.setAttribute("getLifeEndList", end_content);
+		session.setAttribute("getNewContentList", new_content);
 				
 		return "frige/view";
 	}
 	
 	//재료 상세 및 수정페이지 요청
 	@RequestMapping("/detail.fc")
-	public String frigeDetail(HttpSession session, @RequestParam(defaultValue="0") int content_list_id, Model model) {
+	public String frigeDetail(HttpSession session, @RequestParam(defaultValue="0") int content_list_id, String keyword, Model model) {
 		MemberVO member = (MemberVO)session.getAttribute("loginInfo");
 		if (member == null) {
 			model.addAttribute("message", "로그인이 필요한 서비스입니다!");
@@ -53,7 +61,8 @@ public class FrigeContentsController {
 		
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		map.put("user_id", user_id);
-		map.put("keyword", "");
+		map.put("keyword", keyword);
+		model.addAttribute("keyword", keyword);
 		model.addAttribute("list", service.frige_list(map));
 		model.addAttribute("detail", service.frige_detail(content_list_id));
 		return "frige/view";

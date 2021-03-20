@@ -48,4 +48,20 @@
 	<sql id="search_where">
 		content_nm LIKE '%' || #{keyword} || '%'
 	</sql>
+	
+	<select id="getLifeEndList" resultType="_int">
+	<![CDATA[
+		select content_list_id 
+		from app_frige_contents_list_tb 
+		where user_id = #{user_id} 
+		and round(shelf_life_end - sysdate) <= ceil((shelf_life_end - shelf_life_start)/5)
+	]]>
+	</select>
+
+	<select id="getNewContentList" resultType="_int">
+		select content_list_id
+		from app_frige_contents_list_tb 
+		where user_id = #{user_id}
+		and content_check = 0
+	</select>
 </mapper>
