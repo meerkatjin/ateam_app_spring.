@@ -14,8 +14,7 @@ public class WebViewDAO implements WebViewService {
 
 	@Override
 	public void webview_insert(BoardVO vo) {
-		// TODO Auto-generated method stub
-		
+		sql.insert("webview.mapper.insert", vo);
 	}
 
 	@Override
@@ -43,14 +42,12 @@ public class WebViewDAO implements WebViewService {
 
 	@Override
 	public void webview_update(BoardVO vo) {
-		// TODO Auto-generated method stub
-		
+		sql.update("webview.mapper.update", vo);
 	}
 
 	@Override
 	public void webview_delete(int board_no) {
-		// TODO Auto-generated method stub
-		
+		sql.delete("webview.mapper.delete",board_no);
 	}
 
 }

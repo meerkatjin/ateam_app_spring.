@@ -19,15 +19,7 @@
 	<div class="${page.gp eq 1 ? 'active' : ''} menu-font"><a onclick="select_gp('1')">공지사항</a></div>
 	<div class="${page.gp eq 2 ? 'active' : ''} menu-font"><a onclick="select_gp('2')">Q&amp;A</a></div>
 	<div class="${page.gp eq 3 ? 'active' : ''} menu-font"><a onclick="select_gp('3')">게시판</a></div>
-	<c:if test="${loginInfo.user_grade eq '2' and page.gp eq '1'}">
-		<div class="menu-font webview-button" onclick="location='new.no'">글쓰기</div>
-	</c:if>
-	<c:if test="${!empty loginInfo and page.gp eq '2'}">
-		<div class="menu-font webview-button" onclick="location='new.qa'">글쓰기</div>
-	</c:if>
-	<c:if test="${!empty loginInfo and page.gp eq '3'}">
-		<div class="menu-font webview-button" onclick="location='new.bo'">글쓰기</div>
-	</c:if>
+	<div class="menu-font webview-button" onclick="location='new.ap'">글쓰기</div>
 </div>
 <input type='hidden' name='curPage' value='1'/>
 <input type='hidden' name='gp' value='${page.gp}'/>

@@ -7,25 +7,22 @@
 .big-button {width: 100%; height: 60px; line-height:60px; text-align: center; font-size: 28px; font-weight: bold; margin-top: 20px; background: #000; color: #fff; }
 </style>
 <div class="flexSet-wrap left webview-menu">
-	<div class="menu-font left" style="width: 60%;" onclick="jabascript:history.back();">&lt;
-	<c:if test="${page.gp eq 1}">공지사항</c:if>
-	<c:if test="${page.gp eq 2}">Q&A</c:if>
-	<c:if test="${page.gp eq 3}">게시판</c:if>
+	<c:choose>
+		<c:when test="${page.gp eq 2}">
+			<div class="menu-font left" style="width: 60%;" onclick="location='list.ap?gp=${page.gp}'">&lt;Q&A
+		</c:when>
+		<c:when test="${page.gp eq 2}">
+			<div class="menu-font left" style="width: 60%;" onclick="location='list.ap?gp=${page.gp}'">&lt;게시판
+		</c:when>
+		<c:otherwise>
+			<div class="menu-font left" style="width: 60%;" onclick="location='list.ap?gp=${page.gp}'">&lt;공지사항
+		</c:otherwise>
+	</c:choose>
 	</div>
 	<div class="flexSet-wrap" style="width: 40%; justify-content: space-around;">
 	<c:if test="${loginInfo.user_id eq vo.user_id}">
-		<c:if test="${page.gp eq 1}">
-			<div class="webview-button menu-font" onclick="location.href='modify.no?board_no=${vo.board_no}'">수정</div>
-			<div class="webview-button menu-font" onclick="if( confirm('정말 삭제하시겠습니까?') ){ location='delete.no?board_no=${vo.board_no}' }">삭제</div>
-		</c:if>
-		<c:if test="${page.gp eq 2}">
-			<div class="webview-button menu-font" onclick="location.href='modify.qa?board_no=${vo.board_no}'">수정</div>
-			<div class="webview-button menu-font" onclick="if( confirm('정말 삭제하시겠습니까?') ){ location='delete.qa?board_no=${vo.board_no}' }">삭제</div>
-		</c:if>
-		<c:if test="${page.gp eq 3}">
-			<div class="webview-button menu-font" onclick="location.href='modify.bo?board_no=${vo.board_no}'">수정</div>
-			<div class="webview-button menu-font" onclick="if( confirm('정말 삭제하시겠습니까?') ){ location='delete.bo?board_no=${vo.board_no}' }">삭제</div>
-		</c:if>
+		<div class="webview-button menu-font" onclick="location='modify.ap?board_no=${vo.board_no}&gp=${page.gp }'">수정</div>
+		<div class="webview-button menu-font" onclick="if( confirm('정말 삭제하시겠습니까?') ){ location='delete.ap?board_no=${vo.board_no}&gp=${page.gp }' }">삭제</div>
 	</c:if>
 	</div>
 </div>
@@ -48,7 +45,7 @@
 		<a href='download.bo?board_no=${vo.board_no}'><i class='fas fa-download'></i></a>
 	</div>
 	</c:if>
-	<div onclick="jabascript:history.back();" class="big-button">
+	<div onclick="'list.ap?curPage=${page.curPage}&gp=${page.gp}" class="big-button">
 	목록으로
 	</div>
 </div>
@@ -73,6 +70,7 @@
 <script type="text/javascript" src="js/file_check.js"></script>
 <script type="text/javascript">
 image_size_limit();
+iframe_size_limit();
 comment_list();
 function comment_regist(){
 	if( ${empty loginInfo} ){
@@ -118,7 +116,11 @@ function comment_list(){
 
 //웹뷰로 볼때 이미지 사이즈 무조건 고정
 function image_size_limit(){
-	$(".board_content").children("p").children("img").css("width","300px");
+	$(".board_content").children("p").children("img").css("width","340px");
+}
+
+function iframe_size_limit(){
+	$(".board_content").children("p").children("iframe").css("width","340px").css("height","200px");
 }
 
 </script>

@@ -83,30 +83,6 @@ public class MemberController {
 		return vo == null ? false : true;
 	}
 	
-	//앱 로그인 세션용
-	@RequestMapping(value = "/appNomalLogin")
-	public String appNomalLogin(Model model, String user_email, String user_pw, HttpSession session) {
-		//입력한 이메일과 비밀번호가 일치하는 회원정보 조회
-		HashMap<String, Object> map = new HashMap<String, Object>();
-		map.put("user_email", user_email);
-		map.put("user_pw", user_pw);
-		MemberVO vo = service.member_login(map);
-		//로그인한 회원정보를 세션에 저장
-		session.setAttribute("loginInfo", vo);
-		return "redirect:list.ap";
-	}
-	
-	@RequestMapping(value = "/appKakaoLogin")
-	public String appKakaoLogin(Model model, long user_id, String user_type, HttpSession session) {
-		HashMap<String, Object> map = new HashMap<String, Object>();
-		map.put("user_id", user_id);
-		map.put("user_type", user_type);
-		MemberVO vo = service.member_login(map);
-		//로그인한 회원정보를 세션에 저장
-		session.setAttribute("loginInfo", vo);
-		return "redirect:list.ap";
-	}
-	
 	//이메일 중복 확인
 	@ResponseBody @RequestMapping("/email_check")
 	public boolean email_check(String user_email) {
@@ -126,9 +102,9 @@ public class MemberController {
 		StringBuffer url = new StringBuffer("https://kauth.kakao.com/oauth/authorize?response_type=code");
 		url.append("&client_id=").append(kakao_client_key);
 		url.append("&state=").append(state);
-		url.append("&redirect_uri=").append("http://localhost/ateamweb/kakaocallback");
+		//url.append("&redirect_uri=").append("http://localhost/ateamweb/kakaocallback");
 		//시연용 접속시
-		//url.append("&redirect_uri=").append("http://112.164.58.217:8999/ateamweb/kakaocallback");
+		url.append("&redirect_uri=").append("http://112.164.58.217:8999/ateamweb/kakaocallback");
 		
 		return "redirect:" + url.toString();
 	}

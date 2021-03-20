@@ -13,8 +13,7 @@ public class WebViewServiceImple implements WebViewService {
 	
 	@Override
 	public void webview_insert(BoardVO vo) {
-		// TODO Auto-generated method stub
-		
+		dao.webview_insert(vo);
 	}
 
 	@Override
@@ -40,14 +39,12 @@ public class WebViewServiceImple implements WebViewService {
 
 	@Override
 	public void webview_update(BoardVO vo) {
-		// TODO Auto-generated method stub
-		
+		dao.webview_update(vo);
 	}
 
 	@Override
 	public void webview_delete(int board_no) {
-		// TODO Auto-generated method stub
-		
+		dao.webview_delete(board_no);
 	}
 
 }
