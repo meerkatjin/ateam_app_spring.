@@ -16,7 +16,7 @@ border: 1px solid; border-radius: 10px;}
 	-ms-transform: translate(0px, 0px, -10px);
 	transform: translate(0px, 0px, -10px);
 	text-align: center; }
-.reciping-irdnt-box{ width: 33%; padding: 0px 20px; }
+.reciping-irdnt-box{ width: 29%; padding: 0px 20px; }
 .reciping-irdnt-box ul li:first-child{ font-size: 18px; font-weight: bold; }
 hr { margin: 5px 0px; }
 ul { margin: 5px 0px; }
@@ -114,7 +114,7 @@ ul { margin: 5px 0px; }
 		${vo.cooking_no}
 		</div>
 	</div>
-	<div style="width: 70%; font-weight: bolder; font-size: 20px">${vo.cooking_dc} </div>
+	<div style="width: 68%; font-weight: bolder; font-size: 20px">${vo.cooking_dc} </div>
 	<c:if test="${! empty vo.stre_step_image_url}">
 	<div class="reciping-content-imgbox">
 		<div style="width: 100%; height: 100%; overflow: hidden;">
