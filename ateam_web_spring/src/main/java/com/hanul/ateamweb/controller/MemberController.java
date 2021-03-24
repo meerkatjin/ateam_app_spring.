@@ -245,7 +245,7 @@ public class MemberController {
 	        		+ "<br />회원님의 비밀번호는 " + vo.getUser_pw() + " 입니다."
 	        		+ "<br /><br />속보이는 냉장고를 이용해주셔서 감사합니다."
 	        		+ "<br /><br />ⓒ VisibleFreezer_Hanul All rights reserved.";
-	        String from = "vesteira2018@naver.com";
+	        String from = "astraria2014@naver.com";
 	        String to = user_email;
 	        
 	        try {
